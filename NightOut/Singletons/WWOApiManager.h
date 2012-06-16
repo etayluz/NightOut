@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WWOApiManager : NSObject
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequestDelegate.h"
 
+#define kWWOBaseURL @"http://nightapi.pagodabox.com/api/v1"
+#define kWWOUrl(path)   [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", kWWOBaseURL, (path)]];
+
+@interface WWOApiManager : NSObject <ASIHTTPRequestDelegate>
+
++ (WWOApiManager *)sharedManager;
+- (void) fetchMessages;
 @end
+
+#define WWOApiManagerDidFetchMessagesNotification @"WWOApiManagerDidFetchMessagesNotification"
+#define WWOApiManagerFailedToFetchMessagesNotification @"WWOApiManagerFailedToFetchMessagesNotification"

@@ -52,6 +52,8 @@
 		37F0F725158CF7BA005511CD /* WWOMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */; };
 		37F0F726158CF7BA005511CD /* WWOMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */; };
 		37F0F727158CF7BA005511CD /* WWOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F723158CF7BA005511CD /* WWOSecondViewController.m */; };
+		37F0F728158D01F1005511CD /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F67B158CF1F6005511CD /* JSONKit.m */; };
+		37F0F72D158D04C1005511CD /* WWOMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F72C158D04C1005511CD /* WWOMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +140,8 @@
 		37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOMessagesViewController.xib; sourceTree = "<group>"; };
 		37F0F722158CF7BA005511CD /* WWOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSecondViewController.h; sourceTree = "<group>"; };
 		37F0F723158CF7BA005511CD /* WWOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSecondViewController.m; sourceTree = "<group>"; };
+		37F0F72B158D04C1005511CD /* WWOMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOMessage.h; sourceTree = "<group>"; };
+		37F0F72C158D04C1005511CD /* WWOMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +167,6 @@
 		37F0F636158CD939005511CD = {
 			isa = PBXGroup;
 			children = (
-				37F0F70F158CF501005511CD /* Security.framework */,
 				37F0F64B158CD939005511CD /* NightOut */,
 				37F0F644158CD939005511CD /* Frameworks */,
 				37F0F642158CD939005511CD /* Products */,
@@ -181,6 +184,7 @@
 		37F0F644158CD939005511CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37F0F70F158CF501005511CD /* Security.framework */,
 				37F0F705158CF3A0005511CD /* libxml2.dylib */,
 				37F0F703158CF33D005511CD /* libz.dylib */,
 				37F0F701158CF32D005511CD /* MobileCoreServices.framework */,
@@ -196,6 +200,8 @@
 		37F0F64B158CD939005511CD /* NightOut */ = {
 			isa = PBXGroup;
 			children = (
+				37F0F72A158D042C005511CD /* Models */,
+				37F0F729158D0421005511CD /* Views */,
 				37F0F71C158CF7BA005511CD /* ViewControllers */,
 				37F0F713158CF7B0005511CD /* Resources */,
 				37F0F70B158CF4CD005511CD /* Security */,
@@ -377,6 +383,22 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		37F0F729158D0421005511CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		37F0F72A158D042C005511CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				37F0F72B158D04C1005511CD /* WWOMessage.h */,
+				37F0F72C158D04C1005511CD /* WWOMessage.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F0F728158D01F1005511CD /* JSONKit.m in Sources */,
 				37F0F652158CD939005511CD /* main.m in Sources */,
 				37F0F656158CD939005511CD /* WWOAppDelegate.m in Sources */,
 				37F0F678158CEE17005511CD /* WWOApiManager.m in Sources */,
@@ -475,6 +498,7 @@
 				37F0F724158CF7BA005511CD /* WWOFirstViewController.m in Sources */,
 				37F0F725158CF7BA005511CD /* WWOMessagesViewController.m in Sources */,
 				37F0F727158CF7BA005511CD /* WWOSecondViewController.m in Sources */,
+				37F0F72D158D04C1005511CD /* WWOMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

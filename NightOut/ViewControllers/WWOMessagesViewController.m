@@ -7,12 +7,23 @@
 //
 
 #import "WWOMessagesViewController.h"
+#import "WWOApiManager.h"
+
+#import "WWOMessage.h"
 
 @interface WWOMessagesViewController ()
-
+@property (retain) NSArray *messages;
 @end
 
 @implementation WWOMessagesViewController
+
+@synthesize messages;
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:WWOApiManagerDidFetchMessagesNotification object:nil];
+    [super dealloc];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +43,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadedMessages:) name:WWOApiManagerDidFetchMessagesNotification object:nil];
+
+    [[WWOApiManager sharedManager] fetchMessages];
 }
 
 - (void)viewDidUnload
@@ -50,16 +65,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.messages.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,7 +78,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    if (!cell) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
     // Configure the cell...
+    WWOMessage *message = [messages objectAtIndex:indexPath.row];
+    cell.textLabel.text = message.name;
     
     return cell;
 }
@@ -123,6 +140,14 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma mark - Notifications
+- (void)loadedMessages:(NSNotification *) notification
+{
+    self.messages = [notification.userInfo objectForKey:@"data"];
+    NSLog(@"%d", self.messages.count);
+    [self.tableView reloadData];
 }
 
 @end
