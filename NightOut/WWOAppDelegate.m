@@ -12,6 +12,8 @@
 
 #import "WWOSecondViewController.h"
 
+#import "WWOMessagesViewController.h"
+
 @implementation WWOAppDelegate
 
 @synthesize window = _window;
@@ -26,15 +28,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
   UIViewController *viewController1 = [[[WWOFirstViewController alloc] initWithNibName:@"WWOFirstViewController" bundle:nil] autorelease];
   UIViewController *viewController2 = [[[WWOSecondViewController alloc] initWithNibName:@"WWOSecondViewController" bundle:nil] autorelease];
+  UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] initWithNibName:@"WWOMessagesViewController" bundle:nil] autorelease];
+  
   self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-  self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+  
+  self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, 
+                                           viewController2,
+                                           messagesViewController, nil];
+    
   self.window.rootViewController = self.tabBarController;
-    [self.window makeKeyAndVisible];
-    return YES;
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
