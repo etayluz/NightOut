@@ -14,6 +14,8 @@
 
 #import "WWOMessagesViewController.h"
 
+#import "WWONearbyViewController.h"
+
 @implementation WWOAppDelegate
 
 @synthesize window = _window;
@@ -30,15 +32,16 @@
 {
   self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-  UIViewController *viewController1 = [[[WWOFirstViewController alloc] initWithNibName:@"WWOFirstViewController" bundle:nil] autorelease];
-  UIViewController *viewController2 = [[[WWOSecondViewController alloc] initWithNibName:@"WWOSecondViewController" bundle:nil] autorelease];
+//  UIViewController *viewController1 = [[[WWOFirstViewController alloc] initWithNibName:@"WWOFirstViewController" bundle:nil] autorelease];
+//  UIViewController *viewController2 = [[[WWOSecondViewController alloc] initWithNibName:@"WWOSecondViewController" bundle:nil] autorelease];
   UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] initWithNibName:@"WWOMessagesViewController" bundle:nil] autorelease];
+    
+    UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] initWithNibName:@"WWONearbyViewController" bundle:nil] autorelease];
   
   self.tabBarController = [[[UITabBarController alloc] init] autorelease];
   
-  self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, 
-                                           viewController2,
-                                           messagesViewController, nil];
+  self.tabBarController.viewControllers = [NSArray arrayWithObjects:
+                                           messagesViewController, nearbyViewController, nil];
     
   self.window.rootViewController = self.tabBarController;
   [self.window makeKeyAndVisible];

@@ -92,7 +92,7 @@ typedef enum {
 - (id) initWithFrame: (CGRect) frame reuseIdentifier: (NSString *) reuseIdentifier;
 
 // If you want to customize cells by simply adding additional views, you should add them to the content view so they will be positioned appropriately as the cell transitions into and out of editing mode.
-@property (nonatomic, readonly, retain) UIView * contentView;
+@property (nonatomic, readonly, retain) IBOutlet UIView * contentView;
 
 // default is nil. The background view will be added as a subview behind all other views
 @property (nonatomic, retain) UIView * backgroundView;

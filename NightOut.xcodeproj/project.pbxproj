@@ -22,6 +22,20 @@
 		37107603158D3AA200871A12 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075FB158D3AA200871A12 /* UIImageView+WebCache.m */; };
 		37107605158D3B4500871A12 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37107604158D3B4500871A12 /* ImageIO.framework */; };
 		37107607158D3BAD00871A12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37107606158D3BAD00871A12 /* MapKit.framework */; };
+		3710760F158D3D9D00871A12 /* WWONearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3710760E158D3D9D00871A12 /* WWONearbyViewController.m */; };
+		37107610158D42BE00871A12 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075C6158D39A600871A12 /* AQGridView.m */; };
+		37107611158D42CC00871A12 /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075C9158D39A600871A12 /* AQGridViewCell.m */; };
+		37107612158D42CC00871A12 /* AQGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075CB158D39A600871A12 /* AQGridViewController.m */; };
+		37107613158D42CC00871A12 /* AQGridViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075CD158D39A600871A12 /* AQGridViewData.m */; };
+		37107614158D42CC00871A12 /* AQGridViewUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075CF158D39A600871A12 /* AQGridViewUpdateInfo.m */; };
+		37107615158D42CC00871A12 /* AQGridViewUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D1158D39A600871A12 /* AQGridViewUpdateItem.m */; };
+		37107616158D42CC00871A12 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D3158D39A600871A12 /* AQGridViewAnimatorItem.m */; };
+		37107617158D42CC00871A12 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D5158D39A600871A12 /* UIColor+AQGridView.m */; };
+		37107618158D42CC00871A12 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D7158D39A600871A12 /* NSIndexSet+AQIsSetContiguous.m */; };
+		37107619158D42CC00871A12 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D9158D39A600871A12 /* NSIndexSet+AQIndexesOutsideSet.m */; };
+		3710761B158D430100871A12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3710761A158D430100871A12 /* QuartzCore.framework */; };
+		3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3710761C158D441E00871A12 /* WWONearbyViewController.xib */; };
+		37BD7964158D47CF00B608DF /* WWONearbyGridViewCellContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD7963158D47CF00B608DF /* WWONearbyGridViewCellContent.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -122,6 +136,12 @@
 		371075FB158D3AA200871A12 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		37107604158D3B4500871A12 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		37107606158D3BAD00871A12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3710760D158D3D9D00871A12 /* WWONearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWONearbyViewController.h; sourceTree = "<group>"; };
+		3710760E158D3D9D00871A12 /* WWONearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyViewController.m; sourceTree = "<group>"; };
+		3710761A158D430100871A12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3710761C158D441E00871A12 /* WWONearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWONearbyViewController.xib; sourceTree = "<group>"; };
+		37BD7962158D47CF00B608DF /* WWONearbyGridViewCellContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWONearbyGridViewCellContent.h; sourceTree = "<group>"; };
+		37BD7963158D47CF00B608DF /* WWONearbyGridViewCellContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyGridViewCellContent.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -214,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3710761B158D430100871A12 /* QuartzCore.framework in Frameworks */,
 				37107607158D3BAD00871A12 /* MapKit.framework in Frameworks */,
 				37107605158D3B4500871A12 /* ImageIO.framework in Frameworks */,
 				37F0F710158CF501005511CD /* Security.framework in Frameworks */,
@@ -320,6 +341,7 @@
 		37F0F644158CD939005511CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3710761A158D430100871A12 /* QuartzCore.framework */,
 				37107606158D3BAD00871A12 /* MapKit.framework */,
 				37107604158D3B4500871A12 /* ImageIO.framework */,
 				37F0F70F158CF501005511CD /* Security.framework */,
@@ -519,6 +541,9 @@
 				37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */,
 				37F0F722158CF7BA005511CD /* WWOSecondViewController.h */,
 				37F0F723158CF7BA005511CD /* WWOSecondViewController.m */,
+				3710760D158D3D9D00871A12 /* WWONearbyViewController.h */,
+				3710760E158D3D9D00871A12 /* WWONearbyViewController.m */,
+				3710761C158D441E00871A12 /* WWONearbyViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -527,6 +552,8 @@
 			isa = PBXGroup;
 			children = (
 				371075C2158D398B00871A12 /* GridView */,
+				37BD7962158D47CF00B608DF /* WWONearbyGridViewCellContent.h */,
+				37BD7963158D47CF00B608DF /* WWONearbyGridViewCellContent.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -604,6 +631,7 @@
 				371075E4158D3A3600871A12 /* AQGridSelectionGrayBlue.png in Resources */,
 				371075E5158D3A3600871A12 /* AQGridSelectionGreen.png in Resources */,
 				371075E6158D3A3600871A12 /* AQGridSelectionRed.png in Resources */,
+				3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +681,18 @@
 				37107601158D3AA200871A12 /* SDWebImagePrefetcher.m in Sources */,
 				37107602158D3AA200871A12 /* UIButton+WebCache.m in Sources */,
 				37107603158D3AA200871A12 /* UIImageView+WebCache.m in Sources */,
+				3710760F158D3D9D00871A12 /* WWONearbyViewController.m in Sources */,
+				37107610158D42BE00871A12 /* AQGridView.m in Sources */,
+				37107611158D42CC00871A12 /* AQGridViewCell.m in Sources */,
+				37107612158D42CC00871A12 /* AQGridViewController.m in Sources */,
+				37107613158D42CC00871A12 /* AQGridViewData.m in Sources */,
+				37107614158D42CC00871A12 /* AQGridViewUpdateInfo.m in Sources */,
+				37107615158D42CC00871A12 /* AQGridViewUpdateItem.m in Sources */,
+				37107616158D42CC00871A12 /* AQGridViewAnimatorItem.m in Sources */,
+				37107617158D42CC00871A12 /* UIColor+AQGridView.m in Sources */,
+				37107618158D42CC00871A12 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
+				37107619158D42CC00871A12 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
+				37BD7964158D47CF00B608DF /* WWONearbyGridViewCellContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
