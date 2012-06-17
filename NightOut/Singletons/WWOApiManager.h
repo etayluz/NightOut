@@ -19,7 +19,11 @@
 
 + (WWOApiManager *)sharedManager;
 - (void) fetchMessages;
+- (void) fetchNearbyUsers;
 @end
 
 #define WWOApiManagerDidFetchMessagesNotification @"WWOApiManagerDidFetchMessagesNotification"
+
 #define WWOApiManagerFailedToFetchMessagesNotification @"WWOApiManagerFailedToFetchMessagesNotification"
+
+#define WWOApiManagerDidFetchNearbyUsersNotification @"WWOApiManagerDidFetchNearbyUsersNotification"

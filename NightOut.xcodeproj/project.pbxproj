@@ -37,6 +37,7 @@
 		3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3710761C158D441E00871A12 /* WWONearbyViewController.xib */; };
 		37BD796E158D5CFB00B608DF /* WWONearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */; };
 		37BD7970158D613000B608DF /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BD796F158D613000B608DF /* header.png */; };
+		37BD7973158D645900B608DF /* WWOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD7972158D645900B608DF /* WWOUser.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -144,6 +145,8 @@
 		37BD796C158D5CFA00B608DF /* WWONearbyGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWONearbyGridViewCell.h; sourceTree = "<group>"; };
 		37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyGridViewCell.m; sourceTree = "<group>"; };
 		37BD796F158D613000B608DF /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
+		37BD7971158D645900B608DF /* WWOUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOUser.h; sourceTree = "<group>"; };
+		37BD7972158D645900B608DF /* WWOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOUser.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -566,6 +569,8 @@
 			children = (
 				37F0F72B158D04C1005511CD /* WWOMessage.h */,
 				37F0F72C158D04C1005511CD /* WWOMessage.m */,
+				37BD7971158D645900B608DF /* WWOUser.h */,
+				37BD7972158D645900B608DF /* WWOUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 				37107618158D42CC00871A12 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
 				37107619158D42CC00871A12 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
 				37BD796E158D5CFB00B608DF /* WWONearbyGridViewCell.m in Sources */,
+				37BD7973158D645900B608DF /* WWOUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

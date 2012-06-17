@@ -10,18 +10,25 @@
 #import "WWONearbyGridViewCell.h"
 #import "UIImageView+WebCache.h"
 
+#import "WWOApiManager.h"
+#import "WWOUser.h"
+
 @interface WWONearbyViewController ()
+@property (nonatomic, retain) NSArray *users;
 @end
 
 @implementation WWONearbyViewController
 
+@synthesize users;
 @synthesize gridView;
 @synthesize headerView;
 
 - (void) dealloc
 {
+    [users release];
     [gridView release];
     [headerView release];
+    
     [super dealloc];
 }
 
@@ -38,6 +45,14 @@
 {
     [super viewDidLoad];
     UIImage *headerImage = [UIImage imageNamed:@"header.png"];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadedNearbyUsers:) name:WWOApiManagerDidFetchNearbyUsersNotification object:nil];
+    
+    [[WWOApiManager sharedManager] fetchNearbyUsers];
+
+    
+    
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     
     [self.gridView reloadData];
@@ -57,7 +72,7 @@
 #pragma mark data source implementation
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
-    return 2;
+    return self.users.count;
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
@@ -71,16 +86,23 @@
 									  reuseIdentifier:nearbyFriendCellIdentifier] autorelease];   
     }
     
-    NSArray *colors = [NSArray arrayWithObjects:[UIColor blackColor], [UIColor blackColor], [UIColor redColor], [UIColor blueColor], nil];
-    int seed = arc4random()%[colors count];
-    cell.contentView.backgroundColor = [colors objectAtIndex:seed];
-    cell.nameLabel.text = @"Dan";
-    cell.ageLabel.text = @"24";
-    [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://nightapi.pagodabox.com/images/venkat.png"]];
+    WWOUser *user = [self.users objectAtIndex:index];
+    
+    cell.nameLabel.text = user.name;
+    cell.ageLabel.text = [user.age stringValue];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:user.thumb]];
     
     
         
     return cell;
+}
+
+#pragma mark - Notifications
+- (void)loadedNearbyUsers:(NSNotification *) notification
+{
+    NSLog(@"loaded nearby users");
+    self.users = [notification.userInfo objectForKey:@"data"];
+    [self.gridView reloadData];
 }
 
 @end

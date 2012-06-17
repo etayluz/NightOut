@@ -8,18 +8,21 @@
 
 #import "WWOApiManager.h"
 #import "JSONKit.h"
+
 #import "WWOMessage.h"
+#import "WWOUser.h"
 
 @interface WWOApiManager ()
 
 @property (nonatomic, retain) ASIHTTPRequest *messagesRequest;
+@property (nonatomic, retain) ASIHTTPRequest *nearbyUsersRequest;
 
 @end
 
 static WWOApiManager *sharedManager = nil;
 
 @implementation WWOApiManager
-@synthesize messagesRequest;
+@synthesize messagesRequest, nearbyUsersRequest;
 
 #pragma mark - Singleton compliance DON'T MODIFY! (Unless you know wtf you're doing)
 
@@ -66,12 +69,23 @@ static WWOApiManager *sharedManager = nil;
 {
   //TODO: add user token etc.
   if (!self.messagesRequest) {
-    NSURL * url = kWWOUrl(@"messages.json");
+    NSURL *url = kWWOUrl(@"messages.json");
     self.messagesRequest = [ASIHTTPRequest requestWithURL:url];
     self.messagesRequest.delegate = self;
     self.messagesRequest.timeOutSeconds = 2 * 60;
     [self.messagesRequest startSynchronous];
   }
+}
+
+- (void) fetchNearbyUsers
+{
+    if (!self.nearbyUsersRequest) {
+        NSURL *url = kWWOUrl(@"nearby.json");
+        self.nearbyUsersRequest = [ASIHTTPRequest requestWithURL:url];
+        self.nearbyUsersRequest.delegate = self;
+        self.nearbyUsersRequest.timeOutSeconds = 2 * 60;
+        [self.nearbyUsersRequest startSynchronous];
+    }
 }
 
 #pragma mark - request response handling
@@ -95,6 +109,23 @@ static WWOApiManager *sharedManager = nil;
       }
       [self raiseEvent:WWOApiManagerDidFetchMessagesNotification withData:messages];
     }
+    self.messagesRequest = nil;
+  }
+  else if (request == self.nearbyUsersRequest) {
+      //todo: status
+      NSString *jsonString = self.nearbyUsersRequest.responseString;
+      NSDictionary *responseDict = [jsonString objectFromJSONString];
+      int status = [[responseDict objectForKey:@"status"] intValue];
+      
+      NSArray *userDicts = [responseDict objectForKey:@"users"];
+      NSMutableArray *users = [NSMutableArray array];
+      for (NSDictionary *userDict in userDicts) {
+          WWOUser *user = [[[WWOUser alloc] initWithDictionary:userDict] autorelease];
+          [users addObject: user];
+      }
+      
+      [self raiseEvent:WWOApiManagerDidFetchNearbyUsersNotification withData:users];
+      self.messagesRequest = nil;
   }
 }
 
@@ -112,7 +143,10 @@ static WWOApiManager *sharedManager = nil;
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
   if (request == self.messagesRequest) {
-    
+      self.messagesRequest = nil;
+  }
+  else if (request == self.nearbyUsersRequest) {
+      self.nearbyUsersRequest = nil;
   }
 }
 
