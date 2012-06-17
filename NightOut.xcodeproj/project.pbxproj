@@ -35,7 +35,8 @@
 		37107619158D42CC00871A12 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D9158D39A600871A12 /* NSIndexSet+AQIndexesOutsideSet.m */; };
 		3710761B158D430100871A12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3710761A158D430100871A12 /* QuartzCore.framework */; };
 		3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3710761C158D441E00871A12 /* WWONearbyViewController.xib */; };
-		37BD7964158D47CF00B608DF /* WWONearbyGridViewCellContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD7963158D47CF00B608DF /* WWONearbyGridViewCellContent.m */; };
+		37BD796E158D5CFB00B608DF /* WWONearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */; };
+		37BD7970158D613000B608DF /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BD796F158D613000B608DF /* header.png */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -140,8 +141,9 @@
 		3710760E158D3D9D00871A12 /* WWONearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyViewController.m; sourceTree = "<group>"; };
 		3710761A158D430100871A12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3710761C158D441E00871A12 /* WWONearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWONearbyViewController.xib; sourceTree = "<group>"; };
-		37BD7962158D47CF00B608DF /* WWONearbyGridViewCellContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWONearbyGridViewCellContent.h; sourceTree = "<group>"; };
-		37BD7963158D47CF00B608DF /* WWONearbyGridViewCellContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyGridViewCellContent.m; sourceTree = "<group>"; };
+		37BD796C158D5CFA00B608DF /* WWONearbyGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWONearbyGridViewCell.h; sourceTree = "<group>"; };
+		37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyGridViewCell.m; sourceTree = "<group>"; };
+		37BD796F158D613000B608DF /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -522,6 +524,7 @@
 		37F0F713158CF7B0005511CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37BD796F158D613000B608DF /* header.png */,
 				371075DC158D3A0900871A12 /* GridView */,
 				37F0F714158CF7B0005511CD /* first.png */,
 				37F0F715158CF7B0005511CD /* first@2x.png */,
@@ -552,8 +555,8 @@
 			isa = PBXGroup;
 			children = (
 				371075C2158D398B00871A12 /* GridView */,
-				37BD7962158D47CF00B608DF /* WWONearbyGridViewCellContent.h */,
-				37BD7963158D47CF00B608DF /* WWONearbyGridViewCellContent.m */,
+				37BD796C158D5CFA00B608DF /* WWONearbyGridViewCell.h */,
+				37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				371075E5158D3A3600871A12 /* AQGridSelectionGreen.png in Resources */,
 				371075E6158D3A3600871A12 /* AQGridSelectionRed.png in Resources */,
 				3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */,
+				37BD7970158D613000B608DF /* header.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +696,7 @@
 				37107617158D42CC00871A12 /* UIColor+AQGridView.m in Sources */,
 				37107618158D42CC00871A12 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
 				37107619158D42CC00871A12 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
-				37BD7964158D47CF00B608DF /* WWONearbyGridViewCellContent.m in Sources */,
+				37BD796E158D5CFB00B608DF /* WWONearbyGridViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

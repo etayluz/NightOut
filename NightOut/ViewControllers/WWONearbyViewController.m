@@ -7,20 +7,21 @@
 //
 
 #import "WWONearbyViewController.h"
-#import "WWONearbyGridViewCellContent.h"
+#import "WWONearbyGridViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface WWONearbyViewController ()
-
 @end
 
 @implementation WWONearbyViewController
 
-@synthesize gridView, cellContentView;
+@synthesize gridView;
+@synthesize headerView;
 
 - (void) dealloc
 {
     [gridView release];
-    [cellContentView release];
+    [headerView release];
     [super dealloc];
 }
 
@@ -36,12 +37,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    UIImage *headerImage = [UIImage imageNamed:@"header.png"];
+    [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     
-//    self.gridView = [[[AQGridView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];//    
-//    [self.view addSubview: self.gridView];
-//    [self.gridView reloadData];
-    [self.view reloadData];
+    [self.gridView reloadData];
 }
 
 - (void)viewDidUnload
@@ -64,24 +63,20 @@
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
 {
     static NSString *nearbyFriendCellIdentifier = @"NearbyFriendCellIdentifier";
-    AQGridViewCell *cell = nil;
-    cell = [_gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
+    WWONearbyGridViewCell *cell = nil;
+    cell = (WWONearbyGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
     
     if (!cell) {
-		cell = [[[AQGridViewCell alloc] initWithFrame:cellContentView.frame
-									  reuseIdentifier:nearbyFriendCellIdentifier] autorelease];
-		[cell.contentView addSubview:cellContentView];        
+		cell = [[[WWONearbyGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 94, 140)
+									  reuseIdentifier:nearbyFriendCellIdentifier] autorelease];   
     }
     
     NSArray *colors = [NSArray arrayWithObjects:[UIColor blackColor], [UIColor blackColor], [UIColor redColor], [UIColor blueColor], nil];
     int seed = arc4random()%[colors count];
     cell.contentView.backgroundColor = [colors objectAtIndex:seed];
-//    WWONearbyGridViewCellContent *gridViewCell = (WWONearbyGridViewCellContent *) cell;
-//    gridViewCell.nameLabel.text = @"Dan";
-    
-    WWONearbyGridViewCellContent *content = (WWONearbyGridViewCellContent *)[cell.contentView viewWithTag:1];
-	content.nameLabel.text = @"Dan";
-    content.ageLabel.text = @"24";
+    cell.nameLabel.text = @"Dan";
+    cell.ageLabel.text = @"24";
+    [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://nightapi.pagodabox.com/images/venkat.png"]];
     
     
         

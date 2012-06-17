@@ -12,9 +12,9 @@
 @class WWONearbyGridViewCellContent;
 @interface WWONearbyViewController : UIViewController<AQGridViewDelegate, AQGridViewDataSource>
 
-@property (retain) AQGridView *gridView;
-@property (nonatomic, retain) IBOutlet WWONearbyGridViewCellContent *cellContentView;
+@property (retain) IBOutlet AQGridView *gridView;
+@property (nonatomic, retain) UIImageView *headerView;
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView;
-- (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index;
+- (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index;
 @end
