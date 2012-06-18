@@ -32,15 +32,19 @@
     
     UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] initWithNibName:@"WWONearbyViewController" bundle:nil] autorelease];
   
-    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-  
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:
-                                           messagesViewController, nearbyViewController, nil];
+    UINavigationController *messagesNavController = [[[UINavigationController alloc] initWithRootViewController:messagesViewController] autorelease];
     
-    UINavigationController *nav = [[UINavigationController alloc] init];
-    [nav pushViewController:self.tabBarController animated:NO];
-    self.window.rootViewController = nav;
-    [nav release];
+    UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
+        
+    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:
+                                           nearbyNavController, messagesNavController, nil];
+    
+    UIBarButtonItem *messagesButton = [[[UIBarButtonItem alloc] initWithTitle:@"Messages" style:UIBarButtonItemStylePlain target:self action:nil] autorelease];
+    
+    self.tabBarController.navigationItem.rightBarButtonItem = messagesButton;
+
+    self.window.rootViewController = self.tabBarController;
     
     [self.window makeKeyAndVisible];
     return YES;
