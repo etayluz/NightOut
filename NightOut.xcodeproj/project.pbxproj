@@ -82,10 +82,8 @@
 		37F0F719158CF7B0005511CD /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F715158CF7B0005511CD /* first@2x.png */; };
 		37F0F71A158CF7B0005511CD /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F716158CF7B0005511CD /* second.png */; };
 		37F0F71B158CF7B0005511CD /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F717158CF7B0005511CD /* second@2x.png */; };
-		37F0F724158CF7BA005511CD /* WWOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F71E158CF7BA005511CD /* WWOFirstViewController.m */; };
 		37F0F725158CF7BA005511CD /* WWOMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */; };
 		37F0F726158CF7BA005511CD /* WWOMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */; };
-		37F0F727158CF7BA005511CD /* WWOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F723158CF7BA005511CD /* WWOSecondViewController.m */; };
 		37F0F728158D01F1005511CD /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F67B158CF1F6005511CD /* JSONKit.m */; };
 		37F0F72D158D04C1005511CD /* WWOMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F72C158D04C1005511CD /* WWOMessage.m */; };
 /* End PBXBuildFile section */
@@ -232,13 +230,9 @@
 		37F0F715158CF7B0005511CD /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		37F0F716158CF7B0005511CD /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		37F0F717158CF7B0005511CD /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		37F0F71D158CF7BA005511CD /* WWOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOFirstViewController.h; sourceTree = "<group>"; };
-		37F0F71E158CF7BA005511CD /* WWOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOFirstViewController.m; sourceTree = "<group>"; };
 		37F0F71F158CF7BA005511CD /* WWOMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOMessagesViewController.h; sourceTree = "<group>"; };
 		37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOMessagesViewController.m; sourceTree = "<group>"; };
 		37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOMessagesViewController.xib; sourceTree = "<group>"; };
-		37F0F722158CF7BA005511CD /* WWOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSecondViewController.h; sourceTree = "<group>"; };
-		37F0F723158CF7BA005511CD /* WWOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSecondViewController.m; sourceTree = "<group>"; };
 		37F0F72B158D04C1005511CD /* WWOMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOMessage.h; sourceTree = "<group>"; };
 		37F0F72C158D04C1005511CD /* WWOMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -551,13 +545,9 @@
 		37F0F71C158CF7BA005511CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				37F0F71D158CF7BA005511CD /* WWOFirstViewController.h */,
-				37F0F71E158CF7BA005511CD /* WWOFirstViewController.m */,
 				37F0F71F158CF7BA005511CD /* WWOMessagesViewController.h */,
 				37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */,
 				37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */,
-				37F0F722158CF7BA005511CD /* WWOSecondViewController.h */,
-				37F0F723158CF7BA005511CD /* WWOSecondViewController.m */,
 				3710760D158D3D9D00871A12 /* WWONearbyViewController.h */,
 				3710760E158D3D9D00871A12 /* WWONearbyViewController.m */,
 				3710761C158D441E00871A12 /* WWONearbyViewController.xib */,
@@ -693,9 +683,7 @@
 				37F0F6EB158CF2C6005511CD /* ASIS3ServiceRequest.m in Sources */,
 				37F0F6FC158CF2C6005511CD /* Reachability.m in Sources */,
 				37F0F70E158CF4CD005511CD /* SFHFKeychainUtils.m in Sources */,
-				37F0F724158CF7BA005511CD /* WWOFirstViewController.m in Sources */,
 				37F0F725158CF7BA005511CD /* WWOMessagesViewController.m in Sources */,
-				37F0F727158CF7BA005511CD /* WWOSecondViewController.m in Sources */,
 				37F0F72D158D04C1005511CD /* WWOMessage.m in Sources */,
 				371075FC158D3AA200871A12 /* MKAnnotationView+WebCache.m in Sources */,
 				371075FD158D3AA200871A12 /* SDImageCache.m in Sources */,

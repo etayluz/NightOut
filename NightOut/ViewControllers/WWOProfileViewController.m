@@ -8,13 +8,15 @@
 
 #import "WWOProfileViewController.h"
 
+#import "UIImageView+WebCache.h"
+
 @interface WWOProfileViewController ()
 
 @end
 
 @implementation WWOProfileViewController
 
-@synthesize nameLabel;
+@synthesize nameLabel, ageLabel, profileImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +30,7 @@
 - (void) updateFromUser:(WWOUser *)user
 {
     self.nameLabel.text = user.name;
+    [self.profileImageView setImageWithURL:[NSURL URLWithString:user.thumb]];
 }
 
 - (void)viewDidLoad

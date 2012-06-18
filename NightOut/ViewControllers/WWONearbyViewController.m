@@ -111,12 +111,14 @@
     return index;
 }
 
-#pragma mark - event handlers
-
 - (void) userWasSelected:(WWOUser *)user
 {
     NSLog(@"selected %@", user.name);
-    
+    [self showUserProfile:user];
+}
+
+- (void) showUserProfile:(WWOUser *)user
+{
     WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
     [self.navigationController pushViewController:profileVC animated:YES];
     [profileVC updateFromUser:user];

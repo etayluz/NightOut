@@ -15,5 +15,7 @@
 - (void) updateFromUser:(WWOUser *)user;
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
+@property (nonatomic, retain) IBOutlet UILabel *ageLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *profileImageView;
 
 @end

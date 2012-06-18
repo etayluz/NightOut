@@ -8,10 +8,6 @@
 
 #import "WWOAppDelegate.h"
 
-#import "WWOFirstViewController.h"
-
-#import "WWOSecondViewController.h"
-
 #import "WWOMessagesViewController.h"
 
 #import "WWONearbyViewController.h"
