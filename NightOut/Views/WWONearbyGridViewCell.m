@@ -27,6 +27,7 @@
 {
     self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         // Initialization code
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(7, 4, 80, 80)] autorelease];
         self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(7, 86, 100, 21)] autorelease];

@@ -51,14 +51,26 @@
     [super viewDidLoad];
     UIImage *headerImage = [UIImage imageNamed:@"header.png"];
     
+    [self addMessagesButton];
     
     [Notification on:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
     [[WWOApiManager sharedManager] fetchNearbyUsers];
     
-    
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     
     [self.gridView reloadData];
+}
+
+- (void)addMessagesButton
+{
+    UIBarButtonItem *messagesButton = [[[UIBarButtonItem alloc] initWithTitle:@"Messages" style:UIBarButtonItemStylePlain target:self action:@selector(messagesButtonWasClicked)] autorelease];
+    
+    self.navigationItem.rightBarButtonItem = messagesButton;
+}
+
+- (void)messagesButtonWasClicked
+{
+    NSLog(@"Messages Button Was Clicked");
 }
 
 - (void)viewDidUnload
