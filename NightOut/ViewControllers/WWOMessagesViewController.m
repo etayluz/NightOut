@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
+#import "Notification.h"
+
 #import "WWOMessagesViewController.h"
 #import "WWOApiManager.h"
 
@@ -21,7 +23,8 @@
 
 - (void) dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:WWOApiManagerDidFetchMessagesNotification object:nil];
+    [Notification off:@"DidFetchMessages" target:self];
+    
     [super dealloc];
 }
 
@@ -44,7 +47,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadedMessages:) name:WWOApiManagerDidFetchMessagesNotification object:nil];
+    [Notification on:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
 
     [[WWOApiManager sharedManager] fetchMessages];
 }

@@ -18,34 +18,36 @@
 
 @implementation WWOAppDelegate
 
-@synthesize window = _window;
-@synthesize tabBarController = _tabBarController;
+@synthesize window;
+@synthesize tabBarController;
 
 - (void)dealloc
 {
-  [_window release];
-  [_tabBarController release];
+    [self.window release];
+    [self.tabBarController release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-//  UIViewController *viewController1 = [[[WWOFirstViewController alloc] initWithNibName:@"WWOFirstViewController" bundle:nil] autorelease];
-//  UIViewController *viewController2 = [[[WWOSecondViewController alloc] initWithNibName:@"WWOSecondViewController" bundle:nil] autorelease];
-  UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] initWithNibName:@"WWOMessagesViewController" bundle:nil] autorelease];
+    UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] initWithNibName:@"WWOMessagesViewController" bundle:nil] autorelease];
     
     UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] initWithNibName:@"WWONearbyViewController" bundle:nil] autorelease];
   
-  self.tabBarController = [[[UITabBarController alloc] init] autorelease];
+    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
   
-  self.tabBarController.viewControllers = [NSArray arrayWithObjects:
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:
                                            messagesViewController, nearbyViewController, nil];
     
-  self.window.rootViewController = self.tabBarController;
-  [self.window makeKeyAndVisible];
-  return YES;
+    UINavigationController *nav = [[UINavigationController alloc] init];
+    [nav pushViewController:self.tabBarController animated:NO];
+    self.window.rootViewController = nav;
+    [nav release];
+    
+    [self.window makeKeyAndVisible];
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

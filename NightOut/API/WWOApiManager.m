@@ -8,9 +8,12 @@
 
 #import "WWOApiManager.h"
 #import "JSONKit.h"
+#import "Notification.h"
 
 #import "WWOMessage.h"
 #import "WWOUser.h"
+
+#import "WWONearbyUsersRequest.h"
 
 @interface WWOApiManager ()
 
@@ -73,7 +76,7 @@ static WWOApiManager *sharedManager = nil;
     self.messagesRequest = [ASIHTTPRequest requestWithURL:url];
     self.messagesRequest.delegate = self;
     self.messagesRequest.timeOutSeconds = 2 * 60;
-    [self.messagesRequest startSynchronous];
+    [self.messagesRequest startAsynchronous];
   }
 }
 
@@ -81,24 +84,23 @@ static WWOApiManager *sharedManager = nil;
 {
     if (!self.nearbyUsersRequest) {
         NSURL *url = kWWOUrl(@"nearby.json");
-        self.nearbyUsersRequest = [ASIHTTPRequest requestWithURL:url];
+        self.nearbyUsersRequest = [ASIHTTPRequest requestWithURL: url];
         self.nearbyUsersRequest.delegate = self;
-        self.nearbyUsersRequest.timeOutSeconds = 2 * 60;
-        [self.nearbyUsersRequest startSynchronous];
+        [self.nearbyUsersRequest startAsynchronous];
     }
 }
 
 #pragma mark - request response handling
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-  NSLog(@"%@", request.responseString);
+  //NSLog(@"%@", request.responseString);
   if (request == self.messagesRequest) {
     NSString *jsonString = self.messagesRequest.responseString;
     NSDictionary *responseDict = [jsonString objectFromJSONString];
     int status = [[responseDict objectForKey:@"status"] intValue];
     
     if (status == 0) {
-      [self raiseEvent:WWOApiManagerFailedToFetchMessagesNotification];
+        [Notification send:@"FailedToFetchMessages"];
     }
     else {
       NSArray *messageDicts = [responseDict objectForKey:@"messages"];
@@ -107,7 +109,7 @@ static WWOApiManager *sharedManager = nil;
         WWOMessage *msg = [[[WWOMessage alloc] initWithDictionary:messageDict] autorelease];
         [messages addObject: msg];
       }
-      [self raiseEvent:WWOApiManagerDidFetchMessagesNotification withData:messages];
+        [Notification send:@"DidFetchMessages" withData:messages];
     }
     self.messagesRequest = nil;
   }
@@ -123,21 +125,9 @@ static WWOApiManager *sharedManager = nil;
           WWOUser *user = [[[WWOUser alloc] initWithDictionary:userDict] autorelease];
           [users addObject: user];
       }
-      
-      [self raiseEvent:WWOApiManagerDidFetchNearbyUsersNotification withData:users];
+      [Notification send:@"DidFetchNearbyUsers" withData:users];
       self.messagesRequest = nil;
   }
-}
-
-- (void) raiseEvent:(NSString *) event
-{
-  [[NSNotificationCenter defaultCenter] postNotificationName:event object:nil userInfo:nil];
-}
-
-- (void) raiseEvent:(NSString *) event withData:(NSObject *) data
-{
-  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:data forKey:@"data"];
-  [[NSNotificationCenter defaultCenter] postNotificationName:event object:nil userInfo:userInfo];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

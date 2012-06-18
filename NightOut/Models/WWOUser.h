@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WWOUser : NSObject
+#import "WWOAsDictionary.h"
 
-//todo: make it a protocol
-- (id) initWithDictionary: (NSDictionary *) dictionary;
-- (NSMutableDictionary *) toDictionary;
+@interface WWOUser : NSObject <WWOAsDictionary>
 
 @property (retain) NSNumber *userID;
 @property (retain) NSString *name;

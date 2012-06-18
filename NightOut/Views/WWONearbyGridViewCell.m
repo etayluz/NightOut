@@ -7,6 +7,9 @@
 //
 
 #import "WWONearbyGridViewCell.h"
+#import "UIImageView+WebCache.h"
+
+#import "WWOUser.h"
 
 @implementation WWONearbyGridViewCell
 @synthesize imageView, nameLabel, ageLabel;
@@ -34,6 +37,13 @@
         [self.contentView addSubview:ageLabel];
     }
     return self;
+}
+
+- (void) updateFromUser:(WWOUser *) user
+{
+    self.nameLabel.text = user.name;
+    self.ageLabel.text = [user.age stringValue];
+    [self.imageView setImageWithURL:[NSURL URLWithString:user.thumb]];
 }
 
 - (CALayer *) glowSelectionLayer

@@ -6,9 +6,12 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
+#import "Notification.h"
+
 #import "WWONearbyViewController.h"
+#import "WWOProfileViewController.h"
+
 #import "WWONearbyGridViewCell.h"
-#import "UIImageView+WebCache.h"
 
 #import "WWOApiManager.h"
 #import "WWOUser.h"
@@ -29,6 +32,8 @@
     [gridView release];
     [headerView release];
     
+    [Notification off:@"DidFetchNearbyUsers" target:self];
+    
     [super dealloc];
 }
 
@@ -47,10 +52,8 @@
     UIImage *headerImage = [UIImage imageNamed:@"header.png"];
     
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadedNearbyUsers:) name:WWOApiManagerDidFetchNearbyUsersNotification object:nil];
-    
+    [Notification on:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
     [[WWOApiManager sharedManager] fetchNearbyUsers];
-
     
     
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
@@ -70,6 +73,7 @@
 }
 
 #pragma mark data source implementation
+
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
     return self.users.count;
@@ -87,13 +91,8 @@
     }
     
     WWOUser *user = [self.users objectAtIndex:index];
+    [cell updateFromUser:user];
     
-    cell.nameLabel.text = user.name;
-    cell.ageLabel.text = [user.age stringValue];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:user.thumb]];
-    
-    
-        
     return cell;
 }
 
@@ -103,6 +102,24 @@
     NSLog(@"loaded nearby users");
     self.users = [notification.userInfo objectForKey:@"data"];
     [self.gridView reloadData];
+}
+
+- (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
+{
+    WWOUser *selectedUser = [self.users objectAtIndex:index];
+    [self userWasSelected:selectedUser];
+    return index;
+}
+
+#pragma mark - event handlers
+
+- (void) userWasSelected:(WWOUser *)user
+{
+    NSLog(@"selected %@", user.name);
+    
+    WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:profileVC animated:YES];
+    [profileVC updateFromUser:user];
 }
 
 @end

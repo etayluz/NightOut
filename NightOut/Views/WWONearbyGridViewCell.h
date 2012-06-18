@@ -7,9 +7,15 @@
 //
 
 #import "AQGridViewCell.h"
+#import "WWOUser.h"
 
 @interface WWONearbyGridViewCell : AQGridViewCell
+
+- (void) updateFromUser:(WWOUser *) user;
+
+
 @property (nonatomic, retain)  UIImageView *imageView;
 @property (nonatomic, retain)  UILabel *nameLabel;
 @property (nonatomic, retain)  UILabel *ageLabel;
+
 @end

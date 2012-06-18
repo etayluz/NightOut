@@ -38,13 +38,16 @@
 		37BD796E158D5CFB00B608DF /* WWONearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */; };
 		37BD7970158D613000B608DF /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BD796F158D613000B608DF /* header.png */; };
 		37BD7973158D645900B608DF /* WWOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD7972158D645900B608DF /* WWOUser.m */; };
+		37C34A6B158E77210098A393 /* WWOApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C34A6A158E77210098A393 /* WWOApiManager.m */; };
+		37C34A76158F886A0098A393 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C34A75158F886A0098A393 /* Notification.m */; };
+		37C34A83158FB6D60098A393 /* WWOProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C34A81158FB6D60098A393 /* WWOProfileViewController.m */; };
+		37C34A84158FB6D60098A393 /* WWOProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
 		37F0F650158CD939005511CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F64E158CD939005511CD /* InfoPlist.strings */; };
 		37F0F652158CD939005511CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F651158CD939005511CD /* main.m */; };
 		37F0F656158CD939005511CD /* WWOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F655158CD939005511CD /* WWOAppDelegate.m */; };
-		37F0F678158CEE17005511CD /* WWOApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F677158CEE17005511CD /* WWOApiManager.m */; };
 		37F0F6D6158CF2C6005511CD /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F67F158CF2C6005511CD /* ASIAuthenticationDialog.m */; };
 		37F0F6D7158CF2C6005511CD /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F682158CF2C6005511CD /* ASIDataCompressor.m */; };
 		37F0F6D8158CF2C6005511CD /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F684158CF2C6005511CD /* ASIDataDecompressor.m */; };
@@ -147,6 +150,14 @@
 		37BD796F158D613000B608DF /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		37BD7971158D645900B608DF /* WWOUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOUser.h; sourceTree = "<group>"; };
 		37BD7972158D645900B608DF /* WWOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOUser.m; sourceTree = "<group>"; };
+		37C34A69158E77210098A393 /* WWOApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOApiManager.h; sourceTree = "<group>"; };
+		37C34A6A158E77210098A393 /* WWOApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOApiManager.m; sourceTree = "<group>"; };
+		37C34A70158E84AB0098A393 /* WWOAsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOAsDictionary.h; sourceTree = "<group>"; };
+		37C34A74158F886A0098A393 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		37C34A75158F886A0098A393 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		37C34A80158FB6D60098A393 /* WWOProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOProfileViewController.h; sourceTree = "<group>"; };
+		37C34A81158FB6D60098A393 /* WWOProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOProfileViewController.m; sourceTree = "<group>"; };
+		37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOProfileViewController.xib; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -157,8 +168,6 @@
 		37F0F653158CD939005511CD /* NightOut-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NightOut-Prefix.pch"; sourceTree = "<group>"; };
 		37F0F654158CD939005511CD /* WWOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWOAppDelegate.h; sourceTree = "<group>"; };
 		37F0F655158CD939005511CD /* WWOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWOAppDelegate.m; sourceTree = "<group>"; };
-		37F0F676158CEE17005511CD /* WWOApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOApiManager.h; sourceTree = "<group>"; };
-		37F0F677158CEE17005511CD /* WWOApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOApiManager.m; sourceTree = "<group>"; };
 		37F0F67A158CF1F6005511CD /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		37F0F67B158CF1F6005511CD /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		37F0F67E158CF2C6005511CD /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -326,6 +335,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		37C34A68158E77210098A393 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				37C34A69158E77210098A393 /* WWOApiManager.h */,
+				37C34A6A158E77210098A393 /* WWOApiManager.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		37F0F636158CD939005511CD = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +383,7 @@
 		37F0F64B158CD939005511CD /* NightOut */ = {
 			isa = PBXGroup;
 			children = (
+				37C34A68158E77210098A393 /* API */,
 				371075E7158D3AA200871A12 /* SDWebImage */,
 				37F0F72A158D042C005511CD /* Models */,
 				37F0F729158D0421005511CD /* Views */,
@@ -373,10 +392,11 @@
 				37F0F70B158CF4CD005511CD /* Security */,
 				37F0F67C158CF2C6005511CD /* ASIHttp */,
 				37F0F679158CF1E7005511CD /* JSONKit */,
-				37F0F675158CEDED005511CD /* Singletons */,
 				37F0F654158CD939005511CD /* WWOAppDelegate.h */,
 				37F0F655158CD939005511CD /* WWOAppDelegate.m */,
 				37F0F64C158CD939005511CD /* Supporting Files */,
+				37C34A74158F886A0098A393 /* Notification.h */,
+				37C34A75158F886A0098A393 /* Notification.m */,
 			);
 			path = NightOut;
 			sourceTree = "<group>";
@@ -390,15 +410,6 @@
 				37F0F653158CD939005511CD /* NightOut-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		37F0F675158CEDED005511CD /* Singletons */ = {
-			isa = PBXGroup;
-			children = (
-				37F0F676158CEE17005511CD /* WWOApiManager.h */,
-				37F0F677158CEE17005511CD /* WWOApiManager.m */,
-			);
-			path = Singletons;
 			sourceTree = "<group>";
 		};
 		37F0F679158CF1E7005511CD /* JSONKit */ = {
@@ -550,6 +561,9 @@
 				3710760D158D3D9D00871A12 /* WWONearbyViewController.h */,
 				3710760E158D3D9D00871A12 /* WWONearbyViewController.m */,
 				3710761C158D441E00871A12 /* WWONearbyViewController.xib */,
+				37C34A80158FB6D60098A393 /* WWOProfileViewController.h */,
+				37C34A81158FB6D60098A393 /* WWOProfileViewController.m */,
+				37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -567,6 +581,7 @@
 		37F0F72A158D042C005511CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				37C34A70158E84AB0098A393 /* WWOAsDictionary.h */,
 				37F0F72B158D04C1005511CD /* WWOMessage.h */,
 				37F0F72C158D04C1005511CD /* WWOMessage.m */,
 				37BD7971158D645900B608DF /* WWOUser.h */,
@@ -641,6 +656,7 @@
 				371075E6158D3A3600871A12 /* AQGridSelectionRed.png in Resources */,
 				3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */,
 				37BD7970158D613000B608DF /* header.png in Resources */,
+				37C34A84158FB6D60098A393 /* WWOProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +670,6 @@
 				37F0F728158D01F1005511CD /* JSONKit.m in Sources */,
 				37F0F652158CD939005511CD /* main.m in Sources */,
 				37F0F656158CD939005511CD /* WWOAppDelegate.m in Sources */,
-				37F0F678158CEE17005511CD /* WWOApiManager.m in Sources */,
 				37F0F6D6158CF2C6005511CD /* ASIAuthenticationDialog.m in Sources */,
 				37F0F6D7158CF2C6005511CD /* ASIDataCompressor.m in Sources */,
 				37F0F6D8158CF2C6005511CD /* ASIDataDecompressor.m in Sources */,
@@ -703,6 +718,9 @@
 				37107619158D42CC00871A12 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
 				37BD796E158D5CFB00B608DF /* WWONearbyGridViewCell.m in Sources */,
 				37BD7973158D645900B608DF /* WWOUser.m in Sources */,
+				37C34A6B158E77210098A393 /* WWOApiManager.m in Sources */,
+				37C34A76158F886A0098A393 /* Notification.m in Sources */,
+				37C34A83158FB6D60098A393 /* WWOProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

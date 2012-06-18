@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WWOAsDictionary.h"
 
-@interface WWOMessage : NSObject
-
-- (id) initWithDictionary: (NSDictionary *) dictionary;
-- (NSMutableDictionary *) toDictionary;
+@interface WWOMessage : NSObject <WWOAsDictionary>
 
 @property (retain) NSString * name;
 @property (retain) NSNumber * age;
