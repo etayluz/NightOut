@@ -33,9 +33,11 @@
         self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(7, 86, 100, 21)] autorelease];
         self.ageLabel = [[[UILabel alloc] initWithFrame:CGRectMake(7, 108, 31, 21)] autorelease];        
         
+        
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
         [self.contentView addSubview:ageLabel];
+        
     }
     return self;
 }

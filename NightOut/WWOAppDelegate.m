@@ -6,9 +6,13 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
+#import "Notification.h"
+#import "WWOApiManager.h"
+
 #import "WWOAppDelegate.h"
 #import "WWOMessagesViewController.h"
 #import "WWONearbyViewController.h"
+#import "WWOLoginViewController.h"
 
 @implementation WWOAppDelegate
 
@@ -25,23 +29,40 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
+    
+    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
+    self.window.rootViewController = self.tabBarController;
+    [self.window makeKeyAndVisible];
+    
+    WWOLoginViewController *loginViewController = [[[WWOLoginViewController alloc] init] autorelease];
+    [self.tabBarController presentModalViewController:loginViewController animated:NO];
+    
+    [Notification on:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
+    
+    return YES;
+}
+
+- (void) createAndAddTabs
+{
+    if (self.tabBarController.childViewControllers.count > 0)
+        return;
+    
     UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] initWithNibName:@"WWOMessagesViewController" bundle:nil] autorelease];
     
     UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] initWithNibName:@"WWONearbyViewController" bundle:nil] autorelease];
-  
+    
     UINavigationController *messagesNavController = [[[UINavigationController alloc] initWithRootViewController:messagesViewController] autorelease];
     
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
-        
-    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
+
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:
-                                           nearbyNavController, messagesNavController, nil];
-    
-    self.window.rootViewController = self.tabBarController;
-    
-    [self.window makeKeyAndVisible];
-    return YES;
+                                             nearbyNavController, messagesNavController, nil];
+}
+
+- (void)userDidLogin
+{
+    [self createAndAddTabs];
+    [self.tabBarController dismissModalViewControllerAnimated:YES];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -69,6 +90,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// Pre iOS 4.2 support
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [[WWOApiManager sharedManager] handleOpenUrl:url]; 
+}
+
+// For iOS 4.2+ support
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[WWOApiManager sharedManager] handleOpenUrl:url]; 
 }
 
 /*
