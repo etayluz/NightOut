@@ -119,7 +119,7 @@ static WWOApiManager *sharedManager = nil;
       //todo: status
       NSString *jsonString = self.nearbyUsersRequest.responseString;
       NSDictionary *responseDict = [jsonString objectFromJSONString];
-      int status = [[responseDict objectForKey:@"status"] intValue];
+      //int status = [[responseDict objectForKey:@"status"] intValue];
       
       NSArray *userDicts = [responseDict objectForKey:@"users"];
       NSMutableArray *users = [NSMutableArray array];

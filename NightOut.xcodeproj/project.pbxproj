@@ -34,7 +34,6 @@
 		37107618158D42CC00871A12 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D7158D39A600871A12 /* NSIndexSet+AQIsSetContiguous.m */; };
 		37107619158D42CC00871A12 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 371075D9158D39A600871A12 /* NSIndexSet+AQIndexesOutsideSet.m */; };
 		3710761B158D430100871A12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3710761A158D430100871A12 /* QuartzCore.framework */; };
-		3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3710761C158D441E00871A12 /* WWONearbyViewController.xib */; };
 		37BD796E158D5CFB00B608DF /* WWONearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */; };
 		37BD7970158D613000B608DF /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BD796F158D613000B608DF /* header.png */; };
 		37BD7973158D645900B608DF /* WWOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BD7972158D645900B608DF /* WWOUser.m */; };
@@ -142,7 +141,6 @@
 		3710760D158D3D9D00871A12 /* WWONearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWONearbyViewController.h; sourceTree = "<group>"; };
 		3710760E158D3D9D00871A12 /* WWONearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyViewController.m; sourceTree = "<group>"; };
 		3710761A158D430100871A12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3710761C158D441E00871A12 /* WWONearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWONearbyViewController.xib; sourceTree = "<group>"; };
 		37BD796C158D5CFA00B608DF /* WWONearbyGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWONearbyGridViewCell.h; sourceTree = "<group>"; };
 		37BD796D158D5CFB00B608DF /* WWONearbyGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWONearbyGridViewCell.m; sourceTree = "<group>"; };
 		37BD796F158D613000B608DF /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
@@ -545,12 +543,11 @@
 		37F0F71C158CF7BA005511CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3710760D158D3D9D00871A12 /* WWONearbyViewController.h */,
+				3710760E158D3D9D00871A12 /* WWONearbyViewController.m */,
 				37F0F71F158CF7BA005511CD /* WWOMessagesViewController.h */,
 				37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */,
 				37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */,
-				3710760D158D3D9D00871A12 /* WWONearbyViewController.h */,
-				3710760E158D3D9D00871A12 /* WWONearbyViewController.m */,
-				3710761C158D441E00871A12 /* WWONearbyViewController.xib */,
 				37C34A80158FB6D60098A393 /* WWOProfileViewController.h */,
 				37C34A81158FB6D60098A393 /* WWOProfileViewController.m */,
 				37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */,
@@ -644,7 +641,6 @@
 				371075E4158D3A3600871A12 /* AQGridSelectionGrayBlue.png in Resources */,
 				371075E5158D3A3600871A12 /* AQGridSelectionGreen.png in Resources */,
 				371075E6158D3A3600871A12 /* AQGridSelectionRed.png in Resources */,
-				3710761D158D441E00871A12 /* WWONearbyViewController.xib in Resources */,
 				37BD7970158D613000B608DF /* header.png in Resources */,
 				37C34A84158FB6D60098A393 /* WWOProfileViewController.xib in Resources */,
 			);

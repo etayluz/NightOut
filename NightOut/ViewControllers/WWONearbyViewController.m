@@ -7,14 +7,12 @@
 //
 
 #import "Notification.h"
-
 #import "WWONearbyViewController.h"
 #import "WWOProfileViewController.h"
-
 #import "WWONearbyGridViewCell.h"
-
 #import "WWOApiManager.h"
 #import "WWOUser.h"
+#import "AQGridView.h"
 
 @interface WWONearbyViewController ()
 @property (nonatomic, retain) NSArray *users;
@@ -50,14 +48,20 @@
 {
     [super viewDidLoad];
     UIImage *headerImage = [UIImage imageNamed:@"header.png"];
-    
+
     [self addMessagesButton];
-    
+
     [Notification on:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
     [[WWOApiManager sharedManager] fetchNearbyUsers];
+
+    self.gridView = [[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    self.gridView.autoresizesSubviews = YES;
+    self.gridView.delegate = self;
+    self.gridView.dataSource = self;
     
+    [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
-    
     [self.gridView reloadData];
 }
 

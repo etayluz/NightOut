@@ -7,9 +7,7 @@
 //
 
 #import "WWOAppDelegate.h"
-
 #import "WWOMessagesViewController.h"
-
 #import "WWONearbyViewController.h"
 
 @implementation WWOAppDelegate
