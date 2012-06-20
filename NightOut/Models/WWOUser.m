@@ -10,7 +10,7 @@
 
 @implementation WWOUser
 
-@synthesize userID, name, age, thumb;
+@synthesize userID, name, age, thumb, network, friends;
 
 
 - (id) initWithDictionary: (NSDictionary *) dictionary
@@ -18,6 +18,8 @@
     if (self = [self init]) {
         self.name = [dictionary objectForKey:@"name"];
         self.age = [dictionary objectForKey:@"age"];
+        self.network = [dictionary objectForKey:@"networks"];
+        self.friends = [dictionary objectForKey:@"friends"];
         self.userID = [dictionary objectForKey:@"userID"];
         self.thumb = [dictionary objectForKey:@"thumb"];
     }

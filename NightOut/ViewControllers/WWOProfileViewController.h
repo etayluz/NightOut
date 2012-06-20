@@ -16,6 +16,8 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *ageLabel;
+@property (nonatomic, retain) IBOutlet UILabel *friendsLabel;
+@property (nonatomic, retain) IBOutlet UILabel *networkLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *profileImageView;
 
 @end

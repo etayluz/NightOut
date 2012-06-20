@@ -37,7 +37,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    //self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -54,15 +54,24 @@
     [Notification on:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
     [[WWOApiManager sharedManager] fetchNearbyUsers];
 
-    self.gridView = [[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
+    self.gridView.showsVerticalScrollIndicator = NO;
+    self.gridView.backgroundColor = [UIColor lightGrayColor];
     self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.gridView.autoresizesSubviews = YES;
     self.gridView.delegate = self;
     self.gridView.dataSource = self;
-    
+    [self.gridView setContentSizeGrowsToFillBounds:TRUE];
+    //[self.gridView setContentSize:<#(CGSize)#>
+
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
+}
+
+- (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
+{
+    return ( CGSizeMake(100, 150) );
 }
 
 - (void)addMessagesButton
@@ -102,10 +111,12 @@
     cell = (WWONearbyGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
     
     if (!cell) {
-		cell = [[[WWONearbyGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 94, 140)
+		cell = [[[WWONearbyGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 100, 150)
 									  reuseIdentifier:nearbyFriendCellIdentifier] autorelease];   
     }
     
+    //cell.backgroundColor = [UIColor purpleColor];
+
     WWOUser *user = [self.users objectAtIndex:index];
     [cell updateFromUser:user];
     

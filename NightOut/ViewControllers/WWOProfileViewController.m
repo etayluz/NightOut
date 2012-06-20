@@ -16,7 +16,7 @@
 
 @implementation WWOProfileViewController
 
-@synthesize nameLabel, ageLabel, profileImageView;
+@synthesize nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

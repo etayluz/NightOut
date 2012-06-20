@@ -14,7 +14,9 @@
 
 @property (retain) NSNumber *userID;
 @property (retain) NSString *name;
+@property (retain) NSString *network;
 @property (retain) NSNumber *age;
+@property (retain) NSNumber *friends;
 @property (retain) NSString *thumb;
 
 @end

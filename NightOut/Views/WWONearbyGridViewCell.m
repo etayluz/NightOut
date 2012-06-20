@@ -12,13 +12,15 @@
 #import "WWOUser.h"
 
 @implementation WWONearbyGridViewCell
-@synthesize imageView, nameLabel, ageLabel;
+@synthesize imageView, nameLabel, ageLabel, networkLabel, friendsLabel;
 
 - (void) dealloc
 {
     [imageView release];
     [nameLabel release];
     [ageLabel release];
+    [friendsLabel release];
+    [networkLabel release];
     
     [super dealloc];
 }
@@ -29,13 +31,33 @@
     if (self) {
         
         // Initialization code
-        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(7, 4, 80, 80)] autorelease];
-        self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(7, 86, 100, 21)] autorelease];
-        self.ageLabel = [[[UILabel alloc] initWithFrame:CGRectMake(7, 108, 31, 21)] autorelease];        
+        self.backgroundColor = [UIColor purpleColor];
+        self.contentView.backgroundColor = [UIColor grayColor];
+        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
+        
+        self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 100, 15)] autorelease];
+        self.nameLabel.font             = [UIFont boldSystemFontOfSize:13];
+        self.nameLabel.backgroundColor  = [UIColor clearColor];
+        
+        self.ageLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(80, 100, 100, 15)] autorelease];
+        self.ageLabel.font              = [UIFont boldSystemFontOfSize:13];
+        self.ageLabel.backgroundColor   = [UIColor clearColor];
+        
+        self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 120, 100, 15)] autorelease];
+        self.networkLabel.font             = [UIFont boldSystemFontOfSize:13];
+        self.networkLabel.backgroundColor  = [UIColor clearColor];
+        self.networkLabel.text = @"network";
+        
+        self.friendsLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(80, 120, 100, 15)] autorelease];
+        self.friendsLabel.font             = [UIFont boldSystemFontOfSize:13];
+        self.friendsLabel.backgroundColor  = [UIColor clearColor];
+        self.friendsLabel.text = @"5";
         
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
         [self.contentView addSubview:ageLabel];
+        //[self.contentView addSubview:networkLabel];
+        [self.contentView addSubview:friendsLabel];
     }
     return self;
 }
@@ -44,6 +66,8 @@
 {
     self.nameLabel.text = user.name;
     self.ageLabel.text = [user.age stringValue];
+    self.friendsLabel.text = [user.friends stringValue];
+    self.networkLabel.text = user.network;
     [self.imageView setImageWithURL:[NSURL URLWithString:user.thumb]];
 }
 

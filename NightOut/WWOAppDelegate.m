@@ -26,9 +26,9 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] initWithNibName:@"WWOMessagesViewController" bundle:nil] autorelease];
+    UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] init] autorelease];
     
-    UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] initWithNibName:@"WWONearbyViewController" bundle:nil] autorelease];
+    UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] init] autorelease];
   
     UINavigationController *messagesNavController = [[[UINavigationController alloc] initWithRootViewController:messagesViewController] autorelease];
     

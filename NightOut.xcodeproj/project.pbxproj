@@ -41,6 +41,7 @@
 		37C34A76158F886A0098A393 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C34A75158F886A0098A393 /* Notification.m */; };
 		37C34A83158FB6D60098A393 /* WWOProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C34A81158FB6D60098A393 /* WWOProfileViewController.m */; };
 		37C34A84158FB6D60098A393 /* WWOProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */; };
+		37E6C24D1591311700914FA1 /* WWONearbyViewReference.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E6C24C1591311700914FA1 /* WWONearbyViewReference.xib */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -154,6 +155,7 @@
 		37C34A80158FB6D60098A393 /* WWOProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOProfileViewController.h; sourceTree = "<group>"; };
 		37C34A81158FB6D60098A393 /* WWOProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOProfileViewController.m; sourceTree = "<group>"; };
 		37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOProfileViewController.xib; sourceTree = "<group>"; };
+		37E6C24C1591311700914FA1 /* WWONearbyViewReference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWONearbyViewReference.xib; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -545,6 +547,7 @@
 			children = (
 				3710760D158D3D9D00871A12 /* WWONearbyViewController.h */,
 				3710760E158D3D9D00871A12 /* WWONearbyViewController.m */,
+				37E6C24C1591311700914FA1 /* WWONearbyViewReference.xib */,
 				37F0F71F158CF7BA005511CD /* WWOMessagesViewController.h */,
 				37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */,
 				37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */,
@@ -643,6 +646,7 @@
 				371075E6158D3A3600871A12 /* AQGridSelectionRed.png in Resources */,
 				37BD7970158D613000B608DF /* header.png in Resources */,
 				37C34A84158FB6D60098A393 /* WWOProfileViewController.xib in Resources */,
+				37E6C24D1591311700914FA1 /* WWONearbyViewReference.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
