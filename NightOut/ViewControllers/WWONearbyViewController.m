@@ -7,8 +7,12 @@
 //
 
 #import "Notification.h"
+
 #import "WWONearbyViewController.h"
 #import "WWOProfileViewController.h"
+#import "WWOSettingsViewController.h"
+#import "WWOConversationsViewController.h"
+
 #import "WWONearbyGridViewCell.h"
 #import "WWOServerInterface.h"
 #import "WWOUser.h"
@@ -50,6 +54,7 @@
     UIImage *headerImage = [UIImage imageNamed:@"header.png"];
 
     [self addMessagesButton];
+    [self addFiltersButton];
 
     [Notification registerNotification:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
     [[WWOServerInterface sharedManager] fetchNearbyUsers];
@@ -81,9 +86,22 @@
     self.navigationItem.rightBarButtonItem = messagesButton;
 }
 
+- (void)addFiltersButton
+{
+    UIBarButtonItem *filtersButton = [[[UIBarButtonItem alloc] initWithTitle:@"Filters" style:UIBarButtonItemStylePlain target:self action:@selector(filtersButtonWasClicked)] autorelease];
+    
+    self.navigationItem.leftBarButtonItem = filtersButton;
+
+}
+
 - (void)messagesButtonWasClicked
 {
-    NSLog(@"Messages Button Was Clicked");
+    [self showMessages];
+}
+
+- (void)filtersButtonWasClicked
+{
+    [self showFilters];
 }
 
 - (void)viewDidUnload
@@ -124,7 +142,7 @@
 }
 
 #pragma mark - Notifications
-- (void)loadedNearbyUsers:(NSNotification *) notification
+- (void) loadedNearbyUsers:(NSNotification *) notification
 {
     NSLog(@"loaded nearby users");
     self.users = [notification.userInfo objectForKey:@"data"];
@@ -144,7 +162,19 @@
     [self showUserProfile:user];
 }
 
-- (void) showUserProfile:(WWOUser *)user
+- (void) showFilters
+{
+    WWOSettingsViewController *filtersVC = [[[WWOSettingsViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:filtersVC animated:YES];
+}
+
+- (void)showMessages
+{
+    WWOConversationsViewController *messagesVC = [[[WWOConversationsViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:messagesVC animated:YES];
+}
+
+- (void)showUserProfile:(WWOUser *)user
 {
     WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
     [self.navigationController pushViewController:profileVC animated:YES];

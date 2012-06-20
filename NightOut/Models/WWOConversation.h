@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "WWOAsDictionary.h"
 
-@interface WWOMessage : NSObject <WWOAsDictionary>
+@interface WWOConversation : NSObject <WWOAsDictionary>
 
 @property (retain) NSString *name;
 @property (retain) NSNumber *age;

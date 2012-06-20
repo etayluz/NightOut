@@ -1,29 +1,18 @@
 //
-//  WWOMessagesViewController.m
+//  WWOSmilesReceivedViewController.m
 //  NightOut
 //
 //  Created by Dan Berenholtz on 6/20/12.
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOMessagesViewController.h"
-#import "WWOServerInterface.h"
-#import "WWOConversation.h"
+#import "WWOSmilesReceivedViewController.h"
 
-#import "Notification.h"
-
-@interface WWOMessagesViewController ()
+@interface WWOSmilesReceivedViewController ()
 
 @end
 
-@implementation WWOMessagesViewController
-
-@synthesize nameLabel;
-
-- (void) dealloc
-{    
-    [super dealloc];
-}
+@implementation WWOSmilesReceivedViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,11 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload

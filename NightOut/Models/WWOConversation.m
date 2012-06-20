@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOMessage.h"
+#import "WWOConversation.h"
 
-@implementation WWOMessage
+@implementation WWOConversation
 
 @synthesize name, age, userID, caption, message, network, friends;
 

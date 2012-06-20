@@ -10,7 +10,7 @@
 #import "JSONKit.h"
 #import "Notification.h"
 
-#import "WWOMessage.h"
+#import "WWOConversation.h"
 #import "WWOUser.h"
 
 #import "WWONearbyUsersRequest.h"
@@ -120,7 +120,7 @@ static WWOServerInterface *sharedManager = nil;
         NSString *jsonString = self.messagesRequest.responseString;
         NSDictionary *responseDict = [jsonString objectFromJSONString];
         int status = [[responseDict objectForKey:@"status"] intValue];
-    
+
         if (status == 0) {
             [Notification send:@"FailedToFetchMessages"];
         }
@@ -129,7 +129,7 @@ static WWOServerInterface *sharedManager = nil;
             NSMutableArray *messages = [NSMutableArray array];
             
             for (NSDictionary *messageDict in messageDicts) {
-                WWOMessage *msg = [[[WWOMessage alloc] initWithDictionary:messageDict] autorelease];
+                WWOConversation *msg = [[[WWOConversation alloc] initWithDictionary:messageDict] autorelease];
                 [messages addObject: msg];
             }
             
