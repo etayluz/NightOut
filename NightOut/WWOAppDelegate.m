@@ -38,7 +38,7 @@
     [self.tabBarController presentModalViewController:loginViewController animated:NO];
     
     [Notification on:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
-    
+    [Notification send:@"UserDidLogin"];
     return YES;
 }
 

@@ -42,22 +42,19 @@
         self.ageLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(80, 100, 100, 15)] autorelease];
         self.ageLabel.font              = [UIFont boldSystemFontOfSize:13];
         self.ageLabel.backgroundColor   = [UIColor clearColor];
-        
-        self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 120, 100, 15)] autorelease];
-        self.networkLabel.font             = [UIFont boldSystemFontOfSize:13];
-        self.networkLabel.backgroundColor  = [UIColor clearColor];
-        self.networkLabel.text = @"network";
-        
-        self.friendsLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(80, 120, 100, 15)] autorelease];
-        self.friendsLabel.font             = [UIFont boldSystemFontOfSize:13];
+
+        self.friendsLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 115, 100, 15)] autorelease];
+        self.friendsLabel.font             = [UIFont boldSystemFontOfSize:10];
         self.friendsLabel.backgroundColor  = [UIColor clearColor];
-        self.friendsLabel.text = @"5";
         
-        
+        self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 130, 100, 15)] autorelease];
+        self.networkLabel.font             = [UIFont boldSystemFontOfSize:10];
+        self.networkLabel.backgroundColor  = [UIColor clearColor];
+         
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
         [self.contentView addSubview:ageLabel];
-        //[self.contentView addSubview:networkLabel];
+        [self.contentView addSubview:networkLabel];
         [self.contentView addSubview:friendsLabel];
         
     }
@@ -68,7 +65,9 @@
 {
     self.nameLabel.text = user.name;
     self.ageLabel.text = [user.age stringValue];
-    self.friendsLabel.text = [user.friends stringValue];
+    //TODO: friends
+    //self.friendsLabel.text = [NSString stringWithFormat:@"Mutual Friends: %@", [user.friends stringValue]];
+    self.friendsLabel.text = @"Mutual Friends: 13";   
     self.networkLabel.text = user.network;
     [self.imageView setImageWithURL:[NSURL URLWithString:user.thumb]];
 }
