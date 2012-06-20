@@ -11,7 +11,7 @@
 #import "WWOConversationsViewController.h"
 #import "WWOMessagesViewController.h"
 
-#import "WWOApiManager.h"
+#import "WWOServerInterface.h"
 #import "WWOConversation.h"
 
 @interface WWOConversationsViewController ()
@@ -24,7 +24,7 @@
 
 - (void) dealloc
 {
-    [Notification off:@"DidFetchMessages" target:self];
+    [Notification unregisterNotification:@"DidFetchMessages" target:self];
     
     [super dealloc];
 }
@@ -42,8 +42,8 @@
 {
     [super viewDidLoad];
     
-    [Notification on:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
-    [[WWOApiManager sharedManager] fetchMessages];
+    [Notification registerNotification:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
+    [[WWOServerInterface sharedManager] fetchMessages];
 }
 
 - (void)viewDidUnload

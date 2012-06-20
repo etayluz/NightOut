@@ -21,9 +21,7 @@
 @synthesize nameLabel;
 
 - (void) dealloc
-{
-    [Notification unregisterNotification:@"DidFetchMessages" target:self];
-    
+{    
     [super dealloc];
 }
 
@@ -31,7 +29,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.nameLabel.text = @"yeah man";
         // Custom initialization
     }
     return self;
@@ -45,10 +42,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [Notification registerNotification:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
-
-    [[WWOServerInterface sharedManager] fetchMessages];
 }
 
 - (void)viewDidUnload

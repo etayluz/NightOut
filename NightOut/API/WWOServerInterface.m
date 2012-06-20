@@ -129,7 +129,7 @@ static WWOServerInterface *sharedManager = nil;
             NSMutableArray *messages = [NSMutableArray array];
             
             for (NSDictionary *messageDict in messageDicts) {
-                WWOMessage *msg = [[[WWOMessage alloc] initWithDictionary:messageDict] autorelease];
+                WWOConversation *msg = [[[WWOConversation alloc] initWithDictionary:messageDict] autorelease];
                 [messages addObject: msg];
             }
             
