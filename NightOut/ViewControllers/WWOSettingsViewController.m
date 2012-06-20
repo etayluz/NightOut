@@ -1,27 +1,23 @@
 //
-//  WWOMessagesViewController.m
+//  WWOFiltersViewController.m
 //  NightOut
 //
 //  Created by Dan Berenholtz on 6/20/12.
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOMessagesViewController.h"
+#import "WWOSettingsViewController.h"
 
-@interface WWOMessagesViewController ()
+@interface WWOSettingsViewController ()
 
 @end
 
-@implementation WWOMessagesViewController
-
-@synthesize nameLabel;
-
+@implementation WWOSettingsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.nameLabel.text = @"yeah man";
         // Custom initialization
     }
     return self;

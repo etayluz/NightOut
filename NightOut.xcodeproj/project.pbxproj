@@ -55,6 +55,20 @@
 		37C34A76158F886A0098A393 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C34A75158F886A0098A393 /* Notification.m */; };
 		37C34A83158FB6D60098A393 /* WWOProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C34A81158FB6D60098A393 /* WWOProfileViewController.m */; };
 		37C34A84158FB6D60098A393 /* WWOProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */; };
+		37DF145015924D4D00D288F7 /* WWOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF144E15924D4D00D288F7 /* WWOSettingsViewController.m */; };
+		37DF145115924D4D00D288F7 /* WWOSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF144F15924D4D00D288F7 /* WWOSettingsViewController.xib */; };
+		37DF145A15925F5700D288F7 /* WWOExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF145815925F5700D288F7 /* WWOExploreViewController.m */; };
+		37DF145B15925F5700D288F7 /* WWOExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF145915925F5700D288F7 /* WWOExploreViewController.xib */; };
+		37DF145F159260E400D288F7 /* WWOSmileMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF145D159260E400D288F7 /* WWOSmileMainViewController.m */; };
+		37DF1460159260E400D288F7 /* WWOSmileMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF145E159260E400D288F7 /* WWOSmileMainViewController.xib */; };
+		37DF14641592645A00D288F7 /* WWOMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF14621592645A00D288F7 /* WWOMessagesViewController.m */; };
+		37DF14651592645A00D288F7 /* WWOMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF14631592645A00D288F7 /* WWOMessagesViewController.xib */; };
+		37DF1469159268DD00D288F7 /* WWOSmilesSentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF1467159268DD00D288F7 /* WWOSmilesSentViewController.m */; };
+		37DF146A159268DD00D288F7 /* WWOSmilesSentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF1468159268DD00D288F7 /* WWOSmilesSentViewController.xib */; };
+		37DF146E159269BB00D288F7 /* WWOSmilesReceivedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF146C159269BA00D288F7 /* WWOSmilesReceivedViewController.m */; };
+		37DF146F159269BB00D288F7 /* WWOSmilesReceivedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF146D159269BA00D288F7 /* WWOSmilesReceivedViewController.xib */; };
+		37DF1473159269C800D288F7 /* WWOSmileMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF1471159269C700D288F7 /* WWOSmileMatchesViewController.m */; };
+		37DF1474159269C800D288F7 /* WWOSmileMatchesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF1472159269C700D288F7 /* WWOSmileMatchesViewController.xib */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -95,10 +109,10 @@
 		37F0F719158CF7B0005511CD /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F715158CF7B0005511CD /* first@2x.png */; };
 		37F0F71A158CF7B0005511CD /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F716158CF7B0005511CD /* second.png */; };
 		37F0F71B158CF7B0005511CD /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F717158CF7B0005511CD /* second@2x.png */; };
-		37F0F725158CF7BA005511CD /* WWOMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */; };
-		37F0F726158CF7BA005511CD /* WWOMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */; };
+		37F0F725158CF7BA005511CD /* WWOConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F720158CF7BA005511CD /* WWOConversationsViewController.m */; };
+		37F0F726158CF7BA005511CD /* WWOConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F721158CF7BA005511CD /* WWOConversationsViewController.xib */; };
 		37F0F728158D01F1005511CD /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F67B158CF1F6005511CD /* JSONKit.m */; };
-		37F0F72D158D04C1005511CD /* WWOMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F72C158D04C1005511CD /* WWOMessage.m */; };
+		37F0F72D158D04C1005511CD /* WWOConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F72C158D04C1005511CD /* WWOConversation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +210,27 @@
 		37C34A80158FB6D60098A393 /* WWOProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOProfileViewController.h; sourceTree = "<group>"; };
 		37C34A81158FB6D60098A393 /* WWOProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOProfileViewController.m; sourceTree = "<group>"; };
 		37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOProfileViewController.xib; sourceTree = "<group>"; };
+		37DF144D15924D4D00D288F7 /* WWOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSettingsViewController.h; sourceTree = "<group>"; };
+		37DF144E15924D4D00D288F7 /* WWOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSettingsViewController.m; sourceTree = "<group>"; };
+		37DF144F15924D4D00D288F7 /* WWOSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSettingsViewController.xib; sourceTree = "<group>"; };
+		37DF145715925F5700D288F7 /* WWOExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOExploreViewController.h; sourceTree = "<group>"; };
+		37DF145815925F5700D288F7 /* WWOExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOExploreViewController.m; sourceTree = "<group>"; };
+		37DF145915925F5700D288F7 /* WWOExploreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOExploreViewController.xib; sourceTree = "<group>"; };
+		37DF145C159260E400D288F7 /* WWOSmileMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSmileMainViewController.h; sourceTree = "<group>"; };
+		37DF145D159260E400D288F7 /* WWOSmileMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSmileMainViewController.m; sourceTree = "<group>"; };
+		37DF145E159260E400D288F7 /* WWOSmileMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSmileMainViewController.xib; sourceTree = "<group>"; };
+		37DF14611592645A00D288F7 /* WWOMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOMessagesViewController.h; sourceTree = "<group>"; };
+		37DF14621592645A00D288F7 /* WWOMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOMessagesViewController.m; sourceTree = "<group>"; };
+		37DF14631592645A00D288F7 /* WWOMessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOMessagesViewController.xib; sourceTree = "<group>"; };
+		37DF1466159268DD00D288F7 /* WWOSmilesSentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSmilesSentViewController.h; sourceTree = "<group>"; };
+		37DF1467159268DD00D288F7 /* WWOSmilesSentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSmilesSentViewController.m; sourceTree = "<group>"; };
+		37DF1468159268DD00D288F7 /* WWOSmilesSentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSmilesSentViewController.xib; sourceTree = "<group>"; };
+		37DF146B159269BA00D288F7 /* WWOSmilesReceivedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSmilesReceivedViewController.h; sourceTree = "<group>"; };
+		37DF146C159269BA00D288F7 /* WWOSmilesReceivedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSmilesReceivedViewController.m; sourceTree = "<group>"; };
+		37DF146D159269BA00D288F7 /* WWOSmilesReceivedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSmilesReceivedViewController.xib; sourceTree = "<group>"; };
+		37DF1470159269C700D288F7 /* WWOSmileMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSmileMatchesViewController.h; sourceTree = "<group>"; };
+		37DF1471159269C700D288F7 /* WWOSmileMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSmileMatchesViewController.m; sourceTree = "<group>"; };
+		37DF1472159269C700D288F7 /* WWOSmileMatchesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSmileMatchesViewController.xib; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -270,11 +305,11 @@
 		37F0F715158CF7B0005511CD /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		37F0F716158CF7B0005511CD /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		37F0F717158CF7B0005511CD /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		37F0F71F158CF7BA005511CD /* WWOMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOMessagesViewController.h; sourceTree = "<group>"; };
-		37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOMessagesViewController.m; sourceTree = "<group>"; };
-		37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOMessagesViewController.xib; sourceTree = "<group>"; };
-		37F0F72B158D04C1005511CD /* WWOMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOMessage.h; sourceTree = "<group>"; };
-		37F0F72C158D04C1005511CD /* WWOMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOMessage.m; sourceTree = "<group>"; };
+		37F0F71F158CF7BA005511CD /* WWOConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOConversationsViewController.h; sourceTree = "<group>"; };
+		37F0F720158CF7BA005511CD /* WWOConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOConversationsViewController.m; sourceTree = "<group>"; };
+		37F0F721158CF7BA005511CD /* WWOConversationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOConversationsViewController.xib; sourceTree = "<group>"; };
+		37F0F72B158D04C1005511CD /* WWOConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOConversation.h; sourceTree = "<group>"; };
+		37F0F72C158D04C1005511CD /* WWOConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOConversation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,15 +663,36 @@
 			children = (
 				3710760D158D3D9D00871A12 /* WWONearbyViewController.h */,
 				3710760E158D3D9D00871A12 /* WWONearbyViewController.m */,
-				37F0F71F158CF7BA005511CD /* WWOMessagesViewController.h */,
-				37F0F720158CF7BA005511CD /* WWOMessagesViewController.m */,
-				37F0F721158CF7BA005511CD /* WWOMessagesViewController.xib */,
+				37F0F71F158CF7BA005511CD /* WWOConversationsViewController.h */,
+				37F0F720158CF7BA005511CD /* WWOConversationsViewController.m */,
+				37F0F721158CF7BA005511CD /* WWOConversationsViewController.xib */,
 				37C34A80158FB6D60098A393 /* WWOProfileViewController.h */,
 				37C34A81158FB6D60098A393 /* WWOProfileViewController.m */,
 				37C34A82158FB6D60098A393 /* WWOProfileViewController.xib */,
 				3719E2D315912A9F00E9A138 /* WWOLoginViewController.h */,
 				3719E2D415912A9F00E9A138 /* WWOLoginViewController.m */,
 				3719E2D515912A9F00E9A138 /* WWOLoginViewController.xib */,
+				37DF144D15924D4D00D288F7 /* WWOSettingsViewController.h */,
+				37DF144E15924D4D00D288F7 /* WWOSettingsViewController.m */,
+				37DF144F15924D4D00D288F7 /* WWOSettingsViewController.xib */,
+				37DF145715925F5700D288F7 /* WWOExploreViewController.h */,
+				37DF145815925F5700D288F7 /* WWOExploreViewController.m */,
+				37DF145915925F5700D288F7 /* WWOExploreViewController.xib */,
+				37DF145C159260E400D288F7 /* WWOSmileMainViewController.h */,
+				37DF145D159260E400D288F7 /* WWOSmileMainViewController.m */,
+				37DF145E159260E400D288F7 /* WWOSmileMainViewController.xib */,
+				37DF14611592645A00D288F7 /* WWOMessagesViewController.h */,
+				37DF14621592645A00D288F7 /* WWOMessagesViewController.m */,
+				37DF14631592645A00D288F7 /* WWOMessagesViewController.xib */,
+				37DF1466159268DD00D288F7 /* WWOSmilesSentViewController.h */,
+				37DF1467159268DD00D288F7 /* WWOSmilesSentViewController.m */,
+				37DF1468159268DD00D288F7 /* WWOSmilesSentViewController.xib */,
+				37DF146B159269BA00D288F7 /* WWOSmilesReceivedViewController.h */,
+				37DF146C159269BA00D288F7 /* WWOSmilesReceivedViewController.m */,
+				37DF146D159269BA00D288F7 /* WWOSmilesReceivedViewController.xib */,
+				37DF1470159269C700D288F7 /* WWOSmileMatchesViewController.h */,
+				37DF1471159269C700D288F7 /* WWOSmileMatchesViewController.m */,
+				37DF1472159269C700D288F7 /* WWOSmileMatchesViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -655,8 +711,8 @@
 			isa = PBXGroup;
 			children = (
 				37C34A70158E84AB0098A393 /* WWOAsDictionary.h */,
-				37F0F72B158D04C1005511CD /* WWOMessage.h */,
-				37F0F72C158D04C1005511CD /* WWOMessage.m */,
+				37F0F72B158D04C1005511CD /* WWOConversation.h */,
+				37F0F72C158D04C1005511CD /* WWOConversation.m */,
 				37BD7971158D645900B608DF /* WWOUser.h */,
 				37BD7972158D645900B608DF /* WWOUser.m */,
 			);
@@ -721,7 +777,7 @@
 				37F0F719158CF7B0005511CD /* first@2x.png in Resources */,
 				37F0F71A158CF7B0005511CD /* second.png in Resources */,
 				37F0F71B158CF7B0005511CD /* second@2x.png in Resources */,
-				37F0F726158CF7BA005511CD /* WWOMessagesViewController.xib in Resources */,
+				37F0F726158CF7BA005511CD /* WWOConversationsViewController.xib in Resources */,
 				371075E2158D3A3600871A12 /* AQGridSelection.png in Resources */,
 				371075E3158D3A3600871A12 /* AQGridSelectionGray.png in Resources */,
 				371075E4158D3A3600871A12 /* AQGridSelectionGrayBlue.png in Resources */,
@@ -731,6 +787,13 @@
 				37C34A84158FB6D60098A393 /* WWOProfileViewController.xib in Resources */,
 				3719E2D715912A9F00E9A138 /* WWOLoginViewController.xib in Resources */,
 				3719E30B159133BD00E9A138 /* FBDialog.bundle in Resources */,
+				37DF145115924D4D00D288F7 /* WWOSettingsViewController.xib in Resources */,
+				37DF145B15925F5700D288F7 /* WWOExploreViewController.xib in Resources */,
+				37DF1460159260E400D288F7 /* WWOSmileMainViewController.xib in Resources */,
+				37DF14651592645A00D288F7 /* WWOMessagesViewController.xib in Resources */,
+				37DF146A159268DD00D288F7 /* WWOSmilesSentViewController.xib in Resources */,
+				37DF146F159269BB00D288F7 /* WWOSmilesReceivedViewController.xib in Resources */,
+				37DF1474159269C800D288F7 /* WWOSmileMatchesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,8 +830,8 @@
 				37F0F6EB158CF2C6005511CD /* ASIS3ServiceRequest.m in Sources */,
 				37F0F6FC158CF2C6005511CD /* Reachability.m in Sources */,
 				37F0F70E158CF4CD005511CD /* SFHFKeychainUtils.m in Sources */,
-				37F0F725158CF7BA005511CD /* WWOMessagesViewController.m in Sources */,
-				37F0F72D158D04C1005511CD /* WWOMessage.m in Sources */,
+				37F0F725158CF7BA005511CD /* WWOConversationsViewController.m in Sources */,
+				37F0F72D158D04C1005511CD /* WWOConversation.m in Sources */,
 				371075FC158D3AA200871A12 /* MKAnnotationView+WebCache.m in Sources */,
 				371075FD158D3AA200871A12 /* SDImageCache.m in Sources */,
 				371075FE158D3AA200871A12 /* SDWebImageDecoder.m in Sources */,
@@ -805,6 +868,13 @@
 				3719E313159133BD00E9A138 /* SBJsonBase.m in Sources */,
 				3719E314159133BD00E9A138 /* SBJsonParser.m in Sources */,
 				3719E315159133BD00E9A138 /* SBJsonWriter.m in Sources */,
+				37DF145015924D4D00D288F7 /* WWOSettingsViewController.m in Sources */,
+				37DF145A15925F5700D288F7 /* WWOExploreViewController.m in Sources */,
+				37DF145F159260E400D288F7 /* WWOSmileMainViewController.m in Sources */,
+				37DF14641592645A00D288F7 /* WWOMessagesViewController.m in Sources */,
+				37DF1469159268DD00D288F7 /* WWOSmilesSentViewController.m in Sources */,
+				37DF146E159269BB00D288F7 /* WWOSmilesReceivedViewController.m in Sources */,
+				37DF1473159269C800D288F7 /* WWOSmileMatchesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

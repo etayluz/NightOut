@@ -1,27 +1,23 @@
 //
-//  WWOMessagesViewController.m
+//  WWOSmileMatchesViewController.m
 //  NightOut
 //
 //  Created by Dan Berenholtz on 6/20/12.
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOMessagesViewController.h"
+#import "WWOSmileMatchesViewController.h"
 
-@interface WWOMessagesViewController ()
+@interface WWOSmileMatchesViewController ()
 
 @end
 
-@implementation WWOMessagesViewController
-
-@synthesize nameLabel;
-
+@implementation WWOSmileMatchesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.nameLabel.text = @"yeah man";
         // Custom initialization
     }
     return self;

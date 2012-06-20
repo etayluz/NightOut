@@ -10,9 +10,11 @@
 #import "WWOApiManager.h"
 
 #import "WWOAppDelegate.h"
-#import "WWOMessagesViewController.h"
+
+#import "WWOExploreViewController.h"
 #import "WWONearbyViewController.h"
 #import "WWOLoginViewController.h"
+#import "WWOSmileMainViewController.h"
 
 @implementation WWOAppDelegate
 
@@ -48,16 +50,24 @@
     if (self.tabBarController.childViewControllers.count > 0)
         return;
     
-    UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] init] autorelease];
+    UIViewController *exploreViewController = [[[WWOExploreViewController alloc] init] autorelease];
     
     UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] init] autorelease];
     
-    UINavigationController *messagesNavController = [[[UINavigationController alloc] initWithRootViewController:messagesViewController] autorelease];
+    UIViewController *smileMainViewController = [[[WWOSmileMainViewController alloc] init] autorelease];
+    
+    UINavigationController *exploreNavController = [[[UINavigationController alloc] initWithRootViewController:exploreViewController] autorelease];
     
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
 
+    UINavigationController *smileMainNavController = [[[UINavigationController alloc] initWithRootViewController:smileMainViewController] autorelease];
+    
+    exploreNavController.title = @"Explore";
+    nearbyNavController.title = @"Nearby";
+    smileMainNavController.title = @"Smiles";
+    
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:
-                                             nearbyNavController, messagesNavController, nil];
+                                             nearbyNavController, smileMainNavController, exploreNavController, nil];
 }
 
 - (void)showLoginViewIfUserIsLoggedOut
