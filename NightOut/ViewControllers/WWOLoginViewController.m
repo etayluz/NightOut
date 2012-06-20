@@ -8,7 +8,7 @@
 
 #import "WWOLoginViewController.h"
 #import "Notification.h"
-#import "WWOApiManager.h"
+#import "WWOServerInterface.h"
 
 @interface WWOLoginViewController ()
 
@@ -16,20 +16,12 @@
 
 @implementation WWOLoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)viewDidUnload
 {
@@ -38,17 +30,17 @@
     // e.g. self.myOutlet = nil;
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
 - (IBAction)userDidClickLogin:(id)sender
 {
     //[Notification send:@"UserDidLogin"];
-    [[WWOApiManager sharedManager] showLoginPrompt];
+    [[WWOServerInterface sharedManager] showLoginPrompt];
 }
-
-
 
 @end

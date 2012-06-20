@@ -7,8 +7,7 @@
 //
 
 #import "Notification.h"
-#import "WWOApiManager.h"
-
+#import "WWOServerInterface.h"
 #import "WWOAppDelegate.h"
 
 #import "WWOExploreViewController.h"
@@ -21,21 +20,13 @@
 @synthesize window;
 @synthesize tabBarController;
 
-- (void)dealloc
-{
-    [Notification off:@"UserDidLogin" target:self];
-    
-    [self.window release];
-    [self.tabBarController release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Notification on:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
+    /* Register UserDidLogin notification with Notification Center */
+    [Notification registerNotification:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
 
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -72,7 +63,7 @@
 
 - (void)showLoginViewIfUserIsLoggedOut
 {
-    if (![[WWOApiManager sharedManager] isUserLoggedIn]) {
+    if (![[WWOServerInterface sharedManager] isUserLoggedIn]) {
         WWOLoginViewController *loginViewController = [[[WWOLoginViewController alloc] init] autorelease];
         [self.tabBarController presentModalViewController:loginViewController animated:NO];
     }
@@ -80,6 +71,7 @@
         [Notification send:@"UserDidLogin"];
     }
 }
+
 
 - (void)userDidLogin
 {
@@ -99,10 +91,12 @@
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
+
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
   // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
+
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
@@ -114,16 +108,28 @@
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
 // Pre iOS 4.2 support
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[WWOApiManager sharedManager] handleOpenUrl:url]; 
+    return [[WWOServerInterface sharedManager] handleOpenUrl:url]; 
 }
 
 // For iOS 4.2+ support
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[WWOApiManager sharedManager] handleOpenUrl:url]; 
+    return [[WWOServerInterface sharedManager] handleOpenUrl:url]; 
 }
+
+
+- (void)dealloc
+{
+    [Notification unregisterNotification:@"UserDidLogin" target:self];
+    
+    [self.window release];
+    [self.tabBarController release];
+    [super dealloc];
+}
+
 
 /*
 // Optional UITabBarControllerDelegate method.

@@ -14,6 +14,6 @@
 @interface Notification : NSObject
 + (void) send:(NSString *) event;
 + (void) send:(NSString *) event withData:(NSObject *) data;
-+ (void) on:(NSString *) event target:(id)target selector:(SEL)selector;
-+ (void) off:(NSString *) event target:(id)target;
++ (void) registerNotification:(NSString *) event target:(id)target selector:(SEL)selector;
++ (void) unregisterNotification:(NSString *) event target:(id)target;
 @end

@@ -14,7 +14,7 @@
 #import "WWOConversationsViewController.h"
 
 #import "WWONearbyGridViewCell.h"
-#import "WWOApiManager.h"
+#import "WWOServerInterface.h"
 #import "WWOUser.h"
 #import "AQGridView.h"
 
@@ -34,7 +34,7 @@
     [gridView release];
     [headerView release];
     
-    [Notification off:@"DidFetchNearbyUsers" target:self];
+    [Notification unregisterNotification:@"DidFetchNearbyUsers" target:self];
     
     [super dealloc];
 }
@@ -56,8 +56,8 @@
     [self addMessagesButton];
     [self addFiltersButton];
 
-    [Notification on:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
-    [[WWOApiManager sharedManager] fetchNearbyUsers];
+    [Notification registerNotification:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
+    [[WWOServerInterface sharedManager] fetchNearbyUsers];
 
     self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
     self.gridView.showsVerticalScrollIndicator = NO;

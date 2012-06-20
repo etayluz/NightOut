@@ -7,6 +7,10 @@
 //
 
 #import "WWOMessagesViewController.h"
+#import "WWOServerInterface.h"
+#import "WWOConversation.h"
+
+#import "Notification.h"
 
 @interface WWOMessagesViewController ()
 
@@ -16,6 +20,12 @@
 
 @synthesize nameLabel;
 
+- (void) dealloc
+{
+    [Notification unregisterNotification:@"DidFetchMessages" target:self];
+    
+    [super dealloc];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +40,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [Notification registerNotification:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
+
+    [[WWOServerInterface sharedManager] fetchMessages];
 }
 
 - (void)viewDidUnload
