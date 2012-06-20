@@ -57,9 +57,12 @@
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
         [self.contentView addSubview:ageLabel];
+<<<<<<< HEAD
         //[self.contentView addSubview:networkLabel];
         [self.contentView addSubview:friendsLabel];
+=======
         
+>>>>>>> facebook_login
     }
     return self;
 }

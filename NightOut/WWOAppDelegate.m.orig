@@ -29,6 +29,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+<<<<<<< HEAD
+    // Override point for customization after application launch.
+    UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] init] autorelease];
+    
+    UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] init] autorelease];
+  
+=======
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     self.window.rootViewController = self.tabBarController;
@@ -47,10 +54,11 @@
     if (self.tabBarController.childViewControllers.count > 0)
         return;
     
-    UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] init] autorelease];
+    UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] initWithNibName:@"WWOMessagesViewController" bundle:nil] autorelease];
     
-    UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] init] autorelease];
+    UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] initWithNibName:@"WWONearbyViewController" bundle:nil] autorelease];
     
+>>>>>>> facebook_login
     UINavigationController *messagesNavController = [[[UINavigationController alloc] initWithRootViewController:messagesViewController] autorelease];
     
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];

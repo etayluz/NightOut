@@ -25,7 +25,7 @@
 static WWOApiManager *sharedManager = nil;
 
 @implementation WWOApiManager
-@synthesize messagesRequest, nearbyUsersRequest;
+@synthesize messagesRequest, nearbyUsersRequest, facebook;
 
 #pragma mark - Singleton compliance DON'T MODIFY! (Unless you know wtf you're doing)
 
@@ -40,6 +40,17 @@ static WWOApiManager *sharedManager = nil;
 + (id)allocWithZone:(NSZone *)zone
 {
   return [[self sharedManager] retain];
+}
+
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        
+        [self initFacebookObject];
+        
+    }
+    return self;
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -142,5 +153,99 @@ static WWOApiManager *sharedManager = nil;
   }
 }
 
+#pragma mark facebook auth
+
+
+- (void) initFacebookObject
+{
+    // create a facebook instance with the given app id
+    facebook = [[Facebook alloc] initWithAppId:@"183435348401103" andDelegate:self];
+    // if fb login credentials are already saved away, get them from there
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"] 
+        && [defaults objectForKey:@"FBExpirationDateKey"]) {
+        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+    }
+}
+
+- (BOOL) isUserLoggedIn
+{
+    return [facebook isSessionValid];
+}
+
+- (void) showLoginPrompt
+{
+    [facebook authorize:nil];
+}
+
+/**
+ * Called when the user successfully logged in.
+ */
+- (void)fbDidLogin
+{
+    NSLog(@"fbDidLogin");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+    
+    NSLog(@"fb token = %@", [facebook accessToken]);
+    
+    [Notification send:@"UserDidLogin"];
+}
+
+/**
+ * Called when the user dismissed the dialog without logging in.
+ */
+- (void)fbDidNotLogin:(BOOL)cancelled
+{
+    NSLog(@"fbDidNotLogin");
+}
+
+/**
+ * Called after the access token was extended. If your application has any
+ * references to the previous access token (for example, if your application
+ * stores the previous access token in persistent storage), your application
+ * should overwrite the old access token with the new one in this method.
+ * See extendAccessToken for more details.
+ */
+- (void)fbDidExtendToken:(NSString*)accessToken
+               expiresAt:(NSDate*)expiresAt
+{
+    NSLog(@"fbDidExtendToken");
+}
+
+/**
+ * Called when the user logged out.
+ */
+- (void)fbDidLogout
+{
+    NSLog(@"fbDidLogout");
+    // Remove saved authorization information if it exists
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"]) {
+        [defaults removeObjectForKey:@"FBAccessTokenKey"];
+        [defaults removeObjectForKey:@"FBExpirationDateKey"];
+        [defaults synchronize];
+    }
+}
+
+/**
+ * Called when the current session has expired. This might happen when:
+ *  - the access token expired
+ *  - the app has been disabled
+ *  - the user revoked the app's permissions
+ *  - the user changed his or her password
+ */
+- (void)fbSessionInvalidated
+{
+    NSLog(@"fbSessionInvalidated");
+}
+
+- (BOOL) handleOpenUrl:(NSURL *)url
+{
+    return [self.facebook handleOpenURL:url];
+}
 
 @end
