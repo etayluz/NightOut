@@ -7,8 +7,7 @@
 //
 
 #import "Notification.h"
-#import "WWOApiManager.h"
-
+#import "WWOServerInterface.h"
 #import "WWOAppDelegate.h"
 #import "WWOMessagesViewController.h"
 #import "WWONearbyViewController.h"
@@ -19,28 +18,41 @@
 @synthesize window;
 @synthesize tabBarController;
 
-- (void)dealloc
-{
-    [self.window release];
-    [self.tabBarController release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /* Register UserDidLogin notification with Notification Center */
+    [Notification registerNotification:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
+
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
-    WWOLoginViewController *loginViewController = [[[WWOLoginViewController alloc] init] autorelease];
-    [self.tabBarController presentModalViewController:loginViewController animated:NO];
+    [self showLoginViewIfUserIsLoggedOut];
     
-    [Notification on:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
-    [Notification send:@"UserDidLogin"];
     return YES;
 }
+
+
+- (void)showLoginViewIfUserIsLoggedOut
+{
+    if (![[WWOServerInterface sharedManager] isUserLoggedIn]) {
+        WWOLoginViewController *loginViewController = [[[WWOLoginViewController alloc] init] autorelease];
+        [self.tabBarController presentModalViewController:loginViewController animated:NO];
+    }
+    else {
+        [Notification send:@"UserDidLogin"];
+    }
+}
+
+
+- (void)userDidLogin
+{
+    [self createAndAddTabs];
+    [self.tabBarController dismissModalViewControllerAnimated:YES];
+}
+
 
 - (void) createAndAddTabs
 {
@@ -48,22 +60,15 @@
         return;
     
     UIViewController *messagesViewController = [[[WWOMessagesViewController alloc] init] autorelease];
-    
     UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] init] autorelease];
     
     UINavigationController *messagesNavController = [[[UINavigationController alloc] initWithRootViewController:messagesViewController] autorelease];
-    
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
 
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:
                                              nearbyNavController, messagesNavController, nil];
 }
 
-- (void)userDidLogin
-{
-    [self createAndAddTabs];
-    [self.tabBarController dismissModalViewControllerAnimated:YES];
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -77,10 +82,12 @@
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
+
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
   // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
+
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
@@ -92,16 +99,28 @@
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
 // Pre iOS 4.2 support
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[WWOApiManager sharedManager] handleOpenUrl:url]; 
+    return [[WWOServerInterface sharedManager] handleOpenUrl:url]; 
 }
 
 // For iOS 4.2+ support
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[WWOApiManager sharedManager] handleOpenUrl:url]; 
+    return [[WWOServerInterface sharedManager] handleOpenUrl:url]; 
 }
+
+
+- (void)dealloc
+{
+    [Notification unregisterNotification:@"UserDidLogin" target:self];
+    
+    [self.window release];
+    [self.tabBarController release];
+    [super dealloc];
+}
+
 
 /*
 // Optional UITabBarControllerDelegate method.

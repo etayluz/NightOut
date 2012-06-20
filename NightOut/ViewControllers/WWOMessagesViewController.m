@@ -9,7 +9,7 @@
 #import "Notification.h"
 
 #import "WWOMessagesViewController.h"
-#import "WWOApiManager.h"
+#import "WWOServerInterface.h"
 
 #import "WWOMessage.h"
 
@@ -23,7 +23,7 @@
 
 - (void) dealloc
 {
-    [Notification off:@"DidFetchMessages" target:self];
+    [Notification unregisterNotification:@"DidFetchMessages" target:self];
     
     [super dealloc];
 }
@@ -47,9 +47,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [Notification on:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
+    [Notification registerNotification:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
 
-    [[WWOApiManager sharedManager] fetchMessages];
+    [[WWOServerInterface sharedManager] fetchMessages];
 }
 
 - (void)viewDidUnload

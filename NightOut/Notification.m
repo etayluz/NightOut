@@ -21,12 +21,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:NotificationName(event) object:nil userInfo:userInfo];
 }
 
-+ (void) on:(NSString *) event target:(id)target selector:(SEL)selector
++ (void) registerNotification:(NSString *) event target:(id)target selector:(SEL)selector
 {
     [[NSNotificationCenter defaultCenter] addObserver:target selector:selector name:NotificationName(event) object:nil];
 }
 
-+ (void) off:(NSString *) event target:(id)target
++ (void) unregisterNotification:(NSString *) event target:(id)target
 {
     [[NSNotificationCenter defaultCenter] removeObserver:target name:NotificationName(event) object:nil];
 }
