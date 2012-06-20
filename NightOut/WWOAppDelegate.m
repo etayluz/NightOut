@@ -21,6 +21,8 @@
 
 - (void)dealloc
 {
+    [Notification off:@"UserDidLogin" target:self];
+    
     [self.window release];
     [self.tabBarController release];
     [super dealloc];
@@ -28,16 +30,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Notification on:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
+
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
-    WWOLoginViewController *loginViewController = [[[WWOLoginViewController alloc] init] autorelease];
-    [self.tabBarController presentModalViewController:loginViewController animated:NO];
-    
-    [Notification on:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
+    [self showLoginViewIfUserIsLoggedOut];
     
     return YES;
 }
@@ -57,6 +58,17 @@
 
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:
                                              nearbyNavController, messagesNavController, nil];
+}
+
+- (void)showLoginViewIfUserIsLoggedOut
+{
+    if (![[WWOApiManager sharedManager] isUserLoggedIn]) {
+        WWOLoginViewController *loginViewController = [[[WWOLoginViewController alloc] init] autorelease];
+        [self.tabBarController presentModalViewController:loginViewController animated:NO];
+    }
+    else {
+        [Notification send:@"UserDidLogin"];
+    }
 }
 
 - (void)userDidLogin
