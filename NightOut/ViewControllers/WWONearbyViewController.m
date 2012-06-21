@@ -162,6 +162,14 @@
     [self showUserProfile:user];
 }
 
+- (void)showUserProfile:(WWOUser *)user
+{
+    WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:profileVC animated:YES];
+    [profileVC updateFromUser:user];
+}
+
 - (void) showFilters
 {
     WWOSettingsViewController *filtersVC = [[[WWOSettingsViewController alloc] init] autorelease];
@@ -174,11 +182,5 @@
     [self.navigationController pushViewController:messagesVC animated:YES];
 }
 
-- (void)showUserProfile:(WWOUser *)user
-{
-    WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
-    [self.navigationController pushViewController:profileVC animated:YES];
-    [profileVC updateFromUser:user];
-}
 
 @end

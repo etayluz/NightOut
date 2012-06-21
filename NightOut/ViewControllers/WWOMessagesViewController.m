@@ -9,7 +9,6 @@
 #import "WWOMessagesViewController.h"
 #import "WWOServerInterface.h"
 #import "WWOConversation.h"
-
 #import "Notification.h"
 
 @interface WWOMessagesViewController ()

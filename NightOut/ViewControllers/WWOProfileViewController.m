@@ -7,7 +7,6 @@
 //
 
 #import "WWOProfileViewController.h"
-
 #import "UIImageView+WebCache.h"
 
 @interface WWOProfileViewController ()
@@ -29,14 +28,44 @@
 
 - (void) updateFromUser:(WWOUser *)user
 {
-    self.nameLabel.text = user.name;
+    /* Image Label */
     [self.profileImageView setImageWithURL:[NSURL URLWithString:user.thumb]];
+
+    /* Name Label */
+    self.nameLabel.text = user.name;
+
+    /* Age Label */
+    self.ageLabel.text = [user.age stringValue];
+    CGSize expectedLabelSize = [user.name sizeWithFont:self.nameLabel.font]; 
+    CGRect newFrame = self.nameLabel.frame;
+    newFrame.origin.x = expectedLabelSize.width + OFFSET_FROM_NAME_LABEL;
+    self.ageLabel.frame = newFrame;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 600)] autorelease];
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.backgroundColor = [UIColor lightGrayColor];
+    scrollView.scrollEnabled = YES;
+    scrollView.contentSize = CGSizeMake(320, 700);
+    [self.view addSubview:scrollView];
+
+    self.profileImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 280)] autorelease];
+
+    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 280, 100, 21)];
+    self.nameLabel.backgroundColor = [UIColor clearColor];
+
+    self.ageLabel = [[UILabel alloc] initWithFrame:CGRectMake(280, 280, 100, 21)];
+    self.ageLabel.backgroundColor = [UIColor clearColor];
+    
+
+    [scrollView addSubview:self.profileImageView];
+    [scrollView addSubview:self.nameLabel]; 
+    [scrollView addSubview:self.ageLabel]; 
+    
 }
 
 - (void)viewDidUnload

@@ -270,6 +270,7 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
+    [super dealloc];
 }
 
 //////////////////////////////////////////////////////////////
@@ -1188,7 +1189,7 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     BOOL canEdit = self.editing && [self.dataSource GMGridView:self canDeleteItemAtIndex:position];
     [cell setEditing:canEdit animated:NO];
     
-    __gm_weak GMGridView *weakSelf = self; 
+    /*__gm_weak*/ GMGridView *weakSelf = self; 
     cell.deleteBlock = ^(GMGridViewCell *aCell)
     {
         NSInteger index = [weakSelf positionForItemSubview:aCell];
