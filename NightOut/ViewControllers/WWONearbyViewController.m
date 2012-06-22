@@ -147,6 +147,11 @@
     NSLog(@"loaded nearby users");
     self.users = [notification.userInfo objectForKey:@"data"];
     [self.gridView reloadData];
+    
+    [self gridView:self.gridView willSelectItemAtIndex:0];
+    //WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
+    //[self.navigationController pushViewController:[[[WWOProfileViewController alloc] init] autorelease] animated:YES];
+    //[profileVC updateFromUser:[self.users objectAtIndex:0]];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
