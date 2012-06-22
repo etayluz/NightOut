@@ -42,15 +42,10 @@
         return;
     
     UIViewController *exploreViewController = [[[WWOExploreViewController alloc] init] autorelease];
-    
     UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] init] autorelease];
-    
     UIViewController *smileMainViewController = [[[WWOSmileMainViewController alloc] init] autorelease];
-    
     UINavigationController *exploreNavController = [[[UINavigationController alloc] initWithRootViewController:exploreViewController] autorelease];
-    
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
-
     UINavigationController *smileMainNavController = [[[UINavigationController alloc] initWithRootViewController:smileMainViewController] autorelease];
     
     exploreNavController.title = @"Explore";

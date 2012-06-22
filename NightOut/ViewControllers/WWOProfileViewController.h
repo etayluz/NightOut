@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#include <QuartzCore/QuartzCore.h>
 #import "WWOUser.h"
+#import "GMGridView.h"
+#import "GMGridViewLayoutStrategies.h"
 
 #define OFFSET_FROM_NAME_LABEL     30
 
-@interface WWOProfileViewController : UIViewController
+@interface WWOProfileViewController : UIViewController <GMGridViewDataSource, GMGridViewTransformationDelegate>
 
 - (void) updateFromUser:(WWOUser *)user;
 
@@ -20,5 +23,6 @@
 @property (nonatomic, retain)  UILabel *friendsLabel;
 @property (nonatomic, retain)  UILabel *networkLabel;
 @property (nonatomic, retain)  UIImageView *profileImageView;
+@property (nonatomic, retain)  GMGridView *horizontalScrollView;
 
 @end

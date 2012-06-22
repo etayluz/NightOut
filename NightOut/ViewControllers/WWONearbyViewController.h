@@ -10,7 +10,7 @@
 #import "AQGridView.h"
 
 @class WWONearbyGridViewCellContent;
-@interface WWONearbyViewController : UIViewController<AQGridViewDelegate, AQGridViewDataSource>
+@interface WWONearbyViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
 
 @property (retain) IBOutlet AQGridView *gridView;
 @property (nonatomic, retain) UIImageView *headerView;
