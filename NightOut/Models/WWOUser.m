@@ -11,6 +11,7 @@
 @implementation WWOUser
 
 @synthesize userID, name, age, thumb, network, friends;
+@synthesize hometown, currentCity, college, interestedIn, relationshipStatus;
 
 
 - (id) initWithDictionary: (NSDictionary *) dictionary

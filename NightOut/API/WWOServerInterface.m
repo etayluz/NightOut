@@ -111,6 +111,37 @@ static WWOServerInterface *sharedManager = nil;
     }
 }
 
+- (void) fetchUser
+{
+    /*@property (retain) NSNumber *userID;
+     @property (retain) NSString *name;
+     @property (retain) NSString *network;
+     @property (retain) NSNumber *age;
+     @property (retain) NSNumber *friends;
+     @property (retain) NSString *thumb;
+     
+     @property (retain) NSString *hometown;
+     @property (retain) NSString *currentCity;
+     @property (retain) NSString *college;
+     @property (retain) NSString *interestedIn;
+     @property (retain) NSString *relationshipStatus;
+*/
+    
+    WWOUser *user = [[[WWOUser alloc] init] autorelease];
+    user.name = @"Wowo L.";
+    user.age = [NSNumber numberWithInt:27];
+    user.network = @"Santa Claus";
+    user.friends = [NSNumber numberWithInt:9382];
+    user.thumb = @"http://nightapi.pagodabox.com/images/etay.png";
+    user.hometown = @"Tel Aviv";
+    user.currentCity = @"New York";
+    user.college = @"Hogwarts";
+    user.interestedIn = @"women";
+    user.relationshipStatus = @"single";
+    
+    [Notification send:@"DidFetchUser" withData:user];
+}
+
 
 #pragma mark - request response handling
 - (void)requestFinished:(ASIHTTPRequest *)request

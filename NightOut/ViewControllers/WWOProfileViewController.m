@@ -10,6 +10,9 @@
 #import "UIImageView+WebCache.h"
 #import "ThumbViewCell.h"
 #import "WWOUser.h"
+#import "Notification.h"
+#import "WWOServerInterface.h"
+#import "InfoViewController.h"
 
 @interface WWOProfileViewController ()
 @property (nonatomic, retain) NSArray *users;
@@ -21,65 +24,89 @@
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
 @synthesize friendsScrollView, musicScrollView, placesScrollView, users, messageButton, smileButton, heightOffset;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize hometownLabel, currentCityLabel, collegeLabel, interestedInLabel, relationshipStatusLabel, workLabel;
+@synthesize hometownValueLabel, currentCityValueLabel, collegeValueLabel, interestedInValueLabel, relationshipStatusValueLabel, workValueLabel;
+
+@synthesize infoLabels, infoValueLabels;
+
+- (id) init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        [Notification registerNotification:@"DidFetchUser" target:self selector:@selector(didFetchUser:)];
+        
+        [[WWOServerInterface sharedManager] fetchUser];
     }
+    
     return self;
 }
 
+- (void) dealloc
+{
+    [Notification unregisterNotification:@"DidFetchUser" target:self];
+    
+    [self.infoLabels release];
+    [self.infoValueLabels release];
+    
+    [super dealloc];
+}
+
+- (void) didFetchUser:(NSNotification *) notification
+{
+    WWOUser *user = [notification.userInfo objectForKey:@"data"];
+    [self updateFromUser:user];
+    NSLog(@"fetched user name = %@", user.name);
+}
 
 - (void) updateFromUser:(WWOUser *)user
 {
-    /* Image Label */
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:user.thumb]];
-
-    /* Name Label */
+    [self buildSubviews];
+    NSLog(@"update from user %@", user.name);
+    
     self.nameLabel.text = user.name;
-
-    /* Age Label */
+    [self.profileImageView setImageWithURL:[NSURL URLWithString:user.thumb]];
     self.ageLabel.text = [user.age stringValue];
-    CGSize expectedLabelSize = [user.name sizeWithFont:self.nameLabel.font]; 
+    
+    CGSize expectedLabelSize = [user.name sizeWithFont:self.nameLabel.font];
     CGRect newFrame = self.nameLabel.frame;
     newFrame.origin.x = expectedLabelSize.width + OFFSET_FROM_NAME_LABEL;
     self.ageLabel.frame = newFrame;
-    
-    /* Friends Label */
-    self.friendsLabel.text = [NSString stringWithFormat:@"Mutual friends(%@)", [user.age stringValue]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+- (void) buildSubviews
+{
+    /* Initiate Scroll View */
     self.scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)] autorelease];
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.backgroundColor = [UIColor lightGrayColor];
     self.scrollView.scrollEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(320, 1000);
     [self.view addSubview:self.scrollView];
-
+    
     /* Image Label */
     self.profileImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 280)] autorelease];
     [self.scrollView addSubview:self.profileImageView];
     self.heightOffset += 280;
-
+    
     /* Name Label */
     self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)];
     self.nameLabel.font            = [UIFont boldSystemFontOfSize:15];
     self.nameLabel.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.nameLabel]; 
     self.heightOffset += 10;
-
+    
     /* Age Label */
     self.ageLabel = [[UILabel alloc] init];
     self.ageLabel.font            = [UIFont boldSystemFontOfSize:13];
     self.ageLabel.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.ageLabel]; 
     self.heightOffset += 13;
-
+    
     /* Message Button */
     self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.messageButton addTarget:self action:@selector(messageButtonTap:) forControlEvents:UIControlEventTouchDown];
@@ -87,7 +114,7 @@
     self.messageButton.frame = CGRectMake(5, self.heightOffset, 300, 30);
     [self.scrollView addSubview:self.messageButton];
     self.heightOffset += 35;
-
+    
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.smileButton addTarget:self action:@selector(smilesButtonTap:) forControlEvents:UIControlEventTouchDown];
@@ -95,7 +122,7 @@
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 300, 30);    
     [self.scrollView addSubview:self.smileButton];
     self.heightOffset += 18;
-
+    
     /* Separator Label */
     UILabel *separator1 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
     separator1.font            = [UIFont boldSystemFontOfSize:12];
@@ -103,14 +130,14 @@
     separator1.text = @"_____________________________________________";
     [self.scrollView addSubview:separator1];
     self.heightOffset += 14;
-
+    
     /* Friends Label */
     self.friendsLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 150, 21)];
     self.friendsLabel.font            = [UIFont boldSystemFontOfSize:12];
     self.friendsLabel.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.friendsLabel];
     self.heightOffset += 20;
-
+    
     /* Friends Horizontal Scroll View */
     self.friendsScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
     self.friendsScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
@@ -125,7 +152,7 @@
     [self.scrollView addSubview:self.friendsScrollView];    
     [self.friendsScrollView reloadData];
     self.heightOffset += 50;
-
+    
     /* Separator Label */
     UILabel *separator2 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
     separator2.font            = [UIFont boldSystemFontOfSize:12];
@@ -133,10 +160,10 @@
     separator2.text = @"_____________________________________________";
     [self.scrollView addSubview:separator2];
     self.heightOffset += 14;
-
+    
     /* General Info Label */
     [self generalInfo];
-
+    
     /* Separator Label */
     UILabel *separator3 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
     separator3.font            = [UIFont boldSystemFontOfSize:12];
@@ -144,7 +171,7 @@
     separator3.text = @"_____________________________________________";
     [self.scrollView addSubview:separator3];
     self.heightOffset += 14;
-
+    
     /* Music Label */
     UILabel *musicLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
     musicLabel.font            = [UIFont boldSystemFontOfSize:12];
@@ -175,7 +202,7 @@
     separator4.text = @"_____________________________________________";
     [self.scrollView addSubview:separator4];
     self.heightOffset += 14;
-
+    
     /* Recent Places Label */
     UILabel *placesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
     placesLabel.font            = [UIFont boldSystemFontOfSize:12];
@@ -197,34 +224,58 @@
     self.placesScrollView.resizesCellWidthToFit = YES;
     [self.scrollView addSubview:self.placesScrollView];    
     [self.placesScrollView reloadData];
-    self.heightOffset += 60;}
-
+    self.heightOffset += 60;
+}
+/*
 - (void) generalInfo
 {
-    /* General Info Label */
+    InfoViewController *infoVC = [[[InfoViewController alloc] init] autorelease];
+    [self.scrollView addSubview:infoVC.view];
+    
+    [infoVC addInfoItem];
+    [infoVC addInfoItem];
+}
+*/
+- (void) generalInfo
+{
     UILabel *generalInfoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
     generalInfoLabel.font            = [UIFont boldSystemFontOfSize:12];
     generalInfoLabel.backgroundColor = [UIColor clearColor];
     generalInfoLabel.text = @"General Info";
     [self.scrollView addSubview:generalInfoLabel];
     self.heightOffset += 20;
-
-    NSArray *labelArray = [NSArray arrayWithObjects:
-                      @"Hometown", @"Current city", @"College", @"Interested in", @"Relationship status", @"Work", nil];
-
-    for (NSString *element in labelArray) {
-        UILabel *infoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, self.heightOffset, 100, 21)] autorelease];
-        infoLabel.font = [UIFont boldSystemFontOfSize:10];
-        infoLabel.backgroundColor = [UIColor clearColor];
-        infoLabel.text = element;
-        [self.scrollView addSubview:infoLabel];
+    //@synthesize hometownLabel, currentCityLabel, collegeLabel, interestedInLabel, relationshipStatusLabel, workLabel;
+    
+    NSArray *labels = [NSArray arrayWithObjects:@"Hometown", @"Current City", @"College", @"Interested In", @"Relationship Status", @"Work", nil];
+    self.infoLabels = [NSMutableDictionary dictionary];
+    self.infoValueLabels = [NSMutableDictionary dictionary];
+    
+    for (NSString *element in labels) {
+        [self createInfoLabel:element];
         self.heightOffset += 15;
     }
     
-
-
-
 }
+
+- (void) createInfoLabel: (NSString *) caption
+{
+    UILabel *infoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, self.heightOffset, 100, 21)] autorelease];
+    infoLabel.font = [UIFont boldSystemFontOfSize:10];
+    infoLabel.backgroundColor = [UIColor clearColor];
+    infoLabel.text = caption;
+    [infoLabel sizeToFit];
+    NSLog(@"%f", infoLabel.frame.size.width);
+    [self.scrollView addSubview:infoLabel];
+    
+    UILabel *infoValueLabel = [[[UILabel alloc] initWithFrame:CGRectMake(infoLabel.frame.size.width + 20, self.heightOffset, 100, 21)] autorelease];
+    infoValueLabel.font = [UIFont boldSystemFontOfSize:10];
+    infoValueLabel.backgroundColor = [UIColor clearColor];
+    infoValueLabel.text = @"-";
+    
+    [self.scrollView addSubview:infoValueLabel];
+    [self.infoValueLabels setObject:infoValueLabel forKey:caption];
+}
+
 
 - (void) messageButtontap
 {

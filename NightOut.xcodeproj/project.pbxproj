@@ -38,6 +38,7 @@
 		3719E313159133BD00E9A138 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E305159133BD00E9A138 /* SBJsonBase.m */; };
 		3719E314159133BD00E9A138 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E307159133BD00E9A138 /* SBJsonParser.m */; };
 		3719E315159133BD00E9A138 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E309159133BD00E9A138 /* SBJsonWriter.m */; };
+		377B019215978FF000FD4005 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377B019115978FF000FD4005 /* InfoViewController.m */; };
 		3793BCF315936FDA00E6E141 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCDF15936FDA00E6E141 /* AQGridView.m */; };
 		3793BCF415936FDA00E6E141 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCE115936FDA00E6E141 /* AQGridViewAnimatorItem.m */; };
 		3793BCF515936FDA00E6E141 /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCE415936FDA00E6E141 /* AQGridViewCell.m */; };
@@ -175,6 +176,8 @@
 		3719E307159133BD00E9A138 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		3719E308159133BD00E9A138 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		3719E309159133BD00E9A138 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		377B019015978FF000FD4005 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		377B019115978FF000FD4005 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		3793BCDC15936FDA00E6E141 /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
 		3793BCDD15936FDA00E6E141 /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
 		3793BCDE15936FDA00E6E141 /* AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridView.h; sourceTree = "<group>"; };
@@ -698,6 +701,8 @@
 				37DF1470159269C700D288F7 /* WWOSmileMatchesViewController.h */,
 				37DF1471159269C700D288F7 /* WWOSmileMatchesViewController.m */,
 				37DF1472159269C700D288F7 /* WWOSmileMatchesViewController.xib */,
+				377B019015978FF000FD4005 /* InfoViewController.h */,
+				377B019115978FF000FD4005 /* InfoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -883,6 +888,7 @@
 				3793BCFB15936FDA00E6E141 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
 				3793BCFC15936FDA00E6E141 /* UIColor+AQGridView.m in Sources */,
 				3793BD0A1594E38200E6E141 /* ThumbViewCell.m in Sources */,
+				377B019215978FF000FD4005 /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

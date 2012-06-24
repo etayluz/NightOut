@@ -148,10 +148,8 @@
     self.users = [notification.userInfo objectForKey:@"data"];
     [self.gridView reloadData];
     
-    [self gridView:self.gridView willSelectItemAtIndex:0];
-    //WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
-    //[self.navigationController pushViewController:[[[WWOProfileViewController alloc] init] autorelease] animated:YES];
-    //[profileVC updateFromUser:[self.users objectAtIndex:0]];
+    /* Comment out to not skip over Nearby Page */
+    [self gridView:self.gridView willSelectItemAtIndex:1];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
@@ -172,7 +170,6 @@
     WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
-    [profileVC updateFromUser:user];
 }
 
 - (void) showFilters

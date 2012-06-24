@@ -25,6 +25,7 @@
 + (WWOServerInterface *)sharedManager;
 - (void) fetchMessages;
 - (void) fetchNearbyUsers;
+- (void) fetchUser;
 
 - (BOOL) isUserLoggedIn;
 - (void) showLoginPrompt;

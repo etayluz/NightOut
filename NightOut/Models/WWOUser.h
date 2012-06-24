@@ -19,4 +19,10 @@
 @property (retain) NSNumber *friends;
 @property (retain) NSString *thumb;
 
+@property (retain) NSString *hometown;
+@property (retain) NSString *currentCity;
+@property (retain) NSString *college;
+@property (retain) NSString *interestedIn;
+@property (retain) NSString *relationshipStatus;
+
 @end
