@@ -72,6 +72,23 @@
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
+
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
+                                   initWithTitle: @"Nearby" 
+                                   style:UIBarButtonItemStylePlain 
+                                   target:self 
+                                   action:@selector(myBackAction:)];
+    self.navigationItem.backBarButtonItem = backButton;
+}
+
+- (void) backToNearbyView
+{
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+- (void)myBackAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES]; 
 }
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
@@ -168,15 +185,18 @@
 - (void)showUserProfile:(WWOUser *)user
 {
     WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
-    self.hidesBottomBarWhenPushed = YES;
+    profileVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
 }
+
 
 - (void) showFilters
 {
     WWOSettingsViewController *filtersVC = [[[WWOSettingsViewController alloc] init] autorelease];
     [self.navigationController pushViewController:filtersVC animated:YES];
 }
+
+
 
 - (void)showMessages
 {

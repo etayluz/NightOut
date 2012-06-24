@@ -12,7 +12,6 @@
 #import "WWOUser.h"
 #import "Notification.h"
 #import "WWOServerInterface.h"
-#import "InfoViewController.h"
 
 @interface WWOProfileViewController ()
 @property (nonatomic, retain) NSArray *users;
@@ -226,16 +225,8 @@
     [self.placesScrollView reloadData];
     self.heightOffset += 60;
 }
-/*
-- (void) generalInfo
-{
-    InfoViewController *infoVC = [[[InfoViewController alloc] init] autorelease];
-    [self.scrollView addSubview:infoVC.view];
-    
-    [infoVC addInfoItem];
-    [infoVC addInfoItem];
-}
-*/
+
+
 - (void) generalInfo
 {
     UILabel *generalInfoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
