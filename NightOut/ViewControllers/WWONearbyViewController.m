@@ -82,14 +82,6 @@
     self.navigationItem.backBarButtonItem = backButton;
 }
 
-- (void) backToNearbyView
-{
-    self.hidesBottomBarWhenPushed = NO;
-}
-
-- (void)myBackAction:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES]; 
-}
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {

@@ -19,6 +19,8 @@
 - (void) messageButtontap;
 - (void) smilesButtontap;
 
+@property (nonatomic, retain) WWOUser *user;
+
 @property (nonatomic, retain)  UILabel *nameLabel;
 @property (nonatomic, retain)  UILabel *ageLabel;
 @property (nonatomic, retain)  UILabel *friendsLabel;
@@ -31,21 +33,6 @@
 @property (nonatomic, retain)  UIButton *smileButton;
 @property (nonatomic, retain)  UIScrollView *scrollView;
 
-@property (nonatomic, retain)  UILabel *hometownLabel;
-@property (nonatomic, retain)  UILabel *currentCityLabel;
-@property (nonatomic, retain)  UILabel *collegeLabel;
-@property (nonatomic, retain)  UILabel *interestedInLabel;
-@property (nonatomic, retain)  UILabel *relationshipStatusLabel;
-@property (nonatomic, retain)  UILabel *workLabel;
-
-@property (nonatomic, retain)  UILabel *hometownValueLabel;
-@property (nonatomic, retain)  UILabel *currentCityValueLabel;
-@property (nonatomic, retain)  UILabel *collegeValueLabel;
-@property (nonatomic, retain)  UILabel *interestedInValueLabel;
-@property (nonatomic, retain)  UILabel *relationshipStatusValueLabel;
-@property (nonatomic, retain)  UILabel *workValueLabel;
-
-@property (nonatomic, retain) NSMutableDictionary *infoLabels;
 @property (nonatomic, retain) NSMutableDictionary *infoValueLabels;
 
 

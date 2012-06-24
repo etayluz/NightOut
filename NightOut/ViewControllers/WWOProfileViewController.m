@@ -20,13 +20,11 @@
 
 @implementation WWOProfileViewController
 
+@synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
 @synthesize friendsScrollView, musicScrollView, placesScrollView, users, messageButton, smileButton, heightOffset;
 
-@synthesize hometownLabel, currentCityLabel, collegeLabel, interestedInLabel, relationshipStatusLabel, workLabel;
-@synthesize hometownValueLabel, currentCityValueLabel, collegeValueLabel, interestedInValueLabel, relationshipStatusValueLabel, workValueLabel;
-
-@synthesize infoLabels, infoValueLabels;
+@synthesize infoValueLabels;
 
 - (id) init
 {
@@ -44,7 +42,6 @@
 {
     [Notification unregisterNotification:@"DidFetchUser" target:self];
     
-    [self.infoLabels release];
     [self.infoValueLabels release];
     
     [super dealloc];
@@ -52,24 +49,42 @@
 
 - (void) didFetchUser:(NSNotification *) notification
 {
-    WWOUser *user = [notification.userInfo objectForKey:@"data"];
-    [self updateFromUser:user];
+    WWOUser *u = [notification.userInfo objectForKey:@"data"];
+    [self updateFromUser:u];
     NSLog(@"fetched user name = %@", user.name);
 }
 
-- (void) updateFromUser:(WWOUser *)user
+- (void) updateFromUser:(WWOUser *)aUser
 {
     [self buildSubviews];
-    NSLog(@"update from user %@", user.name);
+    self.user = aUser;
+    NSLog(@"update from user %@", aUser.name);
     
-    self.nameLabel.text = user.name;
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:user.thumb]];
-    self.ageLabel.text = [user.age stringValue];
+    self.nameLabel.text = aUser.name;
+    [self.profileImageView setImageWithURL:[NSURL URLWithString:aUser.picture]];
+    self.ageLabel.text = [aUser.age stringValue];
     
-    CGSize expectedLabelSize = [user.name sizeWithFont:self.nameLabel.font];
+    CGSize expectedLabelSize = [aUser.name sizeWithFont:self.nameLabel.font];
     CGRect newFrame = self.nameLabel.frame;
     newFrame.origin.x = expectedLabelSize.width + OFFSET_FROM_NAME_LABEL;
     self.ageLabel.frame = newFrame;
+    
+    //NSArray *labels = [NSArray arrayWithObjects:@"Hometown", @"Current City", @"College", @"Interested In", @"Relationship Status", @"Work", nil];
+    [self updateInfoLabel:@"Hometown" value:aUser.hometown];
+    [self updateInfoLabel:@"Current City" value:aUser.currentCity];
+    [self updateInfoLabel:@"College" value:aUser.college];
+    [self updateInfoLabel:@"Interested In" value:aUser.interestedIn];
+    [self updateInfoLabel:@"Relationship Status" value:aUser.relationshipStatus];
+    [self updateInfoLabel:@"Work" value:aUser.work];
+    
+    [self.musicScrollView reloadData];
+    [self.placesScrollView reloadData];
+}
+
+- (void) updateInfoLabel:(NSString *) title value: (NSString *) aValue
+{
+    UILabel *infoLabel = [self.infoValueLabels objectForKey:title];
+    infoLabel.text = aValue;
 }
 
 - (void)viewDidLoad
@@ -238,7 +253,6 @@
     //@synthesize hometownLabel, currentCityLabel, collegeLabel, interestedInLabel, relationshipStatusLabel, workLabel;
     
     NSArray *labels = [NSArray arrayWithObjects:@"Hometown", @"Current City", @"College", @"Interested In", @"Relationship Status", @"Work", nil];
-    self.infoLabels = [NSMutableDictionary dictionary];
     self.infoValueLabels = [NSMutableDictionary dictionary];
     
     for (NSString *element in labels) {
@@ -255,13 +269,12 @@
     infoLabel.backgroundColor = [UIColor clearColor];
     infoLabel.text = caption;
     [infoLabel sizeToFit];
-    NSLog(@"%f", infoLabel.frame.size.width);
+    //NSLog(@"%f", infoLabel.frame.size.width);
     [self.scrollView addSubview:infoLabel];
     
-    UILabel *infoValueLabel = [[[UILabel alloc] initWithFrame:CGRectMake(infoLabel.frame.size.width + 20, self.heightOffset, 100, 21)] autorelease];
+    UILabel *infoValueLabel = [[[UILabel alloc] initWithFrame:CGRectMake(infoLabel.frame.size.width + 20, self.heightOffset-3.5, 100, 21)] autorelease];
     infoValueLabel.font = [UIFont boldSystemFontOfSize:10];
     infoValueLabel.backgroundColor = [UIColor clearColor];
-    infoValueLabel.text = @"-";
     
     [self.scrollView addSubview:infoValueLabel];
     [self.infoValueLabels setObject:infoValueLabel forKey:caption];
@@ -280,23 +293,48 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
-    //return self.users.count;
-    return 150;
+    if (gridView == self.friendsScrollView) {
+        return 5;
+    }
+    else if (gridView == self.musicScrollView) {
+        return self.user.music.count;
+    }
+    else if (gridView == self.placesScrollView) {
+        return self.user.recentPlaces.count;
+    }
+    else {
+        return 150;
+    }
 }
 
-- (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
+- (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index
 {
     static NSString *nearbyFriendCellIdentifier = @"NearbyFriendCellIdentifier";
     ThumbViewCell *cell = nil;
-    cell = (ThumbViewCell *)[_gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
+    cell = (ThumbViewCell *)[gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
     
     if (!cell) {
 		cell = [[[ThumbViewCell alloc] initWithFrame:CGRectMake(0, 0, 50, 50)
                                              reuseIdentifier:nearbyFriendCellIdentifier] autorelease];
     }
     
-    [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://nightapi.pagodabox.com/images/venkat.png"]];
-    cell.nameLabel.text = @"ven";
+    NSArray *items = nil;
+    
+    if (gridView == self.friendsScrollView) {
+        
+    }
+    else if (gridView == self.musicScrollView) {
+        items = self.user.music;
+    }
+    else if (gridView == self.placesScrollView) {
+        items = self.user.recentPlaces;
+    }
+    
+    NSString *itemUrl = [[items objectAtIndex:index] objectForKey:@"thumb"];
+    NSString *itemName = [[items objectAtIndex:index] objectForKey:@"name"];
+
+    [cell.imageView setImageWithURL:[NSURL URLWithString:itemUrl]];
+    cell.nameLabel.text = itemName;
     
     return cell;
 }

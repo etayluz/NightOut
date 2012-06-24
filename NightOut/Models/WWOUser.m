@@ -10,9 +10,9 @@
 
 @implementation WWOUser
 
-@synthesize userID, name, age, thumb, network, friends;
-@synthesize hometown, currentCity, college, interestedIn, relationshipStatus;
-
+@synthesize userID, name, age, picture, thumb, network, friends;
+@synthesize hometown, currentCity, college, interestedIn, relationshipStatus, work;
+@synthesize music, interests, recentPlaces;
 
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
@@ -22,7 +22,21 @@
         self.network = [dictionary objectForKey:@"networks"];
         self.friends = [dictionary objectForKey:@"friends"];
         self.userID = [dictionary objectForKey:@"userID"];
+        self.picture = [dictionary objectForKey:@"picture"];
         self.thumb = [dictionary objectForKey:@"thumb"];
+        
+        self.currentCity = [dictionary objectForKey:@"current_city"];
+        self.hometown = [dictionary objectForKey:@"hometown"];
+        self.college = [dictionary objectForKey:@"college"];
+        self.interestedIn = [dictionary objectForKey:@"interested_in"];
+        self.relationshipStatus = [dictionary objectForKey:@"relationship_status"];
+        self.work = [dictionary objectForKey:@"work"];
+        
+        self.music = [dictionary objectForKey:@"music"];
+        self.interests = [dictionary objectForKey:@"interests"];
+        self.recentPlaces = [dictionary objectForKey:@"recent_places"];
+        
+        NSLog(@"music name = %@", [[self.music objectAtIndex:0] objectForKey:@"thumb"]);
     }
     return self;
 }
