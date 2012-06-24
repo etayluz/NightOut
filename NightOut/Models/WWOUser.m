@@ -10,7 +10,7 @@
 
 @implementation WWOUser
 
-@synthesize userID, name, age, picture, thumb, network, friends;
+@synthesize userID, name, age, picture, thumb, network, mutualFriends;
 @synthesize hometown, currentCity, college, interestedIn, relationshipStatus, work;
 @synthesize music, interests, recentPlaces;
 
@@ -20,7 +20,6 @@
         self.name = [dictionary objectForKey:@"name"];
         self.age = [dictionary objectForKey:@"age"];
         self.network = [dictionary objectForKey:@"networks"];
-        self.friends = [dictionary objectForKey:@"friends"];
         self.userID = [dictionary objectForKey:@"userID"];
         self.picture = [dictionary objectForKey:@"picture"];
         self.thumb = [dictionary objectForKey:@"thumb"];
@@ -32,8 +31,9 @@
         self.relationshipStatus = [dictionary objectForKey:@"relationship_status"];
         self.work = [dictionary objectForKey:@"work"];
         
-        self.music = [dictionary objectForKey:@"music"];
+        self.mutualFriends = [dictionary objectForKey:@"mutual_friends"];
         self.interests = [dictionary objectForKey:@"interests"];
+        self.music = [dictionary objectForKey:@"music"];
         self.recentPlaces = [dictionary objectForKey:@"recent_places"];
         
         NSLog(@"music name = %@", [[self.music objectAtIndex:0] objectForKey:@"thumb"]);
