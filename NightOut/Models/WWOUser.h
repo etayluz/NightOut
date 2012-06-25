@@ -16,7 +16,7 @@
 @property (retain) NSString *name;
 @property (retain) NSString *network;
 @property (retain) NSNumber *age;
-@property (retain) NSNumber *mutualFriends;
+@property (retain) NSArray *mutualFriends;
 
 @property (retain) NSArray  *pictures;
 

@@ -77,6 +77,7 @@
     [self updateInfoLabel:@"Relationship Status" value:aUser.relationshipStatus];
     [self updateInfoLabel:@"Work" value:aUser.work];
     
+    [self.friendsScrollView reloadData];
     [self.musicScrollView reloadData];
     [self.placesScrollView reloadData];
 }
@@ -306,18 +307,17 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
+    NSArray *items = nil;
     if (gridView == self.friendsScrollView) {
-        return 5;
+        items = self.user.mutualFriends;
     }
     else if (gridView == self.musicScrollView) {
-        return self.user.music.count;
+        items = self.user.music;
     }
     else if (gridView == self.placesScrollView) {
-        return self.user.recentPlaces.count;
+        items = self.user.recentPlaces;
     }
-    else {
-        return 150;
-    }
+    return items.count;
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index
@@ -332,9 +332,8 @@
     }
     
     NSArray *items = nil;
-    
     if (gridView == self.friendsScrollView) {
-        
+        items = self.user.mutualFriends;
     }
     else if (gridView == self.musicScrollView) {
         items = self.user.music;

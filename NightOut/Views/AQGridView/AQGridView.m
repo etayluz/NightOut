@@ -724,21 +724,25 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 {
 	// simple case -- there's a cell already, we can just ask for its frame
 	if ( NSLocationInRange(index, _visibleIndices) )
-		return ( [[_visibleCells objectAtIndex: [self visibleCellListIndexForItemIndex: index]] frame] );
+    {
+        NSLog(@"index1 = %d", index);
 
+		return ( [[_visibleCells objectAtIndex: [self visibleCellListIndexForItemIndex: index]] frame] );
+    }
 	// complex case-- compute the frame manually
 	return ( [self fixCellFrame: CGRectZero forGridRect: [_gridData cellRectAtIndex: index]] );
 }
 
 - (AQGridViewCell *) cellForItemAtIndex: (NSUInteger) index
 {
-	//if ( NSLocationInRange(index, _visibleIndices) == NO )
-	//	return ( nil );
-
 	// we don't clip to visible range-- when animating edits the visible cell list can contain extra items
 	NSUInteger visibleCellListIndex = [self visibleCellListIndexForItemIndex: index];
-	if ( visibleCellListIndex < [_visibleCells count] )
+    
+	if ( ((visibleCellListIndex) < [_visibleCells count]) /*&& (index < 1000) && (index > 0)*/ )
+    {
+        NSLog(@"in: index:%i", index);
 		return ( [_visibleCells objectAtIndex: visibleCellListIndex] );
+    }
 	return ( nil );
 }
 
@@ -1265,6 +1269,13 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 - (void) _userSelectItemAtIndex: (UserSelectItemIndexParams*) params
 {
 	NSUInteger index = params.indexNum;
+    
+    /* HACK TO OVERCOME EXCEPTION WHEN INDEX EQUALS 2147483647 */
+    if (index == NSNotFound)
+    {
+        return;
+    }
+    
   NSUInteger numFingersCount = params.numFingers;
 	[self unhighlightItemAtIndex: index animated: NO];
 	if ( ([[self cellForItemAtIndex: index] isSelected]) && (self.requiresSelection == NO) )
@@ -1425,6 +1436,7 @@ passToSuper:
 		// run this on the next runloop tick
     UserSelectItemIndexParams* selectorParams = [[UserSelectItemIndexParams alloc] init];
     selectorParams.indexNum = _pendingSelectionIndex;
+        
     selectorParams.numFingers = [touchEventSet count];
 		[self performSelector: @selector(_userSelectItemAtIndex:)
 				   withObject: selectorParams
@@ -1655,6 +1667,7 @@ NSArray * __sortDescriptors;
                     for ( i = 0; i < count; i++ )
                     {
                         AQGridViewCell * cell = [_visibleCells objectAtIndex: i];
+                        NSLog(@"index3 = %d", index);
                         if ( [newVisibleIndices containsIndex: cell.displayIndex] == NO &&
                             [animatingDestinationIndices containsIndex: cell.displayIndex] == NO )
                         {
@@ -2130,6 +2143,7 @@ NSArray * __sortDescriptors;
 		return;
 
 	[_visibleCells removeObjectAtIndex: visibleCellListIndex];
+    NSLog(@"index4 = %d", index);
 	//[_visibleCells addObject: newCell];
 	[self doAddVisibleCell: newCell];
 }

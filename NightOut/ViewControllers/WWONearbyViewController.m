@@ -132,7 +132,7 @@
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
-{
+{    
     static NSString *nearbyFriendCellIdentifier = @"NearbyFriendCellIdentifier";
     WWONearbyGridViewCell *cell = nil;
     cell = (WWONearbyGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
@@ -141,7 +141,9 @@
 		cell = [[[WWONearbyGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 100, 150)
 									  reuseIdentifier:nearbyFriendCellIdentifier] autorelease];   
     }
-    
+
+    NSLog(@"index = %d", index);
+
     //cell.backgroundColor = [UIColor purpleColor];
 
     WWOUser *user = [self.users objectAtIndex:index];
