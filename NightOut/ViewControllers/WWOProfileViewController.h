@@ -10,6 +10,8 @@
 #include <QuartzCore/QuartzCore.h>
 #import "WWOUser.h"
 #import "AQGridView.h"
+#import "ProfileImage.h"
+
 
 #define OFFSET_FROM_NAME_LABEL     30
 

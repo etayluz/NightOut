@@ -12,6 +12,7 @@
 #import "WWOUser.h"
 #import "Notification.h"
 #import "WWOServerInterface.h"
+#import "PhotoSliderViewController.h"
 
 @interface WWOProfileViewController ()
 @property (nonatomic, retain) NSArray *users;
@@ -23,7 +24,6 @@
 @synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
 @synthesize friendsScrollView, musicScrollView, placesScrollView, users, messageButton, smileButton, heightOffset;
-
 @synthesize infoValueLabels;
 
 - (id) init
@@ -61,7 +61,7 @@
     NSLog(@"update from user %@", aUser.name);
     
     self.nameLabel.text = aUser.name;
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:aUser.picture]];
+    [self.profileImageView setImageWithURL:[NSURL URLWithString:[aUser.pictures objectAtIndex:0]]];
     self.ageLabel.text = [aUser.age stringValue];
     
     CGSize expectedLabelSize = [aUser.name sizeWithFont:self.nameLabel.font];
@@ -104,8 +104,16 @@
     
     /* Image Label */
     self.profileImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 280)] autorelease];
+    self.profileImageView.userInteractionEnabled = YES;
     [self.scrollView addSubview:self.profileImageView];
     self.heightOffset += 280;
+    // Create gesture recognizer
+    UITapGestureRecognizer *oneFingerOneTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)] autorelease];
+    // Set required taps and number of touches
+    [oneFingerOneTap setNumberOfTapsRequired:1];
+    [oneFingerOneTap setNumberOfTouchesRequired:1];
+    // Add the gesture to the view
+    [self.profileImageView addGestureRecognizer:oneFingerOneTap];
     
     /* Name Label */
     self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)];
@@ -123,7 +131,7 @@
     
     /* Message Button */
     self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [self.messageButton addTarget:self action:@selector(messageButtonTap:) forControlEvents:UIControlEventTouchDown];
+    [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchDown];
     [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
     self.messageButton.frame = CGRectMake(5, self.heightOffset, 300, 30);
     [self.scrollView addSubview:self.messageButton];
@@ -131,7 +139,7 @@
     
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [self.smileButton addTarget:self action:@selector(smilesButtonTap:) forControlEvents:UIControlEventTouchDown];
+    [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchDown];
     [self.smileButton setTitle: @"Smiles" forState: UIControlStateNormal];
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 300, 30);    
     [self.scrollView addSubview:self.smileButton];
@@ -262,6 +270,12 @@
     
 }
 
+
+- (IBAction)handleImageTap:(UITapGestureRecognizer *)recognizer
+{
+    [self showProfilePictures];
+}
+
 - (void) createInfoLabel: (NSString *) caption
 {
     UILabel *infoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, self.heightOffset, 100, 21)] autorelease];
@@ -286,9 +300,8 @@
 
 }
 
-- (void) smilesButtontap
+- (void) smilesButtonTap
 {
-    
 }
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
@@ -358,6 +371,13 @@
     [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
     // or if you are sure you wanna it always on top:
     // [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
+}
+
+- (void) showProfilePictures
+{
+    PhotoSliderViewController *photoSliderViewController = [[[PhotoSliderViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:photoSliderViewController animated:YES];
+    [photoSliderViewController loadPhotoUrls:self.user.pictures];
 }
 
 - (void)viewDidUnload
