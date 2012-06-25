@@ -18,8 +18,8 @@
 @interface WWOProfileViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
 
 - (void) updateFromUser:(WWOUser *)user;
-- (void) messageButtontap;
-- (void) smilesButtontap;
+- (void) messageButtonTap;
+- (void) smilesButtonTap;
 
 @property (nonatomic, retain) WWOUser *user;
 

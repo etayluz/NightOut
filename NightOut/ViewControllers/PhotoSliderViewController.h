@@ -19,6 +19,5 @@
 @property (readonly) NSInteger totalPageCount;
 
 - (void)loadPhotoUrls:(NSArray *)imageUrls;
-- (IBAction)handleImageTap:(UITapGestureRecognizer *)recognizer;
 
 @end

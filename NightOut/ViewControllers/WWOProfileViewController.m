@@ -295,7 +295,7 @@
 }
 
 
-- (void) messageButtontap
+- (void) messageButtonTap
 {
 
 }
