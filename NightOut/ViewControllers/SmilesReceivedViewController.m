@@ -1,13 +1,13 @@
 //
-//  SmilesSentViewController.m
+//  WWOSmilesReceivedViewController.m
 //  NightOut
 //
-//  Created by Dan Berenholtz on 6/16/12.
+//  Created by Dan Berenholtz on 6/20/12.
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
+#import "SmilesReceivedViewController.h"
 #import "Notification.h"
-
 #import "ProfileViewController.h"
 #import "SmilesSentViewController.h"
 #import "ConversationsViewController.h"
@@ -16,7 +16,7 @@
 #import "User.h"
 #import "AQGridView.h"
 
-@implementation SmilesSentViewController
+@implementation SmilesReceivedViewController
 
 @synthesize gridView, headerView;
 
@@ -33,24 +33,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *headerImage = [UIImage imageNamed:@"SmilesSentHeader.png"];
-
-    UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodBackground.png"]] autorelease];
+    UIImage *headerImage = [UIImage imageNamed:@"SmilesReceivedHeader.png"];
     
     self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
     self.gridView.showsVerticalScrollIndicator = NO;
-    self.gridView.backgroundColor = background;//[UIColor brownColor];
+    self.gridView.backgroundColor = [UIColor brownColor];
     self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.gridView.autoresizesSubviews = YES;
     self.gridView.delegate = self;
     self.gridView.dataSource = self;
     [self.gridView setContentSizeGrowsToFillBounds:TRUE];
     //[self.gridView setContentSize:<#(CGSize)#>
-
+    
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
-
+    
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
@@ -63,7 +61,7 @@
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
-    return ( CGSizeMake(100, 110) );
+    return ( CGSizeMake(100, 150) );
 }
 
 
@@ -92,15 +90,15 @@
     cell = (SmilesGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:smilesCellIdentifier];
     
     if (!cell) {
-		cell = [[[SmilesGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 80, 100)
-									  reuseIdentifier:smilesCellIdentifier] autorelease];   
+		cell = [[[SmilesGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 100, 150)
+                                          reuseIdentifier:smilesCellIdentifier] autorelease];   
     }
-
+    
     //cell.backgroundColor = [UIColor purpleColor];
-
+    
     //User *user = [self.users objectAtIndex:index];
     //[cell updateFromUser:user];
-
+    
     return cell;
 }
 

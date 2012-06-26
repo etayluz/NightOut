@@ -9,39 +9,48 @@
 #import "SmilesGridViewCell.h"
 
 @implementation SmilesGridViewCell
-@synthesize imageView, nameLabel, ageLabel, networkLabel;
+@synthesize imageView, nameLabel, ageLabel, networkLabel, imageMask;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithFrame:frame];
     if (self) {
 
-        self.backgroundColor = [UIColor orangeColor];
-        /* Image Label */
-        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
-        self.imageView.backgroundColor = [UIColor greenColor];
-        [self addSubview: self.imageView];
-
+        //self.backgroundColor = [UIColor orangeColor];
+        
+        self.contentView.backgroundColor = [UIColor clearColor];
+        
+        /* Image View */
+        UIImage *pic = [UIImage imageNamed:@"header.png"];
+        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 60, 60)] autorelease];
+        [self.imageView setImage:pic];
+        [self.contentView addSubview: self.imageView];
+        
+        /* Image Mask */
+        self.imageMask = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 100)] autorelease];
+        [self.imageMask setImage:[UIImage imageNamed:@"ImageMask.png"]];
+        [self.contentView addSubview: self.imageMask];
+        
         /* Name Label */
-        self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 100, 15)] autorelease];
-        self.nameLabel.font              = [UIFont boldSystemFontOfSize:13];
+        self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(10, 70, 100, 15)] autorelease];
+        self.nameLabel.font              = [UIFont boldSystemFontOfSize:10];
         self.nameLabel.backgroundColor   = [UIColor clearColor];
         self.nameLabel.text = @"Venkat";
-        [self addSubview: self.nameLabel];
+        [self.contentView addSubview: self.nameLabel];
 
         /* Age Label */
-        self.ageLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(80, 100, 100, 15)] autorelease];
-        self.ageLabel.font              = [UIFont boldSystemFontOfSize:13];
+        self.ageLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(55, 70, 100, 15)] autorelease];
+        self.ageLabel.font              = [UIFont boldSystemFontOfSize:10];
         self.ageLabel.backgroundColor   = [UIColor clearColor];
         self.ageLabel.text = @"25";
-        [self addSubview: self.ageLabel];
+        [self.contentView addSubview: self.ageLabel];
 
         /* Network Label */
-        self.networkLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(0, 113, 100, 15)] autorelease];
-        self.networkLabel.font              = [UIFont boldSystemFontOfSize:13];
+        self.networkLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(10, 80, 100, 15)] autorelease];
+        self.networkLabel.font              = [UIFont boldSystemFontOfSize:10];
         self.networkLabel.backgroundColor   = [UIColor clearColor];
         self.networkLabel.text = @"Stanford";
-        [self addSubview: self.networkLabel];
+        [self.contentView addSubview: self.networkLabel];
     }
 
     return self;

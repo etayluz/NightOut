@@ -202,7 +202,7 @@
     musicLabel.text = @"Music";
     [self.scrollView addSubview:musicLabel];
     self.heightOffset += 20;
-    
+
     /* Music Scroll View */
     self.musicScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
     self.musicScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
@@ -217,7 +217,7 @@
     [self.scrollView addSubview:self.musicScrollView];    
     [self.musicScrollView reloadData];
     self.heightOffset += 60;
-    
+
     /* Separator Label */
     UILabel *separator4 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
     separator4.font            = [UIFont boldSystemFontOfSize:12];
@@ -225,7 +225,7 @@
     separator4.text = @"_____________________________________________";
     [self.scrollView addSubview:separator4];
     self.heightOffset += 14;
-    
+
     /* Recent Places Label */
     UILabel *placesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
     placesLabel.font            = [UIFont boldSystemFontOfSize:12];
@@ -233,7 +233,7 @@
     placesLabel.text = @"Recent Places";
     [self.scrollView addSubview:placesLabel];
     self.heightOffset += 20;
-    
+
     /* Recent Places Scroll View */
     self.placesScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
     self.placesScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;

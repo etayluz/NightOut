@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AQGridViewCell.h"
 
-@interface SmilesGridViewCell : UIView
+@interface SmilesGridViewCell : AQGridViewCell
+@property (nonatomic, retain)  UIImageView  *imageMask;
 @property (nonatomic, retain)  UIImageView  *imageView;
 @property (nonatomic, retain)  UILabel      *nameLabel;
 @property (nonatomic, retain)  UILabel      *ageLabel;
 @property (nonatomic, retain)  UILabel      *networkLabel;
-
 @end

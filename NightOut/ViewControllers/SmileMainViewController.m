@@ -8,7 +8,7 @@
 
 #import "SmileMainViewController.h"
 #import "SmilesSentViewController.h"
-#import "WWOSmilesReceivedViewController.h"
+#import "SmilesReceivedViewController.h"
 #import "WWOSmileMatchesViewController.h"
 
 @interface SmileMainViewController ()
@@ -21,8 +21,15 @@
 {
     [super viewDidLoad];
     
-    /* UNCOMMENT TO SKIP TO MAIN SMILES PAGE */
+    /* UNCOMMENT TO SKIP TO SMILES SENT PAGE */
     [self showSmilesSent];
+    
+    /* UNCOMMENT TO SKIP TO SMILES RECEIVED PAGE */
+    //[self showSmilesReceived];
+
+    
+    UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"SmilesMain.png"]] autorelease];
+    self.view.backgroundColor = background;
 
 }
 
@@ -52,7 +59,7 @@
 
 - (void) showSmilesReceived
 {
-    WWOSmilesReceivedViewController *smilesReceivedVC =[[[WWOSmilesReceivedViewController alloc] init] autorelease];
+    SmilesReceivedViewController *smilesReceivedVC =[[[SmilesReceivedViewController alloc] init] autorelease];
     [self.navigationController pushViewController:smilesReceivedVC animated:YES];
 }
 

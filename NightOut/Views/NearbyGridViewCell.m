@@ -29,17 +29,17 @@
 {
     self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {
-        
+
         /* Image Label */
         self.backgroundColor = [UIColor purpleColor];
         self.contentView.backgroundColor = [UIColor grayColor];
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
-        
+
         /* Name Label */
         self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 100, 15)] autorelease];
         self.nameLabel.font             = [UIFont boldSystemFontOfSize:13];
         self.nameLabel.backgroundColor  = [UIColor clearColor];
-        
+
         /* Age Label */
         self.ageLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(80, 100, 100, 15)] autorelease];
         self.ageLabel.font              = [UIFont boldSystemFontOfSize:13];
@@ -49,12 +49,12 @@
         self.friendsLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 115, 100, 15)] autorelease];
         self.friendsLabel.font             = [UIFont boldSystemFontOfSize:10];
         self.friendsLabel.backgroundColor  = [UIColor clearColor];
-        
+
         /* Network Label */
         self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 130, 100, 15)] autorelease];
         self.networkLabel.font             = [UIFont boldSystemFontOfSize:10];
         self.networkLabel.backgroundColor  = [UIColor clearColor];
-         
+
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
         [self.contentView addSubview:ageLabel];
