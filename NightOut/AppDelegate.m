@@ -7,19 +7,21 @@
 //
 
 #import "Notification.h"
-#import "WWOServerInterface.h"
-#import "WWOAppDelegate.h"
+#import "ServerInterface.h"
+#import "AppDelegate.h"
 
 #import "WWOExploreViewController.h"
-#import "WWONearbyViewController.h"
+#import "NearbyViewController.h"
 #import "WWOLoginViewController.h"
-#import "WWOSmileMainViewController.h"
+#import "SmileMainViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@implementation WWOAppDelegate
+@implementation AppDelegate
 
 @synthesize window;
 @synthesize tabBarController;
 
+// venkats id: c2870baff47f56b53d0e492f5b3de3a2ce7e5269
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -33,6 +35,9 @@
     
     [self showLoginViewIfUserIsLoggedOut];
     
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    [locationManager startUpdatingLocation];
+    NSLog(@"location=%@", locationManager.location);
     return YES;
 }
 
@@ -42,8 +47,8 @@
         return;
     
     UIViewController *exploreViewController = [[[WWOExploreViewController alloc] init] autorelease];
-    UIViewController *nearbyViewController = [[[WWONearbyViewController alloc] init] autorelease];
-    UIViewController *smileMainViewController = [[[WWOSmileMainViewController alloc] init] autorelease];
+    UIViewController *nearbyViewController = [[[NearbyViewController alloc] init] autorelease];
+    UIViewController *smileMainViewController = [[[SmileMainViewController alloc] init] autorelease];
     UINavigationController *exploreNavController = [[[UINavigationController alloc] initWithRootViewController:exploreViewController] autorelease];
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
     UINavigationController *smileMainNavController = [[[UINavigationController alloc] initWithRootViewController:smileMainViewController] autorelease];
@@ -58,7 +63,7 @@
 
 - (void)showLoginViewIfUserIsLoggedOut
 {
-    if (![[WWOServerInterface sharedManager] isUserLoggedIn]) {
+    if (![[ServerInterface sharedManager] isUserLoggedIn]) {
         WWOLoginViewController *loginViewController = [[[WWOLoginViewController alloc] init] autorelease];
         [self.tabBarController presentModalViewController:loginViewController animated:NO];
     }
@@ -106,13 +111,13 @@
 
 // Pre iOS 4.2 support
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[WWOServerInterface sharedManager] handleOpenUrl:url]; 
+    return [[ServerInterface sharedManager] handleOpenUrl:url]; 
 }
 
 // For iOS 4.2+ support
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[WWOServerInterface sharedManager] handleOpenUrl:url]; 
+    return [[ServerInterface sharedManager] handleOpenUrl:url]; 
 }
 
 

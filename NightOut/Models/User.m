@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOUser.h"
+#import "User.h"
 
-@implementation WWOUser
+@implementation User
 
 @synthesize userID, name, age, pictures, thumb, network, mutualFriends;
 @synthesize hometown, currentCity, college, interestedIn, relationshipStatus, work;

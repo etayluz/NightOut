@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWONearbyGridViewCell.h"
+#import "NearbyGridViewCell.h"
 #import "UIImageView+WebCache.h"
 
-#import "WWOUser.h"
+#import "User.h"
 
-@implementation WWONearbyGridViewCell
+@implementation NearbyGridViewCell
 @synthesize imageView, nameLabel, ageLabel, networkLabel, friendsLabel;
 
 - (void) dealloc
@@ -30,23 +30,27 @@
     self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        // Initialization code
+        /* Image Label */
         self.backgroundColor = [UIColor purpleColor];
         self.contentView.backgroundColor = [UIColor grayColor];
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
         
+        /* Name Label */
         self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 100, 15)] autorelease];
         self.nameLabel.font             = [UIFont boldSystemFontOfSize:13];
         self.nameLabel.backgroundColor  = [UIColor clearColor];
         
+        /* Age Label */
         self.ageLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(80, 100, 100, 15)] autorelease];
         self.ageLabel.font              = [UIFont boldSystemFontOfSize:13];
         self.ageLabel.backgroundColor   = [UIColor clearColor];
 
+        /* Friends Label */
         self.friendsLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 115, 100, 15)] autorelease];
         self.friendsLabel.font             = [UIFont boldSystemFontOfSize:10];
         self.friendsLabel.backgroundColor  = [UIColor clearColor];
         
+        /* Network Label */
         self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 130, 100, 15)] autorelease];
         self.networkLabel.font             = [UIFont boldSystemFontOfSize:10];
         self.networkLabel.backgroundColor  = [UIColor clearColor];
@@ -56,12 +60,12 @@
         [self.contentView addSubview:ageLabel];
         [self.contentView addSubview:networkLabel];
         [self.contentView addSubview:friendsLabel];
-        
+
     }
     return self;
 }
 
-- (void) updateFromUser:(WWOUser *) user
+- (void) updateFromUser:(User *) user
 {
     self.nameLabel.text = user.name;
     self.ageLabel.text = [user.age stringValue];

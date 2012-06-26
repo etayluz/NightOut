@@ -740,7 +740,6 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
     
 	if ( ((visibleCellListIndex) < [_visibleCells count]) /*&& (index < 1000) && (index > 0)*/ )
     {
-        NSLog(@"in: index:%i", index);
 		return ( [_visibleCells objectAtIndex: visibleCellListIndex] );
     }
 	return ( nil );
@@ -1667,7 +1666,6 @@ NSArray * __sortDescriptors;
                     for ( i = 0; i < count; i++ )
                     {
                         AQGridViewCell * cell = [_visibleCells objectAtIndex: i];
-                        NSLog(@"index3 = %d", index);
                         if ( [newVisibleIndices containsIndex: cell.displayIndex] == NO &&
                             [animatingDestinationIndices containsIndex: cell.displayIndex] == NO )
                         {
@@ -2143,7 +2141,6 @@ NSArray * __sortDescriptors;
 		return;
 
 	[_visibleCells removeObjectAtIndex: visibleCellListIndex];
-    NSLog(@"index4 = %d", index);
 	//[_visibleCells addObject: newCell];
 	[self doAddVisibleCell: newCell];
 }

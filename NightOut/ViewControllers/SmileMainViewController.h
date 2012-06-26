@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWOSmileMainViewController : UIViewController
+@interface SmileMainViewController : UIViewController
 
 - (IBAction)didClickSmilesSentButton:(id)sender;
 - (IBAction)didClickSmilesReceivedButton:(id)sender;

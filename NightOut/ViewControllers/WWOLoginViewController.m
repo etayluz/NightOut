@@ -8,7 +8,7 @@
 
 #import "WWOLoginViewController.h"
 #import "Notification.h"
-#import "WWOServerInterface.h"
+#import "ServerInterface.h"
 
 @interface WWOLoginViewController ()
 
@@ -40,7 +40,7 @@
 - (IBAction)userDidClickLogin:(id)sender
 {
     //[Notification send:@"UserDidLogin"];
-    [[WWOServerInterface sharedManager] showLoginPrompt];
+    [[ServerInterface sharedManager] showLoginPrompt];
 }
 
 @end

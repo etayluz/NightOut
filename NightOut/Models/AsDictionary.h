@@ -1,5 +1,5 @@
 //
-//  WWOAsDictionary.h
+//  AsDictionary.h
 //  NightOut
 //
 //  Created by Dan Berenholtz on 6/17/12.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol WWOAsDictionary <NSObject>
+@protocol AsDictionary <NSObject>
 - (id) initWithDictionary: (NSDictionary *) dictionary;
 - (NSMutableDictionary *) toDictionary;
 @end

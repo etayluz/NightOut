@@ -8,21 +8,21 @@
 
 #import "Notification.h"
 
-#import "WWONearbyViewController.h"
-#import "WWOProfileViewController.h"
+#import "NearbyViewController.h"
+#import "ProfileViewController.h"
 #import "WWOSettingsViewController.h"
-#import "WWOConversationsViewController.h"
+#import "ConversationsViewController.h"
 
-#import "WWONearbyGridViewCell.h"
-#import "WWOServerInterface.h"
-#import "WWOUser.h"
+#import "NearbyGridViewCell.h"
+#import "ServerInterface.h"
+#import "User.h"
 #import "AQGridView.h"
 
-@interface WWONearbyViewController ()
+@interface NearbyViewController ()
 @property (nonatomic, retain) NSArray *users;
 @end
 
-@implementation WWONearbyViewController
+@implementation NearbyViewController
 
 @synthesize users;
 @synthesize gridView;
@@ -57,7 +57,7 @@
     [self addFiltersButton];
 
     [Notification registerNotification:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
-    [[WWOServerInterface sharedManager] fetchNearbyUsers];
+    [[ServerInterface sharedManager] fetchNearbyUsers];
 
     self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
     self.gridView.showsVerticalScrollIndicator = NO;
@@ -134,19 +134,17 @@
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
 {    
     static NSString *nearbyFriendCellIdentifier = @"NearbyFriendCellIdentifier";
-    WWONearbyGridViewCell *cell = nil;
-    cell = (WWONearbyGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
+    NearbyGridViewCell *cell = nil;
+    cell = (NearbyGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
     
     if (!cell) {
-		cell = [[[WWONearbyGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 100, 150)
+		cell = [[[NearbyGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 100, 150)
 									  reuseIdentifier:nearbyFriendCellIdentifier] autorelease];   
     }
 
-    NSLog(@"index = %d", index);
-
     //cell.backgroundColor = [UIColor purpleColor];
 
-    WWOUser *user = [self.users objectAtIndex:index];
+    User *user = [self.users objectAtIndex:index];
     [cell updateFromUser:user];
     
     return cell;
@@ -159,26 +157,32 @@
     self.users = [notification.userInfo objectForKey:@"data"];
     [self.gridView reloadData];
     
-    /* Comment out to not skip over Nearby Page */
-    [self gridView:self.gridView willSelectItemAtIndex:1];
+    /* UNCOMMENT TO SKIP TO PROFILE PAGE */
+    //[self gridView:self.gridView willSelectItemAtIndex:1];
+    
+    /* UNCOMMENT TO SKIP TO MAIN SMILES PAGE */
+    //self.tabBarController.selectedIndex = 1;
+    
+    /* UNCOMMENT TO SKIP TO FILTERS SMILES PAGE */
+    [self showFilters];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
 {
-    WWOUser *selectedUser = [self.users objectAtIndex:index];
+    User *selectedUser = [self.users objectAtIndex:index];
     [self userWasSelected:selectedUser];
     return index;
 }
 
-- (void) userWasSelected:(WWOUser *)user
+- (void) userWasSelected:(User *)user
 {
     NSLog(@"selected %@", user.name);
     [self showUserProfile:user];
 }
 
-- (void)showUserProfile:(WWOUser *)user
+- (void)showUserProfile:(User *)user
 {
-    WWOProfileViewController *profileVC = [[[WWOProfileViewController alloc] init] autorelease];
+    ProfileViewController *profileVC = [[[ProfileViewController alloc] init] autorelease];
     profileVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
 }
@@ -194,7 +198,7 @@
 
 - (void)showMessages
 {
-    WWOConversationsViewController *messagesVC = [[[WWOConversationsViewController alloc] init] autorelease];
+    ConversationsViewController *messagesVC = [[[ConversationsViewController alloc] init] autorelease];
     [self.navigationController pushViewController:messagesVC animated:YES];
 }
 

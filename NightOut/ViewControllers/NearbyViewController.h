@@ -10,11 +10,12 @@
 #import "AQGridView.h"
 
 @class WWONearbyGridViewCellContent;
-@interface WWONearbyViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
+@interface NearbyViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
 
 @property (retain) IBOutlet AQGridView *gridView;
 @property (nonatomic, retain) UIImageView *headerView;
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView;
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index;
+
 @end

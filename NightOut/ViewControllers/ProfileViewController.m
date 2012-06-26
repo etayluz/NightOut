@@ -6,20 +6,20 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOProfileViewController.h"
+#import "ProfileViewController.h"
 #import "UIImageView+WebCache.h"
 #import "ThumbViewCell.h"
-#import "WWOUser.h"
+#import "User.h"
 #import "Notification.h"
-#import "WWOServerInterface.h"
+#import "ServerInterface.h"
 #import "PhotoSliderViewController.h"
 
-@interface WWOProfileViewController ()
+@interface ProfileViewController ()
 @property (nonatomic, retain) NSArray *users;
 
 @end
 
-@implementation WWOProfileViewController
+@implementation ProfileViewController
 
 @synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
@@ -32,7 +32,7 @@
     if (self) {
         [Notification registerNotification:@"DidFetchUser" target:self selector:@selector(didFetchUser:)];
         
-        [[WWOServerInterface sharedManager] fetchUser];
+        [[ServerInterface sharedManager] fetchUser];
     }
     
     return self;
@@ -49,12 +49,12 @@
 
 - (void) didFetchUser:(NSNotification *) notification
 {
-    WWOUser *u = [notification.userInfo objectForKey:@"data"];
+    User *u = [notification.userInfo objectForKey:@"data"];
     [self updateFromUser:u];
     NSLog(@"fetched user name = %@", user.name);
 }
 
-- (void) updateFromUser:(WWOUser *)aUser
+- (void) updateFromUser:(User *)aUser
 {
     [self buildSubviews];
     self.user = aUser;
@@ -303,6 +303,7 @@
 
 - (void) smilesButtonTap
 {
+    [[ServerInterface sharedManager] updateLocation];
 }
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView

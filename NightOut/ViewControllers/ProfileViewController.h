@@ -8,20 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #include <QuartzCore/QuartzCore.h>
-#import "WWOUser.h"
+#import "User.h"
 #import "AQGridView.h"
-#import "ProfileImage.h"
 
 
 #define OFFSET_FROM_NAME_LABEL     30
 
-@interface WWOProfileViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
+@interface ProfileViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
 
-- (void) updateFromUser:(WWOUser *)user;
+- (void) updateFromUser:(User *)user;
 - (void) messageButtonTap;
 - (void) smilesButtonTap;
 
-@property (nonatomic, retain) WWOUser *user;
+@property (nonatomic, retain) User *user;
 
 @property (nonatomic, retain)  UILabel *nameLabel;
 @property (nonatomic, retain)  UILabel *ageLabel;

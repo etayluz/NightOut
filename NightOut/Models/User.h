@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "WWOAsDictionary.h"
+#import "AsDictionary.h"
 
-@interface WWOUser : NSObject <WWOAsDictionary>
+@interface User : NSObject <AsDictionary>
 
 @property (retain) NSNumber *userID;
 @property (retain) NSString *name;

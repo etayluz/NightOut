@@ -6,23 +6,23 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWONearbyUsersRequest.h"
+#import "NearbyUsersRequest.h"
 
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "JSONKit.h"
 
-#import "WWOUser.h"
+#import "User.h"
 
 #define kWWOBaseURL @"http://nightapi.pagodabox.com/api/v1"
 #define kWWOUrl(path)   [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", kWWOBaseURL, (path)]];
 
 
-@interface WWONearbyUsersRequest()
+@interface NearbyUsersRequest()
 @property (nonatomic, retain) ASIHTTPRequest *request;
 @end
 
-@implementation WWONearbyUsersRequest
+@implementation NearbyUsersRequest
 
 @synthesize request;
 
@@ -60,7 +60,7 @@
     NSArray *userDicts = [responseDict objectForKey:@"users"];
     NSMutableArray *users = [NSMutableArray array];
     for (NSDictionary *userDict in userDicts) {
-        WWOUser *user = [[[WWOUser alloc] initWithDictionary:userDict] autorelease];
+        User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
         [users addObject: user];
     }
     

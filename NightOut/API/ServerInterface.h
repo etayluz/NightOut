@@ -20,15 +20,18 @@
 #define kWWOUrl(path)   [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", kWWOBaseURL, (path)]];
 #define appID           @"183435348401103"
 
-@interface WWOServerInterface : NSObject <ASIHTTPRequestDelegate, FBSessionDelegate>
+@interface ServerInterface : NSObject <ASIHTTPRequestDelegate, FBSessionDelegate>
 
-+ (WWOServerInterface *)sharedManager;
++ (ServerInterface *)sharedManager;
+
 - (void) fetchMessages;
 - (void) fetchNearbyUsers;
 - (void) fetchUser;
+- (void) updateLocation;
 
 - (BOOL) isUserLoggedIn;
 - (void) showLoginPrompt;
+- (void) logout;
 - (BOOL) handleOpenUrl:(NSURL *)url;
 
 @property (retain, nonatomic) Facebook *facebook;

@@ -8,17 +8,17 @@
 
 #import "Notification.h"
 
-#import "WWOConversationsViewController.h"
+#import "ConversationsViewController.h"
 #import "WWOMessagesViewController.h"
 
-#import "WWOServerInterface.h"
-#import "WWOConversation.h"
+#import "ServerInterface.h"
+#import "Conversation.h"
 
-@interface WWOConversationsViewController ()
+@interface ConversationsViewController ()
 @property (retain) NSArray *conversations;
 @end
 
-@implementation WWOConversationsViewController
+@implementation ConversationsViewController
 
 @synthesize conversations;
 
@@ -43,7 +43,7 @@
     [super viewDidLoad];
     
     [Notification registerNotification:@"DidFetchMessages" target:self selector:@selector(loadedMessages:)];
-    [[WWOServerInterface sharedManager] fetchMessages];
+    [[ServerInterface sharedManager] fetchMessages];
 }
 
 - (void)viewDidUnload
@@ -80,7 +80,7 @@
     }
     
     // Configure the cell...
-    WWOConversation *conversation = [conversations objectAtIndex:indexPath.row];
+    Conversation *conversation = [conversations objectAtIndex:indexPath.row];
     cell.textLabel.text = conversation.name;
     
     return cell;
@@ -115,7 +115,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger index = indexPath.row;
-    WWOConversation *conversation = [self.conversations objectAtIndex:index];
+    Conversation *conversation = [self.conversations objectAtIndex:index];
     NSLog(@"clicked index = %d", index);
     
     WWOMessagesViewController *messagesViewController = [[[WWOMessagesViewController alloc] init] autorelease];

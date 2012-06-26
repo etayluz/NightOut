@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWOConversationsViewController : UITableViewController<UITableViewDelegate>
+@interface ConversationsViewController : UITableViewController<UITableViewDelegate>
 
 @end

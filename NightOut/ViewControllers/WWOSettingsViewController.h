@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface WWOSettingsViewController : UIViewController
+@interface WWOSettingsViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (nonatomic, retain) CLLocationManager *locationManager;
+
+@property (nonatomic, retain) UILabel *longitudeLabel;
+@property (nonatomic, retain) UILabel *latitudeLabel;
+
+- (IBAction)userDidClickLogoutButton:(id)sender;
+- (IBAction)userDidClickUpdateLocationButton:(id)sender;
 
 @end

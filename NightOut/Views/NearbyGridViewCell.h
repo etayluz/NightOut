@@ -7,11 +7,11 @@
 //
 
 #import "AQGridViewCell.h"
-#import "WWOUser.h"
+#import "User.h"
 
-@interface WWONearbyGridViewCell : AQGridViewCell
+@interface NearbyGridViewCell : AQGridViewCell
 
-- (void) updateFromUser:(WWOUser *) user;
+- (void) updateFromUser:(User *) user;
 
 
 @property (nonatomic, retain)  UIImageView  *imageView;

@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequestDelegate.h"
 
-@interface WWONearbyUsersRequest : NSObject <ASIHTTPRequestDelegate>
+@interface NearbyUsersRequest : NSObject <ASIHTTPRequestDelegate>
 - (void) fetch;
 @end

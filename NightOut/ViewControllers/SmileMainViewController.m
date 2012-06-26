@@ -6,16 +6,25 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOSmileMainViewController.h"
-#import "WWOSmilesSentViewController.h"
+#import "SmileMainViewController.h"
+#import "SmilesSentViewController.h"
 #import "WWOSmilesReceivedViewController.h"
 #import "WWOSmileMatchesViewController.h"
 
-@interface WWOSmileMainViewController ()
+@interface SmileMainViewController ()
 
 @end
 
-@implementation WWOSmileMainViewController
+@implementation SmileMainViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    /* UNCOMMENT TO SKIP TO MAIN SMILES PAGE */
+    [self showSmilesSent];
+
+}
 
 - (IBAction)didClickSmilesSentButton:(id)sender
 {
@@ -37,7 +46,7 @@
 
 - (void) showSmilesSent
 {
-    WWOSmilesSentViewController *smilesSentVC = [[[WWOSmilesSentViewController alloc] init] autorelease];
+    SmilesSentViewController *smilesSentVC = [[[SmilesSentViewController alloc] init] autorelease];
     [self.navigationController pushViewController:smilesSentVC animated:YES];
 }
 
@@ -62,11 +71,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
+
 
 - (void)viewDidUnload
 {

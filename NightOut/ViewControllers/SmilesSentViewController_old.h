@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWOSmilesSentViewController : UIViewController
-
+@interface SmilesSentViewController : UIViewController <UIScrollViewDelegate>
+@property (retain) UIScrollView *scrollView;
 @end

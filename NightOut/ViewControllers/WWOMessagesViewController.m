@@ -7,8 +7,8 @@
 //
 
 #import "WWOMessagesViewController.h"
-#import "WWOServerInterface.h"
-#import "WWOConversation.h"
+#import "ServerInterface.h"
+#import "Conversation.h"
 #import "Notification.h"
 
 @interface WWOMessagesViewController ()

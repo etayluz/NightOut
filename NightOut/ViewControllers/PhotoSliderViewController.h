@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoSliderViewController : UIViewController<UIScrollViewDelegate>
+@interface PhotoSliderViewController : UIViewController <UIScrollViewDelegate>
 
 @property (retain) UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UITapGestureRecognizer *tapRecognizer;

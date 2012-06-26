@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 
-    [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)] autorelease];
+    //[[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)] autorelease];
 
     _currentPage = 1;
     

@@ -6,32 +6,34 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "WWOServerInterface.h"
+#import "ServerInterface.h"
 #import "JSONKit.h"
 #import "Notification.h"
 
-#import "WWOConversation.h"
-#import "WWOUser.h"
+#import "Conversation.h"
+#import "User.h"
 
-#import "WWONearbyUsersRequest.h"
+#import "NearbyUsersRequest.h"
 
-@interface WWOServerInterface ()
+@interface ServerInterface ()
 
 @property (nonatomic, retain) ASIHTTPRequest *messagesRequest;
 @property (nonatomic, retain) ASIHTTPRequest *nearbyUsersRequest;
 @property (nonatomic, retain) ASIHTTPRequest *profileRequest;
+@property (nonatomic, retain) ASIFormDataRequest *updateLocationRequest;
 
 @end
 
-static WWOServerInterface *sharedManager = nil;
+static ServerInterface *sharedManager = nil;
 
-@implementation WWOServerInterface
+@implementation ServerInterface
+
 @synthesize facebook;
-@synthesize messagesRequest, nearbyUsersRequest, profileRequest;
+@synthesize messagesRequest, nearbyUsersRequest, profileRequest, updateLocationRequest;
 
 #pragma mark - Singleton compliance DON'T MODIFY! (Unless you know wtf you're doing)
 
-+ (WWOServerInterface *)sharedManager
++ (ServerInterface *)sharedManager
 {
     
     if (sharedManager == nil) {
@@ -124,6 +126,20 @@ static WWOServerInterface *sharedManager = nil;
     }
 }
 
+- (void) updateLocation
+{
+    if (!self.updateLocationRequest) {
+        NSLog(@"updateLocationRequest");
+        NSURL *url = [NSURL URLWithString:@"http://wwoapp.herokuapp.com/api/v1/location"];
+        self.updateLocationRequest = [ASIFormDataRequest requestWithURL:url];
+        self.updateLocationRequest.delegate = self;
+        
+        [self.updateLocationRequest setPostValue:self.facebook.accessToken forKey:@"token"];
+        [self.updateLocationRequest setPostValue:@"-74.0031" forKey:@"longitude"];
+        [self.updateLocationRequest setPostValue:@"40.7273" forKey:@"latitude"];
+        [self.updateLocationRequest startAsynchronous];
+    }
+}
 
 #pragma mark - request response handling
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -142,7 +158,7 @@ static WWOServerInterface *sharedManager = nil;
             NSMutableArray *messages = [NSMutableArray array];
             
             for (NSDictionary *messageDict in messageDicts) {
-                WWOConversation *msg = [[[WWOConversation alloc] initWithDictionary:messageDict] autorelease];
+                Conversation *msg = [[[Conversation alloc] initWithDictionary:messageDict] autorelease];
                 [messages addObject: msg];
             }
             
@@ -159,25 +175,28 @@ static WWOServerInterface *sharedManager = nil;
         NSArray *userDicts = [responseDict objectForKey:@"users"];
         NSMutableArray *users = [NSMutableArray array];
         for (NSDictionary *userDict in userDicts) {
-            WWOUser *user = [[[WWOUser alloc] initWithDictionary:userDict] autorelease];
+            User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
             [users addObject: user];
         }
         [Notification send:@"DidFetchNearbyUsers" withData:users];
         self.messagesRequest = nil;
     }
     else if (request == self.profileRequest) {
-        
         NSString *jsonString = self.profileRequest.responseString;
         NSDictionary *responseDict = [jsonString objectFromJSONString];
         NSDictionary *userDict = [responseDict objectForKey:@"user"];
-        WWOUser *user = [[[WWOUser alloc] initWithDictionary:userDict] autorelease];
+        User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
         
         [Notification send:@"DidFetchUser" withData:user];
         
         self.profileRequest = nil;
     }
+    else if (request == self.updateLocationRequest) {
+        //NSString *jsonString = self.updateLocationRequest.responseString;
+        //NSDictionary *responseDict = [jsonString objectFromJSONString];
+        [Notification send:@"DidUpdateLocation"];
+    }
 }
-
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
@@ -186,6 +205,12 @@ static WWOServerInterface *sharedManager = nil;
     }
     else if (request == self.nearbyUsersRequest) {
         self.nearbyUsersRequest = nil;
+    }
+    else if (request == self.profileRequest) {
+        self.profileRequest = nil;
+    }
+    else if (request == self.updateLocationRequest) {
+        self.updateLocationRequest = nil;
     }
 }
 
@@ -211,10 +236,16 @@ static WWOServerInterface *sharedManager = nil;
     return [facebook isSessionValid];
 }
 
+- (void) logout
+{
+    [facebook logout];
+}
 
 - (void) showLoginPrompt
 {
-    [facebook authorize:nil];
+    NSArray *permissions = [[[NSArray alloc] initWithObjects:@"user_birthday", @"user_education_history", @"user_hometown", @"user_events", @"user_hometown", @"user_interests", @"user_location", @"user_photos", @"user_relationships", @"user_relationship_details", @"user_work_history", @"email", nil] autorelease];
+    
+    [facebook authorize:permissions];
 }
 
 
@@ -256,7 +287,6 @@ static WWOServerInterface *sharedManager = nil;
 {
     NSLog(@"fbDidExtendToken");
 }
-
 
 /**
  * Called when the user logged out.
