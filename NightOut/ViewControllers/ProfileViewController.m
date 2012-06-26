@@ -303,7 +303,6 @@
 
 - (void) smilesButtonTap
 {
-    [[ServerInterface sharedManager] updateLocation];
 }
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView

@@ -5,6 +5,7 @@
 //  Created by Dan Berenholtz on 6/16/12.
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
+#import <CoreLocation/CoreLocation.h>
 
 #import <Foundation/Foundation.h>
 #import "FBConnect.h"
@@ -27,7 +28,7 @@
 - (void) fetchMessages;
 - (void) fetchNearbyUsers;
 - (void) fetchUser;
-- (void) updateLocation;
+- (void) updateLocationWithLatitude: (CLLocationDegrees) aLatitude andLongitdue: (CLLocationDegrees) aLongitude;
 
 - (BOOL) isUserLoggedIn;
 - (void) showLoginPrompt;

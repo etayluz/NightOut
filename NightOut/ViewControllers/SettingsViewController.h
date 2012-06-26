@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface WWOSettingsViewController : UIViewController <CLLocationManagerDelegate>
+@interface SettingsViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
 @property (nonatomic, retain) UILabel *longitudeLabel;
 @property (nonatomic, retain) UILabel *latitudeLabel;
+@property (nonatomic, retain) UILabel *timeLabel;
+
+@property (nonatomic, retain) UIButton *updateLocationButton;
 
 - (IBAction)userDidClickLogoutButton:(id)sender;
 - (IBAction)userDidClickUpdateLocationButton:(id)sender;

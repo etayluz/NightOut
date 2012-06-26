@@ -10,7 +10,7 @@
 
 #import "NearbyViewController.h"
 #import "ProfileViewController.h"
-#import "WWOSettingsViewController.h"
+#import "SettingsViewController.h"
 #import "ConversationsViewController.h"
 
 #import "NearbyGridViewCell.h"
@@ -161,10 +161,10 @@
     //[self gridView:self.gridView willSelectItemAtIndex:1];
     
     /* UNCOMMENT TO SKIP TO MAIN SMILES PAGE */
-    self.tabBarController.selectedIndex = 1;
+    //self.tabBarController.selectedIndex = 1;
     
     /* UNCOMMENT TO SKIP TO FILTERS SMILES PAGE */
-    //[self showFilters];
+    [self showFilters];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
@@ -190,7 +190,7 @@
 
 - (void) showFilters
 {
-    WWOSettingsViewController *filtersVC = [[[WWOSettingsViewController alloc] init] autorelease];
+    SettingsViewController *filtersVC = [[[SettingsViewController alloc] init] autorelease];
     [self.navigationController pushViewController:filtersVC animated:YES];
 }
 

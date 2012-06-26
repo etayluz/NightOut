@@ -15,6 +15,7 @@
 
 #import "NearbyUsersRequest.h"
 
+
 @interface ServerInterface ()
 
 @property (nonatomic, retain) ASIHTTPRequest *messagesRequest;
@@ -126,17 +127,23 @@ static ServerInterface *sharedManager = nil;
     }
 }
 
-- (void) updateLocation
+- (void) updateLocationWithLatitude: (CLLocationDegrees) aLatitude andLongitdue: (CLLocationDegrees) aLongitude
 {
     if (!self.updateLocationRequest) {
         NSLog(@"updateLocationRequest");
+        NSString *latitude = [NSString stringWithFormat:@"%f", aLatitude];
+        NSString *longitude = [NSString stringWithFormat:@"%f", aLongitude];
+                
+        NSLog(@"updating latitude = %@, longitude = %@", latitude, longitude);
+        
         NSURL *url = [NSURL URLWithString:@"http://wwoapp.herokuapp.com/api/v1/location"];
         self.updateLocationRequest = [ASIFormDataRequest requestWithURL:url];
         self.updateLocationRequest.delegate = self;
         
+        
         [self.updateLocationRequest setPostValue:self.facebook.accessToken forKey:@"token"];
-        [self.updateLocationRequest setPostValue:@"-74.0031" forKey:@"longitude"];
-        [self.updateLocationRequest setPostValue:@"40.7273" forKey:@"latitude"];
+        [self.updateLocationRequest setPostValue:longitude forKey:@"longitude"];
+        [self.updateLocationRequest setPostValue:latitude forKey:@"latitude"];
         [self.updateLocationRequest startAsynchronous];
     }
 }
@@ -194,6 +201,7 @@ static ServerInterface *sharedManager = nil;
     else if (request == self.updateLocationRequest) {
         //NSString *jsonString = self.updateLocationRequest.responseString;
         //NSDictionary *responseDict = [jsonString objectFromJSONString];
+        NSLog(@"update location: %@", self.updateLocationRequest.responseString);
         [Notification send:@"DidUpdateLocation"];
     }
 }
