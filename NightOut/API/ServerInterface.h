@@ -13,10 +13,6 @@
 #import "ASIFormDataRequest.h"
 #import "ASIHTTPRequestDelegate.h"
 
-
-#define WWOApiManagerDidFetchMessagesNotification @"WWODidFetchMessagesNotification"
-#define WWOApiManagerFailedToFetchMessagesNotification @"WWOFailedToFetchMessagesNotification"
-#define WWOApiManagerDidFetchNearbyUsersNotification @"WWODidFetchNearbyUsersNotification"
 #define kWWOBaseURL     @"http://nightapi.pagodabox.com/api/v1"
 #define kWWOUrl(path)   [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", kWWOBaseURL, (path)]];
 #define appID           @"183435348401103"
@@ -26,7 +22,7 @@
 + (ServerInterface *)sharedManager;
 
 - (void) fetchMessages;
-- (void) fetchNearbyUsers;
+- (void) fetchNeighborhood;
 - (void) fetchUser;
 - (void) updateLocationWithLatitude: (CLLocationDegrees) aLatitude andLongitdue: (CLLocationDegrees) aLongitude;
 

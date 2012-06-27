@@ -76,6 +76,8 @@
 		37DF146F159269BB00D288F7 /* SmilesReceivedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF146D159269BA00D288F7 /* SmilesReceivedViewController.xib */; };
 		37DF1473159269C800D288F7 /* WWOSmileMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF1471159269C700D288F7 /* WWOSmileMatchesViewController.m */; };
 		37DF1474159269C800D288F7 /* WWOSmileMatchesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DF1472159269C700D288F7 /* WWOSmileMatchesViewController.xib */; };
+		37E16F5F159AAFA00012D656 /* ImageMask1.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E16F5E159AAFA00012D656 /* ImageMask1.png */; };
+		37E16F66159B75F40012D656 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E16F65159B75F40012D656 /* Neighborhood.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -232,7 +234,7 @@
 		37C34A75158F886A0098A393 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		37C34A80158FB6D60098A393 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		37C34A81158FB6D60098A393 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		37DF144D15924D4D00D288F7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SettingsViewController.h; sourceTree = "<group>"; };
+		37DF144D15924D4D00D288F7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		37DF144E15924D4D00D288F7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		37DF145715925F5700D288F7 /* WWOExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOExploreViewController.h; sourceTree = "<group>"; };
 		37DF145815925F5700D288F7 /* WWOExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOExploreViewController.m; sourceTree = "<group>"; };
@@ -249,6 +251,9 @@
 		37DF1470159269C700D288F7 /* WWOSmileMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOSmileMatchesViewController.h; sourceTree = "<group>"; };
 		37DF1471159269C700D288F7 /* WWOSmileMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOSmileMatchesViewController.m; sourceTree = "<group>"; };
 		37DF1472159269C700D288F7 /* WWOSmileMatchesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSmileMatchesViewController.xib; sourceTree = "<group>"; };
+		37E16F5E159AAFA00012D656 /* ImageMask1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageMask1.png; sourceTree = "<group>"; };
+		37E16F64159B75F40012D656 /* Neighborhood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Neighborhood.h; sourceTree = "<group>"; };
+		37E16F65159B75F40012D656 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -670,6 +675,7 @@
 		37F0F713158CF7B0005511CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37E16F5E159AAFA00012D656 /* ImageMask1.png */,
 				37AD765E15993A46008201E3 /* SmilesSentHeader.png */,
 				377B49E3159A21D400ED43CD /* SmilesReceivedHeader.png */,
 				377B49E7159A30C800ED43CD /* WoodBackground.png */,
@@ -745,6 +751,8 @@
 				37F0F72C158D04C1005511CD /* Conversation.m */,
 				37BD7971158D645900B608DF /* User.h */,
 				37BD7972158D645900B608DF /* User.m */,
+				37E16F64159B75F40012D656 /* Neighborhood.h */,
+				37E16F65159B75F40012D656 /* Neighborhood.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -826,6 +834,7 @@
 				377B49E6159A22C900ED43CD /* SmilesMain.png in Resources */,
 				377B49E8159A30C800ED43CD /* WoodBackground.png in Resources */,
 				377B49EA159A36E100ED43CD /* ImageMask.png in Resources */,
+				37E16F5F159AAFA00012D656 /* ImageMask1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +920,7 @@
 				377B019C1597C8D000FD4005 /* PhotoSliderViewController.m in Sources */,
 				37AD76571598E8A5008201E3 /* SmilesGridViewCell.m in Sources */,
 				37AD766215993BC0008201E3 /* SmilesSentViewController.m in Sources */,
+				37E16F66159B75F40012D656 /* Neighborhood.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

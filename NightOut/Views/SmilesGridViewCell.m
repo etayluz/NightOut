@@ -28,7 +28,7 @@
         
         /* Image Mask */
         self.imageMask = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 100)] autorelease];
-        [self.imageMask setImage:[UIImage imageNamed:@"ImageMask.png"]];
+        [self.imageMask setImage:[UIImage imageNamed:@"ImageMask1.png"]];
         [self.contentView addSubview: self.imageMask];
         
         /* Name Label */

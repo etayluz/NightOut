@@ -16,25 +16,29 @@
 #import "NearbyGridViewCell.h"
 #import "ServerInterface.h"
 #import "User.h"
+#import "Neighborhood.h"
+
 #import "AQGridView.h"
 
 @interface NearbyViewController ()
-@property (nonatomic, retain) NSArray *users;
+@property (nonatomic, retain) Neighborhood *neighborhood;
 @end
 
 @implementation NearbyViewController
 
-@synthesize users;
+@synthesize neighborhood;
 @synthesize gridView;
 @synthesize headerView;
+@synthesize neighborhoodLabel;
 
 - (void) dealloc
 {
-    [users release];
-    [gridView release];
-    [headerView release];
+    self.neighborhood = nil;
+    self.gridView = nil;
+    self.headerView = nil;
     
-    [Notification unregisterNotification:@"DidFetchNearbyUsers" target:self];
+    [Notification unregisterNotification:@"DidFetchNeighborhood" target:self];
+    [Notification unregisterNotification:@"DidUpdateLocation" target:self];
     
     [super dealloc];
 }
@@ -56,8 +60,10 @@
     [self addMessagesButton];
     [self addFiltersButton];
 
-    [Notification registerNotification:@"DidFetchNearbyUsers" target:self selector:@selector(loadedNearbyUsers:)];
-    [[ServerInterface sharedManager] fetchNearbyUsers];
+    [Notification registerNotification:@"DidFetchNeighborhood" target:self selector:@selector(loadedNeighborhood:)];
+    [Notification registerNotification:@"DidUpdateLocation" target:self selector:@selector(didUpdateLocation)];
+    
+    [[ServerInterface sharedManager] fetchNeighborhood];
 
     self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
     self.gridView.showsVerticalScrollIndicator = NO;
@@ -67,12 +73,15 @@
     self.gridView.delegate = self;
     self.gridView.dataSource = self;
     [self.gridView setContentSizeGrowsToFillBounds:TRUE];
-    //[self.gridView setContentSize:<#(CGSize)#>
 
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
 
+    self.neighborhoodLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)] autorelease];
+    self.neighborhoodLabel.backgroundColor = [UIColor yellowColor];
+    self.neighborhoodLabel.text = @"woo";
+    [self.view addSubview:self.neighborhoodLabel];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
@@ -128,7 +137,7 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
-    return self.users.count;
+    return self.neighborhood.users.count;
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
@@ -141,20 +150,20 @@
 		cell = [[[NearbyGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 100, 150)
 									  reuseIdentifier:nearbyFriendCellIdentifier] autorelease];   
     }
-
-    //cell.backgroundColor = [UIColor purpleColor];
-
-    User *user = [self.users objectAtIndex:index];
+    
+    User *user = [self.neighborhood.users objectAtIndex:index];
     [cell updateFromUser:user];
     
     return cell;
 }
 
 #pragma mark - Notifications
-- (void) loadedNearbyUsers:(NSNotification *) notification
+- (void) loadedNeighborhood:(NSNotification *) notification
 {
-    NSLog(@"loaded nearby users");
-    self.users = [notification.userInfo objectForKey:@"data"];
+    NSLog(@"loaded neighborhood");
+    self.neighborhood = [notification.userInfo objectForKey:@"data"];
+    NSLog(@"name = %@", neighborhood.name);
+    self.neighborhoodLabel.text = self.neighborhood.name;
     [self.gridView reloadData];
     
     /* UNCOMMENT TO SKIP TO PROFILE PAGE */
@@ -164,12 +173,17 @@
     //self.tabBarController.selectedIndex = 1;
     
     /* UNCOMMENT TO SKIP TO FILTERS SMILES PAGE */
-    [self showFilters];
+    //[self showFilters];
+}
+
+- (void) didUpdateLocation
+{
+    [[ServerInterface sharedManager] fetchNeighborhood];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
 {
-    User *selectedUser = [self.users objectAtIndex:index];
+    User *selectedUser = [self.neighborhood.users objectAtIndex:index];
     [self userWasSelected:selectedUser];
     return index;
 }

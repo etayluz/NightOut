@@ -7,8 +7,9 @@
 //
 
 #import "User.h"
+#import "AsDictionary.h"
 
-@implementation User
+@implementation User : NSObject
 
 @synthesize userID, name, age, pictures, thumb, network, mutualFriends;
 @synthesize hometown, currentCity, college, interestedIn, relationshipStatus, work;
@@ -17,11 +18,12 @@
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
     if (self = [self init]) {
+        self.userID = [dictionary objectForKey:@"id"];
         self.name = [dictionary objectForKey:@"name"];
         self.age = [dictionary objectForKey:@"age"];
         self.network = [dictionary objectForKey:@"networks"];
         self.userID = [dictionary objectForKey:@"userID"];
-        self.pictures = [dictionary objectForKey:@"pictures"];
+        self.pictures = [dictionary objectForKey:@"photos"];
         self.thumb = [dictionary objectForKey:@"thumb"];
         
         self.currentCity = [dictionary objectForKey:@"current_city"];

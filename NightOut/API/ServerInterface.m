@@ -12,6 +12,7 @@
 
 #import "Conversation.h"
 #import "User.h"
+#import "Neighborhood.h"
 
 #import "NearbyUsersRequest.h"
 
@@ -19,7 +20,7 @@
 @interface ServerInterface ()
 
 @property (nonatomic, retain) ASIHTTPRequest *messagesRequest;
-@property (nonatomic, retain) ASIHTTPRequest *nearbyUsersRequest;
+@property (nonatomic, retain) ASIHTTPRequest *neighborhoodRequest;
 @property (nonatomic, retain) ASIHTTPRequest *profileRequest;
 @property (nonatomic, retain) ASIFormDataRequest *updateLocationRequest;
 
@@ -30,7 +31,7 @@ static ServerInterface *sharedManager = nil;
 @implementation ServerInterface
 
 @synthesize facebook;
-@synthesize messagesRequest, nearbyUsersRequest, profileRequest, updateLocationRequest;
+@synthesize messagesRequest, neighborhoodRequest, profileRequest, updateLocationRequest;
 
 #pragma mark - Singleton compliance DON'T MODIFY! (Unless you know wtf you're doing)
 
@@ -106,21 +107,23 @@ static ServerInterface *sharedManager = nil;
     }
 }
 
-
-- (void) fetchNearbyUsers
+- (void) fetchNeighborhood
 {
-    if (!self.nearbyUsersRequest) {
-        NSURL *url = kWWOUrl(@"nearby.json");
-        self.nearbyUsersRequest = [ASIHTTPRequest requestWithURL: url];
-        self.nearbyUsersRequest.delegate = self;
-        [self.nearbyUsersRequest startAsynchronous];
+    if (!self.neighborhoodRequest) {
+        NSString *urlString = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/nearby?token=%@", self.facebook.accessToken];
+        NSURL *url = [NSURL URLWithString:urlString];
+        self.neighborhoodRequest = [ASIHTTPRequest requestWithURL: url];
+        self.neighborhoodRequest.delegate = self;
+        [self.neighborhoodRequest startAsynchronous];
     }
 }
 
 - (void) fetchUser
 {
     if (!self.profileRequest) {
-        NSURL *url = kWWOUrl(@"profile/1.json");
+        NSString *urlString = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/%d?token=%@", 1, self.facebook.accessToken];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSLog(@"%@", urlString);
         self.profileRequest = [ASIHTTPRequest requestWithURL:url];
         self.profileRequest.delegate = self;
         [self.profileRequest startAsynchronous];
@@ -173,20 +176,15 @@ static ServerInterface *sharedManager = nil;
         }
         self.messagesRequest = nil;
     }
-    else if (request == self.nearbyUsersRequest) {
+    else if (request == self.neighborhoodRequest) {
         //todo: status
-        NSString *jsonString = self.nearbyUsersRequest.responseString;
+        NSString *jsonString = self.neighborhoodRequest.responseString;
         NSDictionary *responseDict = [jsonString objectFromJSONString];
         //int status = [[responseDict objectForKey:@"status"] intValue];
-      
-        NSArray *userDicts = [responseDict objectForKey:@"users"];
-        NSMutableArray *users = [NSMutableArray array];
-        for (NSDictionary *userDict in userDicts) {
-            User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
-            [users addObject: user];
-        }
-        [Notification send:@"DidFetchNearbyUsers" withData:users];
-        self.messagesRequest = nil;
+        NSLog(@"response = %@", jsonString);
+        Neighborhood *neighborhood = [[[Neighborhood alloc] initWithDictionary:responseDict] autorelease];
+        [Notification send:@"DidFetchNeighborhood" withData:neighborhood];
+        self.neighborhoodRequest = nil;
     }
     else if (request == self.profileRequest) {
         NSString *jsonString = self.profileRequest.responseString;
@@ -211,8 +209,8 @@ static ServerInterface *sharedManager = nil;
     if (request == self.messagesRequest) {
         self.messagesRequest = nil;
     }
-    else if (request == self.nearbyUsersRequest) {
-        self.nearbyUsersRequest = nil;
+    else if (request == self.neighborhoodRequest) {
+        self.neighborhoodRequest = nil;
     }
     else if (request == self.profileRequest) {
         self.profileRequest = nil;
