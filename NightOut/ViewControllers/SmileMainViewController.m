@@ -54,6 +54,7 @@
 - (void) showSmilesSent
 {
     SmilesSentViewController *smilesSentVC = [[[SmilesSentViewController alloc] init] autorelease];
+    smilesSentVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:smilesSentVC animated:YES];
 }
 

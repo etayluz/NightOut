@@ -118,10 +118,10 @@ static ServerInterface *sharedManager = nil;
     }
 }
 
-- (void) fetchUser
+- (void) fetchUserByID: (NSInteger) userID
 {
     if (!self.profileRequest) {
-        NSString *urlString = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/%d?token=%@", 1, self.facebook.accessToken];
+        NSString *urlString = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/%d?token=%@", userID, self.facebook.accessToken];
         NSURL *url = [NSURL URLWithString:urlString];
         NSLog(@"%@", urlString);
         self.profileRequest = [ASIHTTPRequest requestWithURL:url];
@@ -192,6 +192,7 @@ static ServerInterface *sharedManager = nil;
         NSDictionary *userDict = [responseDict objectForKey:@"user"];
         User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
         
+        NSLog(@"profile request: %@", self.updateLocationRequest.responseString);
         [Notification send:@"DidFetchUser" withData:user];
         
         self.profileRequest = nil;

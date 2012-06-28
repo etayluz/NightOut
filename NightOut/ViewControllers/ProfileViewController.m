@@ -23,7 +23,7 @@
 
 @synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
-@synthesize friendsScrollView, musicScrollView, placesScrollView, users, messageButton, smileButton, heightOffset;
+@synthesize friendsScrollView, interestsScrollView, placesScrollView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
 
 - (id) init
@@ -31,8 +31,6 @@
     self = [super init];
     if (self) {
         [Notification registerNotification:@"DidFetchUser" target:self selector:@selector(didFetchUser:)];
-        
-        [[ServerInterface sharedManager] fetchUser];
     }
     
     return self;
@@ -52,6 +50,11 @@
     User *u = [notification.userInfo objectForKey:@"data"];
     [self updateFromUser:u];
     NSLog(@"fetched user name = %@", user.name);
+}
+
+- (void) updateFromUserID:(NSInteger)userID
+{
+    [[ServerInterface sharedManager] fetchUserByID:userID];
 }
 
 - (void) updateFromUser:(User *)aUser
@@ -78,7 +81,7 @@
     [self updateInfoLabel:@"Work" value:aUser.work];
     
     [self.friendsScrollView reloadData];
-    [self.musicScrollView reloadData];
+    [self.interestsScrollView reloadData];
     [self.placesScrollView reloadData];
 }
 
@@ -204,18 +207,18 @@
     self.heightOffset += 20;
 
     /* Music Scroll View */
-    self.musicScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
-    self.musicScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
-    self.musicScrollView.showsVerticalScrollIndicator = NO;
-    self.musicScrollView.showsHorizontalScrollIndicator = NO;
-    self.musicScrollView.delegate = self;
-    self.musicScrollView.dataSource = self;
-    [self.musicScrollView setContentSizeGrowsToFillBounds:NO];
-    self.musicScrollView.gridHeaderView.hidden = YES;
-    self.musicScrollView.gridFooterView.hidden = YES;
-    self.musicScrollView.resizesCellWidthToFit = YES;
-    [self.scrollView addSubview:self.musicScrollView];    
-    [self.musicScrollView reloadData];
+    self.interestsScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
+    self.interestsScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
+    self.interestsScrollView.showsVerticalScrollIndicator = NO;
+    self.interestsScrollView.showsHorizontalScrollIndicator = NO;
+    self.interestsScrollView.delegate = self;
+    self.interestsScrollView.dataSource = self;
+    [self.interestsScrollView setContentSizeGrowsToFillBounds:NO];
+    self.interestsScrollView.gridHeaderView.hidden = YES;
+    self.interestsScrollView.gridFooterView.hidden = YES;
+    self.interestsScrollView.resizesCellWidthToFit = YES;
+    [self.scrollView addSubview:self.interestsScrollView];    
+    [self.interestsScrollView reloadData];
     self.heightOffset += 60;
 
     /* Separator Label */
@@ -311,8 +314,8 @@
     if (gridView == self.friendsScrollView) {
         items = self.user.mutualFriends;
     }
-    else if (gridView == self.musicScrollView) {
-        items = self.user.music;
+    else if (gridView == self.interestsScrollView) {
+        items = self.user.interests;
     }
     else if (gridView == self.placesScrollView) {
         items = self.user.recentPlaces;
@@ -335,8 +338,8 @@
     if (gridView == self.friendsScrollView) {
         items = self.user.mutualFriends;
     }
-    else if (gridView == self.musicScrollView) {
-        items = self.user.music;
+    else if (gridView == self.interestsScrollView) {
+        items = self.user.interests;
     }
     else if (gridView == self.placesScrollView) {
         items = self.user.recentPlaces;

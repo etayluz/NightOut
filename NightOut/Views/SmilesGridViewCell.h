@@ -15,4 +15,6 @@
 @property (nonatomic, retain)  UILabel      *nameLabel;
 @property (nonatomic, retain)  UILabel      *ageLabel;
 @property (nonatomic, retain)  UILabel      *networkLabel;
+
+- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier index:(NSUInteger)index;
 @end

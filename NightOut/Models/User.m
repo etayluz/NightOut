@@ -18,11 +18,10 @@
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
     if (self = [self init]) {
-        self.userID = [dictionary objectForKey:@"id"];
+        self.userID = [[dictionary objectForKey:@"id"] integerValue];
         self.name = [dictionary objectForKey:@"name"];
         self.age = [dictionary objectForKey:@"age"];
         self.network = [dictionary objectForKey:@"networks"];
-        self.userID = [dictionary objectForKey:@"userID"];
         self.pictures = [dictionary objectForKey:@"photos"];
         self.thumb = [dictionary objectForKey:@"thumb"];
         
@@ -48,7 +47,7 @@
     
     [dictionary setObject:self.name forKey:@"name"];
     [dictionary setObject:self.age forKey:@"age"];
-    [dictionary setObject:self.userID forKey:@"userID"];
+    [dictionary setObject:[NSNumber numberWithInt:self.userID] forKey:@"userID"];
     [dictionary setObject:self.thumb forKey:@"thumb"];
     
     return dictionary;

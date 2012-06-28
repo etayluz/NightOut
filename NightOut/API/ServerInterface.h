@@ -23,7 +23,7 @@
 
 - (void) fetchMessages;
 - (void) fetchNeighborhood;
-- (void) fetchUser;
+- (void) fetchUserByID: (NSInteger) userID;
 - (void) updateLocationWithLatitude: (CLLocationDegrees) aLatitude andLongitdue: (CLLocationDegrees) aLongitude;
 
 - (BOOL) isUserLoggedIn;

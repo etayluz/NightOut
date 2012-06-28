@@ -82,7 +82,7 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
-    return 9;
+    return 18;
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
@@ -93,7 +93,7 @@
     
     if (!cell) {
 		cell = [[[SmilesGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 80, 100)
-									  reuseIdentifier:smilesCellIdentifier] autorelease];   
+                                          reuseIdentifier:smilesCellIdentifier index:index] autorelease];   
     }
 
     //cell.backgroundColor = [UIColor purpleColor];

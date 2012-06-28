@@ -16,6 +16,7 @@
 
 @interface ProfileViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
 
+- (void) updateFromUserID:(NSInteger)userID;
 - (void) updateFromUser:(User *)user;
 - (void) messageButtonTap;
 - (void) smilesButtonTap;
@@ -28,7 +29,7 @@
 @property (nonatomic, retain)  UILabel *networkLabel;
 @property (nonatomic, retain)  UIImageView *profileImageView;
 @property (nonatomic, retain)  AQGridView *friendsScrollView;
-@property (nonatomic, retain)  AQGridView *musicScrollView;
+@property (nonatomic, retain)  AQGridView *interestsScrollView;
 @property (nonatomic, retain)  AQGridView *placesScrollView;
 @property (nonatomic, retain)  UIButton *messageButton;
 @property (nonatomic, retain)  UIButton *smileButton;

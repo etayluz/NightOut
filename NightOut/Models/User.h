@@ -12,7 +12,7 @@
 
 @interface User : NSObject <AsDictionary>
 
-@property (retain) NSNumber *userID;
+@property NSInteger userID;
 @property (retain) NSString *name;
 @property (retain) NSString *network;
 @property (retain) NSNumber *age;
@@ -29,8 +29,8 @@
 @property (retain) NSString *relationshipStatus;
 @property (retain) NSString *work;
 
-@property (retain) NSArray *music;
 @property (retain) NSArray *interests;
+@property (retain) NSArray *music;
 @property (retain) NSArray *recentPlaces;
 
 @end

@@ -170,7 +170,7 @@
     //[self gridView:self.gridView willSelectItemAtIndex:1];
     
     /* UNCOMMENT TO SKIP TO MAIN SMILES PAGE */
-    //self.tabBarController.selectedIndex = 1;
+    self.tabBarController.selectedIndex = 1;
     
     /* UNCOMMENT TO SKIP TO FILTERS SMILES PAGE */
     //[self showFilters];
@@ -199,6 +199,8 @@
     ProfileViewController *profileVC = [[[ProfileViewController alloc] init] autorelease];
     profileVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
+    
+    [profileVC updateFromUserID:user.userID];
 }
 
 

@@ -11,7 +11,7 @@
 @implementation SmilesGridViewCell
 @synthesize imageView, nameLabel, ageLabel, networkLabel, imageMask;
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier index:(NSUInteger)index
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -28,7 +28,10 @@
         
         /* Image Mask */
         self.imageMask = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 100)] autorelease];
-        [self.imageMask setImage:[UIImage imageNamed:@"ImageMask1.png"]];
+        
+        NSString * imageName = [NSString stringWithFormat:@"ImageMask%i.png", ((int)index%9)+1];
+        NSLog(@"index=%@", imageName);
+        [self.imageMask setImage:[UIImage imageNamed:imageName]];
         [self.contentView addSubview: self.imageMask];
         
         /* Name Label */
