@@ -24,7 +24,8 @@
 - (void) fetchMessages;
 - (void) fetchNeighborhood;
 - (void) fetchUserByID: (NSInteger) userID;
-- (void) updateLocationWithLatitude: (CLLocationDegrees) aLatitude andLongitdue: (CLLocationDegrees) aLongitude;
+- (void) sendLocationToServer:(CLLocation *) location;
+- (void) sendLocationToServerInBackground:(CLLocation *)location;
 
 - (BOOL) isUserLoggedIn;
 - (void) showLoginPrompt;

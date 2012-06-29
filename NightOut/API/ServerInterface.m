@@ -14,15 +14,13 @@
 #import "User.h"
 #import "Neighborhood.h"
 
-#import "NearbyUsersRequest.h"
-
-
 @interface ServerInterface ()
 
 @property (nonatomic, retain) ASIHTTPRequest *messagesRequest;
 @property (nonatomic, retain) ASIHTTPRequest *neighborhoodRequest;
 @property (nonatomic, retain) ASIHTTPRequest *profileRequest;
 @property (nonatomic, retain) ASIFormDataRequest *updateLocationRequest;
+@property (assign) UIBackgroundTaskIdentifier bgTask;
 
 @end
 
@@ -32,6 +30,7 @@ static ServerInterface *sharedManager = nil;
 
 @synthesize facebook;
 @synthesize messagesRequest, neighborhoodRequest, profileRequest, updateLocationRequest;
+@synthesize bgTask;
 
 #pragma mark - Singleton compliance DON'T MODIFY! (Unless you know wtf you're doing)
 
@@ -130,6 +129,33 @@ static ServerInterface *sharedManager = nil;
     }
 }
 
+
+-(void) sendLocationToServerInBackground:(CLLocation *)location
+{
+    NSLog(@"sendLocationToServerInBackground");
+    
+    self.bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:
+    ^{
+        [[UIApplication sharedApplication] endBackgroundTask: self.bgTask];
+    }];
+    
+    [self sendLocationToServer:location];
+    
+    if (self.bgTask != UIBackgroundTaskInvalid)
+    {
+        [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }
+}
+
+- (void) sendLocationToServer:(CLLocation *) location
+{
+    NSLog(@"sendLocationToServer");
+
+    [self updateLocationWithLatitude:location.coordinate.latitude 
+                        andLongitdue:location.coordinate.longitude];
+}
+
 - (void) updateLocationWithLatitude: (CLLocationDegrees) aLatitude andLongitdue: (CLLocationDegrees) aLongitude
 {
     if (!self.updateLocationRequest) {
@@ -142,7 +168,6 @@ static ServerInterface *sharedManager = nil;
         NSURL *url = [NSURL URLWithString:@"http://wwoapp.herokuapp.com/api/v1/location"];
         self.updateLocationRequest = [ASIFormDataRequest requestWithURL:url];
         self.updateLocationRequest.delegate = self;
-        
         
         [self.updateLocationRequest setPostValue:self.facebook.accessToken forKey:@"token"];
         [self.updateLocationRequest setPostValue:longitude forKey:@"longitude"];
@@ -192,7 +217,6 @@ static ServerInterface *sharedManager = nil;
         NSDictionary *userDict = [responseDict objectForKey:@"user"];
         User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
         
-        NSLog(@"profile request: %@", self.updateLocationRequest.responseString);
         [Notification send:@"DidFetchUser" withData:user];
         
         self.profileRequest = nil;
@@ -200,8 +224,9 @@ static ServerInterface *sharedManager = nil;
     else if (request == self.updateLocationRequest) {
         //NSString *jsonString = self.updateLocationRequest.responseString;
         //NSDictionary *responseDict = [jsonString objectFromJSONString];
-        NSLog(@"update location: %@", self.updateLocationRequest.responseString);
+        NSLog(@"DidUpdateLocation");
         [Notification send:@"DidUpdateLocation"];
+        self.updateLocationRequest = nil;
     }
 }
 

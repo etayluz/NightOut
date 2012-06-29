@@ -40,14 +40,14 @@
         self.nameLabel.backgroundColor   = [UIColor clearColor];
         self.nameLabel.text = @"Venkat";
         [self.contentView addSubview: self.nameLabel];
-
+        
         /* Age Label */
         self.ageLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(55, 70, 100, 15)] autorelease];
         self.ageLabel.font              = [UIFont boldSystemFontOfSize:10];
         self.ageLabel.backgroundColor   = [UIColor clearColor];
         self.ageLabel.text = @"25";
         [self.contentView addSubview: self.ageLabel];
-
+        
         /* Network Label */
         self.networkLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(10, 80, 100, 15)] autorelease];
         self.networkLabel.font              = [UIFont boldSystemFontOfSize:10];

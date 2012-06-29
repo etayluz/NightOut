@@ -36,7 +36,6 @@
         self.interests = [dictionary objectForKey:@"interests"];
         self.music = [dictionary objectForKey:@"music"];
         self.recentPlaces = [dictionary objectForKey:@"recent_places"];
-        
     }
     return self;
 }

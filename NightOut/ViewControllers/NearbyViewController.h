@@ -15,6 +15,7 @@
 @property (retain) IBOutlet AQGridView *gridView;
 @property (nonatomic, retain) UIImageView *headerView;
 @property (nonatomic, retain) UILabel *neighborhoodLabel;
+@property (nonatomic, retain) UILabel *coordinatesLabel;
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView;
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index;

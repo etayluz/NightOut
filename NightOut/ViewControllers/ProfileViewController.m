@@ -23,7 +23,7 @@
 
 @synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
-@synthesize friendsScrollView, interestsScrollView, placesScrollView, users, messageButton, smileButton, heightOffset;
+@synthesize friendsScrollView, interestsScrollView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
 
 - (id) init
@@ -82,7 +82,6 @@
     
     [self.friendsScrollView reloadData];
     [self.interestsScrollView reloadData];
-    [self.placesScrollView reloadData];
 }
 
 - (void) updateInfoLabel:(NSString *) title value: (NSString *) aValue
@@ -109,7 +108,10 @@
     /* Image Label */
     self.profileImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 280)] autorelease];
     self.profileImageView.userInteractionEnabled = YES;
+    self.profileImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.profileImageView.clipsToBounds = YES;
     [self.scrollView addSubview:self.profileImageView];
+    
     self.heightOffset += 280;
     // Create gesture recognizer
     UITapGestureRecognizer *oneFingerOneTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)] autorelease];
@@ -199,11 +201,11 @@
     self.heightOffset += 14;
     
     /* Music Label */
-    UILabel *musicLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
-    musicLabel.font            = [UIFont boldSystemFontOfSize:12];
-    musicLabel.backgroundColor = [UIColor clearColor];
-    musicLabel.text = @"Music";
-    [self.scrollView addSubview:musicLabel];
+    UILabel *interestsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
+    interestsLabel.font            = [UIFont boldSystemFontOfSize:12];
+    interestsLabel.backgroundColor = [UIColor clearColor];
+    interestsLabel.text = @"Interests";
+    [self.scrollView addSubview:interestsLabel];
     self.heightOffset += 20;
 
     /* Music Scroll View */
@@ -228,29 +230,7 @@
     separator4.text = @"_____________________________________________";
     [self.scrollView addSubview:separator4];
     self.heightOffset += 14;
-
-    /* Recent Places Label */
-    UILabel *placesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
-    placesLabel.font            = [UIFont boldSystemFontOfSize:12];
-    placesLabel.backgroundColor = [UIColor clearColor];
-    placesLabel.text = @"Recent Places";
-    [self.scrollView addSubview:placesLabel];
-    self.heightOffset += 20;
-
-    /* Recent Places Scroll View */
-    self.placesScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
-    self.placesScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
-    self.placesScrollView.showsVerticalScrollIndicator = NO;
-    self.placesScrollView.showsHorizontalScrollIndicator = NO;
-    self.placesScrollView.delegate = self;
-    self.placesScrollView.dataSource = self;
-    [self.placesScrollView setContentSizeGrowsToFillBounds:NO];
-    self.placesScrollView.gridHeaderView.hidden = YES;
-    self.placesScrollView.gridFooterView.hidden = YES;
-    self.placesScrollView.resizesCellWidthToFit = YES;
-    [self.scrollView addSubview:self.placesScrollView];    
-    [self.placesScrollView reloadData];
-    self.heightOffset += 60;
+    
 }
 
 
@@ -317,9 +297,6 @@
     else if (gridView == self.interestsScrollView) {
         items = self.user.interests;
     }
-    else if (gridView == self.placesScrollView) {
-        items = self.user.recentPlaces;
-    }
     return items.count;
 }
 
@@ -341,9 +318,6 @@
     else if (gridView == self.interestsScrollView) {
         items = self.user.interests;
     }
-    else if (gridView == self.placesScrollView) {
-        items = self.user.recentPlaces;
-    }
     
     NSString *itemUrl = [[items objectAtIndex:index] objectForKey:@"thumb"];
     NSString *itemName = [[items objectAtIndex:index] objectForKey:@"name"];
@@ -353,8 +327,6 @@
     
     return cell;
 }
-
-
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
 {

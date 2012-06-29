@@ -43,7 +43,6 @@
     self.gridView.delegate = self;
     self.gridView.dataSource = self;
     [self.gridView setContentSizeGrowsToFillBounds:TRUE];
-    //[self.gridView setContentSize:<#(CGSize)#>
     
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];

@@ -29,27 +29,20 @@
 @synthesize neighborhood;
 @synthesize gridView;
 @synthesize headerView;
-@synthesize neighborhoodLabel;
+@synthesize neighborhoodLabel, coordinatesLabel;
 
 - (void) dealloc
 {
+    [super dealloc];
+    
     self.neighborhood = nil;
     self.gridView = nil;
     self.headerView = nil;
+    self.neighborhoodLabel = nil;
+    self.coordinatesLabel = nil;
     
     [Notification unregisterNotification:@"DidFetchNeighborhood" target:self];
     [Notification unregisterNotification:@"DidUpdateLocation" target:self];
-    
-    [super dealloc];
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    //self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)viewDidLoad
@@ -61,6 +54,7 @@
     [self addFiltersButton];
 
     [Notification registerNotification:@"DidFetchNeighborhood" target:self selector:@selector(loadedNeighborhood:)];
+    [Notification registerNotification:@"UserDidChangeLocation" target:self selector:@selector(userDidChangeLocation:)];
     [Notification registerNotification:@"DidUpdateLocation" target:self selector:@selector(didUpdateLocation)];
     
     [[ServerInterface sharedManager] fetchNeighborhood];
@@ -78,10 +72,14 @@
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
 
-    self.neighborhoodLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)] autorelease];
+    self.neighborhoodLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 50)] autorelease];
     self.neighborhoodLabel.backgroundColor = [UIColor yellowColor];
-    self.neighborhoodLabel.text = @"woo";
     [self.view addSubview:self.neighborhoodLabel];
+    
+    self.coordinatesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(150, 0, 150, 50)] autorelease];
+    self.coordinatesLabel.font              = [UIFont boldSystemFontOfSize:10];
+    self.coordinatesLabel.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.coordinatesLabel];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
@@ -125,7 +123,15 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    
+    self.neighborhood = nil;
+    self.gridView = nil;
+    self.headerView = nil;
+    self.neighborhoodLabel = nil;
+    self.coordinatesLabel = nil;
+    
+    [Notification unregisterNotification:@"DidFetchNeighborhood" target:self];
+    [Notification unregisterNotification:@"DidUpdateLocation" target:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -170,7 +176,7 @@
     //[self gridView:self.gridView willSelectItemAtIndex:1];
     
     /* UNCOMMENT TO SKIP TO MAIN SMILES PAGE */
-    self.tabBarController.selectedIndex = 1;
+    //self.tabBarController.selectedIndex = 1;
     
     /* UNCOMMENT TO SKIP TO FILTERS SMILES PAGE */
     //[self showFilters];
@@ -179,6 +185,13 @@
 - (void) didUpdateLocation
 {
     [[ServerInterface sharedManager] fetchNeighborhood];
+}
+
+- (void)userDidChangeLocation:(NSNotification *) notification
+{
+    CLLocation *location = [notification.userInfo objectForKey:@"data"];
+    NSString *coordinates = [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude];
+    self.coordinatesLabel.text = coordinates;
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
@@ -190,7 +203,6 @@
 
 - (void) userWasSelected:(User *)user
 {
-    NSLog(@"selected %@", user.name);
     [self showUserProfile:user];
 }
 
@@ -203,14 +215,11 @@
     [profileVC updateFromUserID:user.userID];
 }
 
-
 - (void) showFilters
 {
     SettingsViewController *filtersVC = [[[SettingsViewController alloc] init] autorelease];
     [self.navigationController pushViewController:filtersVC animated:YES];
 }
-
-
 
 - (void)showMessages
 {

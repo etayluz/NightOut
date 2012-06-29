@@ -30,7 +30,6 @@
 @property (nonatomic, retain)  UIImageView *profileImageView;
 @property (nonatomic, retain)  AQGridView *friendsScrollView;
 @property (nonatomic, retain)  AQGridView *interestsScrollView;
-@property (nonatomic, retain)  AQGridView *placesScrollView;
 @property (nonatomic, retain)  UIButton *messageButton;
 @property (nonatomic, retain)  UIButton *smileButton;
 @property (nonatomic, retain)  UIScrollView *scrollView;
