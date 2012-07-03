@@ -16,11 +16,12 @@
 
 - (void) dealloc
 {
-    [imageView release];
-    [nameLabel release];
-    [ageLabel release];
-    [friendsLabel release];
-    [networkLabel release];
+    NSLog(@"deallocated");
+    self.imageView = nil;
+    self.nameLabel = nil;
+    self.ageLabel = nil;
+    self.friendsLabel = nil;
+    self.networkLabel = nil;
     
     [super dealloc];
 }

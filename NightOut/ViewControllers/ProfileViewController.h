@@ -10,11 +10,11 @@
 #include <QuartzCore/QuartzCore.h>
 #import "User.h"
 #import "AQGridView.h"
-
+#import "FetchUserRequest.h"
 
 #define OFFSET_FROM_NAME_LABEL     30
 
-@interface ProfileViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
+@interface ProfileViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource, FetchUserRequestDelegate>
 
 - (void) updateFromUserID:(NSInteger)userID;
 - (void) updateFromUser:(User *)user;

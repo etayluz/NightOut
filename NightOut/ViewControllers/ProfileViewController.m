@@ -11,12 +11,11 @@
 #import "ThumbViewCell.h"
 #import "User.h"
 #import "Notification.h"
-#import "ServerInterface.h"
 #import "PhotoSliderViewController.h"
 
 @interface ProfileViewController ()
 @property (nonatomic, retain) NSArray *users;
-
+@property (nonatomic, retain) FetchUserRequest *fetchUserRequest;
 @end
 
 @implementation ProfileViewController
@@ -25,6 +24,7 @@
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
 @synthesize friendsScrollView, interestsScrollView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
+@synthesize fetchUserRequest;
 
 - (id) init
 {
@@ -37,24 +37,32 @@
 }
 
 - (void) dealloc
-{
-    [Notification unregisterNotification:@"DidFetchUser" target:self];
-    
-    [self.infoValueLabels release];
+{   
+    self.scrollView = nil;
+    self.nameLabel = nil;
+    self.ageLabel = nil;
+    self.networkLabel = nil;
+    self.friendsLabel = nil;
+    self.profileImageView = nil;
+    self.friendsScrollView = nil;
+    self.interestsScrollView = nil;
+    self.users = nil;
+    self.messageButton = nil;
+    self.smileButton = nil;
+    self.infoValueLabels = nil;
+    self.fetchUserRequest = nil;
     
     [super dealloc];
 }
 
-- (void) didFetchUser:(NSNotification *) notification
-{
-    User *u = [notification.userInfo objectForKey:@"data"];
-    [self updateFromUser:u];
-    NSLog(@"fetched user name = %@", user.name);
-}
-
 - (void) updateFromUserID:(NSInteger)userID
 {
-    [[ServerInterface sharedManager] fetchUserByID:userID];
+    [self.fetchUserRequest send:userID];
+}
+
+- (void) didFetchUser:(User *)u
+{
+    [self updateFromUser:u];
 }
 
 - (void) updateFromUser:(User *)aUser
@@ -93,6 +101,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.fetchUserRequest = [[[FetchUserRequest alloc] init] autorelease];
+    self.fetchUserRequest.delegate = self;
 }
 
 - (void) buildSubviews

@@ -17,15 +17,17 @@
 #import "WWOLoginViewController.h"
 #import "SmileMainViewController.h"
 
+#import "UAirship.h"
+#import "UAPush.h"
+
 @implementation AppDelegate
 
 @synthesize window;
 @synthesize tabBarController;
 
-// venkats id: c2870baff47f56b53d0e492f5b3de3a2ce7e5269
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"app did finish launching w options");
     /* Register UserDidLogin notification with Notification Center */
     [Notification registerNotification:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
     
@@ -40,8 +42,113 @@
     
     [GPS main].locationManager.delegate = self;
     [[GPS main].locationManager startUpdatingLocation];
+        
+    [self setupPushNotifications];
     
     return YES;
+}
+
+- (void) setupPushNotifications
+{
+    NSLog(@"SETUP PUSH NOTIFICATIONS");
+    //Init Airship launch options
+    NSMutableDictionary *takeOffOptions = [[[NSMutableDictionary alloc] init] autorelease];
+    
+    // Create Airship singleton that's used to talk to Urban Airhship servers.
+    // Please populate AirshipConfig.plist with your info from http://go.urbanairship.com
+    [UAirship takeOff:takeOffOptions];
+    
+    [[UAPush shared] resetBadge];//zero badge on startup
+    
+    [[UAPush shared] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                         UIRemoteNotificationTypeSound |
+                                                         UIRemoteNotificationTypeAlert)];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"APN device token: %@", deviceToken);
+    // Updates the device token and registers the token with UA
+    [[UAPush shared] registerDeviceToken:deviceToken];
+    
+    
+    /*
+     * Some example cases where user notification may be warranted
+     *
+     * This code will alert users who try to enable notifications
+     * from the settings screen, but cannot do so because
+     * notications are disabled in some capacity through the settings
+     * app.
+     * 
+     */
+    
+    /*
+     
+     //Do something when notifications are disabled altogther
+     if ([application enabledRemoteNotificationTypes] == UIRemoteNotificationTypeNone) {
+     UALOG(@"iOS Registered a device token, but nothing is enabled!");
+     
+     //only alert if this is the first registration, or if push has just been
+     //re-enabled
+     if ([UAirship shared].deviceToken != nil) { //already been set this session
+     NSString* okStr = @"OK";
+     NSString* errorMessage =
+     @"Unable to turn on notifications. Use the \"Settings\" app to enable notifications.";
+     NSString *errorTitle = @"Error";
+     UIAlertView *someError = [[UIAlertView alloc] initWithTitle:errorTitle
+     message:errorMessage
+     delegate:nil
+     cancelButtonTitle:okStr
+     otherButtonTitles:nil];
+     
+     [someError show];
+     [someError release];
+     }
+     
+     //Do something when some notification types are disabled
+     } else if ([application enabledRemoteNotificationTypes] != [UAPush shared].notificationTypes) {
+     
+     UALOG(@"Failed to register a device token with the requested services. Your notifications may be turned off.");
+     
+     //only alert if this is the first registration, or if push has just been
+     //re-enabled
+     if ([UAirship shared].deviceToken != nil) { //already been set this session
+     
+     UIRemoteNotificationType disabledTypes = [application enabledRemoteNotificationTypes] ^ [UAPush shared].notificationTypes;
+     
+     
+     
+     NSString* okStr = @"OK";
+     NSString* errorMessage = [NSString stringWithFormat:@"Unable to turn on %@. Use the \"Settings\" app to enable these notifications.", [UAPush pushTypeString:disabledTypes]];
+     NSString *errorTitle = @"Error";
+     UIAlertView *someError = [[UIAlertView alloc] initWithTitle:errorTitle
+     message:errorMessage
+     delegate:nil
+     cancelButtonTitle:okStr
+     otherButtonTitles:nil];
+     
+     [someError show];
+     [someError release];
+     }
+     }
+     
+     */
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *) error {
+    NSLog(@"Failed To Register For Remote Notifications With Error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"Received remote notification: %@", userInfo);
+    
+    // Get application state for iOS4.x+ devices, otherwise assume active
+    UIApplicationState appState = UIApplicationStateActive;
+    if ([application respondsToSelector:@selector(applicationState)]) {
+        appState = application.applicationState;
+    }
+    
+    [[UAPush shared] handleNotification:userInfo applicationState:appState];
+    [[UAPush shared] resetBadge]; // zero badge after push received
 }
 
 - (void) createAndAddTabs
@@ -125,6 +232,8 @@
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     NSLog(@"applicationDidBecomeActive");
+    
+    [[UAPush shared] resetBadge]; //zero badge when resuming from background (iOS 4+)
     [[[GPS main] locationManager] startMonitoringSignificantLocationChanges];
 }
 
@@ -132,6 +241,8 @@
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     NSLog(@"applicationWillTerminate");
+    
+    [UAirship land];
 }
 
 
@@ -146,6 +257,7 @@
         return NO;
     }
 }
+
 
 
 /*
@@ -163,9 +275,6 @@
         && newLocation.coordinate.longitude == oldLocation.coordinate.longitude)
         return;
     
-
-    
-    NSLog(@"UserDidChangeLocation");
     [Notification send:@"UserDidChangeLocation" withData:newLocation];
 }
 

@@ -30,6 +30,7 @@
 @synthesize gridView;
 @synthesize headerView;
 @synthesize neighborhoodLabel, coordinatesLabel;
+@synthesize fetchNeighborhoodRequest;
 
 - (void) dealloc
 {
@@ -41,7 +42,6 @@
     self.neighborhoodLabel = nil;
     self.coordinatesLabel = nil;
     
-    [Notification unregisterNotification:@"DidFetchNeighborhood" target:self];
     [Notification unregisterNotification:@"DidUpdateLocation" target:self];
 }
 
@@ -53,11 +53,12 @@
     [self addMessagesButton];
     [self addFiltersButton];
 
-    [Notification registerNotification:@"DidFetchNeighborhood" target:self selector:@selector(loadedNeighborhood:)];
     [Notification registerNotification:@"UserDidChangeLocation" target:self selector:@selector(userDidChangeLocation:)];
     [Notification registerNotification:@"DidUpdateLocation" target:self selector:@selector(didUpdateLocation)];
     
-    [[ServerInterface sharedManager] fetchNeighborhood];
+    self.fetchNeighborhoodRequest = [[[FetchNeighborhoodRequest alloc] init] autorelease];
+    self.fetchNeighborhoodRequest.delegate = self;
+    [self.fetchNeighborhoodRequest send];
 
     self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
     self.gridView.showsVerticalScrollIndicator = NO;
@@ -130,7 +131,6 @@
     self.neighborhoodLabel = nil;
     self.coordinatesLabel = nil;
     
-    [Notification unregisterNotification:@"DidFetchNeighborhood" target:self];
     [Notification unregisterNotification:@"DidUpdateLocation" target:self];
 }
 
@@ -163,28 +163,18 @@
     return cell;
 }
 
-#pragma mark - Notifications
-- (void) loadedNeighborhood:(NSNotification *) notification
+- (void) didFetchNeighborhood:(Neighborhood *)n;
 {
-    NSLog(@"loaded neighborhood");
-    self.neighborhood = [notification.userInfo objectForKey:@"data"];
-    NSLog(@"name = %@", neighborhood.name);
+    self.neighborhood = n;
     self.neighborhoodLabel.text = self.neighborhood.name;
     [self.gridView reloadData];
-    
-    /* UNCOMMENT TO SKIP TO PROFILE PAGE */
-    //[self gridView:self.gridView willSelectItemAtIndex:1];
-    
-    /* UNCOMMENT TO SKIP TO MAIN SMILES PAGE */
-    //self.tabBarController.selectedIndex = 1;
-    
-    /* UNCOMMENT TO SKIP TO FILTERS SMILES PAGE */
-    //[self showFilters];
 }
+
+#pragma mark - Notifications
 
 - (void) didUpdateLocation
 {
-    [[ServerInterface sharedManager] fetchNeighborhood];
+    [self.fetchNeighborhoodRequest send];
 }
 
 - (void)userDidChangeLocation:(NSNotification *) notification

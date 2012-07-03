@@ -580,8 +580,12 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 		return ( nil );
 
 	[cell prepareForReuse];
+    
+    /* Added the line below so that a cell doesn't get released IMMEDIATELY after it is removed */
+    [[cell retain] autorelease];
 
 	[cells removeObject: cell];
+    
 	return ( cell );
 }
 

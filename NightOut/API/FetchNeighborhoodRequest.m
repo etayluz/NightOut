@@ -7,11 +7,23 @@
 //
 
 #import "FetchNeighborhoodRequest.h"
+#import "ServerInterface.h"
 
-#import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
-#import "ASIHTTPRequestDelegate.h"
+@implementation FetchNeighborhoodRequest : ServerRequest
+@synthesize delegate;
 
-@implementation FetchNeighborhoodRequest
+- (void) send
+{
+    if (!self.request) {
+        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/nearby?token=%@", self.accessToken];
+        [self sendToUrl:url];
+    }
+}
+
+- (void) didFetchJson:(NSDictionary *)json
+{
+    Neighborhood *neighborhood = [[[Neighborhood alloc] initWithDictionary:json] autorelease];
+    [self.delegate didFetchNeighborhood:neighborhood];
+}
 
 @end

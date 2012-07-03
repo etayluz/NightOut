@@ -22,8 +22,6 @@
 + (ServerInterface *)sharedManager;
 
 - (void) fetchMessages;
-- (void) fetchNeighborhood;
-- (void) fetchUserByID: (NSInteger) userID;
 - (void) sendLocationToServer:(CLLocation *) location;
 - (void) sendLocationToServerInBackground:(CLLocation *)location;
 

@@ -17,8 +17,6 @@
 @interface ServerInterface ()
 
 @property (nonatomic, retain) ASIHTTPRequest *messagesRequest;
-@property (nonatomic, retain) ASIHTTPRequest *neighborhoodRequest;
-@property (nonatomic, retain) ASIHTTPRequest *profileRequest;
 @property (nonatomic, retain) ASIFormDataRequest *updateLocationRequest;
 @property (assign) UIBackgroundTaskIdentifier bgTask;
 
@@ -29,7 +27,7 @@ static ServerInterface *sharedManager = nil;
 @implementation ServerInterface
 
 @synthesize facebook;
-@synthesize messagesRequest, neighborhoodRequest, profileRequest, updateLocationRequest;
+@synthesize messagesRequest, updateLocationRequest;
 @synthesize bgTask;
 
 #pragma mark - Singleton compliance DON'T MODIFY! (Unless you know wtf you're doing)
@@ -106,30 +104,6 @@ static ServerInterface *sharedManager = nil;
     }
 }
 
-- (void) fetchNeighborhood
-{
-    if (!self.neighborhoodRequest) {
-        NSString *urlString = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/nearby?token=%@", self.facebook.accessToken];
-        NSURL *url = [NSURL URLWithString:urlString];
-        self.neighborhoodRequest = [ASIHTTPRequest requestWithURL: url];
-        self.neighborhoodRequest.delegate = self;
-        [self.neighborhoodRequest startAsynchronous];
-    }
-}
-
-- (void) fetchUserByID: (NSInteger) userID
-{
-    if (!self.profileRequest) {
-        NSString *urlString = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/%d?token=%@", userID, self.facebook.accessToken];
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSLog(@"%@", urlString);
-        self.profileRequest = [ASIHTTPRequest requestWithURL:url];
-        self.profileRequest.delegate = self;
-        [self.profileRequest startAsynchronous];
-    }
-}
-
-
 -(void) sendLocationToServerInBackground:(CLLocation *)location
 {
     NSLog(@"sendLocationToServerInBackground");
@@ -201,26 +175,6 @@ static ServerInterface *sharedManager = nil;
         }
         self.messagesRequest = nil;
     }
-    else if (request == self.neighborhoodRequest) {
-        //todo: status
-        NSString *jsonString = self.neighborhoodRequest.responseString;
-        NSDictionary *responseDict = [jsonString objectFromJSONString];
-        //int status = [[responseDict objectForKey:@"status"] intValue];
-        NSLog(@"response = %@", jsonString);
-        Neighborhood *neighborhood = [[[Neighborhood alloc] initWithDictionary:responseDict] autorelease];
-        [Notification send:@"DidFetchNeighborhood" withData:neighborhood];
-        self.neighborhoodRequest = nil;
-    }
-    else if (request == self.profileRequest) {
-        NSString *jsonString = self.profileRequest.responseString;
-        NSDictionary *responseDict = [jsonString objectFromJSONString];
-        NSDictionary *userDict = [responseDict objectForKey:@"user"];
-        User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
-        
-        [Notification send:@"DidFetchUser" withData:user];
-        
-        self.profileRequest = nil;
-    }
     else if (request == self.updateLocationRequest) {
         //NSString *jsonString = self.updateLocationRequest.responseString;
         //NSDictionary *responseDict = [jsonString objectFromJSONString];
@@ -234,12 +188,6 @@ static ServerInterface *sharedManager = nil;
 {
     if (request == self.messagesRequest) {
         self.messagesRequest = nil;
-    }
-    else if (request == self.neighborhoodRequest) {
-        self.neighborhoodRequest = nil;
-    }
-    else if (request == self.profileRequest) {
-        self.profileRequest = nil;
     }
     else if (request == self.updateLocationRequest) {
         self.updateLocationRequest = nil;

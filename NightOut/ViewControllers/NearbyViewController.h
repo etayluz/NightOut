@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "AQGridView.h"
+#import "FetchNeighborhoodRequest.h"
 
 @class WWONearbyGridViewCellContent;
-@interface NearbyViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>
+@interface NearbyViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource, FetchNeighborhoodRequestDelegate>
 
 @property (retain) IBOutlet AQGridView *gridView;
 @property (nonatomic, retain) UIImageView *headerView;
 @property (nonatomic, retain) UILabel *neighborhoodLabel;
 @property (nonatomic, retain) UILabel *coordinatesLabel;
+
+@property (nonatomic, retain) FetchNeighborhoodRequest *fetchNeighborhoodRequest;
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView;
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index;
