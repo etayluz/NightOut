@@ -303,7 +303,7 @@
 		37800F1D15A38B8800431118 /* ServerPostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerPostRequest.m; sourceTree = "<group>"; };
 		37800F2215A38EA900431118 /* UpdateLocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateLocationRequest.h; sourceTree = "<group>"; };
 		37800F2315A38EA900431118 /* UpdateLocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateLocationRequest.m; sourceTree = "<group>"; };
-		37800F2515A3977100431118 /* RegisterPushTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RegisterPushTokenRequest.h; sourceTree = "<group>"; };
+		37800F2515A3977100431118 /* RegisterPushTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterPushTokenRequest.h; sourceTree = "<group>"; };
 		37800F2615A3977100431118 /* RegisterPushTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterPushTokenRequest.m; sourceTree = "<group>"; };
 		3793BCDC15936FDA00E6E141 /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
 		3793BCDD15936FDA00E6E141 /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };

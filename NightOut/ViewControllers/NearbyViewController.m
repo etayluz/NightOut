@@ -31,6 +31,7 @@
 @synthesize headerView;
 @synthesize neighborhoodLabel, coordinatesLabel;
 @synthesize fetchNeighborhoodRequest;
+@synthesize updateTimer;
 
 - (void) dealloc
 {
@@ -42,7 +43,13 @@
     self.neighborhoodLabel = nil;
     self.coordinatesLabel = nil;
     
+    [self.updateTimer invalidate];
+    self.updateTimer = nil;
+    
+    [Notification unregisterNotification:@"UserDidChangeLocation" target:self];
     [Notification unregisterNotification:@"DidUpdateLocation" target:self];
+    [Notification unregisterNotification:@"ApplicationDidBecomeActive" target:self];
+    [Notification unregisterNotification:@"ApplicationWillResignActive" target:self];
 }
 
 - (void)viewDidLoad
@@ -55,6 +62,9 @@
 
     [Notification registerNotification:@"UserDidChangeLocation" target:self selector:@selector(userDidChangeLocation:)];
     [Notification registerNotification:@"DidUpdateLocation" target:self selector:@selector(didUpdateLocation)];
+    
+    [Notification registerNotification:@"ApplicationDidBecomeActive" target:self selector:@selector(applicationDidBecomeActive)];
+    [Notification registerNotification:@"ApplicationWillResignActive" target:self selector:@selector(applicationWillResignActive)];
     
     self.fetchNeighborhoodRequest = [[[FetchNeighborhoodRequest alloc] init] autorelease];
     self.fetchNeighborhoodRequest.delegate = self;
@@ -88,9 +98,30 @@
                                    target:self 
                                    action:@selector(myBackAction:)];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    [self startUpdatingAtRegularIntervals];
+    
 }
 
+- (void) startUpdatingAtRegularIntervals
+{
+    [self.updateTimer invalidate];
+    self.updateTimer = nil;
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:NEARBY_VIEW_REFRESH_INTERVAL_IN_SECONDS target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+}
 
+- (void) stopUpdatingAtRegularIntervals
+{
+    [self.updateTimer invalidate];
+    self.updateTimer = nil;
+}
+
+- (void) tick:(NSTimer *)timer
+{
+    NSLog(@"tick");
+    [self.fetchNeighborhoodRequest send];
+}
+     
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
     return ( CGSizeMake(100, 150) );
@@ -175,6 +206,18 @@
 - (void) didUpdateLocation
 {
     [self.fetchNeighborhoodRequest send];
+}
+
+- (void) applicationDidBecomeActive
+{
+    [self.fetchNeighborhoodRequest send];
+    
+    [self startUpdatingAtRegularIntervals];
+}
+     
+- (void) applicationWillResignActive
+{
+    [self stopUpdatingAtRegularIntervals];
 }
 
 - (void)userDidChangeLocation:(NSNotification *) notification

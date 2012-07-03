@@ -10,6 +10,8 @@
 #import "AQGridView.h"
 #import "FetchNeighborhoodRequest.h"
 
+#define NEARBY_VIEW_REFRESH_INTERVAL_IN_SECONDS 60
+
 @class WWONearbyGridViewCellContent;
 @interface NearbyViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource, FetchNeighborhoodRequestDelegate>
 
@@ -19,6 +21,8 @@
 @property (nonatomic, retain) UILabel *coordinatesLabel;
 
 @property (nonatomic, retain) FetchNeighborhoodRequest *fetchNeighborhoodRequest;
+@property (nonatomic, retain) NSTimer *updateTimer;
+
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView;
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index;
