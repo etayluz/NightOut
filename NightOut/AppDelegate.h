@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "UpdateLocationRequest.h"
+#import "RegisterPushTokenRequest.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate>
 
@@ -17,5 +18,6 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 @property (nonatomic, retain) UpdateLocationRequest *updateLocationRequest;
+@property (nonatomic, retain) RegisterPushTokenRequest *registerPushTokenRequest;
 
 @end

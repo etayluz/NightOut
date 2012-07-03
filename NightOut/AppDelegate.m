@@ -24,7 +24,8 @@
 
 @synthesize window;
 @synthesize tabBarController;
-@synthesize updateLocationRequest;
+
+@synthesize updateLocationRequest, registerPushTokenRequest;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -45,6 +46,7 @@
     [[GPS main].locationManager startUpdatingLocation];
     
     self.updateLocationRequest = [[[UpdateLocationRequest alloc] init] autorelease];
+    self.registerPushTokenRequest = [[[RegisterPushTokenRequest alloc] init] autorelease];
         
     [self setupPushNotifications];
     
@@ -69,6 +71,7 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {    
+    
     NSString *pushToken = [[[[[deviceToken description]
                                 stringByReplacingOccurrencesOfString: @"<" withString: @""] 
                                stringByReplacingOccurrencesOfString: @">" withString: @""] 
@@ -79,6 +82,7 @@
     // Updates the device token and registers the token with UA
     [[UAPush shared] registerDeviceToken:deviceToken];
     
+    [self.registerPushTokenRequest send:deviceToken];
     
     /*
      * Some example cases where user notification may be warranted
