@@ -7,28 +7,13 @@
 //
 
 #import "ServerInterface.h"
-#import "JSONKit.h"
 #import "Notification.h"
-
-#import "Conversation.h"
-#import "User.h"
-#import "Neighborhood.h"
-
-@interface ServerInterface ()
-
-@property (nonatomic, retain) ASIHTTPRequest *messagesRequest;
-@property (nonatomic, retain) ASIFormDataRequest *updateLocationRequest;
-@property (assign) UIBackgroundTaskIdentifier bgTask;
-
-@end
 
 static ServerInterface *sharedManager = nil;
 
 @implementation ServerInterface
 
 @synthesize facebook;
-@synthesize messagesRequest, updateLocationRequest;
-@synthesize bgTask;
 
 #pragma mark - Singleton compliance DON'T MODIFY! (Unless you know wtf you're doing)
 
@@ -42,12 +27,10 @@ static ServerInterface *sharedManager = nil;
     return sharedManager;
 }
 
-
 + (id)allocWithZone:(NSZone *)zone
 {
   return [[self sharedManager] retain];
 }
-
 
 - (id) init
 {
@@ -59,18 +42,15 @@ static ServerInterface *sharedManager = nil;
     return self;
 }
 
-
 - (id)copyWithZone:(NSZone *)zone
 {
     return self;
 }
 
-
 - (id)retain
 {
     return self;
 }
-
 
 - (NSUInteger)retainCount
 {
@@ -78,120 +58,19 @@ static ServerInterface *sharedManager = nil;
     return NSUIntegerMax;  
 }
 
-
 - (oneway void)release
 {
     // do nothing
 }
-
 
 - (id)autorelease
 {
     return self;
 }
 
-
 #pragma mark - api implementation
 - (void) fetchMessages
 {
-    // TODO: add user token etc.
-    if (!self.messagesRequest) {
-        NSURL *url = kWWOUrl(@"messages.json");
-        self.messagesRequest = [ASIHTTPRequest requestWithURL:url];
-        self.messagesRequest.delegate = self;
-        self.messagesRequest.timeOutSeconds = 2 * 60;
-        [self.messagesRequest startAsynchronous];
-    }
-}
-
--(void) sendLocationToServerInBackground:(CLLocation *)location
-{
-    NSLog(@"sendLocationToServerInBackground");
-    
-    self.bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:
-    ^{
-        [[UIApplication sharedApplication] endBackgroundTask: self.bgTask];
-    }];
-    
-    [self sendLocationToServer:location];
-    
-    if (self.bgTask != UIBackgroundTaskInvalid)
-    {
-        [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-        bgTask = UIBackgroundTaskInvalid;
-    }
-}
-
-- (void) sendLocationToServer:(CLLocation *) location
-{
-    NSLog(@"sendLocationToServer");
-
-    [self updateLocationWithLatitude:location.coordinate.latitude 
-                        andLongitdue:location.coordinate.longitude];
-}
-
-- (void) updateLocationWithLatitude: (CLLocationDegrees) aLatitude andLongitdue: (CLLocationDegrees) aLongitude
-{
-    if (!self.updateLocationRequest) {
-        NSLog(@"updateLocationRequest");
-        NSString *latitude = [NSString stringWithFormat:@"%f", aLatitude];
-        NSString *longitude = [NSString stringWithFormat:@"%f", aLongitude];
-                
-        NSLog(@"updating latitude = %@, longitude = %@", latitude, longitude);
-        
-        NSURL *url = [NSURL URLWithString:@"http://wwoapp.herokuapp.com/api/v1/location"];
-        self.updateLocationRequest = [ASIFormDataRequest requestWithURL:url];
-        self.updateLocationRequest.delegate = self;
-        
-        [self.updateLocationRequest setPostValue:self.facebook.accessToken forKey:@"token"];
-        [self.updateLocationRequest setPostValue:longitude forKey:@"longitude"];
-        [self.updateLocationRequest setPostValue:latitude forKey:@"latitude"];
-        [self.updateLocationRequest startAsynchronous];
-    }
-}
-
-#pragma mark - request response handling
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    //NSLog(@"%@", request.responseString);
-    if (request == self.messagesRequest) {
-        NSString *jsonString = self.messagesRequest.responseString;
-        NSDictionary *responseDict = [jsonString objectFromJSONString];
-        int status = [[responseDict objectForKey:@"status"] intValue];
-
-        if (status == 0) {
-            [Notification send:@"FailedToFetchMessages"];
-        }
-        else {
-            NSArray *messageDicts = [responseDict objectForKey:@"messages"];
-            NSMutableArray *messages = [NSMutableArray array];
-            
-            for (NSDictionary *messageDict in messageDicts) {
-                Conversation *msg = [[[Conversation alloc] initWithDictionary:messageDict] autorelease];
-                [messages addObject: msg];
-            }
-            
-            [Notification send:@"DidFetchMessages" withData:messages];
-        }
-        self.messagesRequest = nil;
-    }
-    else if (request == self.updateLocationRequest) {
-        //NSString *jsonString = self.updateLocationRequest.responseString;
-        //NSDictionary *responseDict = [jsonString objectFromJSONString];
-        NSLog(@"DidUpdateLocation");
-        [Notification send:@"DidUpdateLocation"];
-        self.updateLocationRequest = nil;
-    }
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-    if (request == self.messagesRequest) {
-        self.messagesRequest = nil;
-    }
-    else if (request == self.updateLocationRequest) {
-        self.updateLocationRequest = nil;
-    }
 }
 
 /*****************************************************************************************/

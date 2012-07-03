@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Neighborhood.h"
-#import "ServerRequest.h"
+#import "ServerGetRequest.h"
 
 @protocol FetchNeighborhoodRequestDelegate <NSObject>
 - (void) didFetchNeighborhood:(Neighborhood *)neighborhood;
 @end
 
-@interface FetchNeighborhoodRequest : ServerRequest
+@interface FetchNeighborhoodRequest : ServerGetRequest
 - (void) send;
 
 @property (assign) id <FetchNeighborhoodRequestDelegate> delegate;

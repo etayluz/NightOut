@@ -8,7 +8,7 @@
 
 #import "FetchUserRequest.h"
 
-@implementation FetchUserRequest : ServerRequest
+@implementation FetchUserRequest : ServerGetRequest
 @synthesize delegate;
 
 

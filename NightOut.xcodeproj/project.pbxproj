@@ -51,7 +51,7 @@
 		372FB3A915A23991004B9C89 /* Upper_West_Side.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 372FB39D15A23991004B9C89 /* Upper_West_Side.gpx */; };
 		372FB3AA15A23991004B9C89 /* West_Village.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 372FB39E15A23991004B9C89 /* West_Village.gpx */; };
 		37340D1E15A34CEB00A57EC1 /* FetchUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37340D1D15A34CEB00A57EC1 /* FetchUserRequest.m */; };
-		37340D2215A3527500A57EC1 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37340D2115A3527500A57EC1 /* ServerRequest.m */; };
+		37340D2215A3527500A57EC1 /* ServerGetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37340D2115A3527500A57EC1 /* ServerGetRequest.m */; };
 		37340E2C15A3623700A57EC1 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 37340D2415A3623700A57EC1 /* CHANGELOG */; };
 		37340E2D15A3623700A57EC1 /* libUAirship-1.2.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340D8315A3623700A57EC1 /* libUAirship-1.2.2.a */; };
 		37340E2E15A3623700A57EC1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 37340D8415A3623700A57EC1 /* LICENSE */; };
@@ -67,6 +67,8 @@
 		377B49E8159A30C800ED43CD /* WoodBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 377B49E7159A30C800ED43CD /* WoodBackground.png */; };
 		377B49EA159A36E100ED43CD /* ImageMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 377B49E9159A36E100ED43CD /* ImageMask.png */; };
 		377BF500159D2860007DAD6A /* GPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BF4FF159D2860007DAD6A /* GPS.m */; };
+		37800F1E15A38B8800431118 /* ServerPostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37800F1D15A38B8800431118 /* ServerPostRequest.m */; };
+		37800F2415A38EA900431118 /* UpdateLocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37800F2315A38EA900431118 /* UpdateLocationRequest.m */; };
 		3793BCF315936FDA00E6E141 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCDF15936FDA00E6E141 /* AQGridView.m */; };
 		3793BCF415936FDA00E6E141 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCE115936FDA00E6E141 /* AQGridViewAnimatorItem.m */; };
 		3793BCF515936FDA00E6E141 /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCE415936FDA00E6E141 /* AQGridViewCell.m */; };
@@ -220,8 +222,8 @@
 		372FB39E15A23991004B9C89 /* West_Village.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = West_Village.gpx; sourceTree = "<group>"; };
 		37340D1C15A34CEB00A57EC1 /* FetchUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchUserRequest.h; sourceTree = "<group>"; };
 		37340D1D15A34CEB00A57EC1 /* FetchUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchUserRequest.m; sourceTree = "<group>"; };
-		37340D2015A3527500A57EC1 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
-		37340D2115A3527500A57EC1 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
+		37340D2015A3527500A57EC1 /* ServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerGetRequest.h; sourceTree = "<group>"; };
+		37340D2115A3527500A57EC1 /* ServerGetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerGetRequest.m; sourceTree = "<group>"; };
 		37340D2415A3623700A57EC1 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 		37340D2615A3623700A57EC1 /* UAAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAAnalytics.h; sourceTree = "<group>"; };
 		37340D2715A3623700A57EC1 /* UAAnalyticsDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAAnalyticsDBManager.h; sourceTree = "<group>"; };
@@ -296,6 +298,10 @@
 		377B49E9159A36E100ED43CD /* ImageMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageMask.png; sourceTree = "<group>"; };
 		377BF4FE159D2860007DAD6A /* GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPS.h; sourceTree = "<group>"; };
 		377BF4FF159D2860007DAD6A /* GPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPS.m; sourceTree = "<group>"; };
+		37800F1C15A38B8800431118 /* ServerPostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerPostRequest.h; sourceTree = "<group>"; };
+		37800F1D15A38B8800431118 /* ServerPostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerPostRequest.m; sourceTree = "<group>"; };
+		37800F2215A38EA900431118 /* UpdateLocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateLocationRequest.h; sourceTree = "<group>"; };
+		37800F2315A38EA900431118 /* UpdateLocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateLocationRequest.m; sourceTree = "<group>"; };
 		3793BCDC15936FDA00E6E141 /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
 		3793BCDD15936FDA00E6E141 /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
 		3793BCDE15936FDA00E6E141 /* AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridView.h; sourceTree = "<group>"; };
@@ -755,8 +761,12 @@
 				377501C0159E644600A9F977 /* FetchNeighborhoodRequest.m */,
 				37340D1C15A34CEB00A57EC1 /* FetchUserRequest.h */,
 				37340D1D15A34CEB00A57EC1 /* FetchUserRequest.m */,
-				37340D2015A3527500A57EC1 /* ServerRequest.h */,
-				37340D2115A3527500A57EC1 /* ServerRequest.m */,
+				37340D2015A3527500A57EC1 /* ServerGetRequest.h */,
+				37340D2115A3527500A57EC1 /* ServerGetRequest.m */,
+				37800F1C15A38B8800431118 /* ServerPostRequest.h */,
+				37800F1D15A38B8800431118 /* ServerPostRequest.m */,
+				37800F2215A38EA900431118 /* UpdateLocationRequest.h */,
+				37800F2315A38EA900431118 /* UpdateLocationRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1227,7 +1237,9 @@
 				377BF500159D2860007DAD6A /* GPS.m in Sources */,
 				377501C1159E644600A9F977 /* FetchNeighborhoodRequest.m in Sources */,
 				37340D1E15A34CEB00A57EC1 /* FetchUserRequest.m in Sources */,
-				37340D2215A3527500A57EC1 /* ServerRequest.m in Sources */,
+				37340D2215A3527500A57EC1 /* ServerGetRequest.m in Sources */,
+				37800F1E15A38B8800431118 /* ServerPostRequest.m in Sources */,
+				37800F2415A38EA900431118 /* UpdateLocationRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

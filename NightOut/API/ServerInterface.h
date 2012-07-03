@@ -9,21 +9,14 @@
 
 #import <Foundation/Foundation.h>
 #import "FBConnect.h"
-#import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
-#import "ASIHTTPRequestDelegate.h"
 
-#define kWWOBaseURL     @"http://nightapi.pagodabox.com/api/v1"
-#define kWWOUrl(path)   [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", kWWOBaseURL, (path)]];
 #define appID           @"183435348401103"
 
-@interface ServerInterface : NSObject <ASIHTTPRequestDelegate, FBSessionDelegate>
+@interface ServerInterface : NSObject <FBSessionDelegate>
 
 + (ServerInterface *)sharedManager;
 
 - (void) fetchMessages;
-- (void) sendLocationToServer:(CLLocation *) location;
-- (void) sendLocationToServerInBackground:(CLLocation *)location;
 
 - (BOOL) isUserLoggedIn;
 - (void) showLoginPrompt;

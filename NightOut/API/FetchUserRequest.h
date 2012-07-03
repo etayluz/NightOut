@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ServerRequest.h"
+#import "ServerGetRequest.h"
 #import "User.h"
 
 @protocol FetchUserRequestDelegate <NSObject>
 - (void) didFetchUser:(User *)user;
 @end
 
-@interface FetchUserRequest : ServerRequest
+@interface FetchUserRequest : ServerGetRequest
 - (void) send: (NSInteger) userID;
 
 @property (assign) id <FetchUserRequestDelegate> delegate;

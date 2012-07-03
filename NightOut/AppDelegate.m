@@ -24,6 +24,7 @@
 
 @synthesize window;
 @synthesize tabBarController;
+@synthesize updateLocationRequest;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -42,6 +43,8 @@
     
     [GPS main].locationManager.delegate = self;
     [[GPS main].locationManager startUpdatingLocation];
+    
+    self.updateLocationRequest = [[[UpdateLocationRequest alloc] init] autorelease];
         
     [self setupPushNotifications];
     
@@ -65,8 +68,14 @@
                                                          UIRemoteNotificationTypeAlert)];
 }
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSLog(@"APN device token: %@", deviceToken);
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {    
+    NSString *pushToken = [[[[[deviceToken description]
+                                stringByReplacingOccurrencesOfString: @"<" withString: @""] 
+                               stringByReplacingOccurrencesOfString: @">" withString: @""] 
+                              stringByReplacingOccurrencesOfString: @" " withString: @""] retain];
+
+    NSLog(@"APN token = %@", pushToken);
+
     // Updates the device token and registers the token with UA
     [[UAPush shared] registerDeviceToken:deviceToken];
     
@@ -195,11 +204,11 @@
         
     if ([self appIsInBackground])
     {
-        [[ServerInterface sharedManager] sendLocationToServerInBackground:location];
+        [self.updateLocationRequest sendInBackground:location];
     }
     else
     {
-        [[ServerInterface sharedManager] sendLocationToServer:location];
+        [self.updateLocationRequest send:location];
     }
 }
 

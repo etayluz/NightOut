@@ -9,7 +9,7 @@
 #import "FetchNeighborhoodRequest.h"
 #import "ServerInterface.h"
 
-@implementation FetchNeighborhoodRequest : ServerRequest
+@implementation FetchNeighborhoodRequest : ServerGetRequest
 @synthesize delegate;
 
 - (void) send

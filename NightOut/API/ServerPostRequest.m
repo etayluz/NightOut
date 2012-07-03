@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "ServerRequest.h"
+#import "ServerPostRequest.h"
 #import "ServerInterface.h"
 #import "JSONKit.h"
 
-@implementation ServerRequest
+@implementation ServerPostRequest
 @synthesize request;
 @synthesize accessToken;
 
@@ -22,8 +22,21 @@
 - (void) sendToUrl:(NSString *)url
 {
     NSURL *u = [NSURL URLWithString:url];
-    self.request = [ASIHTTPRequest requestWithURL:u];
+    self.request = [ASIFormDataRequest requestWithURL:u];
     self.request.delegate = self;
+    [self.request startAsynchronous];
+}
+
+- (void) sendToUrl:(NSString *)url withParams:(NSDictionary *)params
+{
+    NSURL *u = [NSURL URLWithString:url];
+    self.request = [ASIFormDataRequest requestWithURL:u];
+    self.request.delegate = self;
+    
+    for (id key in params) {
+        [self.request setPostValue:[params objectForKey:key] forKey:key];
+    }
+    
     [self.request startAsynchronous];
 }
 
