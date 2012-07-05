@@ -21,7 +21,7 @@
         
         
         // Initialization code
-        self.contentView.backgroundColor = [UIColor lightGrayColor];
+        self.contentView.backgroundColor = [UIColor colorWithRed:0.929 green:0.933 blue:0.863 alpha:1];
  
         //self.contentView.layer.borderColor = [UIColor greenColor].CGColor;
         //self.contentView.layer.borderWidth = 1.0f;

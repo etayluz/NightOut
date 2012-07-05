@@ -118,7 +118,7 @@
     /* Initiate Scroll View */
     self.scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)] autorelease];
     self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.backgroundColor = [UIColor lightGrayColor];
+    self.scrollView.backgroundColor = [UIColor colorWithRed:0.929 green:0.933 blue:0.863 alpha:1];
     self.scrollView.scrollEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(320, 1200);
     [self.view addSubview:self.scrollView];
@@ -128,7 +128,7 @@
     self.profileImageView.userInteractionEnabled = YES;    
     [self.scrollView addSubview:self.profileImageView];
     
-    self.heightOffset += 340;
+    self.heightOffset += 325;
     // Create gesture recognizer
     UITapGestureRecognizer *oneFingerOneTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)] autorelease];
     // Set required taps and number of touches
@@ -152,12 +152,12 @@
     self.heightOffset += 13;
     
     /* Message Button */
-    self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchDown];
-    [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
-    self.messageButton.frame = CGRectMake(5, self.heightOffset, 300, 30);
-    [self.scrollView addSubview:self.messageButton];
-    self.heightOffset += 35;
+//    self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+//    [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchDown];
+//    [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
+//    self.messageButton.frame = CGRectMake(5, self.heightOffset, 300, 30);
+//    [self.scrollView addSubview:self.messageButton];
+//    self.heightOffset += 35;
     
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];

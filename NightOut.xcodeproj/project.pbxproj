@@ -38,6 +38,7 @@
 		3719E313159133BD00E9A138 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E305159133BD00E9A138 /* SBJsonBase.m */; };
 		3719E314159133BD00E9A138 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E307159133BD00E9A138 /* SBJsonParser.m */; };
 		3719E315159133BD00E9A138 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E309159133BD00E9A138 /* SBJsonWriter.m */; };
+		371D9F8615A654F6004D5454 /* Smile_button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 371D9F8515A654F6004D5454 /* Smile_button2.png */; };
 		371F626115A62ADC00361A61 /* UIImage+ImageTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 371F626015A62ADC00361A61 /* UIImage+ImageTransformations.m */; };
 		372FB39F15A23991004B9C89 /* Chelsea.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 372FB39315A23991004B9C89 /* Chelsea.gpx */; };
 		372FB3A015A23991004B9C89 /* East_Village.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 372FB39415A23991004B9C89 /* East_Village.gpx */; };
@@ -218,6 +219,7 @@
 		3719E307159133BD00E9A138 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		3719E308159133BD00E9A138 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		3719E309159133BD00E9A138 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		371D9F8515A654F6004D5454 /* Smile_button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smile_button2.png; sourceTree = "<group>"; };
 		371F625F15A62ADC00361A61 /* UIImage+ImageTransformations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageTransformations.h"; sourceTree = "<group>"; };
 		371F626015A62ADC00361A61 /* UIImage+ImageTransformations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageTransformations.m"; sourceTree = "<group>"; };
 		372FB39315A23991004B9C89 /* Chelsea.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Chelsea.gpx; sourceTree = "<group>"; };
@@ -1033,6 +1035,7 @@
 		37F0F713158CF7B0005511CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				371D9F8515A654F6004D5454 /* Smile_button2.png */,
 				37E16F5E159AAFA00012D656 /* ImageMask1.png */,
 				37AD765E15993A46008201E3 /* SmilesSentHeader.png */,
 				377B49E3159A21D400ED43CD /* SmilesReceivedHeader.png */,
@@ -1215,6 +1218,7 @@
 				37340E9915A362AF00A57EC1 /* AirshipConfig.plist in Resources */,
 				376D3B9815A6361200D8C5CD /* License.txt in Resources */,
 				376D3B9915A6361200D8C5CD /* Readme.txt in Resources */,
+				371D9F8615A654F6004D5454 /* Smile_button2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
