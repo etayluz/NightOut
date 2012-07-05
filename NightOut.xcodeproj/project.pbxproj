@@ -61,6 +61,7 @@
 		37340E9B15A363C600A57EC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9A15A363C600A57EC1 /* libsqlite3.dylib */; };
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
+		376D3B8315A62E5400D8C5CD /* HorizontalGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D3B8215A62E5400D8C5CD /* HorizontalGallery.m */; };
 		377501C1159E644600A9F977 /* FetchNeighborhoodRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 377501C0159E644600A9F977 /* FetchNeighborhoodRequest.m */; };
 		377B019C1597C8D000FD4005 /* PhotoSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377B019B1597C8CF00FD4005 /* PhotoSliderViewController.m */; };
 		377B49E4159A21D400ED43CD /* SmilesReceivedHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 377B49E3159A21D400ED43CD /* SmilesReceivedHeader.png */; };
@@ -293,6 +294,8 @@
 		37340E9A15A363C600A57EC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		376D3B8115A62E5400D8C5CD /* HorizontalGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalGallery.h; sourceTree = "<group>"; };
+		376D3B8215A62E5400D8C5CD /* HorizontalGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalGallery.m; sourceTree = "<group>"; };
 		377501BF159E644600A9F977 /* FetchNeighborhoodRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchNeighborhoodRequest.h; sourceTree = "<group>"; };
 		377501C0159E644600A9F977 /* FetchNeighborhoodRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchNeighborhoodRequest.m; sourceTree = "<group>"; };
 		377B019A1597C8CF00FD4005 /* PhotoSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSliderViewController.h; sourceTree = "<group>"; };
@@ -1060,6 +1063,8 @@
 				3793BD091594E38200E6E141 /* ThumbViewCell.m */,
 				37F7FEBE15A513420095C0A9 /* ScaledImageView.h */,
 				37F7FEBF15A513420095C0A9 /* ScaledImageView.m */,
+				376D3B8115A62E5400D8C5CD /* HorizontalGallery.h */,
+				376D3B8215A62E5400D8C5CD /* HorizontalGallery.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1266,6 +1271,7 @@
 				37800F2715A3977100431118 /* RegisterPushTokenRequest.m in Sources */,
 				37F7FEC015A513420095C0A9 /* ScaledImageView.m in Sources */,
 				371F626115A62ADC00361A61 /* UIImage+ImageTransformations.m in Sources */,
+				376D3B8315A62E5400D8C5CD /* HorizontalGallery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
