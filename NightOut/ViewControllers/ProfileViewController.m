@@ -162,7 +162,8 @@
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchDown];
-    [self.smileButton setTitle: @"Smiles" forState: UIControlStateNormal];
+//    [self.smileButton setTitle: @"Smiles" forState: UIControlStateNormal];
+    UIImage *buttonImage = [UIImage imageNamed:@"smile_button2.png"];    
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 300, 30);    
     [self.scrollView addSubview:self.smileButton];
     self.heightOffset += 18;
