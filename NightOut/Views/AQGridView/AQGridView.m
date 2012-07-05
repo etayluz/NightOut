@@ -2086,7 +2086,7 @@ NSArray * __sortDescriptors;
 }
 
 - (CGRect) fixCellFrame: (CGRect) cellFrame forGridRect: (CGRect) gridRect
-{
+{    
 	if ( _flags.resizesCellWidths == 1 )
 	{
 		cellFrame = gridRect;

@@ -180,7 +180,8 @@
     self.heightOffset += 20;
     
     /* Friends Horizontal Scroll View */
-    self.friendsScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
+    self.friendsScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 100)] autorelease];
+    self.friendsScrollView.backgroundColor = [UIColor yellowColor];
     self.friendsScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
     self.friendsScrollView.showsVerticalScrollIndicator = NO;
     self.friendsScrollView.showsHorizontalScrollIndicator = NO;
@@ -192,7 +193,7 @@
     self.friendsScrollView.resizesCellWidthToFit = YES;
     [self.scrollView addSubview:self.friendsScrollView];    
     [self.friendsScrollView reloadData];
-    self.heightOffset += 50;
+    self.heightOffset += 150;
     
     /* Separator Label */
     UILabel *separator2 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
@@ -320,7 +321,7 @@
     cell = (ThumbViewCell *)[gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
     
     if (!cell) {
-		cell = [[[ThumbViewCell alloc] initWithFrame:CGRectMake(0, 0, 50, 50)
+		cell = [[[ThumbViewCell alloc] initWithFrame:CGRectMake(0, 0, 90, 120)
                                              reuseIdentifier:nearbyFriendCellIdentifier] autorelease];
     }
     
@@ -350,7 +351,7 @@
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
-    return ( CGSizeMake(63, 65) );
+    return ( CGSizeMake(90, 120) );
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView

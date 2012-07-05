@@ -12,31 +12,32 @@
 
 @implementation ThumbViewCell
 
-@synthesize imageView, nameLabel, networkLabel;
+@synthesize imageView, nameLabel;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        
         // Initialization code
         self.contentView.backgroundColor = [UIColor lightGrayColor];
-
+ 
         //self.contentView.layer.borderColor = [UIColor greenColor].CGColor;
         //self.contentView.layer.borderWidth = 1.0f;
 
-        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(7, 0, 53, 53)] autorelease];
+        NSInteger margin = 10;
+        NSInteger thumbnailWidth = frame.size.width - 2 * margin;
+        NSInteger thumbnailHeight = thumbnailWidth;
+        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(margin, margin, thumbnailWidth, thumbnailHeight)] autorelease];
 
-        self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(7, 50, 50, 15)] autorelease];
+        self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(0, margin + thumbnailHeight, frame.size.width, 15)] autorelease];
+        self.nameLabel.textAlignment = UITextAlignmentCenter;
         self.nameLabel.font                = [UIFont boldSystemFontOfSize:11];
         self.nameLabel.backgroundColor     = [UIColor clearColor];
-
-        self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(7, 50, 50, 15)] autorelease];
-        self.networkLabel.font             = [UIFont boldSystemFontOfSize:11];
-        self.networkLabel.backgroundColor  = [UIColor clearColor];
-
+                
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
-
     }
     return self;
 }
