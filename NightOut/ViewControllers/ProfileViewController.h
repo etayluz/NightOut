@@ -11,6 +11,7 @@
 #import "User.h"
 #import "AQGridView.h"
 #import "FetchUserRequest.h"
+#import "ScaledImageView.h"
 
 #define OFFSET_FROM_NAME_LABEL     30
 
@@ -27,7 +28,7 @@
 @property (nonatomic, retain)  UILabel *ageLabel;
 @property (nonatomic, retain)  UILabel *friendsLabel;
 @property (nonatomic, retain)  UILabel *networkLabel;
-@property (nonatomic, retain)  UIImageView *profileImageView;
+@property (nonatomic, retain)  ScaledImageView *profileImageView;
 @property (nonatomic, retain)  AQGridView *friendsScrollView;
 @property (nonatomic, retain)  AQGridView *interestsScrollView;
 @property (nonatomic, retain)  UIButton *messageButton;

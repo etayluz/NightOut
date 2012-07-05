@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "UIImageView+WebCache.h"
+#import "ScaledImageView.h"
 #import "ThumbViewCell.h"
 #import "User.h"
 #import "Notification.h"
@@ -72,7 +73,9 @@
     NSLog(@"update from user %@", aUser.name);
     
     self.nameLabel.text = aUser.name;
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:[aUser.pictures objectAtIndex:0]]];
+    
+    [self.profileImageView setUrl:[aUser.pictures objectAtIndex:0]];
+    
     self.ageLabel.text = [aUser.age stringValue];
     
     CGSize expectedLabelSize = [aUser.name sizeWithFont:self.nameLabel.font];
@@ -117,13 +120,12 @@
     [self.view addSubview:self.scrollView];
     
     /* Image Label */
-    self.profileImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 280)] autorelease];
-    self.profileImageView.userInteractionEnabled = YES;
-    self.profileImageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.profileImageView.clipsToBounds = YES;
+    self.profileImageView = [[[ScaledImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)] autorelease];
+    self.profileImageView.userInteractionEnabled = YES;    
     [self.scrollView addSubview:self.profileImageView];
     
-    self.heightOffset += 280;
+    
+    self.heightOffset += 340;
     // Create gesture recognizer
     UITapGestureRecognizer *oneFingerOneTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)] autorelease];
     // Set required taps and number of touches

@@ -29,6 +29,7 @@
         return nil;
     
     self.locationManager = [[[CLLocationManager alloc] init] autorelease];
+    self.locationManager.distanceFilter = 10;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
 
     return self;

@@ -7,8 +7,7 @@
 //
 
 #import "NearbyGridViewCell.h"
-#import "UIImageView+WebCache.h"
-
+#import "ScaledImageView.h"
 #import "User.h"
 
 @implementation NearbyGridViewCell
@@ -34,7 +33,7 @@
         /* Image Label */
         self.backgroundColor = [UIColor purpleColor];
         self.contentView.backgroundColor = [UIColor grayColor];
-        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
+        self.imageView = [[[ScaledImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
 
         /* Name Label */
         self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 100, 15)] autorelease];
@@ -74,7 +73,8 @@
     //self.friendsLabel.text = [NSString stringWithFormat:@"Mutual Friends: %@", [user.friends stringValue]];
     self.friendsLabel.text = @"Mutual Friends: 13";   
     self.networkLabel.text = user.network;
-    [self.imageView setImageWithURL:[NSURL URLWithString:user.thumb]];
+    
+    [self.imageView setUrl:user.thumb];
 }
 
 - (CALayer *) glowSelectionLayer

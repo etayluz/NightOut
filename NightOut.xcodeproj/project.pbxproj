@@ -148,6 +148,7 @@
 		37F0F726158CF7BA005511CD /* ConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F0F721158CF7BA005511CD /* ConversationsViewController.xib */; };
 		37F0F728158D01F1005511CD /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F67B158CF1F6005511CD /* JSONKit.m */; };
 		37F0F72D158D04C1005511CD /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0F72C158D04C1005511CD /* Conversation.m */; };
+		37F7FEC015A513420095C0A9 /* ScaledImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F7FEBF15A513420095C0A9 /* ScaledImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -447,6 +448,8 @@
 		37F0F721158CF7BA005511CD /* ConversationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationsViewController.xib; sourceTree = "<group>"; };
 		37F0F72B158D04C1005511CD /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
 		37F0F72C158D04C1005511CD /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		37F7FEBE15A513420095C0A9 /* ScaledImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaledImageView.h; sourceTree = "<group>"; };
+		37F7FEBF15A513420095C0A9 /* ScaledImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaledImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1042,6 +1045,8 @@
 				37AD76561598E8A5008201E3 /* SmilesGridViewCell.m */,
 				3793BD081594E38200E6E141 /* ThumbViewCell.h */,
 				3793BD091594E38200E6E141 /* ThumbViewCell.m */,
+				37F7FEBE15A513420095C0A9 /* ScaledImageView.h */,
+				37F7FEBF15A513420095C0A9 /* ScaledImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1246,6 +1251,7 @@
 				37800F1E15A38B8800431118 /* ServerPostRequest.m in Sources */,
 				37800F2415A38EA900431118 /* UpdateLocationRequest.m in Sources */,
 				37800F2715A3977100431118 /* RegisterPushTokenRequest.m in Sources */,
+				37F7FEC015A513420095C0A9 /* ScaledImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

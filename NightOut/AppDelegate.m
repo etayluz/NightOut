@@ -160,6 +160,18 @@
         appState = application.applicationState;
     }
     
+    if ([userInfo objectForKey:@"event"] != nil) {
+        NSDictionary *event = [userInfo objectForKey:@"event"];
+        NSString *eventName = [event objectForKey:@"name"];
+        NSLog(@" %@ :: %@ ", eventName, event);
+    }
+    
+    if ([self appIsInForeground]) {
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"title" message:@"message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil] autorelease];
+        
+        [alert show];
+    }
+    
     [[UAPush shared] handleNotification:userInfo applicationState:appState];
     [[UAPush shared] resetBadge]; // zero badge after push received
 }
@@ -261,6 +273,10 @@
     [UAirship land];
 }
 
+- (BOOL) appIsInForeground
+{
+    return ![self appIsInBackground];
+}
 
 - (BOOL) appIsInBackground
 {
