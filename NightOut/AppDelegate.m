@@ -55,7 +55,6 @@
 
 - (void) setupPushNotifications
 {
-    NSLog(@"SETUP PUSH NOTIFICATIONS");
     //Init Airship launch options
     NSMutableDictionary *takeOffOptions = [[[NSMutableDictionary alloc] init] autorelease];
     
@@ -63,7 +62,8 @@
     // Please populate AirshipConfig.plist with your info from http://go.urbanairship.com
     [UAirship takeOff:takeOffOptions];
     
-    [[UAPush shared] resetBadge];//zero badge on startup
+    //zero badge on startup
+    [[UAPush shared] resetBadge];
     
     [[UAPush shared] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
                                                          UIRemoteNotificationTypeSound |
@@ -148,11 +148,11 @@
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *) error {
-    NSLog(@"Failed To Register For Remote Notifications With Error: %@", error);
+    UALOG(@"Failed To Register For Remote Notifications With Error: %@", error);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"Received remote notification: %@", userInfo);
+    UALOG(@"Received remote notification: %@", userInfo);
     
     // Get application state for iOS4.x+ devices, otherwise assume active
     UIApplicationState appState = UIApplicationStateActive;

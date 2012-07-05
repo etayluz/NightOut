@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #include <QuartzCore/QuartzCore.h>
 #import "User.h"
-#import "AQGridView.h"
 #import "FetchUserRequest.h"
 #import "ScaledImageView.h"
+#import "HorizontalGallery.h"
+#import "LayoutManagers.h"
 
 #define OFFSET_FROM_NAME_LABEL     30
 
-@interface ProfileViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource, FetchUserRequestDelegate>
+@interface ProfileViewController : UIViewController <FetchUserRequestDelegate>
 
 - (void) updateFromUserID:(NSInteger)userID;
 - (void) updateFromUser:(User *)user;
@@ -29,14 +30,16 @@
 @property (nonatomic, retain)  UILabel *friendsLabel;
 @property (nonatomic, retain)  UILabel *networkLabel;
 @property (nonatomic, retain)  ScaledImageView *profileImageView;
-@property (nonatomic, retain)  AQGridView *friendsScrollView;
-@property (nonatomic, retain)  AQGridView *interestsScrollView;
+
+@property (nonatomic, retain)  HorizontalGallery *mutualFriendsView;
+@property (nonatomic, retain)  HorizontalGallery *interestsView;
+
 @property (nonatomic, retain)  UIButton *messageButton;
 @property (nonatomic, retain)  UIButton *smileButton;
 @property (nonatomic, retain)  UIScrollView *scrollView;
+@property (nonatomic, retain) VLayoutView *vpanel;
 
 @property (nonatomic, retain) NSMutableDictionary *infoValueLabels;
-
 
 @property (nonatomic)  NSInteger heightOffset;
 @end

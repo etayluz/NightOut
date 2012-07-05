@@ -62,6 +62,12 @@
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
 		376D3B8315A62E5400D8C5CD /* HorizontalGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D3B8215A62E5400D8C5CD /* HorizontalGallery.m */; };
+		376D3B9515A6361200D8C5CD /* AbstractLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D3B8B15A6361200D8C5CD /* AbstractLayoutView.m */; };
+		376D3B9615A6361200D8C5CD /* GridLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D3B8D15A6361200D8C5CD /* GridLayoutView.m */; };
+		376D3B9715A6361200D8C5CD /* HLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D3B8F15A6361200D8C5CD /* HLayoutView.m */; };
+		376D3B9815A6361200D8C5CD /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 376D3B9115A6361200D8C5CD /* License.txt */; };
+		376D3B9915A6361200D8C5CD /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 376D3B9215A6361200D8C5CD /* Readme.txt */; };
+		376D3B9A15A6361200D8C5CD /* VLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 376D3B9415A6361200D8C5CD /* VLayoutView.m */; };
 		377501C1159E644600A9F977 /* FetchNeighborhoodRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 377501C0159E644600A9F977 /* FetchNeighborhoodRequest.m */; };
 		377B019C1597C8D000FD4005 /* PhotoSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377B019B1597C8CF00FD4005 /* PhotoSliderViewController.m */; };
 		377B49E4159A21D400ED43CD /* SmilesReceivedHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 377B49E3159A21D400ED43CD /* SmilesReceivedHeader.png */; };
@@ -296,6 +302,17 @@
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		376D3B8115A62E5400D8C5CD /* HorizontalGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalGallery.h; sourceTree = "<group>"; };
 		376D3B8215A62E5400D8C5CD /* HorizontalGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalGallery.m; sourceTree = "<group>"; };
+		376D3B8A15A6361200D8C5CD /* AbstractLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractLayoutView.h; sourceTree = "<group>"; };
+		376D3B8B15A6361200D8C5CD /* AbstractLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractLayoutView.m; sourceTree = "<group>"; };
+		376D3B8C15A6361200D8C5CD /* GridLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayoutView.h; sourceTree = "<group>"; };
+		376D3B8D15A6361200D8C5CD /* GridLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayoutView.m; sourceTree = "<group>"; };
+		376D3B8E15A6361200D8C5CD /* HLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLayoutView.h; sourceTree = "<group>"; };
+		376D3B8F15A6361200D8C5CD /* HLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLayoutView.m; sourceTree = "<group>"; };
+		376D3B9015A6361200D8C5CD /* LayoutManagers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManagers.h; sourceTree = "<group>"; };
+		376D3B9115A6361200D8C5CD /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		376D3B9215A6361200D8C5CD /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		376D3B9315A6361200D8C5CD /* VLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLayoutView.h; sourceTree = "<group>"; };
+		376D3B9415A6361200D8C5CD /* VLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLayoutView.m; sourceTree = "<group>"; };
 		377501BF159E644600A9F977 /* FetchNeighborhoodRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchNeighborhoodRequest.h; sourceTree = "<group>"; };
 		377501C0159E644600A9F977 /* FetchNeighborhoodRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchNeighborhoodRequest.m; sourceTree = "<group>"; };
 		377B019A1597C8CF00FD4005 /* PhotoSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSliderViewController.h; sourceTree = "<group>"; };
@@ -741,6 +758,24 @@
 			path = PushLib;
 			sourceTree = "<group>";
 		};
+		376D3B8915A6361200D8C5CD /* LayoutManagers */ = {
+			isa = PBXGroup;
+			children = (
+				376D3B8A15A6361200D8C5CD /* AbstractLayoutView.h */,
+				376D3B8B15A6361200D8C5CD /* AbstractLayoutView.m */,
+				376D3B8C15A6361200D8C5CD /* GridLayoutView.h */,
+				376D3B8D15A6361200D8C5CD /* GridLayoutView.m */,
+				376D3B8E15A6361200D8C5CD /* HLayoutView.h */,
+				376D3B8F15A6361200D8C5CD /* HLayoutView.m */,
+				376D3B9015A6361200D8C5CD /* LayoutManagers.h */,
+				376D3B9115A6361200D8C5CD /* License.txt */,
+				376D3B9215A6361200D8C5CD /* Readme.txt */,
+				376D3B9315A6361200D8C5CD /* VLayoutView.h */,
+				376D3B9415A6361200D8C5CD /* VLayoutView.m */,
+			);
+			path = LayoutManagers;
+			sourceTree = "<group>";
+		};
 		3793BCDB15936FDA00E6E141 /* AQGridView */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,6 +880,7 @@
 				3719E2EF159133BD00E9A138 /* Facebook */,
 				371075E7158D3AA200871A12 /* SDWebImage */,
 				37F0F72A158D042C005511CD /* Models */,
+				376D3B8915A6361200D8C5CD /* LayoutManagers */,
 				37F0F729158D0421005511CD /* Views */,
 				37F0F71C158CF7BA005511CD /* ViewControllers */,
 				37F0F713158CF7B0005511CD /* Resources */,
@@ -1177,6 +1213,8 @@
 				37340E2E15A3623700A57EC1 /* LICENSE in Resources */,
 				37340E2F15A3623700A57EC1 /* README.rst in Resources */,
 				37340E9915A362AF00A57EC1 /* AirshipConfig.plist in Resources */,
+				376D3B9815A6361200D8C5CD /* License.txt in Resources */,
+				376D3B9915A6361200D8C5CD /* Readme.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,6 +1310,10 @@
 				37F7FEC015A513420095C0A9 /* ScaledImageView.m in Sources */,
 				371F626115A62ADC00361A61 /* UIImage+ImageTransformations.m in Sources */,
 				376D3B8315A62E5400D8C5CD /* HorizontalGallery.m in Sources */,
+				376D3B9515A6361200D8C5CD /* AbstractLayoutView.m in Sources */,
+				376D3B9615A6361200D8C5CD /* GridLayoutView.m in Sources */,
+				376D3B9715A6361200D8C5CD /* HLayoutView.m in Sources */,
+				376D3B9A15A6361200D8C5CD /* VLayoutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

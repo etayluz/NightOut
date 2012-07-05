@@ -20,10 +20,10 @@
 @end
 
 @implementation ProfileViewController
-
+@synthesize vpanel;
 @synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
-@synthesize friendsScrollView, interestsScrollView, users, messageButton, smileButton, heightOffset;
+@synthesize mutualFriendsView, interestsView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
 @synthesize fetchUserRequest;
 
@@ -45,8 +45,8 @@
     self.networkLabel = nil;
     self.friendsLabel = nil;
     self.profileImageView = nil;
-    self.friendsScrollView = nil;
-    self.interestsScrollView = nil;
+    self.mutualFriendsView = nil;
+    self.interestsView = nil;
     self.users = nil;
     self.messageButton = nil;
     self.smileButton = nil;
@@ -91,9 +91,13 @@
     [self updateInfoLabel:@"Relationship Status" value:aUser.relationshipStatus];
     [self updateInfoLabel:@"Work" value:aUser.work];
     
-    [self.friendsScrollView reloadData];
-    [self.interestsScrollView reloadData];
+    self.mutualFriendsView.items = self.user.mutualFriends;
+    [self.mutualFriendsView reloadData];
+    
+    self.interestsView.items = self.user.interests;
+    [self.interestsView reloadData];
 }
+
 
 - (void) updateInfoLabel:(NSString *) title value: (NSString *) aValue
 {
@@ -116,14 +120,13 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.backgroundColor = [UIColor lightGrayColor];
     self.scrollView.scrollEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(320, 1000);
+    self.scrollView.contentSize = CGSizeMake(320, 1200);
     [self.view addSubview:self.scrollView];
     
     /* Image Label */
     self.profileImageView = [[[ScaledImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)] autorelease];
     self.profileImageView.userInteractionEnabled = YES;    
     [self.scrollView addSubview:self.profileImageView];
-    
     
     self.heightOffset += 340;
     // Create gesture recognizer
@@ -134,15 +137,15 @@
     // Add the gesture to the view
     [self.profileImageView addGestureRecognizer:oneFingerOneTap];
     
-    /* Name Label */
-    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)];
+    /* Name Label */ 
+    self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
     self.nameLabel.font            = [UIFont boldSystemFontOfSize:15];
     self.nameLabel.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.nameLabel]; 
     self.heightOffset += 10;
     
     /* Age Label */
-    self.ageLabel = [[UILabel alloc] init];
+    self.ageLabel = [[[UILabel alloc] init] autorelease];
     self.ageLabel.font            = [UIFont boldSystemFontOfSize:13];
     self.ageLabel.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.ageLabel]; 
@@ -165,7 +168,7 @@
     self.heightOffset += 18;
     
     /* Separator Label */
-    UILabel *separator1 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
+    UILabel *separator1 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator1.font            = [UIFont boldSystemFontOfSize:12];
     separator1.backgroundColor = [UIColor clearColor];
     separator1.text = @"_____________________________________________";
@@ -173,30 +176,22 @@
     self.heightOffset += 14;
     
     /* Friends Label */
-    self.friendsLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 150, 21)];
+    self.friendsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 150, 21)] autorelease];
+    self.friendsLabel.text = @"Mutual Friends";
     self.friendsLabel.font            = [UIFont boldSystemFontOfSize:12];
     self.friendsLabel.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.friendsLabel];
     self.heightOffset += 20;
     
-    /* Friends Horizontal Scroll View */
-    self.friendsScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 100)] autorelease];
-    self.friendsScrollView.backgroundColor = [UIColor yellowColor];
-    self.friendsScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
-    self.friendsScrollView.showsVerticalScrollIndicator = NO;
-    self.friendsScrollView.showsHorizontalScrollIndicator = NO;
-    self.friendsScrollView.delegate = self;
-    self.friendsScrollView.dataSource = self;
-    [self.friendsScrollView setContentSizeGrowsToFillBounds:NO];
-    self.friendsScrollView.gridHeaderView.hidden = YES;
-    self.friendsScrollView.gridFooterView.hidden = YES;  
-    self.friendsScrollView.resizesCellWidthToFit = YES;
-    [self.scrollView addSubview:self.friendsScrollView];    
-    [self.friendsScrollView reloadData];
-    self.heightOffset += 150;
+    /* Mutual Friends Horizontal Scroll View */
+    self.mutualFriendsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 100)] autorelease];
+    [self.scrollView addSubview:self.mutualFriendsView];    
+    [self.mutualFriendsView reloadData];
+    self.mutualFriendsView.backgroundColor = [UIColor orangeColor];
+    self.heightOffset += 110;
     
     /* Separator Label */
-    UILabel *separator2 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
+    UILabel *separator2 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator2.font            = [UIFont boldSystemFontOfSize:12];
     separator2.backgroundColor = [UIColor clearColor];
     separator2.text = @"_____________________________________________";
@@ -207,7 +202,7 @@
     [self generalInfo];
     
     /* Separator Label */
-    UILabel *separator3 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
+    UILabel *separator3 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator3.font            = [UIFont boldSystemFontOfSize:12];
     separator3.backgroundColor = [UIColor clearColor];
     separator3.text = @"_____________________________________________";
@@ -223,22 +218,12 @@
     self.heightOffset += 20;
 
     /* Music Scroll View */
-    self.interestsScrollView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 65)] autorelease];
-    self.interestsScrollView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
-    self.interestsScrollView.showsVerticalScrollIndicator = NO;
-    self.interestsScrollView.showsHorizontalScrollIndicator = NO;
-    self.interestsScrollView.delegate = self;
-    self.interestsScrollView.dataSource = self;
-    [self.interestsScrollView setContentSizeGrowsToFillBounds:NO];
-    self.interestsScrollView.gridHeaderView.hidden = YES;
-    self.interestsScrollView.gridFooterView.hidden = YES;
-    self.interestsScrollView.resizesCellWidthToFit = YES;
-    [self.scrollView addSubview:self.interestsScrollView];    
-    [self.interestsScrollView reloadData];
-    self.heightOffset += 60;
+    self.interestsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 100)] autorelease];
+    [self.scrollView addSubview:self.interestsView];    
+    self.heightOffset += 110;
 
     /* Separator Label */
-    UILabel *separator4 = [[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)];
+    UILabel *separator4 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator4.font            = [UIFont boldSystemFontOfSize:12];
     separator4.backgroundColor = [UIColor clearColor];
     separator4.text = @"_____________________________________________";
@@ -300,46 +285,6 @@
 
 - (void) smilesButtonTap
 {
-}
-
-- (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
-{
-    NSArray *items = nil;
-    if (gridView == self.friendsScrollView) {
-        items = self.user.mutualFriends;
-    }
-    else if (gridView == self.interestsScrollView) {
-        items = self.user.interests;
-    }
-    return items.count;
-}
-
-- (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index
-{
-    static NSString *nearbyFriendCellIdentifier = @"NearbyFriendCellIdentifier";
-    ThumbViewCell *cell = nil;
-    cell = (ThumbViewCell *)[gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
-    
-    if (!cell) {
-		cell = [[[ThumbViewCell alloc] initWithFrame:CGRectMake(0, 0, 90, 120)
-                                             reuseIdentifier:nearbyFriendCellIdentifier] autorelease];
-    }
-    
-    NSArray *items = nil;
-    if (gridView == self.friendsScrollView) {
-        items = self.user.mutualFriends;
-    }
-    else if (gridView == self.interestsScrollView) {
-        items = self.user.interests;
-    }
-    
-    NSString *itemUrl = [[items objectAtIndex:index] objectForKey:@"thumb"];
-    NSString *itemName = [[items objectAtIndex:index] objectForKey:@"name"];
-
-    [cell.imageView setImageWithURL:[NSURL URLWithString:itemUrl]];
-    cell.nameLabel.text = itemName;
-    
-    return cell;
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index

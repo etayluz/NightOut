@@ -10,18 +10,28 @@
 #import "ThumbViewCell.h"
 #import "UIImageView+WebCache.h"
 
+#define HORIZONTAL_GALLERY_ITEM_WIDTH 90
+#define HORIZONTAL_GALLERY_ITEM_HEIGHT 120
+
 @implementation HorizontalGallery
 
 @synthesize items;
 @synthesize gridView;
 
+- (void) dealloc
+{
+    self.gridView = nil;
+    self.items = nil;
+    
+    [super dealloc];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.gridView = [[[AQGridView alloc] initWithFrame:frame] autorelease];
+        self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
         self.gridView.backgroundColor = [UIColor yellowColor];
         self.gridView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
         self.gridView.showsVerticalScrollIndicator = NO;
@@ -33,6 +43,7 @@
         self.gridView.gridFooterView.hidden = YES;  
         self.gridView.resizesCellWidthToFit = YES;
         
+        [self addSubview:self.gridView];
     }
     return self;
 }
@@ -46,7 +57,7 @@
     cell = (ThumbViewCell *)[self.gridView dequeueReusableCellWithIdentifier:nearbyFriendCellIdentifier];
     
     if (!cell) {
-		cell = [[[ThumbViewCell alloc] initWithFrame:CGRectMake(0, 0, 90, 120)
+		cell = [[[ThumbViewCell alloc] initWithFrame:CGRectMake(0, 0, HORIZONTAL_GALLERY_ITEM_WIDTH, HORIZONTAL_GALLERY_ITEM_HEIGHT)
                                      reuseIdentifier:nearbyFriendCellIdentifier] autorelease];
     }
     
@@ -71,7 +82,7 @@
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
-    return ( CGSizeMake(90, 120) );
+    return ( CGSizeMake(HORIZONTAL_GALLERY_ITEM_WIDTH, HORIZONTAL_GALLERY_ITEM_HEIGHT) );
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView
