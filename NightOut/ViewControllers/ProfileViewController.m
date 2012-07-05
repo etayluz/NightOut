@@ -178,7 +178,7 @@
     /* Friends Label */
     self.friendsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 150, 21)] autorelease];
     self.friendsLabel.text = @"Mutual Friends";
-    self.friendsLabel.font            = [UIFont boldSystemFontOfSize:12];
+    self.friendsLabel.font            = [UIFont italicSystemFontOfSize:12];
     self.friendsLabel.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.friendsLabel];
     self.heightOffset += 20;
@@ -188,7 +188,7 @@
     [self.scrollView addSubview:self.mutualFriendsView];    
     [self.mutualFriendsView reloadData];
     self.mutualFriendsView.backgroundColor = [UIColor orangeColor];
-    self.heightOffset += 110;
+    self.heightOffset += 80;
     
     /* Separator Label */
     UILabel *separator2 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];

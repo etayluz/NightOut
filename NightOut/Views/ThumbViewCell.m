@@ -26,13 +26,13 @@
         //self.contentView.layer.borderColor = [UIColor greenColor].CGColor;
         //self.contentView.layer.borderWidth = 1.0f;
 
-        NSInteger margin = 10;
+        NSInteger margin = 4;
         NSInteger thumbnailWidth = frame.size.width - 2 * margin;
         NSInteger thumbnailHeight = thumbnailWidth;
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(margin, 0, thumbnailWidth, thumbnailHeight)] autorelease];
 
-        self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(0, margin + thumbnailHeight, frame.size.width, 15)] autorelease];
-        self.nameLabel.textAlignment = UITextAlignmentCenter;
+        self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(margin, thumbnailHeight, frame.size.width, 15)] autorelease];
+        self.nameLabel.textAlignment = UITextAlignmentLeft;
         self.nameLabel.font                = [UIFont boldSystemFontOfSize:11];
         self.nameLabel.backgroundColor     = [UIColor clearColor];
                 
