@@ -39,6 +39,7 @@
 		3719E314159133BD00E9A138 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E307159133BD00E9A138 /* SBJsonParser.m */; };
 		3719E315159133BD00E9A138 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E309159133BD00E9A138 /* SBJsonWriter.m */; };
 		371D9F8615A654F6004D5454 /* Smile_button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 371D9F8515A654F6004D5454 /* Smile_button2.png */; };
+		371D9FA215A7477C004D5454 /* MyriadPro-SemiboldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 371D9FA115A7477C004D5454 /* MyriadPro-SemiboldCond.otf */; };
 		371F626115A62ADC00361A61 /* UIImage+ImageTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 371F626015A62ADC00361A61 /* UIImage+ImageTransformations.m */; };
 		372FB39F15A23991004B9C89 /* Chelsea.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 372FB39315A23991004B9C89 /* Chelsea.gpx */; };
 		372FB3A015A23991004B9C89 /* East_Village.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 372FB39415A23991004B9C89 /* East_Village.gpx */; };
@@ -220,6 +221,7 @@
 		3719E308159133BD00E9A138 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		3719E309159133BD00E9A138 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		371D9F8515A654F6004D5454 /* Smile_button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smile_button2.png; sourceTree = "<group>"; };
+		371D9FA115A7477C004D5454 /* MyriadPro-SemiboldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldCond.otf"; sourceTree = "<group>"; };
 		371F625F15A62ADC00361A61 /* UIImage+ImageTransformations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageTransformations.h"; sourceTree = "<group>"; };
 		371F626015A62ADC00361A61 /* UIImage+ImageTransformations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageTransformations.m"; sourceTree = "<group>"; };
 		372FB39315A23991004B9C89 /* Chelsea.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Chelsea.gpx; sourceTree = "<group>"; };
@@ -1059,6 +1061,7 @@
 				3710760E158D3D9D00871A12 /* NearbyViewController.m */,
 				37C34A80158FB6D60098A393 /* ProfileViewController.h */,
 				37C34A81158FB6D60098A393 /* ProfileViewController.m */,
+				371D9FA115A7477C004D5454 /* MyriadPro-SemiboldCond.otf */,
 				377B019A1597C8CF00FD4005 /* PhotoSliderViewController.h */,
 				377B019B1597C8CF00FD4005 /* PhotoSliderViewController.m */,
 				37F0F71F158CF7BA005511CD /* ConversationsViewController.h */,
@@ -1219,6 +1222,7 @@
 				376D3B9815A6361200D8C5CD /* License.txt in Resources */,
 				376D3B9915A6361200D8C5CD /* Readme.txt in Resources */,
 				371D9F8615A654F6004D5454 /* Smile_button2.png in Resources */,
+				371D9FA215A7477C004D5454 /* MyriadPro-SemiboldCond.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
