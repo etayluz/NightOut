@@ -32,12 +32,14 @@
 
         /* Image Label */
         self.backgroundColor = [UIColor purpleColor];
-        self.contentView.backgroundColor = [UIColor grayColor];
+//        self.contentView.backgroundColor = [UIColor grayColor];
         self.imageView = [[[ScaledImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
 
         /* Name Label */
-        self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 100, 15)] autorelease];
-        self.nameLabel.font             = [UIFont boldSystemFontOfSize:13];
+        self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 103, 100, 20)] autorelease];
+//        self.nameLabel.font             = [UIFont boldSystemFontOfSize:13];
+        self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:17];
+        self.nameLabel.textColor = [UIColor darkGrayColor];
         self.nameLabel.backgroundColor  = [UIColor clearColor];
 
         /* Age Label */
