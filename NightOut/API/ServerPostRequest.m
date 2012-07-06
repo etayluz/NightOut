@@ -44,6 +44,9 @@
 {
     NSString *jsonString = self.request.responseString;
     NSDictionary *responseDict = [jsonString objectFromJSONString];
+    
+    NSLog(@"response = %@", jsonString);
+    
     [self didFetchJson:responseDict];
     
     self.request = nil;

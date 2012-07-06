@@ -23,7 +23,6 @@
 @property (nonatomic, retain) FetchNeighborhoodRequest *fetchNeighborhoodRequest;
 @property (nonatomic, retain) NSTimer *updateTimer;
 
-
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView;
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index;
 

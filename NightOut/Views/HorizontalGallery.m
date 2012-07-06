@@ -17,11 +17,15 @@
 
 @synthesize items;
 @synthesize gridView;
+@synthesize abc;
 
 - (void) dealloc
 {
     self.gridView = nil;
     self.items = nil;
+    
+    NSLog(@"self.abc.rc = %d", self.abc.retainCount);
+    self.abc = nil;
     
     [super dealloc];
 }
@@ -31,6 +35,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.abc = [self generateUUID];
+                
         self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
         self.gridView.backgroundColor = [UIColor yellowColor];
         self.gridView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
@@ -69,6 +75,30 @@
     
     return cell;
 }
+
+// return a new autoreleased UUID string
+- (NSString *)generateUUID
+{
+    // create a new UUID which you own
+    CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // create a new CFStringRef (toll-free bridged to NSString)
+    // that you own
+    NSString *uuid = (NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    
+    // transfer ownership of the string
+    // to the autorelease pool
+    [[uuid retain] autorelease];
+    
+    // release the UUID
+    CFRelease(uuid);
+    
+    // release the UUIDRef
+    CFRelease(uuidRef);
+    
+    return uuid;
+}
+
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {

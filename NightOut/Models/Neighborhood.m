@@ -13,6 +13,14 @@
 
 @synthesize users, name;
 
+- (void) dealloc
+{
+    self.name = nil;
+    self.users = nil;
+    
+    [super dealloc];
+}
+
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
     if (self = [self init]) {

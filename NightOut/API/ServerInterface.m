@@ -19,17 +19,11 @@ static ServerInterface *sharedManager = nil;
 
 + (ServerInterface *)sharedManager
 {
-    
     if (sharedManager == nil) {
-        sharedManager = [[super allocWithZone:NULL] init];
+        sharedManager = [[ServerInterface alloc] init];
     }
     
     return sharedManager;
-}
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-  return [[self sharedManager] retain];
 }
 
 - (id) init
@@ -42,31 +36,6 @@ static ServerInterface *sharedManager = nil;
     return self;
 }
 
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-- (id)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    // denotes an object that cannot be released
-    return NSUIntegerMax;  
-}
-
-- (oneway void)release
-{
-    // do nothing
-}
-
-- (id)autorelease
-{
-    return self;
-}
 
 #pragma mark - api implementation
 - (void) fetchMessages

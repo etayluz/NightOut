@@ -56,13 +56,12 @@
 {
     [super viewDidLoad];
     UIImage *headerImage = [UIImage imageNamed:@"header.png"];
-
+    
     [self addMessagesButton];
     [self addFiltersButton];
 
     [Notification registerNotification:@"UserDidChangeLocation" target:self selector:@selector(userDidChangeLocation:)];
     [Notification registerNotification:@"DidUpdateLocation" target:self selector:@selector(didUpdateLocation)];
-    
     [Notification registerNotification:@"ApplicationDidBecomeActive" target:self selector:@selector(applicationDidBecomeActive)];
     [Notification registerNotification:@"ApplicationWillResignActive" target:self selector:@selector(applicationWillResignActive)];
     
@@ -92,11 +91,11 @@
     self.coordinatesLabel.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.coordinatesLabel];
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
                                    style:UIBarButtonItemStylePlain 
-                                   target:self 
-                                   action:@selector(myBackAction:)];
+                                   target:self  
+                                   action:@selector(myBackAction:)] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
     
     [self startUpdatingAtRegularIntervals];

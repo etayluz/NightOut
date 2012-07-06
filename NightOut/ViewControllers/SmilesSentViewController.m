@@ -52,11 +52,11 @@
     [self.gridView reloadData];
 
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
                                    style:UIBarButtonItemStylePlain 
                                    target:self 
-                                   action:@selector(myBackAction:)];
+                                   action:@selector(myBackAction:)] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
 }
 

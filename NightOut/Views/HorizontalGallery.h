@@ -13,6 +13,7 @@
 
 @property (nonatomic, retain) NSArray *items;
 @property (nonatomic, retain)  AQGridView *gridView;
+@property (nonatomic, retain) NSString *abc;
 
 - (void) reloadData;
 

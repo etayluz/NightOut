@@ -15,6 +15,27 @@
 @synthesize hometown, currentCity, college, interestedIn, relationshipStatus, work;
 @synthesize music, interests, recentPlaces;
 
+- (void) dealloc
+{
+    self.name = nil;
+    self.age = nil;
+    self.pictures = nil;
+    self.thumb = nil;
+    self.network = nil;
+    self.mutualFriends = nil;
+    self.hometown = nil;
+    self.currentCity = nil;
+    self.college = nil;
+    self.interestedIn = nil;
+    self.relationshipStatus = nil;
+    self.work = nil;
+    self.music = nil;
+    self.interests = nil;
+    self.recentPlaces = nil;
+    
+    [super dealloc];
+}
+
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
     if (self = [self init]) {

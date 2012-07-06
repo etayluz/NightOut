@@ -40,7 +40,7 @@
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     
-    self.pageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50)];
+    self.pageLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50)] autorelease];
     self.pageLabel.textAlignment = UITextAlignmentCenter;
     
     self.pageLabel.backgroundColor = [UIColor clearColor];

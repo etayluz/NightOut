@@ -72,10 +72,10 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {    
     
-    NSString *pushToken = [[[[[deviceToken description]
+    NSString *pushToken = [[[[deviceToken description]
                                 stringByReplacingOccurrencesOfString: @"<" withString: @""] 
                                stringByReplacingOccurrencesOfString: @">" withString: @""] 
-                              stringByReplacingOccurrencesOfString: @" " withString: @""] retain];
+                              stringByReplacingOccurrencesOfString: @" " withString: @""];
 
     NSLog(@"APN token = %@", pushToken);
 
@@ -327,8 +327,9 @@
     [Notification unregisterNotification:@"UserDidLogin" target:self];
     [Notification unregisterNotification:@"UserDidChangeLocation" target:self];
 
-    [self.window release];
-    [self.tabBarController release];
+    self.window = nil;
+    self.tabBarController = nil;
+    
     [super dealloc];
 }
 
