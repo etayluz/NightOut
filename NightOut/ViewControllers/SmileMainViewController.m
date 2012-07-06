@@ -9,7 +9,6 @@
 #import "SmileMainViewController.h"
 #import "SmilesSentViewController.h"
 #import "SmilesReceivedViewController.h"
-#import "WWOSmileMatchesViewController.h"
 
 @interface SmileMainViewController ()
 
@@ -66,8 +65,6 @@
 
 - (void) showSmilesMatches
 {
-    WWOSmileMatchesViewController *smileMatchesVC = [[[WWOSmileMatchesViewController alloc] init] autorelease];
-    [self.navigationController pushViewController:smileMatchesVC animated:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

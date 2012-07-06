@@ -2,8 +2,8 @@
 
 @implementation Message
 
-@dynamic sentDate;
-@dynamic read;
-@dynamic text;
+@synthesize sentDate;
+@synthesize read;
+@synthesize text;
 
 @end

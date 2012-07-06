@@ -1,27 +1,21 @@
 // Old
 #import <AudioToolbox/AudioToolbox.h>
-#import <CoreData/CoreData.h>
 
 @class Message;
 
-@interface ChatViewController : UIViewController <NSFetchedResultsControllerDelegate,
-UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UIActionSheetDelegate> {
+@interface ChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate> {
 
 }
-
-@property (nonatomic, assign) SystemSoundID receiveMessageSound;
 
 @property (nonatomic, retain) UITableView *chatContent;
 
 @property (nonatomic, retain) UIImageView *chatBar;
+
 @property (nonatomic, retain) UITextView *chatInput;
 @property (nonatomic, assign) CGFloat previousContentHeight;
 @property (nonatomic, retain) UIButton *sendButton;
 
-@property (nonatomic, copy) NSMutableArray *cellMap;
-
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSMutableArray *messages;
 
 - (void)enableSendButton;
 - (void)disableSendButton;
@@ -34,10 +28,5 @@ UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UIActionSheetDel
 
 - (void)sendMessage;
 - (void)clearChatInput;
-- (NSUInteger)addMessage:(Message *)message;
-- (NSUInteger)removeMessageAtIndex:(NSUInteger)index;
-- (void)clearAll;
-
-- (void)fetchResults;
 
 @end
