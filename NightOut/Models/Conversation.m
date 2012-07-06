@@ -1,41 +1,39 @@
-//
-//  WWOMessage.m
-//  NightOut
-//
-//  Created by Dan Berenholtz on 6/16/12.
-//  Copyright (c) 2012 WhoWentOut. All rights reserved.
-//
+#import <CoreData/CoreData.h>
 
 #import "Conversation.h"
+#import "Message.h"
 
 @implementation Conversation
 
-@synthesize name, age, userID, caption, message, network, friends;
+@dynamic lastMessage;
+@dynamic messages;
 
-- (id) initWithDictionary: (NSDictionary *) dictionary
-{
-  if (self = [self init]) {
-      self.name     = [dictionary objectForKey:@"name"];
-      self.age      = [dictionary objectForKey:@"age"];
-      self.network  = [dictionary objectForKey:@"networks"];
-      self.friends  = [dictionary objectForKey:@"friends"];
-      self.userID   = [dictionary objectForKey:@"userID"];
-      self.caption  = [dictionary objectForKey:@"caption"];
-      self.message  = [dictionary objectForKey:@"message"];
-  }
-  return self;
+- (void)addMessagesObject:(Message *)value {    
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"messages" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"messages"] addObject:value];
+    [self didChangeValueForKey:@"messages" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [changedObjects release];
 }
 
-- (NSMutableDictionary *) toDictionary
-{
-    NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-    [dictionary setObject:self.name forKey:@"name"];
-    [dictionary setObject:self.age forKey:@"age"];
-    [dictionary setObject:self.userID forKey:@"userID"];
-    [dictionary setObject:self.caption forKey:@"caption"];
-    [dictionary setObject:self.message forKey:@"message"];
-  
-    return dictionary;
+- (void)removeMessagesObject:(Message *)value {
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"messages" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"messages"] removeObject:value];
+    [self didChangeValueForKey:@"messages" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [changedObjects release];
+}
+
+- (void)addMessages:(NSSet *)value {    
+    [self willChangeValueForKey:@"messages" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"messages"] unionSet:value];
+    [self didChangeValueForKey:@"messages" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+}
+
+- (void)removeMessages:(NSSet *)value {
+    [self willChangeValueForKey:@"messages" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"messages"] minusSet:value];
+    [self didChangeValueForKey:@"messages" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
 
 @end

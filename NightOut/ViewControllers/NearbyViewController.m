@@ -11,7 +11,7 @@
 #import "NearbyViewController.h"
 #import "ProfileViewController.h"
 #import "SettingsViewController.h"
-#import "ConversationsViewController.h"
+#import "ChatViewController.h"
 
 #import "NearbyGridViewCell.h"
 #import "ServerInterface.h"
@@ -255,8 +255,8 @@
 
 - (void)showMessages
 {
-    ConversationsViewController *messagesVC = [[[ConversationsViewController alloc] init] autorelease];
-    [self.navigationController pushViewController:messagesVC animated:YES];
+    ChatViewController *chatVC = [[[ChatViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 

@@ -10,7 +10,6 @@
 #import "Notification.h"
 #import "ProfileViewController.h"
 #import "SmilesSentViewController.h"
-#import "ConversationsViewController.h"
 #import "SmilesGridViewCell.h"
 #import "ServerInterface.h"
 #import "User.h"

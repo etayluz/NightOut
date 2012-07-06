@@ -26,9 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    //[[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)] autorelease];
-
+    
     _currentPage = 1;
     
     self.scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)] autorelease];
@@ -93,7 +91,7 @@
         
         profileImageView.contentMode = UIViewContentModeScaleAspectFit;
         [profileImageView setImageWithURL:[NSURL URLWithString:pictureUrl]];
-                
+        
         [self.scrollView addSubview:profileImageView];
     }
     
@@ -106,7 +104,6 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
