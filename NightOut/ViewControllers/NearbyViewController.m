@@ -83,11 +83,13 @@
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
 
-    self.neighborhoodLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 50)] autorelease];
-    self.neighborhoodLabel.backgroundColor = [UIColor yellowColor];
+    self.neighborhoodLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)] autorelease];
+    self.neighborhoodLabel.font              = [UIFont boldSystemFontOfSize:12];
+    self.neighborhoodLabel.textColor = [UIColor whiteColor];
+    self.neighborhoodLabel.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.neighborhoodLabel];
     
-    self.coordinatesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(150, 0, 150, 50)] autorelease];
+    self.coordinatesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(120, 0, 120, 30)] autorelease];
     self.coordinatesLabel.font              = [UIFont boldSystemFontOfSize:10];
     self.coordinatesLabel.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.coordinatesLabel];
