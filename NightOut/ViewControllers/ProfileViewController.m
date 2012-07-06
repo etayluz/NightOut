@@ -163,18 +163,19 @@
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchDown];
 //    [self.smileButton setTitle: @"Smiles" forState: UIControlStateNormal];
-    UIImage *buttonImage = [UIImage imageNamed:@"smile_button2.png"];    
-    self.smileButton.frame = CGRectMake(5, self.heightOffset, 300, 30);    
+    self.smileButton.frame = CGRectMake(5, self.heightOffset, 310, 40);    
     [self.scrollView addSubview:self.smileButton];
-    self.heightOffset += 18;
+    UIImage *buttonImage = [UIImage imageNamed:@"smile_button2.png"]; 
+    [self.smileButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    self.heightOffset += 38;
     
     /* Separator Label */
     UILabel *separator1 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator1.font            = [UIFont boldSystemFontOfSize:12];
     separator1.backgroundColor = [UIColor clearColor];
-    separator1.text = @"_____________________________________________";
+    separator1.text = @"______________________________________________";
     [self.scrollView addSubview:separator1];
-    self.heightOffset += 14;
+    self.heightOffset += 20;
     
     /* Friends Label */
     self.friendsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 150, 21)] autorelease];
@@ -195,7 +196,7 @@
     UILabel *separator2 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator2.font            = [UIFont boldSystemFontOfSize:12];
     separator2.backgroundColor = [UIColor clearColor];
-    separator2.text = @"_____________________________________________";
+    separator2.text = @"______________________________________________";
     [self.scrollView addSubview:separator2];
     self.heightOffset += 14;
     
@@ -206,7 +207,7 @@
     UILabel *separator3 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator3.font            = [UIFont boldSystemFontOfSize:12];
     separator3.backgroundColor = [UIColor clearColor];
-    separator3.text = @"_____________________________________________";
+    separator3.text = @"_______________________________________________";
     [self.scrollView addSubview:separator3];
     self.heightOffset += 14;
     
@@ -227,7 +228,7 @@
     UILabel *separator4 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
     separator4.font            = [UIFont boldSystemFontOfSize:12];
     separator4.backgroundColor = [UIColor clearColor];
-    separator4.text = @"_____________________________________________";
+    separator4.text = @"_______________________________________________";
     [self.scrollView addSubview:separator4];
     self.heightOffset += 14;
     
