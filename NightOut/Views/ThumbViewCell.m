@@ -31,7 +31,7 @@
         NSInteger thumbnailHeight = thumbnailWidth;
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(margin, -3, thumbnailWidth, thumbnailHeight)] autorelease];
 
-        self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(margin, thumbnailHeight, frame.size.width, 15)] autorelease];
+        self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(margin, thumbnailHeight, frame.size.width - 2, 15)] autorelease];
         self.nameLabel.textAlignment = UITextAlignmentLeft;
 //        self.nameLabel.font                = [UIFont boldSystemFontOfSize:10];
         self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:13];
