@@ -138,20 +138,22 @@
     [self.profileImageView addGestureRecognizer:oneFingerOneTap];
     
     /* Name Label */ 
-    self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
-    self.nameLabel.font            = [UIFont boldSystemFontOfSize:18];
+    self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 31)] autorelease];
+//    self.nameLabel.font            = [UIFont boldSystemFontOfSize:18];
+//    self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:100];
     self.nameLabel.backgroundColor = [UIColor clearColor];
     self.nameLabel.textColor = [UIColor darkGrayColor];
     [self.scrollView addSubview:self.nameLabel]; 
-    self.heightOffset += 15;
+    self.heightOffset += 18;
     
     /* Age Label */
     self.ageLabel = [[[UILabel alloc] init] autorelease];
-    self.ageLabel.font            = [UIFont boldSystemFontOfSize:13];
+//    self.ageLabel.font            = [UIFont boldSystemFontOfSize:13];
+    self.ageLabel.font = [UIFont fontWithName:@"Myriad Pro" size:20];
     self.ageLabel.backgroundColor = [UIColor clearColor];
-    self.ageLabel.textColor = [UIColor darkGrayColor];
+    self.ageLabel.textColor = [UIColor grayColor];
     [self.scrollView addSubview:self.ageLabel]; 
-    self.heightOffset += 13;
+    self.heightOffset += 18;
     
     /* Message Button */
 //    self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
@@ -190,7 +192,7 @@
     self.heightOffset += 28;
     
     /* Mutual Friends Horizontal Scroll View */
-    self.mutualFriendsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 100)] autorelease];
+    self.mutualFriendsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320-5, 100)] autorelease];
     [self.scrollView addSubview:self.mutualFriendsView];    
     [self.mutualFriendsView reloadData];
     self.mutualFriendsView.backgroundColor = [UIColor orangeColor];
@@ -227,7 +229,7 @@
     self.heightOffset += 28;
 
     /* Music Scroll View */
-    self.interestsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(0, self.heightOffset, 320, 100)] autorelease];
+    self.interestsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320-5, 100)] autorelease];
     [self.scrollView addSubview:self.interestsView];    
     self.heightOffset += 75;
 
@@ -247,6 +249,7 @@
 {
     UILabel *generalInfoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
     generalInfoLabel.font            = [UIFont italicSystemFontOfSize:12];
+    self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:22];
     generalInfoLabel.backgroundColor = [UIColor clearColor];
     generalInfoLabel.text = @"General Info";
     generalInfoLabel.textColor = [UIColor darkGrayColor];
@@ -259,7 +262,7 @@
     
     for (NSString *element in labels) {
         [self createInfoLabel:element];
-        self.heightOffset += 15;
+        self.heightOffset += 20;
     }
     
 }
@@ -273,7 +276,8 @@
 - (void) createInfoLabel: (NSString *) caption
 {
     UILabel *infoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, self.heightOffset, 100, 21)] autorelease];
-    infoLabel.font = [UIFont boldSystemFontOfSize:11];
+//    infoLabel.font = [UIFont boldSystemFontOfSize:11];
+    infoLabel.font = [UIFont fontWithName:@"Myriad Pro" size:15];
     infoLabel.backgroundColor = [UIColor clearColor];
     infoLabel.textColor = [UIColor darkGrayColor];
     infoLabel.text = caption;
@@ -281,10 +285,11 @@
     //NSLog(@"%f", infoLabel.frame.size.width);
     [self.scrollView addSubview:infoLabel];
     
-    UILabel *infoValueLabel = [[[UILabel alloc] initWithFrame:CGRectMake(infoLabel.frame.size.width + 20, self.heightOffset-3.5, 100, 21)] autorelease];
-    infoValueLabel.font = [UIFont boldSystemFontOfSize:11];
+    UILabel *infoValueLabel = [[[UILabel alloc] initWithFrame:CGRectMake(infoLabel.frame.size.width + 20, self.heightOffset-3, 100, 21)] autorelease];
+//    infoValueLabel.font = [UIFont boldSystemFontOfSize:11];
+    infoValueLabel.font = [UIFont fontWithName:@"Myriad" size:15];
     infoValueLabel.backgroundColor = [UIColor clearColor];
-    infoValueLabel.textColor = [UIColor darkGrayColor];
+    infoValueLabel.textColor = [UIColor grayColor];
     
     [self.scrollView addSubview:infoValueLabel];
     [self.infoValueLabels setObject:infoValueLabel forKey:caption];

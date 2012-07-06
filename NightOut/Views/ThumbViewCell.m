@@ -29,11 +29,12 @@
         NSInteger margin = 4;
         NSInteger thumbnailWidth = frame.size.width - 2 * margin;
         NSInteger thumbnailHeight = thumbnailWidth;
-        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(margin, 0, thumbnailWidth, thumbnailHeight)] autorelease];
+        self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(margin, -3, thumbnailWidth, thumbnailHeight)] autorelease];
 
         self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(margin, thumbnailHeight, frame.size.width, 15)] autorelease];
         self.nameLabel.textAlignment = UITextAlignmentLeft;
-        self.nameLabel.font                = [UIFont boldSystemFontOfSize:10];
+//        self.nameLabel.font                = [UIFont boldSystemFontOfSize:10];
+        self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:13];
         self.nameLabel.backgroundColor     = [UIColor clearColor];
         self.nameLabel.textColor           = [UIColor darkGrayColor];
                 

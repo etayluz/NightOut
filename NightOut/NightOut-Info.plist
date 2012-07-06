@@ -52,6 +52,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>MyriadPro-SemiboldCond.otf</string>
+		<string>Myriad Condensed.ttf</string>
+		<string>MyriadPro-LightIt.otf</string>
 	</array>
 </dict>
 </plist>
