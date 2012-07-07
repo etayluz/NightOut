@@ -255,8 +255,7 @@
 
 - (void)showMessages
 {
-    ChatViewController *chatVC = [[[ChatViewController alloc] init] autorelease];
-    [self.navigationController pushViewController:chatVC animated:YES];
+    NSLog(@"show messages");
 }
 
 

@@ -13,6 +13,7 @@
 #import "User.h"
 #import "Notification.h"
 #import "PhotoSliderViewController.h"
+#import "ChatViewController.h"
 
 @interface ProfileViewController ()
 @property (nonatomic, retain) NSArray *users;
@@ -72,6 +73,8 @@
     self.user = aUser;
     NSLog(@"update from user %@", aUser.name);
     
+    self.title = [NSString stringWithFormat:@"%@'s Profile", aUser.name];
+    
     self.nameLabel.text = aUser.name;
     
     [self.profileImageView setUrl:[aUser.pictures objectAtIndex:0]];
@@ -83,7 +86,6 @@
     newFrame.origin.x = expectedLabelSize.width + OFFSET_FROM_NAME_LABEL;
     self.ageLabel.frame = newFrame;
     
-    //NSArray *labels = [NSArray arrayWithObjects:@"Hometown", @"Current City", @"College", @"Interested In", @"Relationship Status", @"Work", nil];
     [self updateInfoLabel:@"Hometown" value:aUser.hometown];
     [self updateInfoLabel:@"Current City" value:aUser.currentCity];
     [self updateInfoLabel:@"College" value:aUser.college];
@@ -280,17 +282,23 @@
 
 - (void) messageButtonTap
 {
-
+    [self showMessages];
 }
 
 - (void) smilesButtonTap
 {
+    
+}
+
+- (void) showMessages
+{
+    ChatViewController *chatVC = [[[ChatViewController alloc] init] autorelease];    
+    chatVC.title = self.user.name;
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
 {
-    //WWOUser *selectedUser = [self.users objectAtIndex:index];
-    //[self userWasSelected:selectedUser];
     return index;
 }
 

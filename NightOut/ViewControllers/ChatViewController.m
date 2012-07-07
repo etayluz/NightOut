@@ -48,7 +48,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     self.chatBar = nil;
     self.chatInput = nil;
     self.sendButton = nil;
-        
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
 }
@@ -66,15 +66,13 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     
     
     NSLog(@"viewDidLoad");
-
-    self.title = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
     
     // Listen for keyboard.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification object:nil];
-
+    
     self.view.backgroundColor = CHAT_BACKGROUND_COLOR; // shown during rotation    
     
     [self createChatContent];
@@ -140,7 +138,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [shadowColor release];
     [sendButton addTarget:self action:@selector(sendMessage)
          forControlEvents:UIControlEventTouchUpInside];
-
+    
     [self resetSendButton]; // disable initially
     
     [self.chatBar addSubview:sendButton];
@@ -166,11 +164,13 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 
 - (void) setChatBarHeight:(CGFloat)height
 {
-    CGRect chatContentFrame = self.chatContent.frame;
-    chatContentFrame.size.height = self.view.frame.size.width - height;
+    CGRect chatContentFrame = chatContent.frame;
+    chatContentFrame.size.height = self.view.frame.size.height - height;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1f];
-    self.chatContent.frame = CGRectMake(chatBar.frame.origin.x, chatContentFrame.size.height, self.view.frame.size.width, height);
+    chatContent.frame = chatContentFrame;
+    chatBar.frame = CGRectMake(chatBar.frame.origin.x, chatContentFrame.size.height,
+                               self.view.frame.size.width, height);
     [UIView commitAnimations];
 }
 
@@ -189,7 +189,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 - (void)textViewDidChange:(UITextView *)textView {
     CGFloat contentHeight = textView.contentSize.height - kMessageFontSize + 2.0f;
     NSString *rightTrimmedText = @"";
-        
+    
     if ([textView hasText]) {
         rightTrimmedText = [textView.text
                             stringByTrimmingTrailingWhitespaceAndNewlineCharacters];
@@ -208,7 +208,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
                 }
                 textView.contentOffset = CGPointMake(0.0f, 6.0f); // fix quirk
                 [self scrollToBottomAnimated:YES];
-           } else if (previousContentHeight <= kContentHeightMax) { // grow
+            } else if (previousContentHeight <= kContentHeightMax) { // grow
                 textView.scrollEnabled = YES;
                 textView.contentOffset = CGPointMake(0.0f, contentHeight-68.0f); // shift to bottom
                 if (previousContentHeight < kContentHeightMax) {
@@ -226,7 +226,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
         }
         textView.contentOffset = CGPointMake(0.0f, 6.0f); // fix quirk
     }
-
+    
     // Enable sendButton if chatInput has non-blank text, disable otherwise.
     if (rightTrimmedText.length > 0) {
         [self enableSendButton];
@@ -282,17 +282,17 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [[options objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     [[options objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     [[options objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
-
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:animationCurve];
     [UIView setAnimationDuration:animationDuration];
     CGRect viewFrame = self.view.frame;
     NSLog(@"viewFrame y: %@", NSStringFromCGRect(viewFrame));
-
+    
     CGRect keyboardFrameEndRelative = [self.view convertRect:keyboardEndFrame fromView:nil];
     NSLog(@"self.view: %@", self.view);
     NSLog(@"keyboardFrameEndRelative: %@", NSStringFromCGRect(keyboardFrameEndRelative));
-
+    
     viewFrame.size.height =  keyboardFrameEndRelative.origin.y;
     self.view.frame = viewFrame;
     [UIView commitAnimations];
@@ -315,11 +315,11 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 #pragma mark Message
 
 - (void)sendMessage {
-//    // TODO: Show progress indicator like iPhone Message app does. (Icebox)
-//    [activityIndicator startAnimating];
+    //    // TODO: Show progress indicator like iPhone Message app does. (Icebox)
+    //    [activityIndicator startAnimating];
     
     NSString *rightTrimmedMessage =
-        [chatInput.text stringByTrimmingTrailingWhitespaceAndNewlineCharacters];
+    [chatInput.text stringByTrimmingTrailingWhitespaceAndNewlineCharacters];
     
     // Don't send blank messages.
     if (rightTrimmedMessage.length == 0) {
@@ -335,7 +335,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [self.messages addObject:newMessage];
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.messages.count - 1) inSection:0];
     [self.chatContent insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-
+    
     
     [self clearChatInput];
     [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
@@ -354,7 +354,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSLog(@"number of rows: %d", [cellMap count]);
+    //    NSLog(@"number of rows: %d", [cellMap count]);
     return self.messages.count;
 }
 
@@ -370,7 +370,7 @@ static NSString *kMessageCell = @"MessageCell";
     UILabel *msgSentDate;
     UIImageView *msgBackground;
     UILabel *msgText;
-        
+    
     NSObject *object = [self.messages objectAtIndex:indexPath.row];
     
     UITableViewCell *cell;
@@ -386,8 +386,8 @@ static NSString *kMessageCell = @"MessageCell";
             
             // Create message sentDate lable
             msgSentDate = [[UILabel alloc] initWithFrame:
-                            CGRectMake(-2.0f, 0.0f,
-                                       tableView.frame.size.width, kSentDateFontSize+5.0f)];
+                           CGRectMake(-2.0f, 0.0f,
+                                      tableView.frame.size.width, kSentDateFontSize+5.0f)];
             msgSentDate.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             msgSentDate.clearsContextBeforeDrawing = NO;
             msgSentDate.tag = SENT_DATE_TAG;
