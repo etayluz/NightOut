@@ -295,6 +295,8 @@
     ChatViewController *chatVC = [[[ChatViewController alloc] init] autorelease];    
     chatVC.title = self.user.name;
     [self.navigationController pushViewController:chatVC animated:YES];
+    
+    [chatVC updateFromUserID:self.user.userID];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index

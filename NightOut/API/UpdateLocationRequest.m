@@ -22,12 +22,9 @@
 
 - (void) send:(CLLocation *) location
 {
-    NSLog(@"WWWW updateLocationRequest");
     NSString *latitude = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString *longitude = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
-    
-    NSLog(@"WWWW updating latitude = %@, longitude = %@", latitude, longitude);
-    
+        
     NSString *url = @"http://wwoapp.herokuapp.com/api/v1/location";
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.accessToken, @"token",
@@ -37,9 +34,7 @@
 }
 
 -(void) sendInBackground:(CLLocation *)location
-{
-    NSLog(@" WWW sendLocationToServerInBackground");
-    
+{    
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:
                    ^{
                        [[UIApplication sharedApplication] endBackgroundTask: self.backgroundTask];

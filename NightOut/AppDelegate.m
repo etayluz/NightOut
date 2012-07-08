@@ -82,7 +82,8 @@
     // Updates the device token and registers the token with UA
     [[UAPush shared] registerDeviceToken:deviceToken];
     
-    [self.registerPushTokenRequest send:deviceToken];
+    if ([ServerInterface sharedManager].isUserLoggedIn)
+        [self.registerPushTokenRequest send:deviceToken];
     
     /*
      * Some example cases where user notification may be warranted
@@ -152,7 +153,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    UALOG(@"Received remote notification: %@", userInfo);
+    NSLog(@"Received remote notification: %@", userInfo);
     
     // Get application state for iOS4.x+ devices, otherwise assume active
     UIApplicationState appState = UIApplicationStateActive;
@@ -163,13 +164,14 @@
     if ([userInfo objectForKey:@"event"] != nil) {
         NSDictionary *event = [userInfo objectForKey:@"event"];
         NSString *eventName = [event objectForKey:@"name"];
-        NSLog(@" %@ :: %@ ", eventName, event);
+        NSLog(@"[SERVERSIDE EVENT] %@ :: %@ ", eventName, event);
+        [Notification send:eventName withData:event];
     }
     
     if ([self appIsInForeground]) {
-        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"title" message:@"message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil] autorelease];
+        //UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"title" message:@"message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil] autorelease];
         
-        [alert show];
+        //[alert show];
     }
     
     [[UAPush shared] handleNotification:userInfo applicationState:appState];

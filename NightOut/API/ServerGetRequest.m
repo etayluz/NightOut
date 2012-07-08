@@ -32,6 +32,7 @@
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
     NSString *jsonString = self.request.responseString;
+    NSLog(@"jsonString = %@", jsonString);
     NSDictionary *responseDict = [jsonString objectFromJSONString];
     [self didFetchJson:responseDict];
     

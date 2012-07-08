@@ -1,9 +1,12 @@
 // Old
 #import <AudioToolbox/AudioToolbox.h>
+#import "FetchConversationRequest.h"
+#import "SendMessageRequest.h"
+#import "Conversation.h"
 
 @class Message;
 
-@interface ChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate> {
+@interface ChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, FetchConversationRequestDelegate> {
 
 }
 
@@ -15,7 +18,10 @@
 @property (nonatomic, assign) CGFloat previousContentHeight;
 @property (nonatomic, retain) UIButton *sendButton;
 
-@property (nonatomic, retain) NSMutableArray *messages;
+@property (nonatomic, retain) Conversation *conversation;
+
+@property (nonatomic, retain) FetchConversationRequest *fetchConversationRequest;
+@property (nonatomic, retain) SendMessageRequest *sendMessageRequest;
 
 - (void)enableSendButton;
 - (void)disableSendButton;
@@ -28,5 +34,7 @@
 
 - (void)sendMessage;
 - (void)clearChatInput;
+
+- (void)updateFromUserID:(NSInteger)userID;
 
 @end

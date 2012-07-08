@@ -1,9 +1,14 @@
-@interface Message : NSObject {
+#import <Foundation/Foundation.h>
 
-}
+#import "AsDictionary.h"
 
-@property (nonatomic, retain) NSDate *sentDate;
-@property (nonatomic, retain) NSNumber *read;
-@property (nonatomic, retain) NSString *text;
+@interface Message : NSObject <AsDictionary>
+
+@property (nonatomic, retain) NSString *body;
+@property (nonatomic, retain) NSDate *time;
+@property (nonatomic, retain) NSString *status;
+
+@property (nonatomic) NSInteger senderID;
+@property (nonatomic) NSInteger receiverID;
 
 @end

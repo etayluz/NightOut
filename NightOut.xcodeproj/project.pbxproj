@@ -67,7 +67,6 @@
 		370AE99915A7A886003D5B1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE86115A7A886003D5B1B /* main.m */; };
 		370AE99A15A7A886003D5B1B /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE86515A7A886003D5B1B /* Message.m */; };
 		370AE99B15A7A886003D5B1B /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE86715A7A886003D5B1B /* Neighborhood.m */; };
-		370AE99C15A7A886003D5B1B /* NightOut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 370AE86815A7A886003D5B1B /* NightOut.xcdatamodeld */; };
 		370AE99D15A7A886003D5B1B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE86A15A7A886003D5B1B /* User.m */; };
 		370AE99E15A7A886003D5B1B /* Chelsea.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 370AE86C15A7A886003D5B1B /* Chelsea.gpx */; };
 		370AE99F15A7A886003D5B1B /* East_Village.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 370AE86D15A7A886003D5B1B /* East_Village.gpx */; };
@@ -158,7 +157,10 @@
 		37340E9B15A363C600A57EC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9A15A363C600A57EC1 /* libsqlite3.dylib */; };
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
+		37386D1715A9FE52001796BD /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1615A9FE52001796BD /* FetchConversationRequest.m */; };
+		37386D1A15A9FE97001796BD /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1915A9FE97001796BD /* Conversation.m */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
+		37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B537D815AA335D007E04E8 /* SendMessageRequest.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -494,7 +496,13 @@
 		37340E9A15A363C600A57EC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		37386D1515A9FE52001796BD /* FetchConversationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchConversationRequest.h; sourceTree = "<group>"; };
+		37386D1615A9FE52001796BD /* FetchConversationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchConversationRequest.m; sourceTree = "<group>"; };
+		37386D1815A9FE97001796BD /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		37386D1915A9FE97001796BD /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		37B537D715AA335D007E04E8 /* SendMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageRequest.h; sourceTree = "<group>"; };
+		37B537D815AA335D007E04E8 /* SendMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageRequest.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -587,6 +595,10 @@
 				370AE7EE15A7A886003D5B1B /* ServerPostRequest.m */,
 				370AE7EF15A7A886003D5B1B /* UpdateLocationRequest.h */,
 				370AE7F015A7A886003D5B1B /* UpdateLocationRequest.m */,
+				37386D1515A9FE52001796BD /* FetchConversationRequest.h */,
+				37386D1615A9FE52001796BD /* FetchConversationRequest.m */,
+				37B537D715AA335D007E04E8 /* SendMessageRequest.h */,
+				37B537D815AA335D007E04E8 /* SendMessageRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -782,9 +794,10 @@
 				370AE86515A7A886003D5B1B /* Message.m */,
 				370AE86615A7A886003D5B1B /* Neighborhood.h */,
 				370AE86715A7A886003D5B1B /* Neighborhood.m */,
-				370AE86815A7A886003D5B1B /* NightOut.xcdatamodeld */,
 				370AE86915A7A886003D5B1B /* User.h */,
 				370AE86A15A7A886003D5B1B /* User.m */,
+				37386D1815A9FE97001796BD /* Conversation.h */,
+				37386D1915A9FE97001796BD /* Conversation.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1579,7 +1592,6 @@
 				370AE99915A7A886003D5B1B /* main.m in Sources */,
 				370AE99A15A7A886003D5B1B /* Message.m in Sources */,
 				370AE99B15A7A886003D5B1B /* Neighborhood.m in Sources */,
-				370AE99C15A7A886003D5B1B /* NightOut.xcdatamodeld in Sources */,
 				370AE99D15A7A886003D5B1B /* User.m in Sources */,
 				370AE9AB15A7A886003D5B1B /* Notification.m in Sources */,
 				370AE9C215A7A886003D5B1B /* MKAnnotationView+WebCache.m in Sources */,
@@ -1616,6 +1628,9 @@
 				370AE9F315A7A886003D5B1B /* ScaledImageView.m in Sources */,
 				370AE9F415A7A886003D5B1B /* SmilesGridViewCell.m in Sources */,
 				370AE9F515A7A886003D5B1B /* ThumbViewCell.m in Sources */,
+				37386D1715A9FE52001796BD /* FetchConversationRequest.m in Sources */,
+				37386D1A15A9FE97001796BD /* Conversation.m in Sources */,
+				37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1748,17 +1763,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		370AE86815A7A886003D5B1B /* NightOut.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-			);
-			path = NightOut.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 37F0F638158CD939005511CD /* Project object */;
 }

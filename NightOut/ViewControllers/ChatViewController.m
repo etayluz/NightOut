@@ -2,6 +2,7 @@
 #import "ChatViewController.h"
 #import "Message.h"
 #import "NSString+Additions.h"
+#import "Notification.h"
 
 // Exact same color as native iPhone Messages app.
 // Achieved by taking a screen shot of the iPhone by pressing Home & Sleep buttons together.
@@ -28,7 +29,9 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 @synthesize previousContentHeight;
 @synthesize sendButton;
 
-@synthesize messages;
+@synthesize conversation;
+
+@synthesize fetchConversationRequest, sendMessageRequest;
 
 #pragma mark NSObject
 
@@ -50,20 +53,15 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     self.sendButton = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [Notification unregisterNotification:@"UserDidSendMessage" target:self];
+    [Notification unregisterNotification:@"UserDidReceieveMessage" target:self];
+    
     [super viewDidUnload];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.messages = [NSMutableArray array];
-    
-    Message *message = [[[Message alloc] init] autorelease];
-    message.text = @"woo";
-    message.sentDate = [NSDate date];
-    
-    [self.messages addObject:message];
-    
     
     NSLog(@"viewDidLoad");
     
@@ -73,10 +71,45 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification object:nil];
     
+    [Notification registerNotification:@"UserDidReceiveMessage" target:self selector:@selector(userDidReceiveMessage:)];
+    [Notification registerNotification:@"UserDidSendMessage" target:self selector:@selector(userDidSendMessage:)];
+
     self.view.backgroundColor = CHAT_BACKGROUND_COLOR; // shown during rotation    
     
     [self createChatContent];
     [self createChatBar];
+    
+    self.fetchConversationRequest = [[[FetchConversationRequest alloc] init] autorelease];
+    self.fetchConversationRequest.delegate = self;
+    
+    self.sendMessageRequest = [[[SendMessageRequest alloc] init] autorelease];
+}
+
+- (void)userDidSendMessage:(NSNotification *)notification
+{
+    NSDictionary *event = [notification.userInfo objectForKey:@"data"];
+    Message *message = [[Message alloc] initWithDictionary:[event objectForKey:@"message"]];
+    
+    if (self.conversation.currentUserID == message.senderID) {
+        [self addMessage:message];
+        [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
+    }
+}
+
+- (void)userDidReceiveMessage:(NSNotification *)notification
+{
+    NSDictionary *event = [notification.userInfo objectForKey:@"data"];
+    Message *message = [[Message alloc] initWithDictionary:[event objectForKey:@"message"]];
+    
+    if (self.conversation.currentUserID == message.receiverID) {
+        [self addMessage:message];
+        [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
+    }
+}
+
+- (void)updateFromUserID:(NSInteger)userID
+{
+    [self.fetchConversationRequest send:userID];
 }
 
 - (void) createChatContent
@@ -304,7 +337,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 }
 
 - (void)scrollToBottomAnimated:(BOOL)animated {
-    NSInteger bottomRow = self.messages.count - 1;
+    NSInteger bottomRow = self.conversation.messages.count - 1;
     if (bottomRow >= 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:bottomRow inSection:0];
         [chatContent scrollToRowAtIndexPath:indexPath
@@ -327,18 +360,24 @@ static CGFloat const kChatBarHeight4    = 94.0f;
         return;
     }
     
-    // Create new message and save to Core Data.
+    // Create new message
     Message *newMessage = [[[Message alloc] init] autorelease];
-    newMessage.text = rightTrimmedMessage;
-    newMessage.sentDate = [NSDate date];
+    newMessage.body = rightTrimmedMessage;
+    newMessage.time = [NSDate date];
     
-    [self.messages addObject:newMessage];
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.messages.count - 1) inSection:0];
-    [self.chatContent insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-    
+    [self.sendMessageRequest send:self.conversation.otherUserID message:newMessage.body];
+    //[self addMessage:newMessage];
     
     [self clearChatInput];
     [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
+}
+
+- (void)addMessage:(Message *)message
+{
+    [self.conversation.messages addObject:message];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.conversation.messages.count - 1) inSection:0];
+    [self.chatContent insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+
 }
 
 - (void)clearChatInput {
@@ -355,7 +394,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //    NSLog(@"number of rows: %d", [cellMap count]);
-    return self.messages.count;
+    return self.conversation.messages.count;
 }
 
 #define SENT_DATE_TAG 101
@@ -371,7 +410,7 @@ static NSString *kMessageCell = @"MessageCell";
     UIImageView *msgBackground;
     UILabel *msgText;
     
-    NSObject *object = [self.messages objectAtIndex:indexPath.row];
+    NSObject *object = [self.conversation.messages objectAtIndex:indexPath.row];
     
     UITableViewCell *cell;
     
@@ -408,7 +447,7 @@ static NSString *kMessageCell = @"MessageCell";
             [dateFormatter setDateStyle:NSDateFormatterMediumStyle]; // Jan 1, 2010
             [dateFormatter setTimeStyle:NSDateFormatterShortStyle];  // 1:43 PM
             
-            // TODO: Get locale from iPhone system prefs. Then, move this to viewDidAppear.
+            // TODO: Get locale from iPhone system prefs. Then, move this viewDidAppear.
             NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
             [dateFormatter setLocale:usLocale];
             [usLocale release];
@@ -418,6 +457,8 @@ static NSString *kMessageCell = @"MessageCell";
         
         return cell;
     }
+    
+    Message *message = (Message *)object;
     
     // Handle Message object.
     cell = [tableView dequeueReusableCellWithIdentifier:kMessageCell];
@@ -450,11 +491,11 @@ static NSString *kMessageCell = @"MessageCell";
     }
     
     // Configure the cell to show the message in a bubble. Layout message cell & its subviews.
-    CGSize size = [[(Message *)object text] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
+    CGSize size = [[(Message *)object body] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
                                        constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
                                            lineBreakMode:UILineBreakModeWordWrap];
     UIImage *bubbleImage;
-    if (!([indexPath row] % 3)) { // right bubble
+    if (message.senderID == conversation.currentUserID) { // right bubble
         CGFloat editWidth = tableView.editing ? 32.0f : 0.0f;
         msgBackground.frame = CGRectMake(tableView.frame.size.width-size.width-34.0f-editWidth,
                                          kMessageFontSize-13.0f, size.width+34.0f,
@@ -475,7 +516,7 @@ static NSString *kMessageCell = @"MessageCell";
         msgText.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     }
     msgBackground.image = bubbleImage;
-    msgText.text = [(Message *)object text];
+    msgText.text = message.body;
     
     return cell;
 }
@@ -483,7 +524,7 @@ static NSString *kMessageCell = @"MessageCell";
 #pragma mark UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSObject *object = [self.messages objectAtIndex:indexPath.row];
+    NSObject *object = [self.conversation.messages objectAtIndex:indexPath.row];
     
     // Set SentDateCell height.
     if ([object isKindOfClass:[NSDate class]]) {
@@ -491,10 +532,19 @@ static NSString *kMessageCell = @"MessageCell";
     }
     
     // Set MessageCell height.
-    CGSize size = [[(Message *)object text] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
+    CGSize size = [[(Message *)object body] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
                                        constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
                                            lineBreakMode:UILineBreakModeWordWrap];
     return size.height + 17.0f;
+}
+
+#pragma mark DidFetchConversationRequestDelegate
+
+- (void) didFetchConversation:(Conversation *)c
+{
+    self.conversation = c;
+    NSLog(@"messages = %d", c.messages.count);
+    [self.chatContent reloadData];    
 }
 
 @end
