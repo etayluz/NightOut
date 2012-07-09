@@ -10,7 +10,7 @@
 #import "ThumbViewCell.h"
 #import "UIImageView+WebCache.h"
 
-#define HORIZONTAL_GALLERY_ITEM_WIDTH 90
+#define HORIZONTAL_GALLERY_ITEM_WIDTH 70
 #define HORIZONTAL_GALLERY_ITEM_HEIGHT 120
 
 @implementation HorizontalGallery
