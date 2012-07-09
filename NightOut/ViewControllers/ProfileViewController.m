@@ -173,7 +173,7 @@
 //    [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
     self.messageButton.frame = CGRectMake(265, self.heightOffset, 50, 40);
     [self.scrollView addSubview:self.messageButton];
-    UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton.png"];
+    UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton2.png"];
     [self.messageButton setBackgroundImage:messageButtonImage forState:UIControlStateNormal];
     self.heightOffset += 35;
     
