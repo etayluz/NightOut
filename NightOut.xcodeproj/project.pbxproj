@@ -159,6 +159,7 @@
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
 		37386D1715A9FE52001796BD /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1615A9FE52001796BD /* FetchConversationRequest.m */; };
 		37386D1A15A9FE97001796BD /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1915A9FE97001796BD /* Conversation.m */; };
+		37483A9015AB3EE100F12239 /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37483A8F15AB3EE100F12239 /* ConversationsViewController.m */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
 		37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B537D815AA335D007E04E8 /* SendMessageRequest.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
@@ -500,6 +501,8 @@
 		37386D1615A9FE52001796BD /* FetchConversationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchConversationRequest.m; sourceTree = "<group>"; };
 		37386D1815A9FE97001796BD /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
 		37386D1915A9FE97001796BD /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		37483A8E15AB3EE100F12239 /* ConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationsViewController.h; sourceTree = "<group>"; };
+		37483A8F15AB3EE100F12239 /* ConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationsViewController.m; sourceTree = "<group>"; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		37B537D715AA335D007E04E8 /* SendMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageRequest.h; sourceTree = "<group>"; };
 		37B537D815AA335D007E04E8 /* SendMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageRequest.m; sourceTree = "<group>"; };
@@ -1295,6 +1298,8 @@
 				370AE92A15A7A886003D5B1B /* WWONearbyViewReference.xib */,
 				370AE92B15A7A886003D5B1B /* WWOProfileViewController.xib */,
 				370AE92F15A7A886003D5B1B /* WWOSettingsViewController.xib */,
+				37483A8E15AB3EE100F12239 /* ConversationsViewController.h */,
+				37483A8F15AB3EE100F12239 /* ConversationsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1631,6 +1636,7 @@
 				37386D1715A9FE52001796BD /* FetchConversationRequest.m in Sources */,
 				37386D1A15A9FE97001796BD /* Conversation.m in Sources */,
 				37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */,
+				37483A9015AB3EE100F12239 /* ConversationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
