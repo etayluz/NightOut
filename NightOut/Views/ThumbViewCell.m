@@ -18,26 +18,21 @@
 {
     self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {
-        
-        
-        // Initialization code
-        self.contentView.backgroundColor = [UIColor colorWithRed:0.929 green:0.933 blue:0.863 alpha:1];
- 
-        //self.contentView.layer.borderColor = [UIColor greenColor].CGColor;
-        //self.contentView.layer.borderWidth = 1.0f;
-
         NSInteger margin = 4;
         NSInteger thumbnailWidth = frame.size.width - 2 * margin;
         NSInteger thumbnailHeight = thumbnailWidth;
+        
+        self.selectionStyle = AQGridViewCellSelectionStyleNone;
+        self.backgroundColor = [UIColor clearColor];
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(margin, -3, thumbnailWidth, thumbnailHeight)] autorelease];
 
         self.nameLabel                     = [[[UILabel alloc] initWithFrame:CGRectMake(margin, thumbnailHeight, frame.size.width - 2, 15)] autorelease];
         self.nameLabel.textAlignment = UITextAlignmentLeft;
-//        self.nameLabel.font                = [UIFont boldSystemFontOfSize:10];
         self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:13];
         self.nameLabel.backgroundColor     = [UIColor clearColor];
         self.nameLabel.textColor           = [UIColor darkGrayColor];
                 
+        self.contentView.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
     }

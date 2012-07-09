@@ -51,6 +51,7 @@
     cell.textLabel.text = @"wooo yeah";
     cell.detailTextLabel.text = @"detail yaaaaaa";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [cell.imageView setImage:[UIImage imageNamed:@"WoodBackground.png"]];
         
     return cell;
 }

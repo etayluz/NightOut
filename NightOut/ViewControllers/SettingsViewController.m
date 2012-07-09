@@ -48,10 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    // Custom initialization
-    self.view.backgroundColor = [UIColor orangeColor];
-            
+    
     /* Latitude/Longitude Labels */
     self.latitudeLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 50)] autorelease];
     [self.view addSubview:self.latitudeLabel];
@@ -61,13 +58,6 @@
     
     self.timeLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 300, 50)] autorelease];
     [self.view addSubview:self.timeLabel];
-    
-    /* Update Location Button 
-    self.updateLocationButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [self.updateLocationButton addTarget:self action:@selector(userDidClickUpdateLocationButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.updateLocationButton setTitle: @"Update Location" forState: UIControlStateNormal];
-    self.updateLocationButton.frame = CGRectMake(5, 200, 200, 100);    
-    [self.view addSubview:self.updateLocationButton];*/
 }
 
 - (void)viewDidUnload

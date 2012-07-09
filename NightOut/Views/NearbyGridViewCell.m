@@ -29,7 +29,8 @@
 {
     self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {
-
+        self.selectionStyle = AQGridViewCellSelectionStyleNone;
+        
         /* Image Label */
         self.backgroundColor = [UIColor purpleColor];
 //        self.contentView.backgroundColor = [UIColor grayColor];

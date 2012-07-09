@@ -130,7 +130,6 @@
 		370AE9DB15A7A886003D5B1B /* WWOExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370AE92615A7A886003D5B1B /* WWOExploreViewController.xib */; };
 		370AE9DC15A7A886003D5B1B /* WWOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE92815A7A886003D5B1B /* WWOLoginViewController.m */; };
 		370AE9DD15A7A886003D5B1B /* WWOLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370AE92915A7A886003D5B1B /* WWOLoginViewController.xib */; };
-		370AE9DE15A7A886003D5B1B /* WWONearbyViewReference.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370AE92A15A7A886003D5B1B /* WWONearbyViewReference.xib */; };
 		370AE9DF15A7A886003D5B1B /* WWOProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370AE92B15A7A886003D5B1B /* WWOProfileViewController.xib */; };
 		370AE9E215A7A886003D5B1B /* WWOSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370AE92F15A7A886003D5B1B /* WWOSettingsViewController.xib */; };
 		370AE9E515A7A886003D5B1B /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE93815A7A886003D5B1B /* AQGridView.m */; };
@@ -145,12 +144,9 @@
 		370AE9EE15A7A886003D5B1B /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE94B15A7A886003D5B1B /* UIColor+AQGridView.m */; };
 		370AE9EF15A7A886003D5B1B /* HorizontalGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95115A7A886003D5B1B /* HorizontalGallery.m */; };
 		370AE9F015A7A886003D5B1B /* NearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95315A7A886003D5B1B /* NearbyGridViewCell.m */; };
-		370AE9F115A7A886003D5B1B /* NearbyGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370AE95415A7A886003D5B1B /* NearbyGridViewCell.xib */; };
-		370AE9F215A7A886003D5B1B /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370AE95515A7A886003D5B1B /* ProfileCell.xib */; };
 		370AE9F315A7A886003D5B1B /* ScaledImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95715A7A886003D5B1B /* ScaledImageView.m */; };
 		370AE9F415A7A886003D5B1B /* SmilesGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95915A7A886003D5B1B /* SmilesGridViewCell.m */; };
 		370AE9F515A7A886003D5B1B /* ThumbViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95B15A7A886003D5B1B /* ThumbViewCell.m */; };
-		370AE9F615A7A886003D5B1B /* WWONearbyGridViewCell.m.orig in Resources */ = {isa = PBXBuildFile; fileRef = 370AE95C15A7A886003D5B1B /* WWONearbyGridViewCell.m.orig */; };
 		37107605158D3B4500871A12 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37107604158D3B4500871A12 /* ImageIO.framework */; };
 		37107607158D3BAD00871A12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37107606158D3BAD00871A12 /* MapKit.framework */; };
 		3710761B158D430100871A12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3710761A158D430100871A12 /* QuartzCore.framework */; };
@@ -451,7 +447,6 @@
 		370AE92715A7A886003D5B1B /* WWOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOLoginViewController.h; sourceTree = "<group>"; };
 		370AE92815A7A886003D5B1B /* WWOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOLoginViewController.m; sourceTree = "<group>"; };
 		370AE92915A7A886003D5B1B /* WWOLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOLoginViewController.xib; sourceTree = "<group>"; };
-		370AE92A15A7A886003D5B1B /* WWONearbyViewReference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWONearbyViewReference.xib; sourceTree = "<group>"; };
 		370AE92B15A7A886003D5B1B /* WWOProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOProfileViewController.xib; sourceTree = "<group>"; };
 		370AE92F15A7A886003D5B1B /* WWOSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSettingsViewController.xib; sourceTree = "<group>"; };
 		370AE93515A7A886003D5B1B /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
@@ -482,15 +477,12 @@
 		370AE95115A7A886003D5B1B /* HorizontalGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalGallery.m; sourceTree = "<group>"; };
 		370AE95215A7A886003D5B1B /* NearbyGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyGridViewCell.h; sourceTree = "<group>"; };
 		370AE95315A7A886003D5B1B /* NearbyGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyGridViewCell.m; sourceTree = "<group>"; };
-		370AE95415A7A886003D5B1B /* NearbyGridViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyGridViewCell.xib; sourceTree = "<group>"; };
-		370AE95515A7A886003D5B1B /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		370AE95615A7A886003D5B1B /* ScaledImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaledImageView.h; sourceTree = "<group>"; };
 		370AE95715A7A886003D5B1B /* ScaledImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaledImageView.m; sourceTree = "<group>"; };
 		370AE95815A7A886003D5B1B /* SmilesGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesGridViewCell.h; sourceTree = "<group>"; };
 		370AE95915A7A886003D5B1B /* SmilesGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesGridViewCell.m; sourceTree = "<group>"; };
 		370AE95A15A7A886003D5B1B /* ThumbViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbViewCell.h; sourceTree = "<group>"; };
 		370AE95B15A7A886003D5B1B /* ThumbViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbViewCell.m; sourceTree = "<group>"; };
-		370AE95C15A7A886003D5B1B /* WWONearbyGridViewCell.m.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WWONearbyGridViewCell.m.orig; sourceTree = "<group>"; };
 		37107604158D3B4500871A12 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		37107606158D3BAD00871A12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3710761A158D430100871A12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1295,7 +1287,6 @@
 				370AE92715A7A886003D5B1B /* WWOLoginViewController.h */,
 				370AE92815A7A886003D5B1B /* WWOLoginViewController.m */,
 				370AE92915A7A886003D5B1B /* WWOLoginViewController.xib */,
-				370AE92A15A7A886003D5B1B /* WWONearbyViewReference.xib */,
 				370AE92B15A7A886003D5B1B /* WWOProfileViewController.xib */,
 				370AE92F15A7A886003D5B1B /* WWOSettingsViewController.xib */,
 				37483A8E15AB3EE100F12239 /* ConversationsViewController.h */,
@@ -1313,15 +1304,12 @@
 				370AE95115A7A886003D5B1B /* HorizontalGallery.m */,
 				370AE95215A7A886003D5B1B /* NearbyGridViewCell.h */,
 				370AE95315A7A886003D5B1B /* NearbyGridViewCell.m */,
-				370AE95415A7A886003D5B1B /* NearbyGridViewCell.xib */,
-				370AE95515A7A886003D5B1B /* ProfileCell.xib */,
 				370AE95615A7A886003D5B1B /* ScaledImageView.h */,
 				370AE95715A7A886003D5B1B /* ScaledImageView.m */,
 				370AE95815A7A886003D5B1B /* SmilesGridViewCell.h */,
 				370AE95915A7A886003D5B1B /* SmilesGridViewCell.m */,
 				370AE95A15A7A886003D5B1B /* ThumbViewCell.h */,
 				370AE95B15A7A886003D5B1B /* ThumbViewCell.m */,
-				370AE95C15A7A886003D5B1B /* WWONearbyGridViewCell.m.orig */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1529,12 +1517,8 @@
 				370AE9D715A7A886003D5B1B /* SmilesReceivedViewController.xib in Resources */,
 				370AE9DB15A7A886003D5B1B /* WWOExploreViewController.xib in Resources */,
 				370AE9DD15A7A886003D5B1B /* WWOLoginViewController.xib in Resources */,
-				370AE9DE15A7A886003D5B1B /* WWONearbyViewReference.xib in Resources */,
 				370AE9DF15A7A886003D5B1B /* WWOProfileViewController.xib in Resources */,
 				370AE9E215A7A886003D5B1B /* WWOSettingsViewController.xib in Resources */,
-				370AE9F115A7A886003D5B1B /* NearbyGridViewCell.xib in Resources */,
-				370AE9F215A7A886003D5B1B /* ProfileCell.xib in Resources */,
-				370AE9F615A7A886003D5B1B /* WWONearbyGridViewCell.m.orig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -197,9 +197,9 @@
     
     /* Mutual Friends Horizontal Scroll View */
     self.mutualFriendsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320-5, 100)] autorelease];
+    self.mutualFriendsView.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.mutualFriendsView];    
     [self.mutualFriendsView reloadData];
-    self.mutualFriendsView.backgroundColor = [UIColor orangeColor];
     self.heightOffset += 70;
     
     /* Separator Label */

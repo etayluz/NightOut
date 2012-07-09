@@ -17,15 +17,14 @@
 
 @synthesize items;
 @synthesize gridView;
-@synthesize abc;
+@synthesize cellReuseID;
 
 - (void) dealloc
 {
     self.gridView = nil;
     self.items = nil;
     
-    NSLog(@"self.abc.rc = %d", self.abc.retainCount);
-    self.abc = nil;
+    self.cellReuseID = nil;
     
     [super dealloc];
 }
@@ -35,10 +34,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.abc = [self generateUUID];
-                
+        self.cellReuseID = [self generateUUID];
+        self.backgroundColor = [UIColor clearColor];
         self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
-        self.gridView.backgroundColor = [UIColor yellowColor];
+        
+        self.gridView.backgroundColor = [UIColor clearColor];
         self.gridView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
         self.gridView.showsVerticalScrollIndicator = NO;
         self.gridView.showsHorizontalScrollIndicator = NO;

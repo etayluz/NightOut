@@ -14,10 +14,7 @@
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier index:(NSUInteger)index
 {
     self = [super initWithFrame:frame];
-    if (self) {
-
-        //self.backgroundColor = [UIColor orangeColor];
-        
+    if (self) {        
         self.contentView.backgroundColor = [UIColor clearColor];
         
         /* Image View */
