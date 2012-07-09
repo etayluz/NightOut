@@ -38,7 +38,6 @@
 		3719E313159133BD00E9A138 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E305159133BD00E9A138 /* SBJsonBase.m */; };
 		3719E314159133BD00E9A138 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E307159133BD00E9A138 /* SBJsonParser.m */; };
 		3719E315159133BD00E9A138 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3719E309159133BD00E9A138 /* SBJsonWriter.m */; };
-		371D9F8615A654F6004D5454 /* Smile_button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 371D9F8515A654F6004D5454 /* Smile_button2.png */; };
 		371D9FA215A7477C004D5454 /* MyriadPro-SemiboldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 371D9FA115A7477C004D5454 /* MyriadPro-SemiboldCond.otf */; };
 		371D9FB015A74E3C004D5454 /* Myriad Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 371D9FAF15A74E3C004D5454 /* Myriad Condensed.ttf */; };
 		371D9FB215A752D2004D5454 /* MyriadPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 371D9FB115A752D2004D5454 /* MyriadPro-LightIt.otf */; };
@@ -93,6 +92,8 @@
 		3793BCFB15936FDA00E6E141 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCF015936FDA00E6E141 /* NSIndexSet+AQIsSetContiguous.m */; };
 		3793BCFC15936FDA00E6E141 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCF215936FDA00E6E141 /* UIColor+AQGridView.m */; };
 		3793BD0A1594E38200E6E141 /* ThumbViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BD091594E38200E6E141 /* ThumbViewCell.m */; };
+		37A3864A15AB3FFA00952298 /* Smile_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A3864915AB3FFA00952298 /* Smile_button.png */; };
+		37A3864C15AB453A00952298 /* Message_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A3864B15AB453A00952298 /* Message_button.png */; };
 		37AD76571598E8A5008201E3 /* SmilesGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD76561598E8A5008201E3 /* SmilesGridViewCell.m */; };
 		37AD765F15993A46008201E3 /* SmilesSentHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37AD765E15993A46008201E3 /* SmilesSentHeader.png */; };
 		37AD766215993BC0008201E3 /* SmilesSentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD766115993BC0008201E3 /* SmilesSentViewController.m */; };
@@ -222,7 +223,6 @@
 		3719E307159133BD00E9A138 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		3719E308159133BD00E9A138 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		3719E309159133BD00E9A138 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		371D9F8515A654F6004D5454 /* Smile_button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smile_button2.png; sourceTree = "<group>"; };
 		371D9FA115A7477C004D5454 /* MyriadPro-SemiboldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldCond.otf"; sourceTree = "<group>"; };
 		371D9FAF15A74E3C004D5454 /* Myriad Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Myriad Condensed.ttf"; sourceTree = "<group>"; };
 		371D9FB115A752D2004D5454 /* MyriadPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightIt.otf"; sourceTree = "<group>"; };
@@ -362,6 +362,8 @@
 		3793BCF215936FDA00E6E141 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
 		3793BD081594E38200E6E141 /* ThumbViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbViewCell.h; sourceTree = "<group>"; };
 		3793BD091594E38200E6E141 /* ThumbViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbViewCell.m; sourceTree = "<group>"; };
+		37A3864915AB3FFA00952298 /* Smile_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smile_button.png; sourceTree = "<group>"; };
+		37A3864B15AB453A00952298 /* Message_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Message_button.png; sourceTree = "<group>"; };
 		37AD76541598D90A008201E3 /* AsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsDictionary.h; sourceTree = "<group>"; };
 		37AD76551598E8A5008201E3 /* SmilesGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesGridViewCell.h; sourceTree = "<group>"; };
 		37AD76561598E8A5008201E3 /* SmilesGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesGridViewCell.m; sourceTree = "<group>"; };
@@ -1041,7 +1043,8 @@
 		37F0F713158CF7B0005511CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				371D9F8515A654F6004D5454 /* Smile_button2.png */,
+				37A3864B15AB453A00952298 /* Message_button.png */,
+				37A3864915AB3FFA00952298 /* Smile_button.png */,
 				37E16F5E159AAFA00012D656 /* ImageMask1.png */,
 				37AD765E15993A46008201E3 /* SmilesSentHeader.png */,
 				377B49E3159A21D400ED43CD /* SmilesReceivedHeader.png */,
@@ -1227,10 +1230,11 @@
 				37340E9915A362AF00A57EC1 /* AirshipConfig.plist in Resources */,
 				376D3B9815A6361200D8C5CD /* License.txt in Resources */,
 				376D3B9915A6361200D8C5CD /* Readme.txt in Resources */,
-				371D9F8615A654F6004D5454 /* Smile_button2.png in Resources */,
 				371D9FA215A7477C004D5454 /* MyriadPro-SemiboldCond.otf in Resources */,
 				371D9FB015A74E3C004D5454 /* Myriad Condensed.ttf in Resources */,
 				371D9FB215A752D2004D5454 /* MyriadPro-LightIt.otf in Resources */,
+				37A3864A15AB3FFA00952298 /* Smile_button.png in Resources */,
+				37A3864C15AB453A00952298 /* Message_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

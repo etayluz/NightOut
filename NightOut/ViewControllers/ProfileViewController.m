@@ -155,23 +155,25 @@
     [self.scrollView addSubview:self.ageLabel]; 
     self.heightOffset += 18;
     
-    /* Message Button */
-//    self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-//    [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchDown];
-//    [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
-//    self.messageButton.frame = CGRectMake(5, self.heightOffset, 300, 30);
-//    [self.scrollView addSubview:self.messageButton];
-//    self.heightOffset += 35;
-    
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchDown];
 //    [self.smileButton setTitle: @"Smiles" forState: UIControlStateNormal];
-    self.smileButton.frame = CGRectMake(5, self.heightOffset, 310, 40);    
+    self.smileButton.frame = CGRectMake(5, self.heightOffset, 260, 40);    
     [self.scrollView addSubview:self.smileButton];
-    UIImage *buttonImage = [UIImage imageNamed:@"smile_button2.png"]; 
+    UIImage *buttonImage = [UIImage imageNamed:@"smile_button.png"]; 
     [self.smileButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    self.heightOffset += 45;
+    self.heightOffset += 0;
+    
+    /* Message Button */
+    self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchDown];
+//    [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
+    self.messageButton.frame = CGRectMake(265, self.heightOffset, 50, 40);
+    [self.scrollView addSubview:self.messageButton];
+    UIImage *buttonImage2 = [UIImage imageNamed:@"message_button.png"];
+    [self.messageButton setBackgroundImage:buttonImage2 forState:UIControlStateNormal];
+    self.heightOffset += 35;
     
     /* Separator Label */
     UILabel *separator1 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
