@@ -161,8 +161,8 @@
 //    [self.smileButton setTitle: @"Smiles" forState: UIControlStateNormal];
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 260, 40);    
     [self.scrollView addSubview:self.smileButton];
-    UIImage *buttonImage = [UIImage imageNamed:@"smile_button.png"]; 
-    [self.smileButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    UIImage *smileButtonImage = [UIImage imageNamed:@"SmileButton.png"]; 
+    [self.smileButton setBackgroundImage:smileButtonImage forState:UIControlStateNormal];
     self.heightOffset += 0;
     
     /* Message Button */
@@ -171,8 +171,8 @@
 //    [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
     self.messageButton.frame = CGRectMake(265, self.heightOffset, 50, 40);
     [self.scrollView addSubview:self.messageButton];
-    UIImage *buttonImage2 = [UIImage imageNamed:@"message_button.png"];
-    [self.messageButton setBackgroundImage:buttonImage2 forState:UIControlStateNormal];
+    UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton.png"];
+    [self.messageButton setBackgroundImage:messageButtonImage forState:UIControlStateNormal];
     self.heightOffset += 35;
     
     /* Separator Label */

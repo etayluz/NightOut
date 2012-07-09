@@ -92,8 +92,8 @@
 		3793BCFB15936FDA00E6E141 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCF015936FDA00E6E141 /* NSIndexSet+AQIsSetContiguous.m */; };
 		3793BCFC15936FDA00E6E141 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BCF215936FDA00E6E141 /* UIColor+AQGridView.m */; };
 		3793BD0A1594E38200E6E141 /* ThumbViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3793BD091594E38200E6E141 /* ThumbViewCell.m */; };
-		37A3864A15AB3FFA00952298 /* Smile_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A3864915AB3FFA00952298 /* Smile_button.png */; };
-		37A3864C15AB453A00952298 /* Message_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A3864B15AB453A00952298 /* Message_button.png */; };
+		37A3864A15AB3FFA00952298 /* SmileButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A3864915AB3FFA00952298 /* SmileButton.png */; };
+		37A3864C15AB453A00952298 /* MessageButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A3864B15AB453A00952298 /* MessageButton.png */; };
 		37AD76571598E8A5008201E3 /* SmilesGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD76561598E8A5008201E3 /* SmilesGridViewCell.m */; };
 		37AD765F15993A46008201E3 /* SmilesSentHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37AD765E15993A46008201E3 /* SmilesSentHeader.png */; };
 		37AD766215993BC0008201E3 /* SmilesSentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD766115993BC0008201E3 /* SmilesSentViewController.m */; };
@@ -362,8 +362,8 @@
 		3793BCF215936FDA00E6E141 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
 		3793BD081594E38200E6E141 /* ThumbViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbViewCell.h; sourceTree = "<group>"; };
 		3793BD091594E38200E6E141 /* ThumbViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbViewCell.m; sourceTree = "<group>"; };
-		37A3864915AB3FFA00952298 /* Smile_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smile_button.png; sourceTree = "<group>"; };
-		37A3864B15AB453A00952298 /* Message_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Message_button.png; sourceTree = "<group>"; };
+		37A3864915AB3FFA00952298 /* SmileButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmileButton.png; sourceTree = "<group>"; };
+		37A3864B15AB453A00952298 /* MessageButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageButton.png; sourceTree = "<group>"; };
 		37AD76541598D90A008201E3 /* AsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsDictionary.h; sourceTree = "<group>"; };
 		37AD76551598E8A5008201E3 /* SmilesGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesGridViewCell.h; sourceTree = "<group>"; };
 		37AD76561598E8A5008201E3 /* SmilesGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesGridViewCell.m; sourceTree = "<group>"; };
@@ -1043,8 +1043,8 @@
 		37F0F713158CF7B0005511CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				37A3864B15AB453A00952298 /* Message_button.png */,
-				37A3864915AB3FFA00952298 /* Smile_button.png */,
+				37A3864B15AB453A00952298 /* MessageButton.png */,
+				37A3864915AB3FFA00952298 /* SmileButton.png */,
 				37E16F5E159AAFA00012D656 /* ImageMask1.png */,
 				37AD765E15993A46008201E3 /* SmilesSentHeader.png */,
 				377B49E3159A21D400ED43CD /* SmilesReceivedHeader.png */,
@@ -1233,8 +1233,8 @@
 				371D9FA215A7477C004D5454 /* MyriadPro-SemiboldCond.otf in Resources */,
 				371D9FB015A74E3C004D5454 /* Myriad Condensed.ttf in Resources */,
 				371D9FB215A752D2004D5454 /* MyriadPro-LightIt.otf in Resources */,
-				37A3864A15AB3FFA00952298 /* Smile_button.png in Resources */,
-				37A3864C15AB453A00952298 /* Message_button.png in Resources */,
+				37A3864A15AB3FFA00952298 /* SmileButton.png in Resources */,
+				37A3864C15AB453A00952298 /* MessageButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
