@@ -12,11 +12,11 @@
 @implementation FetchConversationRequest
 @synthesize delegate;
 
-- (void) send:(NSInteger) userID;
+- (void) send:(NSInteger) conversationID;
 
 {
     if (!self.request) {
-        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/conversations/%d?token=%@", userID, self.accessToken];
+        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/conversations/%d?token=%@", conversationID, self.accessToken];
         NSLog(@"url = %@", url);
         [self sendToUrl:url];
     }

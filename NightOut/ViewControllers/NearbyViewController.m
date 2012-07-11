@@ -246,7 +246,7 @@
     profileVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
     
-    [profileVC updateFromUserID:user.userID];
+    [profileVC updateFromUserID:user.OID];
 }
 
 - (void) showFilters

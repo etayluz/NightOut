@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "AsDictionary.h"
+#import "Message.h"
+#import "User.h"
 
 @interface Conversation : NSObject <AsDictionary>
 
+@property (nonatomic) NSInteger OID;
 @property (nonatomic) NSInteger currentUserID;
-@property (nonatomic) NSInteger otherUserID;
+@property (nonatomic, retain) User *otherUser;
+@property (nonatomic, retain) Message *latestMessage;
 @property (nonatomic, retain) NSMutableArray *messages;
 
 @end

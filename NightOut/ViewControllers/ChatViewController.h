@@ -35,6 +35,6 @@
 - (void)sendMessage;
 - (void)clearChatInput;
 
-- (void)updateFromUserID:(NSInteger)userID;
+- (void)updateFromConversationID:(NSInteger)conversationID;
 
 @end

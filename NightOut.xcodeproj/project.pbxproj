@@ -144,7 +144,6 @@
 		370AE9EE15A7A886003D5B1B /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE94B15A7A886003D5B1B /* UIColor+AQGridView.m */; };
 		370AE9EF15A7A886003D5B1B /* HorizontalGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95115A7A886003D5B1B /* HorizontalGallery.m */; };
 		370AE9F015A7A886003D5B1B /* NearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95315A7A886003D5B1B /* NearbyGridViewCell.m */; };
-		370AE9F315A7A886003D5B1B /* ScaledImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95715A7A886003D5B1B /* ScaledImageView.m */; };
 		370AE9F415A7A886003D5B1B /* SmilesGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95915A7A886003D5B1B /* SmilesGridViewCell.m */; };
 		370AE9F515A7A886003D5B1B /* ThumbViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AE95B15A7A886003D5B1B /* ThumbViewCell.m */; };
 		37107605158D3B4500871A12 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37107604158D3B4500871A12 /* ImageIO.framework */; };
@@ -155,6 +154,8 @@
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
 		37386D1715A9FE52001796BD /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1615A9FE52001796BD /* FetchConversationRequest.m */; };
 		37386D1A15A9FE97001796BD /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1915A9FE97001796BD /* Conversation.m */; };
+		3738BAB215ACBFA3003463F4 /* FetchAllConversationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3738BAB115ACBFA3003463F4 /* FetchAllConversationsRequest.m */; };
+		3738BAB515ACD47E003463F4 /* UIImageView+ScaledImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3738BAB415ACD47E003463F4 /* UIImageView+ScaledImage.m */; };
 		37483A9015AB3EE100F12239 /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37483A8F15AB3EE100F12239 /* ConversationsViewController.m */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
 		37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B537D815AA335D007E04E8 /* SendMessageRequest.m */; };
@@ -477,8 +478,6 @@
 		370AE95115A7A886003D5B1B /* HorizontalGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalGallery.m; sourceTree = "<group>"; };
 		370AE95215A7A886003D5B1B /* NearbyGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyGridViewCell.h; sourceTree = "<group>"; };
 		370AE95315A7A886003D5B1B /* NearbyGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyGridViewCell.m; sourceTree = "<group>"; };
-		370AE95615A7A886003D5B1B /* ScaledImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaledImageView.h; sourceTree = "<group>"; };
-		370AE95715A7A886003D5B1B /* ScaledImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaledImageView.m; sourceTree = "<group>"; };
 		370AE95815A7A886003D5B1B /* SmilesGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesGridViewCell.h; sourceTree = "<group>"; };
 		370AE95915A7A886003D5B1B /* SmilesGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesGridViewCell.m; sourceTree = "<group>"; };
 		370AE95A15A7A886003D5B1B /* ThumbViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbViewCell.h; sourceTree = "<group>"; };
@@ -493,6 +492,10 @@
 		37386D1615A9FE52001796BD /* FetchConversationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchConversationRequest.m; sourceTree = "<group>"; };
 		37386D1815A9FE97001796BD /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
 		37386D1915A9FE97001796BD /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		3738BAB015ACBFA3003463F4 /* FetchAllConversationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchAllConversationsRequest.h; sourceTree = "<group>"; };
+		3738BAB115ACBFA3003463F4 /* FetchAllConversationsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchAllConversationsRequest.m; sourceTree = "<group>"; };
+		3738BAB315ACD47E003463F4 /* UIImageView+ScaledImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ScaledImage.h"; sourceTree = "<group>"; };
+		3738BAB415ACD47E003463F4 /* UIImageView+ScaledImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ScaledImage.m"; sourceTree = "<group>"; };
 		37483A8E15AB3EE100F12239 /* ConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationsViewController.h; sourceTree = "<group>"; };
 		37483A8F15AB3EE100F12239 /* ConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationsViewController.m; sourceTree = "<group>"; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -594,6 +597,8 @@
 				37386D1615A9FE52001796BD /* FetchConversationRequest.m */,
 				37B537D715AA335D007E04E8 /* SendMessageRequest.h */,
 				37B537D815AA335D007E04E8 /* SendMessageRequest.m */,
+				3738BAB015ACBFA3003463F4 /* FetchAllConversationsRequest.h */,
+				3738BAB115ACBFA3003463F4 /* FetchAllConversationsRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -710,6 +715,8 @@
 				370AE83415A7A886003D5B1B /* NSString+Additions.m */,
 				370AE83515A7A886003D5B1B /* UIImage+ImageTransformations.h */,
 				370AE83615A7A886003D5B1B /* UIImage+ImageTransformations.m */,
+				3738BAB315ACD47E003463F4 /* UIImageView+ScaledImage.h */,
+				3738BAB415ACD47E003463F4 /* UIImageView+ScaledImage.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1304,8 +1311,6 @@
 				370AE95115A7A886003D5B1B /* HorizontalGallery.m */,
 				370AE95215A7A886003D5B1B /* NearbyGridViewCell.h */,
 				370AE95315A7A886003D5B1B /* NearbyGridViewCell.m */,
-				370AE95615A7A886003D5B1B /* ScaledImageView.h */,
-				370AE95715A7A886003D5B1B /* ScaledImageView.m */,
 				370AE95815A7A886003D5B1B /* SmilesGridViewCell.h */,
 				370AE95915A7A886003D5B1B /* SmilesGridViewCell.m */,
 				370AE95A15A7A886003D5B1B /* ThumbViewCell.h */,
@@ -1614,13 +1619,14 @@
 				370AE9EE15A7A886003D5B1B /* UIColor+AQGridView.m in Sources */,
 				370AE9EF15A7A886003D5B1B /* HorizontalGallery.m in Sources */,
 				370AE9F015A7A886003D5B1B /* NearbyGridViewCell.m in Sources */,
-				370AE9F315A7A886003D5B1B /* ScaledImageView.m in Sources */,
 				370AE9F415A7A886003D5B1B /* SmilesGridViewCell.m in Sources */,
 				370AE9F515A7A886003D5B1B /* ThumbViewCell.m in Sources */,
 				37386D1715A9FE52001796BD /* FetchConversationRequest.m in Sources */,
 				37386D1A15A9FE97001796BD /* Conversation.m in Sources */,
 				37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */,
 				37483A9015AB3EE100F12239 /* ConversationsViewController.m in Sources */,
+				3738BAB215ACBFA3003463F4 /* FetchAllConversationsRequest.m in Sources */,
+				3738BAB515ACD47E003463F4 /* UIImageView+ScaledImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

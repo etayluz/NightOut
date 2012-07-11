@@ -10,8 +10,9 @@
 #import "Message.h"
 
 @implementation Conversation
-@synthesize currentUserID, otherUserID;
-@synthesize messages;
+
+@synthesize OID, currentUserID, otherUser;
+@synthesize latestMessage, messages;
 
 - (void) dealloc
 {
@@ -23,8 +24,13 @@
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
     if (self = [self init]) {
+        self.OID = [[dictionary objectForKey:@"id"] integerValue];
         self.currentUserID = [[dictionary objectForKey:@"current_user_id"] integerValue];
-        self.otherUserID = [[dictionary objectForKey:@"other_user_id"] integerValue];
+        
+        self.otherUser = [[[User alloc] initWithDictionary:[dictionary objectForKey:@"other_user"]] autorelease];
+        
+        if ([dictionary objectForKey:@"latest_message"] != [NSNull null])
+        self.latestMessage = [[[Message alloc] initWithDictionary:[dictionary objectForKey:@"latest_message"]]autorelease];
         
         self.messages = [NSMutableArray array];
         NSDictionary *messageDicts = [dictionary objectForKey:@"messages"];
