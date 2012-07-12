@@ -156,6 +156,10 @@
 		37386D1715A9FE52001796BD /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1615A9FE52001796BD /* FetchConversationRequest.m */; };
 		37386D1A15A9FE97001796BD /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37386D1915A9FE97001796BD /* Conversation.m */; };
 		37483A9015AB3EE100F12239 /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37483A8F15AB3EE100F12239 /* ConversationsViewController.m */; };
+		3773E2DF15AF8A7800A91F22 /* smiles_received.png in Resources */ = {isa = PBXBuildFile; fileRef = 3773E2DE15AF8A7800A91F22 /* smiles_received.png */; };
+		3773E2E115AF8A7F00A91F22 /* smiles_sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 3773E2E015AF8A7F00A91F22 /* smiles_sent.png */; };
+		3773E2E315AF8A8800A91F22 /* smile_matches.png in Resources */ = {isa = PBXBuildFile; fileRef = 3773E2E215AF8A8800A91F22 /* smile_matches.png */; };
+		3773E2E515AF8AFF00A91F22 /* smile_main.png in Resources */ = {isa = PBXBuildFile; fileRef = 3773E2E415AF8AFF00A91F22 /* smile_main.png */; };
 		37A3868515AB850000952298 /* MessageButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A3868415AB850000952298 /* MessageButton2.png */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
 		37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B537D815AA335D007E04E8 /* SendMessageRequest.m */; };
@@ -496,6 +500,10 @@
 		37386D1915A9FE97001796BD /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		37483A8E15AB3EE100F12239 /* ConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationsViewController.h; sourceTree = "<group>"; };
 		37483A8F15AB3EE100F12239 /* ConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationsViewController.m; sourceTree = "<group>"; };
+		3773E2DE15AF8A7800A91F22 /* smiles_received.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiles_received.png; sourceTree = "<group>"; };
+		3773E2E015AF8A7F00A91F22 /* smiles_sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiles_sent.png; sourceTree = "<group>"; };
+		3773E2E215AF8A8800A91F22 /* smile_matches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile_matches.png; sourceTree = "<group>"; };
+		3773E2E415AF8AFF00A91F22 /* smile_main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile_main.png; sourceTree = "<group>"; };
 		37A3868415AB850000952298 /* MessageButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageButton2.png; sourceTree = "<group>"; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		37B537D715AA335D007E04E8 /* SendMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageRequest.h; sourceTree = "<group>"; };
@@ -838,6 +846,10 @@
 				37A3868415AB850000952298 /* MessageButton2.png */,
 				370AE89015A7A886003D5B1B /* SmilesMain.png */,
 				370AE89115A7A886003D5B1B /* SmilesReceivedHeader.png */,
+				3773E2DE15AF8A7800A91F22 /* smiles_received.png */,
+				3773E2E015AF8A7F00A91F22 /* smiles_sent.png */,
+				3773E2E215AF8A8800A91F22 /* smile_matches.png */,
+				3773E2E415AF8AFF00A91F22 /* smile_main.png */,
 				370AE89215A7A886003D5B1B /* SmilesSentHeader.png */,
 				370AE89315A7A886003D5B1B /* WoodBackground.png */,
 			);
@@ -1523,6 +1535,10 @@
 				370AE9DF15A7A886003D5B1B /* WWOProfileViewController.xib in Resources */,
 				370AE9E215A7A886003D5B1B /* WWOSettingsViewController.xib in Resources */,
 				37A3868515AB850000952298 /* MessageButton2.png in Resources */,
+				3773E2DF15AF8A7800A91F22 /* smiles_received.png in Resources */,
+				3773E2E115AF8A7F00A91F22 /* smiles_sent.png in Resources */,
+				3773E2E315AF8A8800A91F22 /* smile_matches.png in Resources */,
+				3773E2E515AF8AFF00A91F22 /* smile_main.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
