@@ -158,6 +158,10 @@
 		37E0D20C15AF3F2E00BCA328 /* PictureFrameMask-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D20B15AF3F2E00BCA328 /* PictureFrameMask-2.png */; };
 		37E0D20F15AF5ACC00BCA328 /* SmileGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D20E15AF5ACC00BCA328 /* SmileGame.m */; };
 		37E0D21615AF60B400BCA328 /* FetchSmileGamesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D21515AF60B400BCA328 /* FetchSmileGamesRequest.m */; };
+		37E63FC615AF8D9500BF8C4D /* smile_matches.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E63FC515AF8D9500BF8C4D /* smile_matches.png */; };
+		37E63FC815AF8D9D00BF8C4D /* smiles_received.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E63FC715AF8D9D00BF8C4D /* smiles_received.png */; };
+		37E63FCA15AF8DA500BF8C4D /* smiles_sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E63FC915AF8DA500BF8C4D /* smiles_sent.png */; };
+		37E63FCC15AF8DAF00BF8C4D /* smile_main.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E63FCB15AF8DAF00BF8C4D /* smile_main.png */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -501,6 +505,10 @@
 		37E0D20E15AF5ACC00BCA328 /* SmileGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileGame.m; sourceTree = "<group>"; };
 		37E0D21415AF60B400BCA328 /* FetchSmileGamesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchSmileGamesRequest.h; sourceTree = "<group>"; };
 		37E0D21515AF60B400BCA328 /* FetchSmileGamesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchSmileGamesRequest.m; sourceTree = "<group>"; };
+		37E63FC515AF8D9500BF8C4D /* smile_matches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile_matches.png; sourceTree = "<group>"; };
+		37E63FC715AF8D9D00BF8C4D /* smiles_received.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiles_received.png; sourceTree = "<group>"; };
+		37E63FC915AF8DA500BF8C4D /* smiles_sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiles_sent.png; sourceTree = "<group>"; };
+		37E63FCB15AF8DAF00BF8C4D /* smile_main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile_main.png; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -832,6 +840,10 @@
 				370AE87E15A7A886003D5B1B /* ChatBubbleGray.png */,
 				370AE87F15A7A886003D5B1B /* ChatBubbleGray@2x.png */,
 				370AE88015A7A886003D5B1B /* ChatBubbleGreen.png */,
+				37E63FCB15AF8DAF00BF8C4D /* smile_main.png */,
+				37E63FC915AF8DA500BF8C4D /* smiles_sent.png */,
+				37E63FC715AF8D9D00BF8C4D /* smiles_received.png */,
+				37E63FC515AF8D9500BF8C4D /* smile_matches.png */,
 				370AE88115A7A886003D5B1B /* ChatBubbleGreen@2x.png */,
 				370AE88215A7A886003D5B1B /* first.png */,
 				370AE88315A7A886003D5B1B /* first@2x.png */,
@@ -1535,6 +1547,10 @@
 				370AE9DF15A7A886003D5B1B /* WWOProfileViewController.xib in Resources */,
 				370AE9E215A7A886003D5B1B /* WWOSettingsViewController.xib in Resources */,
 				37E0D20C15AF3F2E00BCA328 /* PictureFrameMask-2.png in Resources */,
+				37E63FC615AF8D9500BF8C4D /* smile_matches.png in Resources */,
+				37E63FC815AF8D9D00BF8C4D /* smiles_received.png in Resources */,
+				37E63FCA15AF8DA500BF8C4D /* smiles_sent.png in Resources */,
+				37E63FCC15AF8DAF00BF8C4D /* smile_main.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
