@@ -258,6 +258,7 @@
 - (void)showMessages
 {
     ConversationsViewController *conversationsVC = [[[ConversationsViewController alloc] init] autorelease];
+    conversationsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:conversationsVC animated:YES];
 }
 

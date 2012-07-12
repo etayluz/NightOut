@@ -44,7 +44,6 @@
     self.gridView.delegate = self;
     self.gridView.dataSource = self;
     [self.gridView setContentSizeGrowsToFillBounds:TRUE];
-    //[self.gridView setContentSize:<#(CGSize)#>
 
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
@@ -95,22 +94,7 @@
                                           reuseIdentifier:smilesCellIdentifier index:index] autorelease];   
     }
 
-    //cell.backgroundColor = [UIColor purpleColor];
-
-    //User *user = [self.users objectAtIndex:index];
-    //[cell updateFromUser:user];
-
     return cell;
-}
-
-#pragma mark - Notifications
-
-
-- (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
-{
-    //User *selectedUser = [self.users objectAtIndex:index];
-    //[self userWasSelected:selectedUser];
-    return index;
 }
 
 @end
