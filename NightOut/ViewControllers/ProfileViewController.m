@@ -8,12 +8,12 @@
 
 #import "ProfileViewController.h"
 #import "UIImageView+WebCache.h"
-#import "ScaledImageView.h"
 #import "ThumbViewCell.h"
 #import "User.h"
 #import "Notification.h"
 #import "PhotoSliderViewController.h"
 #import "ChatViewController.h"
+#import "UIImageView+ScaledImage.h"
 
 @interface ProfileViewController ()
 @property (nonatomic, retain) NSArray *users;
@@ -77,7 +77,7 @@
     
     self.nameLabel.text = aUser.name;
     
-    [self.profileImageView setUrl:[aUser.pictures objectAtIndex:0]];
+    [self.profileImageView setImageWithURLScaled:[aUser.pictures objectAtIndex:0]];
     
     self.ageLabel.text = [aUser.age stringValue];
     
@@ -126,7 +126,7 @@
     [self.view addSubview:self.scrollView];
     
     /* Image Label */
-    self.profileImageView = [[[ScaledImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)] autorelease];
+    self.profileImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)] autorelease];
     self.profileImageView.userInteractionEnabled = YES;    
     [self.scrollView addSubview:self.profileImageView];
     
@@ -316,7 +316,7 @@
     chatVC.title = self.user.name;
     [self.navigationController pushViewController:chatVC animated:YES];
     
-    [chatVC updateFromUserID:self.user.userID];
+    [chatVC updateFromConversationID:self.user.conversationID];
 }
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index

@@ -7,20 +7,26 @@
 //
 
 #import "ConversationsViewController.h"
+#import "ChatViewController.h"
+#import "UIImageView+WebCache.h"
+#import "UIImageView+ScaledImage.h"
 
 @interface ConversationsViewController ()
-
 @end
 
 @implementation ConversationsViewController
 
-@synthesize tableView;
+@synthesize conversations;
+@synthesize fetchAllConversationsRequest;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.fetchAllConversationsRequest = [[[FetchAllConversationsRequest alloc] init] autorelease];
+    self.fetchAllConversationsRequest.delegate = self;
+    [self.fetchAllConversationsRequest send];
 }
 
 - (void)viewDidUnload
@@ -35,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.conversations.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView
@@ -48,17 +54,37 @@
                                        reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = @"wooo yeah";
-    cell.detailTextLabel.text = @"detail yaaaaaa";
+    Conversation *conversation = [self.conversations objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = conversation.otherUser.name;
+    cell.detailTextLabel.text = conversation.latestMessage.body;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    [cell.imageView setImage:[UIImage imageNamed:@"WoodBackground.png"]];
         
+    //[cell.imageView setImage:[UIImage imageNamed:@"WoodBackground.png"]];
+    //[cell.imageView setImageWithURL:[NSURL URLWithString:conversation.otherUser.thumb]];
+    cell.imageView.frame = CGRectMake(0, 0, cell.frame.size.height, cell.frame.size.height);
+    cell.imageView.contentMode = UIViewContentModeLeft;
+    [cell.imageView setImageWithURLScaled:conversation.otherUser.thumb];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"didSelectRowAtIndexPath");
+
+    Conversation *conversation = [self.conversations objectAtIndex:indexPath.row];
+    ChatViewController *chatVC = [[[ChatViewController alloc] init] autorelease];    
+    
+    chatVC.title = conversation.otherUser.name;
+    [self.navigationController pushViewController:chatVC animated:YES];
+    [chatVC updateFromConversationID:conversation.OID];
 }
 
+- (void)didFetchAllConversations:(NSArray *)_conversations
+{
+    self.conversations = _conversations;
+    [self.tableView reloadData];
+    NSLog(@"fetched convos");
+}
 
 @end

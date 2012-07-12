@@ -10,9 +10,9 @@
 
 @implementation SendMessageRequest
 
-- (void) send:(NSInteger)userID message:(NSString *)message
+- (void) send:(NSInteger)conversationID message:(NSString *)message
 {
-    NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/%d/message", userID];
+    NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/conversations/%d/send", conversationID];
     NSLog(@"url = %@", url);
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.accessToken, @"token", message, @"body", nil];
     

@@ -16,5 +16,5 @@
 @interface FetchConversationRequest : ServerGetRequest
 @property (assign) id <FetchConversationRequestDelegate> delegate;
 
-- (void) send:(NSInteger) userID;
+- (void) send:(NSInteger) conversationID;
 @end

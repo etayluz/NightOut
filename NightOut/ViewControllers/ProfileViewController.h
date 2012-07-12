@@ -10,7 +10,6 @@
 #include <QuartzCore/QuartzCore.h>
 #import "User.h"
 #import "FetchUserRequest.h"
-#import "ScaledImageView.h"
 #import "HorizontalGallery.h"
 #import "LayoutManagers.h"
 
@@ -29,7 +28,7 @@
 @property (nonatomic, retain)  UILabel *ageLabel;
 @property (nonatomic, retain)  UILabel *friendsLabel;
 @property (nonatomic, retain)  UILabel *networkLabel;
-@property (nonatomic, retain)  ScaledImageView *profileImageView;
+@property (nonatomic, retain)  UIImageView *profileImageView;
 
 @property (nonatomic, retain)  HorizontalGallery *mutualFriendsView;
 @property (nonatomic, retain)  HorizontalGallery *interestsView;

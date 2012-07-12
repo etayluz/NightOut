@@ -5,15 +5,17 @@
 //  Created by Dan Berenholtz on 6/25/12.
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
+#import <QuartzCore/QuartzCore.h>
 
 #import "SmilesGridViewCell.h"
+#import "UIImageView+ScaledImage.h"
 
 @implementation SmilesGridViewCell
 @synthesize imageView, nameLabel, ageLabel, networkLabel, imageMask;
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier index:(NSUInteger)index
+- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {        
         self.contentView.backgroundColor = [UIColor clearColor];
         
@@ -25,11 +27,10 @@
         
         /* Image Mask */
         self.imageMask = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 100)] autorelease];
-        
-        NSString * imageName = [NSString stringWithFormat:@"ImageMask%i.png", ((int)index%9)+1];
-        NSLog(@"index=%@", imageName);
-        [self.imageMask setImage:[UIImage imageNamed:imageName]];
+        [self.imageMask setImage:[UIImage imageNamed:@"PictureFrameMask-2.png"]];
+        self.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview: self.imageMask];
+
         
         /* Name Label */
         self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(10, 70, 100, 15)] autorelease];
@@ -51,9 +52,19 @@
         self.networkLabel.backgroundColor   = [UIColor clearColor];
         self.networkLabel.text = @"Stanford";
         [self.contentView addSubview: self.networkLabel];
+        
+        //self.contentView.transform =  CGAffineTransformMakeRotation(M_PI/8);
     }
 
     return self;
+}
+
+- (void) updateWithUser:(User *)user
+{
+    self.nameLabel.text = user.name;
+    self.networkLabel.text = user.network;
+    self.ageLabel.text = [user.age stringValue];
+    [self.imageView setImageWithURLScaled:user.thumb];
 }
 
 /*

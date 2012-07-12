@@ -54,8 +54,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [Notification unregisterNotification:@"UserDidSendMessage" target:self];
-    [Notification unregisterNotification:@"UserDidReceieveMessage" target:self];
+    [Notification unregisterNotification:@"ConversationNewMessage" target:self];
     
     [super viewDidUnload];
 }
@@ -70,9 +69,8 @@ static CGFloat const kChatBarHeight4    = 94.0f;
                                                  name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification object:nil];
-    
-    [Notification registerNotification:@"UserDidReceiveMessage" target:self selector:@selector(userDidReceiveMessage:)];
-    [Notification registerNotification:@"UserDidSendMessage" target:self selector:@selector(userDidSendMessage:)];
+
+    [Notification registerNotification:@"ConversationNewMessage" target:self selector:@selector(conversationNewMessage:)];
 
     self.view.backgroundColor = CHAT_BACKGROUND_COLOR; // shown during rotation    
     
@@ -85,31 +83,20 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     self.sendMessageRequest = [[[SendMessageRequest alloc] init] autorelease];
 }
 
-- (void)userDidSendMessage:(NSNotification *)notification
+- (void)conversationNewMessage:(NSNotification *)notification
 {
     NSDictionary *event = [notification.userInfo objectForKey:@"data"];
-    Message *message = [[Message alloc] initWithDictionary:[event objectForKey:@"message"]];
+    Message *message = [[[Message alloc] initWithDictionary:[event objectForKey:@"message"]] autorelease];
     
-    if (self.conversation.currentUserID == message.senderID) {
+    if (self.conversation.OID == message.conversationID) {
         [self addMessage:message];
-        [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
+        [self scrollToBottomAnimated:YES];
     }
 }
 
-- (void)userDidReceiveMessage:(NSNotification *)notification
+- (void)updateFromConversationID:(NSInteger)conversationID
 {
-    NSDictionary *event = [notification.userInfo objectForKey:@"data"];
-    Message *message = [[Message alloc] initWithDictionary:[event objectForKey:@"message"]];
-    
-    if (self.conversation.currentUserID == message.receiverID) {
-        [self addMessage:message];
-        [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
-    }
-}
-
-- (void)updateFromUserID:(NSInteger)userID
-{
-    [self.fetchConversationRequest send:userID];
+    [self.fetchConversationRequest send:conversationID];
 }
 
 - (void) createChatContent
@@ -365,7 +352,8 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     newMessage.body = rightTrimmedMessage;
     newMessage.time = [NSDate date];
     
-    [self.sendMessageRequest send:self.conversation.otherUserID message:newMessage.body];
+    [self.sendMessageRequest send:self.conversation.OID message:newMessage.body];
+    //[self.sendMessageRequest send:self.conversation.otherUserID message:newMessage.body];
     //[self addMessage:newMessage];
     
     [self clearChatInput];

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConversationsViewController : UITableViewController
+#import "Conversation.h"
+#import "FetchAllConversationsRequest.h"
+
+@interface ConversationsViewController : UITableViewController <FetchAllConversationsRequestDelegate>
+
+@property (nonatomic, retain) NSArray *conversations;
+
+@property (nonatomic, retain) FetchAllConversationsRequest *fetchAllConversationsRequest;
 
 @end

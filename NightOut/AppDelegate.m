@@ -168,12 +168,6 @@
         [Notification send:eventName withData:event];
     }
     
-    if ([self appIsInForeground]) {
-        //UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"title" message:@"message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil] autorelease];
-        
-        //[alert show];
-    }
-    
     [[UAPush shared] handleNotification:userInfo applicationState:appState];
     [[UAPush shared] resetBadge]; // zero badge after push received
 }

@@ -1,8 +1,9 @@
 #import "Message.h"
 
 @implementation Message
+@synthesize OID;
+@synthesize conversationID, senderID;
 @synthesize body, time, status;
-@synthesize senderID, receiverID;
 
 - (void) dealloc
 {
@@ -16,25 +17,21 @@
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
     if (self = [self init]) {
+        self.OID = [[dictionary objectForKey:@"id"] integerValue];
+        self.conversationID = [[dictionary objectForKey:@"conversation_id"] integerValue];
+        self.senderID = [[dictionary objectForKey:@"sender_id"] integerValue];
+        
         self.body = [dictionary objectForKey:@"body"];
         self.time = [NSDate date];
         self.status = @"received";
         
-        self.senderID = [[dictionary objectForKey:@"sender_id"] integerValue];
-        self.receiverID = [[dictionary objectForKey:@"receiver_id"] integerValue];
     }
     return self;
 }
 
 - (NSMutableDictionary *) toDictionary
 {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    
-    [dictionary setObject:self.body forKey:@"body"];
-    [dictionary setObject:self.time forKey:@"time"];
-    [dictionary setObject:self.status forKey:@"status"];
-    
-    return dictionary;
+    return nil;
 }
 
 @end

@@ -9,5 +9,5 @@
 #import "ServerPostRequest.h"
 
 @interface SendMessageRequest : ServerPostRequest
-- (void) send:(NSInteger)userID message:(NSString *)message;
+- (void) send:(NSInteger)conversationID message:(NSString *)message;
 @end

@@ -11,7 +11,7 @@
 
 @implementation User : NSObject
 
-@synthesize userID, name, age, pictures, thumb, network, mutualFriends;
+@synthesize OID, conversationID, name, age, pictures, thumb, network, mutualFriends;
 @synthesize hometown, currentCity, college, interestedIn, relationshipStatus, work;
 @synthesize music, interests, recentPlaces;
 
@@ -39,7 +39,9 @@
 - (id) initWithDictionary: (NSDictionary *) dictionary
 {
     if (self = [self init]) {
-        self.userID = [[dictionary objectForKey:@"id"] integerValue];
+        self.OID = [[dictionary objectForKey:@"id"] integerValue];
+        self.conversationID = [[dictionary objectForKey:@"conversation_id"] integerValue];
+        
         self.name = [dictionary objectForKey:@"name"];
         self.age = [dictionary objectForKey:@"age"];
         self.network = [dictionary objectForKey:@"networks"];
@@ -67,7 +69,7 @@
     
     [dictionary setObject:self.name forKey:@"name"];
     [dictionary setObject:self.age forKey:@"age"];
-    [dictionary setObject:[NSNumber numberWithInt:self.userID] forKey:@"userID"];
+    [dictionary setObject:[NSNumber numberWithInt:self.OID] forKey:@"userID"];
     [dictionary setObject:self.thumb forKey:@"thumb"];
     
     return dictionary;

@@ -7,7 +7,6 @@
 //
 
 #import "AQGridViewCell.h"
-#import "ScaledImageView.h"
 #import "User.h"
 
 @interface NearbyGridViewCell : AQGridViewCell
@@ -15,7 +14,7 @@
 - (void) updateFromUser:(User *) user;
 
 
-@property (nonatomic, retain)  ScaledImageView  *imageView;
+@property (nonatomic, retain)  UIImageView  *imageView;
 @property (nonatomic, retain)  UILabel      *nameLabel;
 @property (nonatomic, retain)  UILabel      *ageLabel;
 @property (nonatomic, retain)  UILabel      *networkLabel;

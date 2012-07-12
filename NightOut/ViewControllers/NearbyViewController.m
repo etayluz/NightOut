@@ -246,7 +246,7 @@
     profileVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
     
-    [profileVC updateFromUserID:user.userID];
+    [profileVC updateFromUserID:user.OID];
 }
 
 - (void) showFilters
@@ -258,6 +258,7 @@
 - (void)showMessages
 {
     ConversationsViewController *conversationsVC = [[[ConversationsViewController alloc] init] autorelease];
+    conversationsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:conversationsVC animated:YES];
 }
 

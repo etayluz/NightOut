@@ -12,7 +12,8 @@
 
 @interface User : NSObject <AsDictionary>
 
-@property NSInteger userID;
+@property NSInteger OID;
+@property NSInteger conversationID;
 @property (retain) NSString *name;
 @property (retain) NSString *network;
 @property (retain) NSNumber *age;
