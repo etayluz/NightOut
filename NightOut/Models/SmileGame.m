@@ -24,6 +24,7 @@
         
         if ([dictionary objectForKey:@"receiver"] != [NSNull null])
             self.receiver = [[[User alloc] initWithDictionary:[dictionary objectForKey:@"receiver"]] autorelease];
+         
     }
     return self;
 }

@@ -11,13 +11,16 @@
 #import "ProfileViewController.h"
 #import "SmilesSentViewController.h"
 #import "SmilesGridViewCell.h"
-#import "ServerInterface.h"
+
 #import "User.h"
+#import "SmileGame.h"
+
 #import "AQGridView.h"
 
 @implementation SmilesSentViewController
 
 @synthesize gridView, headerView;
+@synthesize fetchSmileGamesRequest, smileGames;
 
 - (void) dealloc
 {
@@ -47,8 +50,6 @@
 
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
-    [self.gridView reloadData];
-
     
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
@@ -56,8 +57,22 @@
                                    target:self 
                                    action:@selector(myBackAction:)] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    self.fetchSmileGamesRequest = [[[FetchSmileGamesRequest alloc] init] autorelease];
+    self.fetchSmileGamesRequest.delegate = self;
+    [self refreshSmileGames];
 }
 
+- (void) refreshSmileGames
+{
+    [self.fetchSmileGamesRequest sendWithStatus:SmileGameStatusSent];
+}
+
+- (void) didFetchSmileGames:(NSMutableArray *)_smileGames
+{
+    self.smileGames = _smileGames;
+    [self.gridView reloadData];
+}
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
@@ -80,7 +95,8 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
-    return 18;
+    //return self.smileGames.count;
+    return 9;
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
@@ -90,9 +106,12 @@
     cell = (SmilesGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:smilesCellIdentifier];
     
     if (!cell) {
-		cell = [[[SmilesGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 80, 100)
-                                          reuseIdentifier:smilesCellIdentifier index:index] autorelease];   
+        cell = [[[SmilesGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 80, 100) reuseIdentifier:smilesCellIdentifier] autorelease];
     }
+    
+    //SmileGame *game = [self.smileGames objectAtIndex:index];
+    SmileGame *game = [self.smileGames objectAtIndex:0];
+    [cell updateWithUser:game.receiver];
 
     return cell;
 }

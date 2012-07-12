@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AQGridViewCell.h"
+#import "User.h"
 
 @interface SmilesGridViewCell : AQGridViewCell
 @property (nonatomic, retain)  UIImageView  *imageMask;
@@ -16,5 +17,6 @@
 @property (nonatomic, retain)  UILabel      *ageLabel;
 @property (nonatomic, retain)  UILabel      *networkLabel;
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier index:(NSUInteger)index;
+- (void) updateWithUser:(User *)user;
+
 @end

@@ -8,13 +8,14 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SmilesGridViewCell.h"
+#import "UIImageView+ScaledImage.h"
 
 @implementation SmilesGridViewCell
 @synthesize imageView, nameLabel, ageLabel, networkLabel, imageMask;
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier index:(NSUInteger)index
+- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {        
         self.contentView.backgroundColor = [UIColor clearColor];
         
@@ -26,7 +27,8 @@
         
         /* Image Mask */
         self.imageMask = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 100)] autorelease];
-        [self.imageMask setImage:[UIImage imageNamed:@"PictureFrameMask.png"]];
+        [self.imageMask setImage:[UIImage imageNamed:@"PictureFrameMask-2.png"]];
+        self.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview: self.imageMask];
 
         
@@ -55,6 +57,14 @@
     }
 
     return self;
+}
+
+- (void) updateWithUser:(User *)user
+{
+    self.nameLabel.text = user.name;
+    self.networkLabel.text = user.network;
+    self.ageLabel.text = [user.age stringValue];
+    [self.imageView setImageWithURLScaled:user.thumb];
 }
 
 /*

@@ -155,8 +155,9 @@
 		37483A9015AB3EE100F12239 /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37483A8F15AB3EE100F12239 /* ConversationsViewController.m */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
 		37B537D915AA335D007E04E8 /* SendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B537D815AA335D007E04E8 /* SendMessageRequest.m */; };
-		37E0D20C15AF3F2E00BCA328 /* PictureFrameMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D20B15AF3F2E00BCA328 /* PictureFrameMask.png */; };
+		37E0D20C15AF3F2E00BCA328 /* PictureFrameMask-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D20B15AF3F2E00BCA328 /* PictureFrameMask-2.png */; };
 		37E0D20F15AF5ACC00BCA328 /* SmileGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D20E15AF5ACC00BCA328 /* SmileGame.m */; };
+		37E0D21615AF60B400BCA328 /* FetchSmileGamesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D21515AF60B400BCA328 /* FetchSmileGamesRequest.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -495,9 +496,11 @@
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		37B537D715AA335D007E04E8 /* SendMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageRequest.h; sourceTree = "<group>"; };
 		37B537D815AA335D007E04E8 /* SendMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageRequest.m; sourceTree = "<group>"; };
-		37E0D20B15AF3F2E00BCA328 /* PictureFrameMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PictureFrameMask.png; sourceTree = "<group>"; };
+		37E0D20B15AF3F2E00BCA328 /* PictureFrameMask-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PictureFrameMask-2.png"; sourceTree = "<group>"; };
 		37E0D20D15AF5ACC00BCA328 /* SmileGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileGame.h; sourceTree = "<group>"; };
 		37E0D20E15AF5ACC00BCA328 /* SmileGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileGame.m; sourceTree = "<group>"; };
+		37E0D21415AF60B400BCA328 /* FetchSmileGamesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchSmileGamesRequest.h; sourceTree = "<group>"; };
+		37E0D21515AF60B400BCA328 /* FetchSmileGamesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchSmileGamesRequest.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -590,6 +593,8 @@
 				37B537D815AA335D007E04E8 /* SendMessageRequest.m */,
 				3738BAB015ACBFA3003463F4 /* FetchAllConversationsRequest.h */,
 				3738BAB115ACBFA3003463F4 /* FetchAllConversationsRequest.m */,
+				37E0D21415AF60B400BCA328 /* FetchSmileGamesRequest.h */,
+				37E0D21515AF60B400BCA328 /* FetchSmileGamesRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -822,7 +827,7 @@
 		370AE87C15A7A886003D5B1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				37E0D20B15AF3F2E00BCA328 /* PictureFrameMask.png */,
+				37E0D20B15AF3F2E00BCA328 /* PictureFrameMask-2.png */,
 				370AE87D15A7A886003D5B1B /* ChatBar.png */,
 				370AE87E15A7A886003D5B1B /* ChatBubbleGray.png */,
 				370AE87F15A7A886003D5B1B /* ChatBubbleGray@2x.png */,
@@ -1529,7 +1534,7 @@
 				370AE9DD15A7A886003D5B1B /* WWOLoginViewController.xib in Resources */,
 				370AE9DF15A7A886003D5B1B /* WWOProfileViewController.xib in Resources */,
 				370AE9E215A7A886003D5B1B /* WWOSettingsViewController.xib in Resources */,
-				37E0D20C15AF3F2E00BCA328 /* PictureFrameMask.png in Resources */,
+				37E0D20C15AF3F2E00BCA328 /* PictureFrameMask-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1634,6 +1639,7 @@
 				3738BAB215ACBFA3003463F4 /* FetchAllConversationsRequest.m in Sources */,
 				3738BAB515ACD47E003463F4 /* UIImageView+ScaledImage.m in Sources */,
 				37E0D20F15AF5ACC00BCA328 /* SmileGame.m in Sources */,
+				37E0D21615AF60B400BCA328 /* FetchSmileGamesRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
