@@ -184,12 +184,16 @@
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
     UINavigationController *smileMainNavController = [[[UINavigationController alloc] initWithRootViewController:smileMainViewController] autorelease];
     
-    exploreNavController.title = @"Explore";
+    exploreNavController.title = @"Profile";
     nearbyNavController.title = @"Nearby";
     smileMainNavController.title = @"Smiles";
     
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:
                                              nearbyNavController, smileMainNavController, exploreNavController, nil];
+    
+    smileMainNavController.tabBarItem.image = [UIImage imageNamed:@"smiley_icon.png"];
+    nearbyNavController.tabBarItem.image = [UIImage imageNamed:@"nearby_icon.png"];
+    exploreNavController.tabBarItem.image = [UIImage imageNamed:@"profile_icon.png"];
 }
 
 - (void)showLoginViewIfUserIsLoggedOut
