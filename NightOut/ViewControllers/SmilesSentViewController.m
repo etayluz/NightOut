@@ -35,9 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *headerImage = [UIImage imageNamed:@"SmilesSentHeader.png"];
+    UIImage *headerImage = [UIImage imageNamed:@"sentheader.png"];
 
-    UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodBackground.png"]] autorelease];
+    UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"wood_bg.png"]] autorelease];
     
     self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
     self.gridView.showsVerticalScrollIndicator = NO;

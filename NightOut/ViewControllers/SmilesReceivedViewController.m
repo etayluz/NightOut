@@ -32,11 +32,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *headerImage = [UIImage imageNamed:@"SmilesReceivedHeader.png"];
+    UIImage *headerImage = [UIImage imageNamed:@"receivedheader.png"];
     
     self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
     self.gridView.showsVerticalScrollIndicator = NO;
-    self.gridView.backgroundColor = [UIColor brownColor];
+//    self.gridView.backgroundColor = [UIColor brownColor];
     self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.gridView.autoresizesSubviews = YES;
     self.gridView.delegate = self;
@@ -46,6 +46,9 @@
     [self.view addSubview:gridView];
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
+    
+    [self.view addSubview:gridView];
+    [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     
     
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 

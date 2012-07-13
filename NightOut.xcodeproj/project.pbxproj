@@ -18,6 +18,10 @@
 		37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A015AFA3B8008157AE /* nearby_icon.png */; };
 		37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A115AFA3B8008157AE /* profile_icon.png */; };
 		37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A415AFA3C8008157AE /* smiley_icon.png */; };
+		37CA04A715AFA92A008157AE /* smiles_sent_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A615AFA92A008157AE /* smiles_sent_bg.png */; };
+		37CA04AB15AFAE0A008157AE /* wood_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04AA15AFAE0A008157AE /* wood_bg.png */; };
+		37CA04AF15AFB1BF008157AE /* sentheader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04AE15AFB1BF008157AE /* sentheader.png */; };
+		37CA04B115AFBD91008157AE /* receivedheader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04B015AFBD91008157AE /* receivedheader.png */; };
 		37E0D3B015AFA17B00BCA328 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */; };
 		37E0D3B115AFA17B00BCA328 /* FetchAllConversationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */; };
 		37E0D3B215AFA17B00BCA328 /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22A15AFA17B00BCA328 /* FetchConversationRequest.m */; };
@@ -151,7 +155,6 @@
 		37E0D43315AFA17C00BCA328 /* SmileMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37715AFA17B00BCA328 /* SmileMainViewController.m */; };
 		37E0D43415AFA17C00BCA328 /* SmileMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D37815AFA17B00BCA328 /* SmileMainViewController.xib */; };
 		37E0D43515AFA17C00BCA328 /* SmilesReceivedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */; };
-		37E0D43615AFA17C00BCA328 /* SmilesReceivedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D37B15AFA17B00BCA328 /* SmilesReceivedViewController.xib */; };
 		37E0D43715AFA17C00BCA328 /* SmilesSentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */; };
 		37E0D43815AFA17C00BCA328 /* WWOExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37F15AFA17B00BCA328 /* WWOExploreViewController.m */; };
 		37E0D43915AFA17C00BCA328 /* WWOExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D38015AFA17B00BCA328 /* WWOExploreViewController.xib */; };
@@ -207,6 +210,10 @@
 		37CA04A015AFA3B8008157AE /* nearby_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby_icon.png; sourceTree = "<group>"; };
 		37CA04A115AFA3B8008157AE /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		37CA04A415AFA3C8008157AE /* smiley_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_icon.png; sourceTree = "<group>"; };
+		37CA04A615AFA92A008157AE /* smiles_sent_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smiles_sent_bg.png; path = ../ViewControllers/smiles_sent_bg.png; sourceTree = "<group>"; };
+		37CA04AA15AFAE0A008157AE /* wood_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_bg.png; sourceTree = "<group>"; };
+		37CA04AE15AFB1BF008157AE /* sentheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentheader.png; sourceTree = "<group>"; };
+		37CA04B015AFBD91008157AE /* receivedheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receivedheader.png; sourceTree = "<group>"; };
 		37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		37E0D22715AFA17B00BCA328 /* FetchAllConversationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchAllConversationsRequest.h; sourceTree = "<group>"; };
 		37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchAllConversationsRequest.m; sourceTree = "<group>"; };
@@ -487,7 +494,6 @@
 		37E0D37815AFA17B00BCA328 /* SmileMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmileMainViewController.xib; sourceTree = "<group>"; };
 		37E0D37915AFA17B00BCA328 /* SmilesReceivedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesReceivedViewController.h; sourceTree = "<group>"; };
 		37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesReceivedViewController.m; sourceTree = "<group>"; };
-		37E0D37B15AFA17B00BCA328 /* SmilesReceivedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmilesReceivedViewController.xib; sourceTree = "<group>"; };
 		37E0D37C15AFA17B00BCA328 /* SmilesSentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesSentViewController.h; sourceTree = "<group>"; };
 		37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesSentViewController.m; sourceTree = "<group>"; };
 		37E0D37E15AFA17B00BCA328 /* WWOExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOExploreViewController.h; sourceTree = "<group>"; };
@@ -889,11 +895,15 @@
 				37E0D2E215AFA17B00BCA328 /* smile_main.png */,
 				37E0D2E315AFA17B00BCA328 /* smile_matches.png */,
 				37E0D2E415AFA17B00BCA328 /* SmileButton.png */,
+				37CA04A615AFA92A008157AE /* smiles_sent_bg.png */,
 				37E0D2E515AFA17B00BCA328 /* smiles_received.png */,
 				37E0D2E615AFA17B00BCA328 /* smiles_sent.png */,
 				37E0D2E715AFA17B00BCA328 /* SmilesMain.png */,
 				37E0D2E815AFA17B00BCA328 /* SmilesReceivedHeader.png */,
+				37CA04B015AFBD91008157AE /* receivedheader.png */,
 				37E0D2E915AFA17B00BCA328 /* SmilesSentHeader.png */,
+				37CA04AA15AFAE0A008157AE /* wood_bg.png */,
+				37CA04AE15AFB1BF008157AE /* sentheader.png */,
 				37E0D2EA15AFA17B00BCA328 /* WoodBackground.png */,
 			);
 			path = Resources;
@@ -1341,7 +1351,6 @@
 				37E0D37815AFA17B00BCA328 /* SmileMainViewController.xib */,
 				37E0D37915AFA17B00BCA328 /* SmilesReceivedViewController.h */,
 				37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */,
-				37E0D37B15AFA17B00BCA328 /* SmilesReceivedViewController.xib */,
 				37E0D37C15AFA17B00BCA328 /* SmilesSentViewController.h */,
 				37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */,
 				37E0D37E15AFA17B00BCA328 /* WWOExploreViewController.h */,
@@ -1583,7 +1592,6 @@
 				37E0D42D15AFA17C00BCA328 /* MyriadPro-LightIt.otf in Resources */,
 				37E0D42E15AFA17C00BCA328 /* MyriadPro-SemiboldCond.otf in Resources */,
 				37E0D43415AFA17C00BCA328 /* SmileMainViewController.xib in Resources */,
-				37E0D43615AFA17C00BCA328 /* SmilesReceivedViewController.xib in Resources */,
 				37E0D43915AFA17C00BCA328 /* WWOExploreViewController.xib in Resources */,
 				37E0D43B15AFA17C00BCA328 /* WWOLoginViewController.xib in Resources */,
 				37E0D43C15AFA17C00BCA328 /* WWOProfileViewController.xib in Resources */,
@@ -1591,6 +1599,10 @@
 				37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */,
 				37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */,
 				37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */,
+				37CA04A715AFA92A008157AE /* smiles_sent_bg.png in Resources */,
+				37CA04AB15AFAE0A008157AE /* wood_bg.png in Resources */,
+				37CA04AF15AFB1BF008157AE /* sentheader.png in Resources */,
+				37CA04B115AFBD91008157AE /* receivedheader.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
