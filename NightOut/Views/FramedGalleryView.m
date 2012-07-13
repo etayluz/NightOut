@@ -35,18 +35,23 @@
         
         self.cellReuseID = [self generateUUID];
         self.backgroundColor = [UIColor clearColor];
-        self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
+
+        UIImage *headerImage = [UIImage imageNamed:@"SmilesSentHeader.png"];
         
-        self.gridView.backgroundColor = [UIColor clearColor];
-        self.gridView.layoutDirection = AQGridViewLayoutDirectionHorizontal;
+        UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodBackground.png"]] autorelease];
+        
+        self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
         self.gridView.showsVerticalScrollIndicator = NO;
-        self.gridView.showsHorizontalScrollIndicator = NO;
+        self.gridView.backgroundColor = background;//[UIColor brownColor];
+        self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        self.gridView.autoresizesSubviews = YES;
         self.gridView.delegate = self;
         self.gridView.dataSource = self;
-        [self.gridView setContentSizeGrowsToFillBounds:NO];
-        self.gridView.gridHeaderView.hidden = YES;
-        self.gridView.gridFooterView.hidden = YES;  
-        self.gridView.resizesCellWidthToFit = YES;
+        [self.gridView setContentSizeGrowsToFillBounds:TRUE];
+        
+        [self addSubview:gridView];
+        [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
+
         
         [self addSubview:self.gridView];
     }

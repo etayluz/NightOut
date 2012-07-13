@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AQGridView.h"
+
+#import "FramedGalleryView.h"
 #import "FetchSmileGamesRequest.h"
 
-@interface SmilesSentViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource, FetchSmileGamesRequestDelegate>
+@interface SmilesSentViewController : UIViewController <FetchSmileGamesRequestDelegate>
 
-@property (retain) IBOutlet AQGridView *gridView;
-@property (nonatomic, retain) UIImageView *headerView;
-
+@property (nonatomic, retain) FramedGalleryView *gallery;
 @property (nonatomic, retain) FetchSmileGamesRequest *fetchSmileGamesRequest;
-@property (nonatomic, retain) NSMutableArray *smileGames;
 
 @end
