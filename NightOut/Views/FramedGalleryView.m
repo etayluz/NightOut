@@ -12,8 +12,8 @@
 
 @implementation FramedGalleryView
 
-#define FRAMED_GALLERY_ITEM_WIDTH 100
-#define FRAMED_GALLERY_ITEM_HEIGHT 100
+#define FRAMED_GALLERY_ITEM_WIDTH 90
+#define FRAMED_GALLERY_ITEM_HEIGHT 120
 
 @synthesize items;
 @synthesize gridView;
@@ -36,21 +36,18 @@
         
         self.cellReuseID = [self generateUUID];
         self.backgroundColor = [UIColor clearColor];
-
-        UIImage *headerImage = [UIImage imageNamed:@"SmilesSentHeader.png"];
         
-        UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodBackground.png"]] autorelease];
+        UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodBG.png"]] autorelease];
         
         self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
         self.gridView.showsVerticalScrollIndicator = YES;
         self.gridView.contentSizeGrowsToFillBounds = NO;
         self.gridView.backgroundColor = background;
-        
         self.gridView.delegate = self;
         self.gridView.dataSource = self;
         
-        [self addSubview:gridView];
-        [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
+        UIView *emptyHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
+        [self.gridView setGridHeaderView:emptyHeaderView];
         
         [self addSubview:self.gridView];
     }
@@ -67,7 +64,7 @@
         cell = [[[FrameGridViewCell alloc] initWithFrame:CGRectMake(0, 0, FRAMED_GALLERY_ITEM_WIDTH, FRAMED_GALLERY_ITEM_HEIGHT) reuseIdentifier:smilesCellIdentifier] autorelease];
     }
     
-    [cell updateWithItem:[self.items objectAtIndex:0]];
+    [self.delegate updateCell:cell fromItem:[self.items objectAtIndex:0]];
     
     return cell;
 }

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AQGridViewCell.h"
 #import "User.h"
-#import "UserFrameOverlay.h"
 
 @interface FrameGridViewCell : AQGridViewCell
 
@@ -19,7 +18,5 @@
 @property (nonatomic, retain)  UILabel      *titleLabel;
 @property (nonatomic, retain)  UILabel      *subtitleLabel;
 @property (nonatomic, retain)  UILabel      *rightLabel;
-
-- (void) updateWithItem:(NSObject *)item;
 
 @end

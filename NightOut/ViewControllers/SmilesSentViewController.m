@@ -17,15 +17,19 @@
 
 #import "AQGridView.h"
 
+#import "UIImageView+ScaledImage.h"
+
 @implementation SmilesSentViewController
 
 @synthesize fetchSmileGamesRequest;
 @synthesize gallery;
+@synthesize header;
 
 - (void) dealloc
 {
     self.fetchSmileGamesRequest = nil;
     self.gallery = nil;
+    self.header = nil;
     
     [super dealloc];
 }
@@ -33,12 +37,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor orangeColor];
     
     self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
+    self.gallery.delegate = self;
     [self.view addSubview:gallery];
-    
+        
+    /* Header image */
+    UIImage *headerImage = [UIImage imageNamed:@"SmilesSentHeader.png"];
+    self.header = [[[UIImageView alloc] initWithImage:headerImage] autorelease];
+    [self.view addSubview:self.header];
     
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
@@ -61,6 +68,16 @@
 {
     self.gallery.items = _smileGames;
     [self.gallery reloadData];
+}
+
+- (void) updateCell:(FrameGridViewCell *)cell fromItem:(NSObject *)item
+{
+    SmileGame *game = (SmileGame *)item;
+    [cell.imageView setImageWithURLScaled:game.receiver.thumb];
+        
+    cell.titleLabel.text = game.receiver.name;
+    cell.subtitleLabel.text = game.receiver.network;
+    cell.rightLabel.text = [game.receiver.age stringValue];
 }
 
 - (void)viewDidUnload

@@ -20,13 +20,6 @@
 {
     [super viewDidLoad];
     
-    /* UNCOMMENT TO SKIP TO SMILES SENT PAGE */
-    [self showSmilesSent];
-    
-    /* UNCOMMENT TO SKIP TO SMILES RECEIVED PAGE */
-    //[self showSmilesReceived];
-
-    
     UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"SmilesMain.png"]] autorelease];
     self.view.backgroundColor = background;
 
@@ -75,8 +68,6 @@
     }
     return self;
 }
-
-
 
 - (void)viewDidUnload
 {

@@ -11,7 +11,7 @@
 #import "FramedGalleryView.h"
 #import "FetchSmileGamesRequest.h"
 
-@interface SmilesReceivedViewController : UIViewController <FetchSmileGamesRequestDelegate>
+@interface SmilesReceivedViewController : UIViewController <FramedGalleryViewDelegate, FetchSmileGamesRequestDelegate>
 
 @property (retain) IBOutlet FramedGalleryView *gallery;
 @property (nonatomic, retain) FetchSmileGamesRequest *fetchSmileGamesRequest;

@@ -11,6 +11,8 @@
 		37107605158D3B4500871A12 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37107604158D3B4500871A12 /* ImageIO.framework */; };
 		37107607158D3BAD00871A12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37107606158D3BAD00871A12 /* MapKit.framework */; };
 		3710761B158D430100871A12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3710761A158D430100871A12 /* QuartzCore.framework */; };
+		37303C8B15B08C63004B4BEA /* WoodBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C8A15B08C63004B4BEA /* WoodBG.png */; };
+		37303C9215B09189004B4BEA /* SmilesSentHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C9115B09189004B4BEA /* SmilesSentHeader.png */; };
 		37340E9B15A363C600A57EC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9A15A363C600A57EC1 /* libsqlite3.dylib */; };
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
@@ -123,8 +125,6 @@
 		37E0D41815AFA17B00BCA328 /* smiles_sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2E615AFA17B00BCA328 /* smiles_sent.png */; };
 		37E0D41915AFA17B00BCA328 /* SmilesMain.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2E715AFA17B00BCA328 /* SmilesMain.png */; };
 		37E0D41A15AFA17B00BCA328 /* SmilesReceivedHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2E815AFA17B00BCA328 /* SmilesReceivedHeader.png */; };
-		37E0D41B15AFA17B00BCA328 /* SmilesSentHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2E915AFA17B00BCA328 /* SmilesSentHeader.png */; };
-		37E0D41C15AFA17B00BCA328 /* WoodBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2EA15AFA17B00BCA328 /* WoodBackground.png */; };
 		37E0D41D15AFA17B00BCA328 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2ED15AFA17B00BCA328 /* MKAnnotationView+WebCache.m */; };
 		37E0D41E15AFA17B00BCA328 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2EF15AFA17B00BCA328 /* SDImageCache.m */; };
 		37E0D41F15AFA17B00BCA328 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2F315AFA17B00BCA328 /* SDWebImageDecoder.m */; };
@@ -172,7 +172,6 @@
 		37E0D44A15AFA17C00BCA328 /* NearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3A815AFA17B00BCA328 /* NearbyGridViewCell.m */; };
 		37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3AA15AFA17B00BCA328 /* FrameGridViewCell.m */; };
 		37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */; };
-		37E0D45C15AFACDC00BCA328 /* UserFrameOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -189,6 +188,8 @@
 		37107604158D3B4500871A12 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		37107606158D3BAD00871A12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3710761A158D430100871A12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		37303C8A15B08C63004B4BEA /* WoodBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WoodBG.png; sourceTree = "<group>"; };
+		37303C9115B09189004B4BEA /* SmilesSentHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesSentHeader.png; sourceTree = "<group>"; };
 		37340E9A15A363C600A57EC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -372,8 +373,6 @@
 		37E0D2E615AFA17B00BCA328 /* smiles_sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiles_sent.png; sourceTree = "<group>"; };
 		37E0D2E715AFA17B00BCA328 /* SmilesMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesMain.png; sourceTree = "<group>"; };
 		37E0D2E815AFA17B00BCA328 /* SmilesReceivedHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesReceivedHeader.png; sourceTree = "<group>"; };
-		37E0D2E915AFA17B00BCA328 /* SmilesSentHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesSentHeader.png; sourceTree = "<group>"; };
-		37E0D2EA15AFA17B00BCA328 /* WoodBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WoodBackground.png; sourceTree = "<group>"; };
 		37E0D2EC15AFA17B00BCA328 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		37E0D2ED15AFA17B00BCA328 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		37E0D2EE15AFA17B00BCA328 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
@@ -519,8 +518,6 @@
 		37E0D3AA15AFA17B00BCA328 /* FrameGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameGridViewCell.m; sourceTree = "<group>"; };
 		37E0D3AB15AFA17B00BCA328 /* ThumbViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbViewCell.h; sourceTree = "<group>"; };
 		37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbViewCell.m; sourceTree = "<group>"; };
-		37E0D45A15AFACDC00BCA328 /* UserFrameOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFrameOverlay.h; sourceTree = "<group>"; };
-		37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFrameOverlay.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -856,6 +853,7 @@
 		37E0D2CD15AFA17B00BCA328 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37303C8A15B08C63004B4BEA /* WoodBG.png */,
 				37E0D2CE15AFA17B00BCA328 /* ChatBar.png */,
 				37E0D2CF15AFA17B00BCA328 /* ChatBubbleGray.png */,
 				37E0D2D015AFA17B00BCA328 /* ChatBubbleGray@2x.png */,
@@ -881,8 +879,7 @@
 				37E0D2E615AFA17B00BCA328 /* smiles_sent.png */,
 				37E0D2E715AFA17B00BCA328 /* SmilesMain.png */,
 				37E0D2E815AFA17B00BCA328 /* SmilesReceivedHeader.png */,
-				37E0D2E915AFA17B00BCA328 /* SmilesSentHeader.png */,
-				37E0D2EA15AFA17B00BCA328 /* WoodBackground.png */,
+				37303C9115B09189004B4BEA /* SmilesSentHeader.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1357,8 +1354,6 @@
 				37E0D3AA15AFA17B00BCA328 /* FrameGridViewCell.m */,
 				37E0D3AB15AFA17B00BCA328 /* ThumbViewCell.h */,
 				37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */,
-				37E0D45A15AFACDC00BCA328 /* UserFrameOverlay.h */,
-				37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1530,8 +1525,6 @@
 				37E0D41815AFA17B00BCA328 /* smiles_sent.png in Resources */,
 				37E0D41915AFA17B00BCA328 /* SmilesMain.png in Resources */,
 				37E0D41A15AFA17B00BCA328 /* SmilesReceivedHeader.png in Resources */,
-				37E0D41B15AFA17B00BCA328 /* SmilesSentHeader.png in Resources */,
-				37E0D41C15AFA17B00BCA328 /* WoodBackground.png in Resources */,
 				37E0D42615AFA17B00BCA328 /* CHANGELOG in Resources */,
 				37E0D42815AFA17B00BCA328 /* LICENSE in Resources */,
 				37E0D42915AFA17B00BCA328 /* README.rst in Resources */,
@@ -1546,6 +1539,8 @@
 				37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */,
 				37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */,
 				37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */,
+				37303C8B15B08C63004B4BEA /* WoodBG.png in Resources */,
+				37303C9215B09189004B4BEA /* SmilesSentHeader.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1652,7 +1647,6 @@
 				37E0D44A15AFA17C00BCA328 /* NearbyGridViewCell.m in Sources */,
 				37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */,
 				37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */,
-				37E0D45C15AFACDC00BCA328 /* UserFrameOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 
 @synthesize OID;
 @synthesize sender, receiver;
+@synthesize guessesRemaining;
 
 - (id) initWithDictionary:(NSDictionary *)dictionary
 {
@@ -24,7 +25,8 @@
         
         if ([dictionary objectForKey:@"receiver"] != [NSNull null])
             self.receiver = [[[User alloc] initWithDictionary:[dictionary objectForKey:@"receiver"]] autorelease];
-         
+        
+        self.guessesRemaining = [[dictionary objectForKey:@"guesses_remaining"] integerValue];
     }
     return self;
 }
