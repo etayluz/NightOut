@@ -82,15 +82,23 @@
     [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
     [self.gridView reloadData];
 
-    self.neighborhoodLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)] autorelease];
-    self.neighborhoodLabel.font              = [UIFont boldSystemFontOfSize:12];
+    UIImageView *neighborhoodLabelBackground = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ribbon.png"]] autorelease];
+    neighborhoodLabelBackground.frame = CGRectMake(0, 2, 130, 32.5);
+    neighborhoodLabel.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:neighborhoodLabelBackground];
+    
+    self.neighborhoodLabel = [[[UILabel alloc] initWithFrame:CGRectMake(25, 1.5, 120, 30)] autorelease];
+    self.neighborhoodLabel.font  =  [UIFont fontWithName:@"Myriad" size:13];
     self.neighborhoodLabel.textColor = [UIColor whiteColor];
-    self.neighborhoodLabel.backgroundColor = [UIColor blackColor];
+    self.neighborhoodLabel.backgroundColor = [UIColor clearColor];
+    
+    
     [self.view addSubview:self.neighborhoodLabel];
     
-    self.coordinatesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(120, 0, 120, 30)] autorelease];
+    self.coordinatesLabel = [[[UILabel alloc] initWithFrame:CGRectMake(175, 0, 120, 30)] autorelease];
     self.coordinatesLabel.font              = [UIFont boldSystemFontOfSize:10];
     self.coordinatesLabel.backgroundColor = [UIColor whiteColor];
+    self.coordinatesLabel.hidden = YES;
     [self.view addSubview:self.coordinatesLabel];
     
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 

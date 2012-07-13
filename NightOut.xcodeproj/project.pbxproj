@@ -15,6 +15,8 @@
 		37303C9215B09189004B4BEA /* SmilesSentHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C9115B09189004B4BEA /* SmilesSentHeader.png */; };
 		37303C9515B0AC24004B4BEA /* MutualFriendsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C9315B0AC23004B4BEA /* MutualFriendsIcon.png */; };
 		37303C9615B0AC24004B4BEA /* NetworksIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C9415B0AC23004B4BEA /* NetworksIcon.png */; };
+		37303C9815B0AFC0004B4BEA /* Ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C9715B0AFBF004B4BEA /* Ribbon.png */; };
+		37303C9B15B0B0A6004B4BEA /* UILabel+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 37303C9A15B0B0A6004B4BEA /* UILabel+Extensions.m */; };
 		37340E9B15A363C600A57EC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9A15A363C600A57EC1 /* libsqlite3.dylib */; };
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
@@ -194,6 +196,9 @@
 		37303C9115B09189004B4BEA /* SmilesSentHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesSentHeader.png; sourceTree = "<group>"; };
 		37303C9315B0AC23004B4BEA /* MutualFriendsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MutualFriendsIcon.png; sourceTree = "<group>"; };
 		37303C9415B0AC23004B4BEA /* NetworksIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NetworksIcon.png; sourceTree = "<group>"; };
+		37303C9715B0AFBF004B4BEA /* Ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ribbon.png; sourceTree = "<group>"; };
+		37303C9915B0B0A6004B4BEA /* UILabel+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extensions.h"; sourceTree = "<group>"; };
+		37303C9A15B0B0A6004B4BEA /* UILabel+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extensions.m"; sourceTree = "<group>"; };
 		37340E9A15A363C600A57EC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -739,6 +744,8 @@
 				37E0D28015AFA17B00BCA328 /* UIImage+ImageTransformations.m */,
 				37E0D28115AFA17B00BCA328 /* UIImageView+ScaledImage.h */,
 				37E0D28215AFA17B00BCA328 /* UIImageView+ScaledImage.m */,
+				37303C9915B0B0A6004B4BEA /* UILabel+Extensions.h */,
+				37303C9A15B0B0A6004B4BEA /* UILabel+Extensions.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -857,6 +864,7 @@
 		37E0D2CD15AFA17B00BCA328 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37303C9715B0AFBF004B4BEA /* Ribbon.png */,
 				37303C9315B0AC23004B4BEA /* MutualFriendsIcon.png */,
 				37303C9415B0AC23004B4BEA /* NetworksIcon.png */,
 				37303C8A15B08C63004B4BEA /* WoodBG.png */,
@@ -1549,6 +1557,7 @@
 				37303C9215B09189004B4BEA /* SmilesSentHeader.png in Resources */,
 				37303C9515B0AC24004B4BEA /* MutualFriendsIcon.png in Resources */,
 				37303C9615B0AC24004B4BEA /* NetworksIcon.png in Resources */,
+				37303C9815B0AFC0004B4BEA /* Ribbon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1655,6 +1664,7 @@
 				37E0D44A15AFA17C00BCA328 /* NearbyGridViewCell.m in Sources */,
 				37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */,
 				37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */,
+				37303C9B15B0B0A6004B4BEA /* UILabel+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
