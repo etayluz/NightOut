@@ -70,6 +70,14 @@
     return cell;
 }
 
+- (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
+{
+    //return self.smileGames.count;
+    return 9;
+}
+
+
+
 // return a new autoreleased UUID string
 - (NSString *)generateUUID
 {
@@ -93,11 +101,6 @@
     return uuid;
 }
 
-
-- (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
-{
-    return self.items.count;
-}
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
 {
