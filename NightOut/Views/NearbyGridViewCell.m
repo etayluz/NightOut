@@ -11,7 +11,7 @@
 #import "UIImageView+ScaledImage.h"
 
 @implementation NearbyGridViewCell
-@synthesize imageView, nameLabel, ageLabel, networkLabel, friendsLabel;
+@synthesize imageView, nameLabel, ageLabel, networkLabel, friendsLabel, friendsIcon;
 
 - (void) dealloc
 {
@@ -37,6 +37,12 @@
         self.contentView.backgroundColor = [UIColor colorWithRed:0.929 green:0.933 blue:0.863 alpha:1];
         self.imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(10, 20, 90, 90)] autorelease];
 
+        self.friendsIcon = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 88, 110)] autorelease];
+        [self.friendsIcon setImage:[UIImage imageNamed:@"PictureFrameMask-2.png"]];
+        self.backgroundColor = [UIColor clearColor];
+        [self.contentView addSubview: self.imageMask];
+        
+        
         /* Name Label */
         self.nameLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(10, 113, 100, 20)] autorelease];
 //        self.nameLabel.font             = [UIFont boldSystemFontOfSize:13];
