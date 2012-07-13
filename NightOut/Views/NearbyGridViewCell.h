@@ -19,5 +19,7 @@
 @property (nonatomic, retain)  UILabel      *ageLabel;
 @property (nonatomic, retain)  UILabel      *networkLabel;
 @property (nonatomic, retain)  UILabel      *friendsLabel;
+@property (nonatomic, retain)  UIImageView  *friendsIcon;
+@property (nonatomic, retain)  UIImageView  *networksIcon;
 
 @end

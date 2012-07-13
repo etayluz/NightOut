@@ -11,7 +11,8 @@
 #import "UIImageView+ScaledImage.h"
 
 @implementation NearbyGridViewCell
-@synthesize imageView, nameLabel, ageLabel, networkLabel, friendsLabel;
+
+@synthesize imageView, nameLabel, ageLabel, networkLabel, friendsLabel, networksIcon, friendsIcon;
 
 - (void) dealloc
 {
@@ -51,20 +52,32 @@
         self.ageLabel.textColor = [UIColor grayColor];
         self.ageLabel.backgroundColor   = [UIColor clearColor];
 
-        /* Friends Label */
-        self.friendsLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(10, 130, 100, 15)] autorelease];
-//        self.friendsLabel.font             = [UIFont boldSystemFontOfSize:10];
+        /* Mutual Friends Label */
+        self.friendsLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(23, 130, 77, 15)] autorelease];
         self.friendsLabel.font = [UIFont fontWithName:@"Myriad" size:13];
         self.friendsLabel.textColor = [UIColor grayColor];
         self.friendsLabel.backgroundColor  = [UIColor clearColor];
+        
+        /* Mutual Friends Icon */
+        self.friendsIcon = [[[UIImageView alloc] initWithFrame:CGRectMake(11, 132, 8, 10)] autorelease];
+        [self.friendsIcon setImage:[UIImage imageNamed:@"MutualFriendsIcon.png"]];
+        self.backgroundColor = [UIColor clearColor];
+        [self.contentView addSubview: self.friendsIcon];
+
 
         /* Network Label */
-        self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(10, 144, 100, 15)] autorelease];
-//        self.networkLabel.font             = [UIFont boldSystemFontOfSize:10];
+        self.networkLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(23, 144, 77, 15)] autorelease];
         self.networkLabel.font = [UIFont fontWithName:@"Myriad" size:13];
         self.networkLabel.textColor = [UIColor grayColor];
         self.networkLabel.backgroundColor  = [UIColor clearColor];
 
+        /* Networks Icon */
+        self.networksIcon = [[[UIImageView alloc] initWithFrame:CGRectMake(9, 147, 12, 8)] autorelease];
+        [self.networksIcon setImage:[UIImage imageNamed:@"NetworksIcon.png"]];
+        self.backgroundColor = [UIColor clearColor];
+        [self.contentView addSubview: self.networksIcon];
+        
+        
         [self.contentView addSubview:imageView];
         [self.contentView addSubview:nameLabel];
         [self.contentView addSubview:ageLabel];
