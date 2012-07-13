@@ -12,7 +12,9 @@
 #import "SmileGame.h"
 
 @implementation FrameGridViewCell
-@synthesize imageView, imageMask, overlay;
+
+@synthesize imageView, imageMask;
+@synthesize titleLabel, subtitleLabel, rightLabel;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -31,6 +33,27 @@
         [self.imageMask setImage:[UIImage imageNamed:@"PictureFrameMask-2.png"]];
         self.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview: self.imageMask];
+        
+        /* Name Label */
+        self.titleLabel                  = [[[UILabel alloc] initWithFrame:CGRectMake(10, 70, 100, 15)] autorelease];
+        self.titleLabel.font              = [UIFont boldSystemFontOfSize:10];
+        self.titleLabel.backgroundColor   = [UIColor clearColor];
+        self.titleLabel.text = @"-";
+        [self addSubview: self.titleLabel];
+        
+        /* Age Label */    
+        self.rightLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(55, 70, 100, 15)] autorelease];
+        self.rightLabel.font              = [UIFont boldSystemFontOfSize:10];
+        self.rightLabel.backgroundColor   = [UIColor clearColor];
+        self.rightLabel.text = @"-";
+        [self addSubview: self.rightLabel];
+        
+        /* Network Label */
+        self.subtitleLabel                   = [[[UILabel alloc] initWithFrame:CGRectMake(10, 80, 100, 15)] autorelease];
+        self.subtitleLabel.font              = [UIFont boldSystemFontOfSize:10];
+        self.subtitleLabel.backgroundColor   = [UIColor clearColor];
+        self.subtitleLabel.text = @"-";
+        [self addSubview: self.subtitleLabel];
     }
 
     return self;
@@ -40,6 +63,10 @@
 {
     SmileGame *game = (SmileGame *)item;
     [self.imageView setImageWithURLScaled:game.receiver.thumb];
+    
+    self.titleLabel.text = game.receiver.name;
+    self.subtitleLabel.text = game.receiver.network;
+    self.rightLabel.text = [game.receiver.age stringValue];
 }
 
 @end

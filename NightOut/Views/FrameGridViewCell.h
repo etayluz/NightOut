@@ -12,9 +12,13 @@
 #import "UserFrameOverlay.h"
 
 @interface FrameGridViewCell : AQGridViewCell
+
 @property (nonatomic, retain)  UIImageView  *imageMask;
 @property (nonatomic, retain)  UIImageView  *imageView;
-@property (nonatomic, retain) UIView *overlay;
+
+@property (nonatomic, retain)  UILabel      *titleLabel;
+@property (nonatomic, retain)  UILabel      *subtitleLabel;
+@property (nonatomic, retain)  UILabel      *rightLabel;
 
 - (void) updateWithItem:(NSObject *)item;
 

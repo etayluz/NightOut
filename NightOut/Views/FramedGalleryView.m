@@ -18,6 +18,7 @@
 @synthesize items;
 @synthesize gridView;
 @synthesize cellReuseID;
+@synthesize delegate;
 
 - (void) dealloc
 {

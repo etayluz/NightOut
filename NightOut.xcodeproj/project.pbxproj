@@ -173,7 +173,6 @@
 		37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3AA15AFA17B00BCA328 /* FrameGridViewCell.m */; };
 		37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */; };
 		37E0D45C15AFACDC00BCA328 /* UserFrameOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */; };
-		37E0D45F15AFB8F400BCA328 /* UserFrameGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D45E15AFB8F300BCA328 /* UserFrameGridViewCell.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -522,8 +521,6 @@
 		37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbViewCell.m; sourceTree = "<group>"; };
 		37E0D45A15AFACDC00BCA328 /* UserFrameOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFrameOverlay.h; sourceTree = "<group>"; };
 		37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFrameOverlay.m; sourceTree = "<group>"; };
-		37E0D45D15AFB8F300BCA328 /* UserFrameGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFrameGridViewCell.h; sourceTree = "<group>"; };
-		37E0D45E15AFB8F300BCA328 /* UserFrameGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFrameGridViewCell.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1362,8 +1359,6 @@
 				37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */,
 				37E0D45A15AFACDC00BCA328 /* UserFrameOverlay.h */,
 				37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */,
-				37E0D45D15AFB8F300BCA328 /* UserFrameGridViewCell.h */,
-				37E0D45E15AFB8F300BCA328 /* UserFrameGridViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1658,7 +1653,6 @@
 				37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */,
 				37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */,
 				37E0D45C15AFACDC00BCA328 /* UserFrameOverlay.m in Sources */,
-				37E0D45F15AFB8F400BCA328 /* UserFrameGridViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
