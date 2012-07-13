@@ -15,6 +15,9 @@
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
+		37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A015AFA3B8008157AE /* nearby_icon.png */; };
+		37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A115AFA3B8008157AE /* profile_icon.png */; };
+		37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A415AFA3C8008157AE /* smiley_icon.png */; };
 		37E0D3B015AFA17B00BCA328 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */; };
 		37E0D3B115AFA17B00BCA328 /* FetchAllConversationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */; };
 		37E0D3B215AFA17B00BCA328 /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22A15AFA17B00BCA328 /* FetchConversationRequest.m */; };
@@ -201,6 +204,9 @@
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		37CA04A015AFA3B8008157AE /* nearby_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby_icon.png; sourceTree = "<group>"; };
+		37CA04A115AFA3B8008157AE /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
+		37CA04A415AFA3C8008157AE /* smiley_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_icon.png; sourceTree = "<group>"; };
 		37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		37E0D22715AFA17B00BCA328 /* FetchAllConversationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchAllConversationsRequest.h; sourceTree = "<group>"; };
 		37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchAllConversationsRequest.m; sourceTree = "<group>"; };
@@ -865,6 +871,9 @@
 				37E0D2CE15AFA17B00BCA328 /* ChatBar.png */,
 				37E0D2CF15AFA17B00BCA328 /* ChatBubbleGray.png */,
 				37E0D2D015AFA17B00BCA328 /* ChatBubbleGray@2x.png */,
+				37CA04A015AFA3B8008157AE /* nearby_icon.png */,
+				37CA04A115AFA3B8008157AE /* profile_icon.png */,
+				37CA04A415AFA3C8008157AE /* smiley_icon.png */,
 				37E0D2D115AFA17B00BCA328 /* ChatBubbleGreen.png */,
 				37E0D2D215AFA17B00BCA328 /* ChatBubbleGreen@2x.png */,
 				37E0D2D315AFA17B00BCA328 /* first.png */,
@@ -1579,6 +1588,9 @@
 				37E0D43B15AFA17C00BCA328 /* WWOLoginViewController.xib in Resources */,
 				37E0D43C15AFA17C00BCA328 /* WWOProfileViewController.xib in Resources */,
 				37E0D43D15AFA17C00BCA328 /* WWOSettingsViewController.xib in Resources */,
+				37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */,
+				37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */,
+				37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
