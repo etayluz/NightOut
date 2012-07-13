@@ -7,7 +7,7 @@
 //
 
 #import "FramedGalleryView.h"
-#import "SmilesGridViewCell.h"
+#import "FrameGridViewCell.h"
 #import "SmileGame.h"
 
 @implementation FramedGalleryView
@@ -40,18 +40,16 @@
         
         UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodBackground.png"]] autorelease];
         
-        self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
-        self.gridView.showsVerticalScrollIndicator = NO;
-        self.gridView.backgroundColor = background;//[UIColor brownColor];
-        self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        self.gridView.autoresizesSubviews = YES;
+        self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
+        self.gridView.showsVerticalScrollIndicator = YES;
+        self.gridView.contentSizeGrowsToFillBounds = NO;
+        self.gridView.backgroundColor = background;
+        
         self.gridView.delegate = self;
         self.gridView.dataSource = self;
-        [self.gridView setContentSizeGrowsToFillBounds:TRUE];
         
         [self addSubview:gridView];
         [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
-
         
         [self addSubview:self.gridView];
     }
@@ -61,16 +59,14 @@
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
 {
     static NSString *smilesCellIdentifier = @"SmilesCellIdentifier";
-    SmilesGridViewCell *cell = nil;
-    cell = (SmilesGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:smilesCellIdentifier];
+    FrameGridViewCell *cell = nil;
+    cell = (FrameGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:smilesCellIdentifier];
     
     if (!cell) {
-        cell = [[[SmilesGridViewCell alloc] initWithFrame:CGRectMake(0, 0, FRAMED_GALLERY_ITEM_WIDTH, FRAMED_GALLERY_ITEM_HEIGHT) reuseIdentifier:smilesCellIdentifier] autorelease];
+        cell = [[[FrameGridViewCell alloc] initWithFrame:CGRectMake(0, 0, FRAMED_GALLERY_ITEM_WIDTH, FRAMED_GALLERY_ITEM_HEIGHT) reuseIdentifier:smilesCellIdentifier] autorelease];
     }
     
-    //SmileGame *game = [self.smileGames objectAtIndex:index];
-    SmileGame *game = [self.items objectAtIndex:0];
-    [cell updateWithUser:game.receiver];
+    [cell updateWithItem:[self.items objectAtIndex:0]];
     
     return cell;
 }
@@ -78,7 +74,7 @@
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
     //return self.smileGames.count;
-    return 9;
+    return 30;
 }
 
 
@@ -115,11 +111,6 @@
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
     return ( CGSizeMake(FRAMED_GALLERY_ITEM_WIDTH, FRAMED_GALLERY_ITEM_HEIGHT) );
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)aScrollView
-{
-    [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
 }
 
 - (void) reloadData

@@ -10,7 +10,7 @@
 
 #import "ProfileViewController.h"
 #import "SmilesSentViewController.h"
-#import "SmilesGridViewCell.h"
+#import "FrameGridViewCell.h"
 
 #import "User.h"
 #import "SmileGame.h"
@@ -24,8 +24,6 @@
 
 - (void) dealloc
 {
-    [Notification unregisterNotification:@"DidFetchNearbyUsers" target:self];
-    
     self.fetchSmileGamesRequest = nil;
     self.gallery = nil;
     
@@ -36,7 +34,9 @@
 {
     [super viewDidLoad];
 
-    self.gallery = [[[FramedGalleryView alloc] init] autorelease];
+    self.view.backgroundColor = [UIColor orangeColor];
+    
+    self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
     [self.view addSubview:gallery];
     
     
@@ -62,12 +62,6 @@
     self.gallery.items = _smileGames;
     [self.gallery reloadData];
 }
-
-- (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
-{
-    return ( CGSizeMake(100, 110) );
-}
-
 
 - (void)viewDidUnload
 {

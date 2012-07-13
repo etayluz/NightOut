@@ -44,7 +44,7 @@
         self.gridView.showsHorizontalScrollIndicator = NO;
         self.gridView.delegate = self;
         self.gridView.dataSource = self;
-        [self.gridView setContentSizeGrowsToFillBounds:NO];
+        self.gridView.contentSizeGrowsToFillBounds = NO;
         self.gridView.gridHeaderView.hidden = YES;
         self.gridView.gridFooterView.hidden = YES;  
         self.gridView.resizesCellWidthToFit = YES;

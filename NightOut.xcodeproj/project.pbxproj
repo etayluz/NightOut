@@ -82,7 +82,6 @@
 		37E0D3ED15AFA17B00BCA328 /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2B215AFA17B00BCA328 /* Conversation.m */; };
 		37E0D3EE15AFA17B00BCA328 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2B415AFA17B00BCA328 /* Message.m */; };
 		37E0D3EF15AFA17B00BCA328 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2B615AFA17B00BCA328 /* Neighborhood.m */; };
-		37E0D3F015AFA17B00BCA328 /* NightOut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2B715AFA17B00BCA328 /* NightOut.xcdatamodeld */; };
 		37E0D3F115AFA17B00BCA328 /* SmileGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2B915AFA17B00BCA328 /* SmileGame.m */; };
 		37E0D3F215AFA17B00BCA328 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D2BB15AFA17B00BCA328 /* User.m */; };
 		37E0D3F315AFA17B00BCA328 /* Chelsea.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2BD15AFA17B00BCA328 /* Chelsea.gpx */; };
@@ -151,7 +150,6 @@
 		37E0D43315AFA17C00BCA328 /* SmileMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37715AFA17B00BCA328 /* SmileMainViewController.m */; };
 		37E0D43415AFA17C00BCA328 /* SmileMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D37815AFA17B00BCA328 /* SmileMainViewController.xib */; };
 		37E0D43515AFA17C00BCA328 /* SmilesReceivedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */; };
-		37E0D43615AFA17C00BCA328 /* SmilesReceivedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D37B15AFA17B00BCA328 /* SmilesReceivedViewController.xib */; };
 		37E0D43715AFA17C00BCA328 /* SmilesSentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */; };
 		37E0D43815AFA17C00BCA328 /* WWOExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37F15AFA17B00BCA328 /* WWOExploreViewController.m */; };
 		37E0D43915AFA17C00BCA328 /* WWOExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D38015AFA17B00BCA328 /* WWOExploreViewController.xib */; };
@@ -172,8 +170,10 @@
 		37E0D44815AFA17C00BCA328 /* FramedGalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3A015AFA17B00BCA328 /* FramedGalleryView.m */; };
 		37E0D44915AFA17C00BCA328 /* HorizontalGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3A615AFA17B00BCA328 /* HorizontalGallery.m */; };
 		37E0D44A15AFA17C00BCA328 /* NearbyGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3A815AFA17B00BCA328 /* NearbyGridViewCell.m */; };
-		37E0D44B15AFA17C00BCA328 /* SmilesGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3AA15AFA17B00BCA328 /* SmilesGridViewCell.m */; };
+		37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3AA15AFA17B00BCA328 /* FrameGridViewCell.m */; };
 		37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */; };
+		37E0D45C15AFACDC00BCA328 /* UserFrameOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */; };
+		37E0D45F15AFB8F400BCA328 /* UserFrameGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D45E15AFB8F300BCA328 /* UserFrameGridViewCell.m */; };
 		37F0F646158CD939005511CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F645158CD939005511CD /* UIKit.framework */; };
 		37F0F648158CD939005511CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F647158CD939005511CD /* Foundation.framework */; };
 		37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F649158CD939005511CD /* CoreGraphics.framework */; };
@@ -184,16 +184,6 @@
 		37F0F706158CF3A0005511CD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F705158CF3A0005511CD /* libxml2.dylib */; };
 		37F0F710158CF501005511CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F70F158CF501005511CD /* Security.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		37E0D44E15AFA17C00BCA328 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37E0D3A215AFA17B00BCA328 /* GMGridView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 78509312149FAC2E000787E4;
-			remoteInfo = GMGridView;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		370156F515A778F400BE2A4F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -487,7 +477,6 @@
 		37E0D37815AFA17B00BCA328 /* SmileMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmileMainViewController.xib; sourceTree = "<group>"; };
 		37E0D37915AFA17B00BCA328 /* SmilesReceivedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesReceivedViewController.h; sourceTree = "<group>"; };
 		37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesReceivedViewController.m; sourceTree = "<group>"; };
-		37E0D37B15AFA17B00BCA328 /* SmilesReceivedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmilesReceivedViewController.xib; sourceTree = "<group>"; };
 		37E0D37C15AFA17B00BCA328 /* SmilesSentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesSentViewController.h; sourceTree = "<group>"; };
 		37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesSentViewController.m; sourceTree = "<group>"; };
 		37E0D37E15AFA17B00BCA328 /* WWOExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOExploreViewController.h; sourceTree = "<group>"; };
@@ -523,15 +512,18 @@
 		37E0D39E15AFA17B00BCA328 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
 		37E0D39F15AFA17B00BCA328 /* FramedGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FramedGalleryView.h; sourceTree = "<group>"; };
 		37E0D3A015AFA17B00BCA328 /* FramedGalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FramedGalleryView.m; sourceTree = "<group>"; };
-		37E0D3A215AFA17B00BCA328 /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GMGridView.xcodeproj; sourceTree = "<group>"; };
 		37E0D3A515AFA17B00BCA328 /* HorizontalGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalGallery.h; sourceTree = "<group>"; };
 		37E0D3A615AFA17B00BCA328 /* HorizontalGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalGallery.m; sourceTree = "<group>"; };
 		37E0D3A715AFA17B00BCA328 /* NearbyGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyGridViewCell.h; sourceTree = "<group>"; };
 		37E0D3A815AFA17B00BCA328 /* NearbyGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyGridViewCell.m; sourceTree = "<group>"; };
-		37E0D3A915AFA17B00BCA328 /* SmilesGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesGridViewCell.h; sourceTree = "<group>"; };
-		37E0D3AA15AFA17B00BCA328 /* SmilesGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesGridViewCell.m; sourceTree = "<group>"; };
+		37E0D3A915AFA17B00BCA328 /* FrameGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameGridViewCell.h; sourceTree = "<group>"; };
+		37E0D3AA15AFA17B00BCA328 /* FrameGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameGridViewCell.m; sourceTree = "<group>"; };
 		37E0D3AB15AFA17B00BCA328 /* ThumbViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbViewCell.h; sourceTree = "<group>"; };
 		37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbViewCell.m; sourceTree = "<group>"; };
+		37E0D45A15AFACDC00BCA328 /* UserFrameOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFrameOverlay.h; sourceTree = "<group>"; };
+		37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFrameOverlay.m; sourceTree = "<group>"; };
+		37E0D45D15AFB8F300BCA328 /* UserFrameGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFrameGridViewCell.h; sourceTree = "<group>"; };
+		37E0D45E15AFB8F300BCA328 /* UserFrameGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFrameGridViewCell.m; sourceTree = "<group>"; };
 		37F0F641158CD939005511CD /* NightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F0F645158CD939005511CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F0F647158CD939005511CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -837,7 +829,6 @@
 				37E0D2B415AFA17B00BCA328 /* Message.m */,
 				37E0D2B515AFA17B00BCA328 /* Neighborhood.h */,
 				37E0D2B615AFA17B00BCA328 /* Neighborhood.m */,
-				37E0D2B715AFA17B00BCA328 /* NightOut.xcdatamodeld */,
 				37E0D2B815AFA17B00BCA328 /* SmileGame.h */,
 				37E0D2B915AFA17B00BCA328 /* SmileGame.m */,
 				37E0D2BA15AFA17B00BCA328 /* User.h */,
@@ -1341,7 +1332,6 @@
 				37E0D37815AFA17B00BCA328 /* SmileMainViewController.xib */,
 				37E0D37915AFA17B00BCA328 /* SmilesReceivedViewController.h */,
 				37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */,
-				37E0D37B15AFA17B00BCA328 /* SmilesReceivedViewController.xib */,
 				37E0D37C15AFA17B00BCA328 /* SmilesSentViewController.h */,
 				37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */,
 				37E0D37E15AFA17B00BCA328 /* WWOExploreViewController.h */,
@@ -1362,15 +1352,18 @@
 				37E0D38715AFA17B00BCA328 /* AQGridView */,
 				37E0D39F15AFA17B00BCA328 /* FramedGalleryView.h */,
 				37E0D3A015AFA17B00BCA328 /* FramedGalleryView.m */,
-				37E0D3A115AFA17B00BCA328 /* GMGridView */,
 				37E0D3A515AFA17B00BCA328 /* HorizontalGallery.h */,
 				37E0D3A615AFA17B00BCA328 /* HorizontalGallery.m */,
 				37E0D3A715AFA17B00BCA328 /* NearbyGridViewCell.h */,
 				37E0D3A815AFA17B00BCA328 /* NearbyGridViewCell.m */,
-				37E0D3A915AFA17B00BCA328 /* SmilesGridViewCell.h */,
-				37E0D3AA15AFA17B00BCA328 /* SmilesGridViewCell.m */,
+				37E0D3A915AFA17B00BCA328 /* FrameGridViewCell.h */,
+				37E0D3AA15AFA17B00BCA328 /* FrameGridViewCell.m */,
 				37E0D3AB15AFA17B00BCA328 /* ThumbViewCell.h */,
 				37E0D3AC15AFA17B00BCA328 /* ThumbViewCell.m */,
+				37E0D45A15AFACDC00BCA328 /* UserFrameOverlay.h */,
+				37E0D45B15AFACDC00BCA328 /* UserFrameOverlay.m */,
+				37E0D45D15AFB8F300BCA328 /* UserFrameGridViewCell.h */,
+				37E0D45E15AFB8F300BCA328 /* UserFrameGridViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1403,22 +1396,6 @@
 				37E0D39E15AFA17B00BCA328 /* UIColor+AQGridView.m */,
 			);
 			path = AQGridView;
-			sourceTree = "<group>";
-		};
-		37E0D3A115AFA17B00BCA328 /* GMGridView */ = {
-			isa = PBXGroup;
-			children = (
-				37E0D3A215AFA17B00BCA328 /* GMGridView.xcodeproj */,
-			);
-			path = GMGridView;
-			sourceTree = "<group>";
-		};
-		37E0D3A315AFA17B00BCA328 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				37E0D44F15AFA17C00BCA328 /* libGMGridView.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		37F0F636158CD939005511CD = {
@@ -1502,28 +1479,12 @@
 			mainGroup = 37F0F636158CD939005511CD;
 			productRefGroup = 37F0F642158CD939005511CD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 37E0D3A315AFA17B00BCA328 /* Products */;
-					ProjectRef = 37E0D3A215AFA17B00BCA328 /* GMGridView.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				37F0F640158CD939005511CD /* NightOut */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		37E0D44F15AFA17C00BCA328 /* libGMGridView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGMGridView.a;
-			remoteRef = 37E0D44E15AFA17C00BCA328 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		37F0F63F158CD939005511CD /* Resources */ = {
@@ -1583,7 +1544,6 @@
 				37E0D42D15AFA17C00BCA328 /* MyriadPro-LightIt.otf in Resources */,
 				37E0D42E15AFA17C00BCA328 /* MyriadPro-SemiboldCond.otf in Resources */,
 				37E0D43415AFA17C00BCA328 /* SmileMainViewController.xib in Resources */,
-				37E0D43615AFA17C00BCA328 /* SmilesReceivedViewController.xib in Resources */,
 				37E0D43915AFA17C00BCA328 /* WWOExploreViewController.xib in Resources */,
 				37E0D43B15AFA17C00BCA328 /* WWOLoginViewController.xib in Resources */,
 				37E0D43C15AFA17C00BCA328 /* WWOProfileViewController.xib in Resources */,
@@ -1659,7 +1619,6 @@
 				37E0D3ED15AFA17B00BCA328 /* Conversation.m in Sources */,
 				37E0D3EE15AFA17B00BCA328 /* Message.m in Sources */,
 				37E0D3EF15AFA17B00BCA328 /* Neighborhood.m in Sources */,
-				37E0D3F015AFA17B00BCA328 /* NightOut.xcdatamodeld in Sources */,
 				37E0D3F115AFA17B00BCA328 /* SmileGame.m in Sources */,
 				37E0D3F215AFA17B00BCA328 /* User.m in Sources */,
 				37E0D40015AFA17B00BCA328 /* Notification.m in Sources */,
@@ -1696,8 +1655,10 @@
 				37E0D44815AFA17C00BCA328 /* FramedGalleryView.m in Sources */,
 				37E0D44915AFA17C00BCA328 /* HorizontalGallery.m in Sources */,
 				37E0D44A15AFA17C00BCA328 /* NearbyGridViewCell.m in Sources */,
-				37E0D44B15AFA17C00BCA328 /* SmilesGridViewCell.m in Sources */,
+				37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */,
 				37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */,
+				37E0D45C15AFACDC00BCA328 /* UserFrameOverlay.m in Sources */,
+				37E0D45F15AFB8F400BCA328 /* UserFrameGridViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1814,17 +1775,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		37E0D2B715AFA17B00BCA328 /* NightOut.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-			);
-			path = NightOut.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 37F0F638158CD939005511CD /* Project object */;
 }

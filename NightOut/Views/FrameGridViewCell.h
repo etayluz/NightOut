@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AQGridViewCell.h"
 #import "User.h"
+#import "UserFrameOverlay.h"
 
-@interface SmilesGridViewCell : AQGridViewCell
+@interface FrameGridViewCell : AQGridViewCell
 @property (nonatomic, retain)  UIImageView  *imageMask;
 @property (nonatomic, retain)  UIImageView  *imageView;
-@property (nonatomic, retain)  UILabel      *nameLabel;
-@property (nonatomic, retain)  UILabel      *ageLabel;
-@property (nonatomic, retain)  UILabel      *networkLabel;
+@property (nonatomic, retain) UIView *overlay;
 
-- (void) updateWithUser:(User *)user;
+- (void) updateWithItem:(NSObject *)item;
 
 @end

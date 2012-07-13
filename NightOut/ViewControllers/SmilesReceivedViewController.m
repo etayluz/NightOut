@@ -9,44 +9,24 @@
 #import "SmilesReceivedViewController.h"
 #import "Notification.h"
 #import "ProfileViewController.h"
-#import "SmilesSentViewController.h"
-#import "SmilesGridViewCell.h"
-#import "ServerInterface.h"
 #import "User.h"
-#import "AQGridView.h"
 
 @implementation SmilesReceivedViewController
 
-@synthesize gridView, headerView;
+@synthesize gallery, fetchSmileGamesRequest;
 
 - (void) dealloc
-{
-    [gridView release];
-    [headerView release];
-    
-    [Notification unregisterNotification:@"DidFetchNearbyUsers" target:self];
-    
+{        
     [super dealloc];
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    UIImage *headerImage = [UIImage imageNamed:@"SmilesReceivedHeader.png"];
+    [super viewDidLoad];    
     
-    self.gridView = [[[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
-    self.gridView.showsVerticalScrollIndicator = NO;
-    self.gridView.backgroundColor = [UIColor brownColor];
-    self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.gridView.autoresizesSubviews = YES;
-    self.gridView.delegate = self;
-    self.gridView.dataSource = self;
-    [self.gridView setContentSizeGrowsToFillBounds:TRUE];
-    
-    [self.view addSubview:gridView];
-    [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
-    [self.gridView reloadData];
-    
+    self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
+    [self.view addSubview:gallery];
+
     
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
@@ -54,14 +34,22 @@
                                    target:self 
                                    action:@selector(myBackAction:)] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    self.fetchSmileGamesRequest = [[[FetchSmileGamesRequest alloc] init] autorelease];
+    self.fetchSmileGamesRequest.delegate = self;
+    [self refreshSmileGames];
 }
 
-
-- (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
+- (void) didFetchSmileGames:(NSMutableArray *)smileGames
 {
-    return ( CGSizeMake(100, 150) );
+    self.gallery.items = smileGames;
+    [self.gallery reloadData];
 }
 
+- (void) refreshSmileGames
+{
+    [self.fetchSmileGamesRequest sendWithStatus:SmileGameStatusReceived];
+}
 
 - (void)viewDidUnload
 {
@@ -72,42 +60,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark data source implementation
-
-- (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
-{
-    return 9;
-}
-
-- (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index
-{    
-    static NSString *smilesCellIdentifier = @"SmilesCellIdentifier";
-    SmilesGridViewCell *cell = nil;
-    cell = (SmilesGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:smilesCellIdentifier];
-    
-    if (!cell) {
-		cell = [[[SmilesGridViewCell alloc] initWithFrame:CGRectMake(0, 0, 100, 150)
-                                          reuseIdentifier:smilesCellIdentifier] autorelease];   
-    }
-    
-    //cell.backgroundColor = [UIColor purpleColor];
-    
-    //User *user = [self.users objectAtIndex:index];
-    //[cell updateFromUser:user];
-    
-    return cell;
-}
-
-#pragma mark - Notifications
-
-
-- (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
-{
-    //User *selectedUser = [self.users objectAtIndex:index];
-    //[self userWasSelected:selectedUser];
-    return index;
 }
 
 @end
