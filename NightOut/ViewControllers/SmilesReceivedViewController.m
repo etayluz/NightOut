@@ -16,6 +16,7 @@
 @implementation SmilesReceivedViewController
 
 @synthesize gallery, fetchSmileGamesRequest;
+@synthesize header;
 
 - (void) dealloc
 {        
@@ -30,6 +31,12 @@
     self.gallery.delegate = self;
     [self.view addSubview:gallery];
 
+    /* Header image */
+    UIImage *headerImage = [UIImage imageNamed:@"SmilesReceivedHeader.png"];
+    self.header = [[[UIImageView alloc] initWithImage:headerImage] autorelease];
+    [self.view addSubview:self.header];
+
+    self.gallery.topPadding = self.header.frame.size.height + 10;
     
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 

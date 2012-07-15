@@ -65,6 +65,7 @@
     [self.subtitleLabel removeFromSuperview];
 }
 
+/* Normal Style */
 - (void) setStyleToBasic
 {    
     /* Name Label */
@@ -86,8 +87,10 @@
     self.subtitleLabel.font              = [UIFont fontWithName:@"Myriad" size:13];
     self.subtitleLabel.backgroundColor   = [UIColor clearColor];
     self.subtitleLabel.textColor = [UIColor grayColor];
+    [self addSubview:self.subtitleLabel];
 }
 
+/* Smiles Received Style */
 - (void) setStyleToLarge
 {    
     /* Name Label */

@@ -19,7 +19,7 @@
 @synthesize gridView;
 @synthesize cellReuseID;
 @synthesize delegate;
-@synthesize frameStyle;
+@synthesize frameStyle, topPadding;
 
 - (void) dealloc
 {
@@ -51,13 +51,19 @@
         self.gridView.backgroundColor = background;
         self.gridView.delegate = self;
         self.gridView.dataSource = self;
-        
-        UIView *emptyHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
-        [self.gridView setGridHeaderView:emptyHeaderView];
-        
+                
         [self addSubview:self.gridView];
     }
     return self;
+}
+
+- (void) setTopPadding:(NSInteger)_topPadding
+{
+    [self.gridView.gridHeaderView removeFromSuperview];
+    UIView *emptyHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, _topPadding)];
+    self.gridView.gridHeaderView = emptyHeaderView;
+    
+    topPadding = _topPadding;
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) _gridView cellForItemAtIndex: (NSUInteger) index

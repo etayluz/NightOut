@@ -21,10 +21,9 @@
 @property (nonatomic, retain) NSArray *items;
 @property (nonatomic, retain)  AQGridView *gridView;
 @property (nonatomic, retain) NSString *cellReuseID;
-
 @property (nonatomic) FrameGridViewCellStyle frameStyle;
-
 @property (assign) id <FramedGalleryViewDelegate> delegate;
+@property (nonatomic) NSInteger topPadding;
 
 - (void) reloadData;
 - (id)initWithFrame:(CGRect)frame style:(FrameGridViewCellStyle)aStyle;

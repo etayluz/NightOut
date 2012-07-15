@@ -15,5 +15,6 @@
 
 @property (retain) IBOutlet FramedGalleryView *gallery;
 @property (nonatomic, retain) FetchSmileGamesRequest *fetchSmileGamesRequest;
+@property (nonatomic, retain) UIView *header;
 
 @end
