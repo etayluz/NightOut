@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];    
     
-    self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
+    self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:FrameGridViewCellStyleLarge] autorelease];
     self.gallery.delegate = self;
     [self.view addSubview:gallery];
 

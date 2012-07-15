@@ -20,13 +20,16 @@
 @property (nonatomic, retain) FetchUserRequest *fetchUserRequest;
 @end
 
+#define PROFILE_CONFIRM_START_SMILE_GAME 1
+
 @implementation ProfileViewController
 @synthesize vpanel;
 @synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
 @synthesize mutualFriendsView, interestsView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
-@synthesize fetchUserRequest;
+
+@synthesize fetchUserRequest, startSmileGameRequest;
 
 - (id) init
 {
@@ -113,6 +116,9 @@
     
     self.fetchUserRequest = [[[FetchUserRequest alloc] init] autorelease];
     self.fetchUserRequest.delegate = self;
+    
+    self.startSmileGameRequest = [[[StartSmileGameRequest alloc] init] autorelease];
+    self.startSmileGameRequest.delegate = self;
 }
 
 - (void) buildSubviews
@@ -136,13 +142,12 @@
     // Set required taps and number of touches
     [oneFingerOneTap setNumberOfTapsRequired:1];
     [oneFingerOneTap setNumberOfTouchesRequired:1];
+    
     // Add the gesture to the view
     [self.profileImageView addGestureRecognizer:oneFingerOneTap];
     
     /* Name Label */ 
     self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 31)] autorelease];
-//    self.nameLabel.font            = [UIFont boldSystemFontOfSize:18];
-//    self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:100];
     self.nameLabel.backgroundColor = [UIColor clearColor];
     self.nameLabel.textColor = [UIColor darkGrayColor];
     [self.scrollView addSubview:self.nameLabel]; 
@@ -150,7 +155,6 @@
     
     /* Age Label */
     self.ageLabel = [[[UILabel alloc] init] autorelease];
-//    self.ageLabel.font            = [UIFont boldSystemFontOfSize:13];
     self.ageLabel.font = [UIFont fontWithName:@"Myriad Pro" size:20];
     self.ageLabel.backgroundColor = [UIColor clearColor];
     self.ageLabel.textColor = [UIColor grayColor];
@@ -160,7 +164,6 @@
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchDown];
-//    [self.smileButton setTitle: @"Smiles" forState: UIControlStateNormal];
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 260, 40);    
     [self.scrollView addSubview:self.smileButton];
     UIImage *smileButtonImage = [UIImage imageNamed:@"SmileButton.png"]; 
@@ -170,7 +173,6 @@
     /* Message Button */
     self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchDown];
-//    [self.messageButton setTitle: @"Message" forState: UIControlStateNormal];
     self.messageButton.frame = CGRectMake(265, self.heightOffset, 50, 40);
     [self.scrollView addSubview:self.messageButton];
     UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton2.png"];
@@ -307,7 +309,40 @@
 
 - (void) smilesButtonTap
 {
-    
+    // confirm the deletion..
+	UIAlertView *alert = [[UIAlertView alloc] init];
+    alert.tag = PROFILE_CONFIRM_START_SMILE_GAME;
+	[alert setTitle:@"Smile Game"];
+	[alert setMessage:[NSString stringWithFormat:@"Start smile game with %@?", self.user.name]];
+	[alert setDelegate:self];
+	[alert addButtonWithTitle:@"Yes"];
+	[alert addButtonWithTitle:@"No"];
+	[alert show];
+	[alert release];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (alertView.tag) {
+		case PROFILE_CONFIRM_START_SMILE_GAME:
+		{
+            //ok
+            if (buttonIndex == 0) {
+                [self.startSmileGameRequest send:self.user.OID];
+            }
+            //cancel
+            else if (buttonIndex == 1) {
+            }
+            
+			break;
+		default:
+			NSLog(@"WebAppListVC.alertView: clickedButton at index. Unknown alert type");
+		}
+	}	
+}
+
+- (void) didStartSmileGame
+{
+    NSLog(@"did start smile game");
 }
 
 - (void) showMessages

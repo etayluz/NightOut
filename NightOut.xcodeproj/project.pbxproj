@@ -17,6 +17,7 @@
 		37303C9615B0AC24004B4BEA /* NetworksIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C9415B0AC23004B4BEA /* NetworksIcon.png */; };
 		37303C9815B0AFC0004B4BEA /* Ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37303C9715B0AFBF004B4BEA /* Ribbon.png */; };
 		37303C9B15B0B0A6004B4BEA /* UILabel+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 37303C9A15B0B0A6004B4BEA /* UILabel+Extensions.m */; };
+		37303CAA15B0C9AA004B4BEA /* StartSmileGameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37303CA915B0C9AA004B4BEA /* StartSmileGameRequest.m */; };
 		37340E9B15A363C600A57EC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9A15A363C600A57EC1 /* libsqlite3.dylib */; };
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
@@ -199,6 +200,8 @@
 		37303C9715B0AFBF004B4BEA /* Ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ribbon.png; sourceTree = "<group>"; };
 		37303C9915B0B0A6004B4BEA /* UILabel+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extensions.h"; sourceTree = "<group>"; };
 		37303C9A15B0B0A6004B4BEA /* UILabel+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extensions.m"; sourceTree = "<group>"; };
+		37303CA815B0C9AA004B4BEA /* StartSmileGameRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartSmileGameRequest.h; sourceTree = "<group>"; };
+		37303CA915B0C9AA004B4BEA /* StartSmileGameRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartSmileGameRequest.m; sourceTree = "<group>"; };
 		37340E9A15A363C600A57EC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -626,6 +629,8 @@
 				37E0D23C15AFA17B00BCA328 /* ServerPostRequest.m */,
 				37E0D23D15AFA17B00BCA328 /* UpdateLocationRequest.h */,
 				37E0D23E15AFA17B00BCA328 /* UpdateLocationRequest.m */,
+				37303CA815B0C9AA004B4BEA /* StartSmileGameRequest.h */,
+				37303CA915B0C9AA004B4BEA /* StartSmileGameRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1665,6 +1670,7 @@
 				37E0D44B15AFA17C00BCA328 /* FrameGridViewCell.m in Sources */,
 				37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */,
 				37303C9B15B0B0A6004B4BEA /* UILabel+Extensions.m in Sources */,
+				37303CAA15B0C9AA004B4BEA /* StartSmileGameRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

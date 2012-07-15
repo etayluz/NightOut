@@ -9,18 +9,23 @@
 #import <UIKit/UIKit.h>
 #include <QuartzCore/QuartzCore.h>
 #import "User.h"
+
 #import "FetchUserRequest.h"
+#import "StartSmileGameRequest.h"
+
 #import "HorizontalGallery.h"
 #import "LayoutManagers.h"
 
 #define OFFSET_FROM_NAME_LABEL     30
 
-@interface ProfileViewController : UIViewController <FetchUserRequestDelegate>
+@interface ProfileViewController : UIViewController <FetchUserRequestDelegate, StartSmileGameRequestDelegate, UIAlertViewDelegate>
 
 - (void) updateFromUserID:(NSInteger)userID;
 - (void) updateFromUser:(User *)user;
 - (void) messageButtonTap;
 - (void) smilesButtonTap;
+
+@property (nonatomic, retain) StartSmileGameRequest *startSmileGameRequest;
 
 @property (nonatomic, retain) User *user;
 

@@ -19,6 +19,7 @@
 @synthesize gridView;
 @synthesize cellReuseID;
 @synthesize delegate;
+@synthesize frameStyle;
 
 - (void) dealloc
 {
@@ -31,11 +32,16 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    return [self initWithFrame:frame style:FrameGridViewCellStyleBasic];
+}
+
+- (id)initWithFrame:(CGRect)frame style:(FrameGridViewCellStyle)aStyle
+{
     self = [super initWithFrame:frame];
-    if (self) {
-        
+    if (self) {        
         self.cellReuseID = [self generateUUID];
         self.backgroundColor = [UIColor clearColor];
+        self.frameStyle = aStyle;
         
         UIColor *background = [[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodBG.png"]] autorelease];
         
@@ -61,7 +67,7 @@
     cell = (FrameGridViewCell *)[_gridView dequeueReusableCellWithIdentifier:smilesCellIdentifier];
     
     if (!cell) {
-        cell = [[[FrameGridViewCell alloc] initWithFrame:CGRectMake(0, 0, FRAMED_GALLERY_ITEM_WIDTH, FRAMED_GALLERY_ITEM_HEIGHT) reuseIdentifier:smilesCellIdentifier] autorelease];
+        cell = [[[FrameGridViewCell alloc] initWithFrame:CGRectMake(0, 0, FRAMED_GALLERY_ITEM_WIDTH, FRAMED_GALLERY_ITEM_HEIGHT) reuseIdentifier:smilesCellIdentifier style:self.frameStyle] autorelease];
     }
     
     [self.delegate updateCell:cell fromItem:[self.items objectAtIndex:0]];
@@ -71,11 +77,8 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
-    //return self.smileGames.count;
-    return 30;
+    return self.items.count;
 }
-
-
 
 // return a new autoreleased UUID string
 - (NSString *)generateUUID
