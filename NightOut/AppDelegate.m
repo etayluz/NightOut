@@ -12,10 +12,10 @@
 
 #import "GPS.h"
 
-#import "WWOExploreViewController.h"
 #import "NearbyViewController.h"
 #import "WWOLoginViewController.h"
 #import "SmileMainViewController.h"
+#import "ProfileViewController.h"
 
 #import "UAirship.h"
 #import "UAPush.h"
@@ -177,23 +177,28 @@
     if (self.tabBarController.childViewControllers.count > 0)
         return;
     
-    UIViewController *exploreViewController = [[[WWOExploreViewController alloc] init] autorelease];
-    UIViewController *nearbyViewController = [[[NearbyViewController alloc] init] autorelease];
-    UIViewController *smileMainViewController = [[[SmileMainViewController alloc] init] autorelease];
-    UINavigationController *exploreNavController = [[[UINavigationController alloc] initWithRootViewController:exploreViewController] autorelease];
+    /* Nearby Page */
+    NearbyViewController *nearbyViewController = [[[NearbyViewController alloc] init] autorelease];
     UINavigationController *nearbyNavController = [[[UINavigationController alloc] initWithRootViewController:nearbyViewController] autorelease];
-    UINavigationController *smileMainNavController = [[[UINavigationController alloc] initWithRootViewController:smileMainViewController] autorelease];
-    
-    exploreNavController.title = @"Profile";
     nearbyNavController.title = @"Nearby";
+    nearbyNavController.tabBarItem.image = [UIImage imageNamed:@"nearby_icon.png"];
+
+    /* Smile Page */
+    SmileMainViewController *smileMainViewController = [[[SmileMainViewController alloc] init] autorelease];
+    UINavigationController *smileMainNavController = [[[UINavigationController alloc] initWithRootViewController:smileMainViewController] autorelease];
     smileMainNavController.title = @"Smiles";
+    smileMainNavController.tabBarItem.image = [UIImage imageNamed:@"smiley_icon.png"];
+    
+    /* Profile Page */
+    ProfileViewController *profileViewController = [[[ProfileViewController alloc] initWithStyle:ProfileViewStyleSelf] autorelease];
+    profileViewController.fetchCurrentUserOnLoad = YES;
+    UINavigationController *profileNavController = [[[UINavigationController alloc] initWithRootViewController:profileViewController] autorelease];
+    profileNavController.title = @"Profile";
+    profileNavController.tabBarItem.image = [UIImage imageNamed:@"profile_icon.png"];
     
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:
-                                             nearbyNavController, smileMainNavController, exploreNavController, nil];
-    
-    smileMainNavController.tabBarItem.image = [UIImage imageNamed:@"smiley_icon.png"];
-    nearbyNavController.tabBarItem.image = [UIImage imageNamed:@"nearby_icon.png"];
-    exploreNavController.tabBarItem.image = [UIImage imageNamed:@"profile_icon.png"];
+                                             nearbyNavController, smileMainNavController, profileNavController, nil];
+
 }
 
 - (void)showLoginViewIfUserIsLoggedOut

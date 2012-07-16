@@ -16,6 +16,7 @@
 
 @interface FetchUserRequest : ServerGetRequest
 - (void) send: (NSInteger) userID;
+- (void) sendForCurrentUser;
 
 @property (assign) id <FetchUserRequestDelegate> delegate;
 @end

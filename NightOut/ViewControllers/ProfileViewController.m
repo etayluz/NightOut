@@ -23,21 +23,25 @@
 #define PROFILE_CONFIRM_START_SMILE_GAME 1
 
 @implementation ProfileViewController
-@synthesize vpanel;
 @synthesize user;
-@synthesize scrollView, nameLabel, ageLabel, networkLabel, friendsLabel, profileImageView;
+@synthesize scrollView, nameLabel, ageLabel, profileImageView;
 @synthesize mutualFriendsView, interestsView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
-
+@synthesize style;
 @synthesize fetchUserRequest, startSmileGameRequest;
+@synthesize fetchCurrentUserOnLoad;
 
 - (id) init
 {
+    return [self initWithStyle:ProfileViewStyleFull];
+}
+
+- (id) initWithStyle:(ProfileViewStyle)_style
+{
     self = [super init];
     if (self) {
-        [Notification registerNotification:@"DidFetchUser" target:self selector:@selector(didFetchUser:)];
+        self.style = _style;
     }
-    
     return self;
 }
 
@@ -46,8 +50,6 @@
     self.scrollView = nil;
     self.nameLabel = nil;
     self.ageLabel = nil;
-    self.networkLabel = nil;
-    self.friendsLabel = nil;
     self.profileImageView = nil;
     self.mutualFriendsView = nil;
     self.interestsView = nil;
@@ -63,6 +65,11 @@
 - (void) updateFromUserID:(NSInteger)userID
 {
     [self.fetchUserRequest send:userID];
+}
+
+- (void) updateFromCurrentUser
+{
+    [self.fetchUserRequest sendForCurrentUser];
 }
 
 - (void) didFetchUser:(User *)u
@@ -103,7 +110,6 @@
     [self.interestsView reloadData];
 }
 
-
 - (void) updateInfoLabel:(NSString *) title value: (NSString *) aValue
 {
     UILabel *infoLabel = [self.infoValueLabels objectForKey:title];
@@ -119,6 +125,9 @@
     
     self.startSmileGameRequest = [[[StartSmileGameRequest alloc] init] autorelease];
     self.startSmileGameRequest.delegate = self;
+    
+    if (self.fetchCurrentUserOnLoad)
+        [self.fetchUserRequest sendForCurrentUser];
 }
 
 - (void) buildSubviews
@@ -150,25 +159,38 @@
     self.nameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 31)] autorelease];
     self.nameLabel.backgroundColor = [UIColor clearColor];
     self.nameLabel.textColor = [UIColor darkGrayColor];
+    self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:24];
     [self.scrollView addSubview:self.nameLabel]; 
-    self.heightOffset += 18;
     
     /* Age Label */
     self.ageLabel = [[[UILabel alloc] init] autorelease];
-    self.ageLabel.font = [UIFont fontWithName:@"Myriad Pro" size:20];
+    self.ageLabel.font = [UIFont fontWithName:@"Myriad Pro" size:24];
     self.ageLabel.backgroundColor = [UIColor clearColor];
     self.ageLabel.textColor = [UIColor grayColor];
     [self.scrollView addSubview:self.ageLabel]; 
-    self.heightOffset += 18;
+    self.heightOffset += 24;
+    
+    if (style == ProfileViewStyleFull)
+        [self createSmileAndMessageButtons];
+    
+    if (style == ProfileViewStyleFull || style == ProfileViewStyleChoose)
+        [self createMutualFriendsSection];
+        
+    [self createGeneralInfoSection];
+    [self createInterestsSection];
+}
+
+- (void) createSmileAndMessageButtons
+{
+    self.heightOffset += 8;
     
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchDown];
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 260, 40);    
-    [self.scrollView addSubview:self.smileButton];
     UIImage *smileButtonImage = [UIImage imageNamed:@"SmileButton.png"]; 
-    [self.smileButton setBackgroundImage:smileButtonImage forState:UIControlStateNormal];
-    self.heightOffset += 0;
+    [self.smileButton setBackgroundImage:smileButtonImage forState:UIControlStateNormal];    
+    [self.scrollView addSubview:self.smileButton];
     
     /* Message Button */
     self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
@@ -177,92 +199,25 @@
     [self.scrollView addSubview:self.messageButton];
     UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton2.png"];
     [self.messageButton setBackgroundImage:messageButtonImage forState:UIControlStateNormal];
-    self.heightOffset += 35;
-    
-    /* Separator Label */
-    UILabel *separator1 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
-    separator1.font            = [UIFont boldSystemFontOfSize:12];
-    separator1.backgroundColor = [UIColor clearColor];
-    separator1.text = @"______________________________________________";
-    separator1.textColor = [UIColor lightGrayColor];
-    [self.scrollView addSubview:separator1];
-    self.heightOffset += 17;
-    
-    /* Friends Label */
-    self.friendsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 150, 21)] autorelease];
-    self.friendsLabel.text = @"Mutual Friends";
-    self.friendsLabel.font            = [UIFont italicSystemFontOfSize:12];
-    self.friendsLabel.backgroundColor = [UIColor clearColor];
-    self.friendsLabel.textColor = [UIColor darkGrayColor];
-    [self.scrollView addSubview:self.friendsLabel];
-    self.heightOffset += 28;
+    self.heightOffset += 40;
+}
+
+- (void) createMutualFriendsSection
+{
+    [self createSeperatorWithTitle:@"Mutual Friends"];
     
     /* Mutual Friends Horizontal Scroll View */
-    self.mutualFriendsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320-5, 100)] autorelease];
+    self.mutualFriendsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320 - 5, 100)] autorelease];
     self.mutualFriendsView.backgroundColor = [UIColor clearColor];
     [self.scrollView addSubview:self.mutualFriendsView];    
     [self.mutualFriendsView reloadData];
     self.heightOffset += 70;
-    
-    /* Separator Label */
-    UILabel *separator2 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
-    separator2.font            = [UIFont boldSystemFontOfSize:12];
-    separator2.backgroundColor = [UIColor clearColor];
-    separator2.text = @"______________________________________________";
-    separator2.textColor = [UIColor lightGrayColor];
-    [self.scrollView addSubview:separator2];
-    self.heightOffset += 17;
-    
-    /* General Info Label */
-    [self generalInfo];
-    
-    /* Separator Label */
-    UILabel *separator3 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
-    separator3.font            = [UIFont boldSystemFontOfSize:12];
-    separator3.backgroundColor = [UIColor clearColor];
-    separator3.text = @"______________________________________________";
-    separator3.textColor = [UIColor lightGrayColor];
-    [self.scrollView addSubview:separator3];
-    self.heightOffset += 17;
-    
-    /* Music Label */
-    UILabel *interestsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
-    interestsLabel.font            = [UIFont italicSystemFontOfSize:12];
-    interestsLabel.backgroundColor = [UIColor clearColor];
-    interestsLabel.text = @"Interests";
-    interestsLabel.textColor = [UIColor darkGrayColor];
-    [self.scrollView addSubview:interestsLabel];
-    self.heightOffset += 28;
-
-    /* Music Scroll View */
-    self.interestsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320-5, 100)] autorelease];
-    [self.scrollView addSubview:self.interestsView];    
-    self.heightOffset += 75;
-
-    /* Separator Label */
-    UILabel *separator4 = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
-    separator4.font            = [UIFont boldSystemFontOfSize:12];
-    separator4.backgroundColor = [UIColor clearColor];
-    separator4.text = @"______________________________________________";
-    separator4.textColor = [UIColor lightGrayColor];
-    [self.scrollView addSubview:separator4];
-    self.heightOffset += 14;
-    
 }
 
-
-- (void) generalInfo
+- (void) createGeneralInfoSection
 {
-    UILabel *generalInfoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 100, 21)] autorelease];
-    generalInfoLabel.font            = [UIFont italicSystemFontOfSize:12];
-    self.nameLabel.font = [UIFont fontWithName:@"Myriad Pro" size:22];
-    generalInfoLabel.backgroundColor = [UIColor clearColor];
-    generalInfoLabel.text = @"General Info";
-    generalInfoLabel.textColor = [UIColor darkGrayColor];
-    [self.scrollView addSubview:generalInfoLabel];
-    self.heightOffset += 28;
-    //@synthesize hometownLabel, currentCityLabel, collegeLabel, interestedInLabel, relationshipStatusLabel, workLabel;
-    
+    [self createSeperatorWithTitle:@"General Info"];
+        
     NSArray *labels = [NSArray arrayWithObjects:@"Hometown", @"Current City", @"College", @"Interested In", @"Relationship Status", @"Work", nil];
     self.infoValueLabels = [NSMutableDictionary dictionary];
     
@@ -270,9 +225,55 @@
         [self createInfoLabel:element];
         self.heightOffset += 20;
     }
-    
 }
 
+- (void) createInterestsSection
+{
+    [self createSeperatorWithTitle:@"Interests"];
+    
+    /* Interests Scroll View */
+    self.interestsView = [[[HorizontalGallery alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320-5, 100)] autorelease];
+    [self.scrollView addSubview:self.interestsView];    
+    self.heightOffset += 75;
+}
+
+- (void) createSeperator
+{
+    UILabel *separator = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 320, 21)] autorelease];
+    separator.font            = [UIFont boldSystemFontOfSize:12];
+    separator.backgroundColor = [UIColor clearColor];
+    separator.text = @"______________________________________________";
+    separator.textColor = [UIColor lightGrayColor];
+    [self.scrollView addSubview:separator];
+    
+    self.heightOffset += 28;
+}
+
+- (void) createSeperatorWithTitle:(NSString *)title
+{
+    self.heightOffset += 14;
+    
+    UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(5, self.heightOffset, 150, 21)] autorelease];
+    label.text = title;
+    label.font            = [UIFont fontWithName:@"Myriad Pro" size:18];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor darkGrayColor];
+    [self.scrollView addSubview:label];
+        
+    [self createSeperator];
+}
+
+- (CGRect) lowestFrame
+{
+    UIView *lastView = (UIView *)self.view.subviews.lastObject;
+    return lastView.frame;
+}
+
+- (CGFloat) lowestPoint
+{
+    CGRect lowestFrame = [self lowestFrame];
+    return lowestFrame.origin.y + lowestFrame.size.height;
+}
 
 - (IBAction)handleImageTap:(UITapGestureRecognizer *)recognizer
 {
@@ -282,17 +283,14 @@
 - (void) createInfoLabel: (NSString *) caption
 {
     UILabel *infoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, self.heightOffset, 100, 21)] autorelease];
-//    infoLabel.font = [UIFont boldSystemFontOfSize:11];
     infoLabel.font = [UIFont fontWithName:@"Myriad Pro" size:15];
     infoLabel.backgroundColor = [UIColor clearColor];
     infoLabel.textColor = [UIColor darkGrayColor];
     infoLabel.text = caption;
     [infoLabel sizeToFit];
-    //NSLog(@"%f", infoLabel.frame.size.width);
     [self.scrollView addSubview:infoLabel];
     
     UILabel *infoValueLabel = [[[UILabel alloc] initWithFrame:CGRectMake(infoLabel.frame.size.width + 20, self.heightOffset-3, 100, 21)] autorelease];
-//    infoValueLabel.font = [UIFont boldSystemFontOfSize:11];
     infoValueLabel.font = [UIFont fontWithName:@"Myriad" size:15];
     infoValueLabel.backgroundColor = [UIColor clearColor];
     infoValueLabel.textColor = [UIColor grayColor];

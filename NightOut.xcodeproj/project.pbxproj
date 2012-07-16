@@ -26,6 +26,7 @@
 		37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A115AFA3B8008157AE /* profile_icon.png */; };
 		37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A415AFA3C8008157AE /* smiley_icon.png */; };
 		37DABBC315B3354A00B12F1E /* SmilesReceivedHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37DABBC215B3354A00B12F1E /* SmilesReceivedHeader.png */; };
+		37DABBCF15B39B9800B12F1E /* SmileGameViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DABBCE15B39B9700B12F1E /* SmileGameViewControllerViewController.m */; };
 		37E0D3B015AFA17B00BCA328 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */; };
 		37E0D3B115AFA17B00BCA328 /* FetchAllConversationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */; };
 		37E0D3B215AFA17B00BCA328 /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22A15AFA17B00BCA328 /* FetchConversationRequest.m */; };
@@ -157,11 +158,8 @@
 		37E0D43415AFA17C00BCA328 /* SmileMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D37815AFA17B00BCA328 /* SmileMainViewController.xib */; };
 		37E0D43515AFA17C00BCA328 /* SmilesReceivedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */; };
 		37E0D43715AFA17C00BCA328 /* SmilesSentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */; };
-		37E0D43815AFA17C00BCA328 /* WWOExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D37F15AFA17B00BCA328 /* WWOExploreViewController.m */; };
-		37E0D43915AFA17C00BCA328 /* WWOExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D38015AFA17B00BCA328 /* WWOExploreViewController.xib */; };
 		37E0D43A15AFA17C00BCA328 /* WWOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D38215AFA17B00BCA328 /* WWOLoginViewController.m */; };
 		37E0D43B15AFA17C00BCA328 /* WWOLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D38315AFA17B00BCA328 /* WWOLoginViewController.xib */; };
-		37E0D43C15AFA17C00BCA328 /* WWOProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D38415AFA17B00BCA328 /* WWOProfileViewController.xib */; };
 		37E0D43D15AFA17C00BCA328 /* WWOSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D38515AFA17B00BCA328 /* WWOSettingsViewController.xib */; };
 		37E0D43E15AFA17C00BCA328 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D38B15AFA17B00BCA328 /* AQGridView.m */; };
 		37E0D43F15AFA17C00BCA328 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D38D15AFA17B00BCA328 /* AQGridViewAnimatorItem.m */; };
@@ -211,6 +209,8 @@
 		37CA04A115AFA3B8008157AE /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		37CA04A415AFA3C8008157AE /* smiley_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_icon.png; sourceTree = "<group>"; };
 		37DABBC215B3354A00B12F1E /* SmilesReceivedHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesReceivedHeader.png; sourceTree = "<group>"; };
+		37DABBCD15B39B9700B12F1E /* SmileGameViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileGameViewControllerViewController.h; sourceTree = "<group>"; };
+		37DABBCE15B39B9700B12F1E /* SmileGameViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileGameViewControllerViewController.m; sourceTree = "<group>"; };
 		37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		37E0D22715AFA17B00BCA328 /* FetchAllConversationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchAllConversationsRequest.h; sourceTree = "<group>"; };
 		37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchAllConversationsRequest.m; sourceTree = "<group>"; };
@@ -491,13 +491,9 @@
 		37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesReceivedViewController.m; sourceTree = "<group>"; };
 		37E0D37C15AFA17B00BCA328 /* SmilesSentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmilesSentViewController.h; sourceTree = "<group>"; };
 		37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmilesSentViewController.m; sourceTree = "<group>"; };
-		37E0D37E15AFA17B00BCA328 /* WWOExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOExploreViewController.h; sourceTree = "<group>"; };
-		37E0D37F15AFA17B00BCA328 /* WWOExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOExploreViewController.m; sourceTree = "<group>"; };
-		37E0D38015AFA17B00BCA328 /* WWOExploreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOExploreViewController.xib; sourceTree = "<group>"; };
 		37E0D38115AFA17B00BCA328 /* WWOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOLoginViewController.h; sourceTree = "<group>"; };
 		37E0D38215AFA17B00BCA328 /* WWOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOLoginViewController.m; sourceTree = "<group>"; };
 		37E0D38315AFA17B00BCA328 /* WWOLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOLoginViewController.xib; sourceTree = "<group>"; };
-		37E0D38415AFA17B00BCA328 /* WWOProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOProfileViewController.xib; sourceTree = "<group>"; };
 		37E0D38515AFA17B00BCA328 /* WWOSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWOSettingsViewController.xib; sourceTree = "<group>"; };
 		37E0D38815AFA17B00BCA328 /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
 		37E0D38915AFA17B00BCA328 /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
@@ -1350,14 +1346,12 @@
 				37E0D37A15AFA17B00BCA328 /* SmilesReceivedViewController.m */,
 				37E0D37C15AFA17B00BCA328 /* SmilesSentViewController.h */,
 				37E0D37D15AFA17B00BCA328 /* SmilesSentViewController.m */,
-				37E0D37E15AFA17B00BCA328 /* WWOExploreViewController.h */,
-				37E0D37F15AFA17B00BCA328 /* WWOExploreViewController.m */,
-				37E0D38015AFA17B00BCA328 /* WWOExploreViewController.xib */,
 				37E0D38115AFA17B00BCA328 /* WWOLoginViewController.h */,
 				37E0D38215AFA17B00BCA328 /* WWOLoginViewController.m */,
 				37E0D38315AFA17B00BCA328 /* WWOLoginViewController.xib */,
-				37E0D38415AFA17B00BCA328 /* WWOProfileViewController.xib */,
 				37E0D38515AFA17B00BCA328 /* WWOSettingsViewController.xib */,
+				37DABBCD15B39B9700B12F1E /* SmileGameViewControllerViewController.h */,
+				37DABBCE15B39B9700B12F1E /* SmileGameViewControllerViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1554,9 +1548,7 @@
 				37E0D42D15AFA17C00BCA328 /* MyriadPro-LightIt.otf in Resources */,
 				37E0D42E15AFA17C00BCA328 /* MyriadPro-SemiboldCond.otf in Resources */,
 				37E0D43415AFA17C00BCA328 /* SmileMainViewController.xib in Resources */,
-				37E0D43915AFA17C00BCA328 /* WWOExploreViewController.xib in Resources */,
 				37E0D43B15AFA17C00BCA328 /* WWOLoginViewController.xib in Resources */,
-				37E0D43C15AFA17C00BCA328 /* WWOProfileViewController.xib in Resources */,
 				37E0D43D15AFA17C00BCA328 /* WWOSettingsViewController.xib in Resources */,
 				37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */,
 				37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */,
@@ -1656,7 +1648,6 @@
 				37E0D43315AFA17C00BCA328 /* SmileMainViewController.m in Sources */,
 				37E0D43515AFA17C00BCA328 /* SmilesReceivedViewController.m in Sources */,
 				37E0D43715AFA17C00BCA328 /* SmilesSentViewController.m in Sources */,
-				37E0D43815AFA17C00BCA328 /* WWOExploreViewController.m in Sources */,
 				37E0D43A15AFA17C00BCA328 /* WWOLoginViewController.m in Sources */,
 				37E0D43E15AFA17C00BCA328 /* AQGridView.m in Sources */,
 				37E0D43F15AFA17C00BCA328 /* AQGridViewAnimatorItem.m in Sources */,
@@ -1675,6 +1666,7 @@
 				37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */,
 				37303C9B15B0B0A6004B4BEA /* UILabel+Extensions.m in Sources */,
 				37303CAA15B0C9AA004B4BEA /* StartSmileGameRequest.m in Sources */,
+				37DABBCF15B39B9800B12F1E /* SmileGameViewControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,14 @@
     }
 }
 
+- (void) sendForCurrentUser
+{
+    if (!self.request) {
+        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/me?token=%@", self.accessToken];
+        [self sendToUrl:url];
+    }
+}
+
 - (void) didFetchJson:(NSDictionary *)json
 {
     NSDictionary *userDict = [json objectForKey:@"user"];

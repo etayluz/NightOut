@@ -18,12 +18,20 @@
 
 #define OFFSET_FROM_NAME_LABEL     30
 
+typedef enum {
+    ProfileViewStyleFull,
+    ProfileViewStyleSelf,
+    ProfileViewStyleChoose
+} ProfileViewStyle;
+
 @interface ProfileViewController : UIViewController <FetchUserRequestDelegate, StartSmileGameRequestDelegate, UIAlertViewDelegate>
 
 - (void) updateFromUserID:(NSInteger)userID;
+- (void) updateFromCurrentUser;
 - (void) updateFromUser:(User *)user;
 - (void) messageButtonTap;
 - (void) smilesButtonTap;
+- (id) initWithStyle:(ProfileViewStyle)_style;
 
 @property (nonatomic, retain) StartSmileGameRequest *startSmileGameRequest;
 
@@ -31,8 +39,6 @@
 
 @property (nonatomic, retain)  UILabel *nameLabel;
 @property (nonatomic, retain)  UILabel *ageLabel;
-@property (nonatomic, retain)  UILabel *friendsLabel;
-@property (nonatomic, retain)  UILabel *networkLabel;
 @property (nonatomic, retain)  UIImageView *profileImageView;
 
 @property (nonatomic, retain)  HorizontalGallery *mutualFriendsView;
@@ -41,9 +47,11 @@
 @property (nonatomic, retain)  UIButton *messageButton;
 @property (nonatomic, retain)  UIButton *smileButton;
 @property (nonatomic, retain)  UIScrollView *scrollView;
-@property (nonatomic, retain) VLayoutView *vpanel;
 
 @property (nonatomic, retain) NSMutableDictionary *infoValueLabels;
-
+@property (nonatomic) ProfileViewStyle style;
 @property (nonatomic)  NSInteger heightOffset;
+
+@property (nonatomic) BOOL fetchCurrentUserOnLoad;
+
 @end
