@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 WhoWentOut. All rights reserved.
 //
 
-#import "FetchSmileGamesRequest.h"
+#import "FetchAllSmileGamesRequest.h"
 #import "SmileGame.h"
 
 
-@implementation FetchSmileGamesRequest : ServerGetRequest
+@implementation FetchAllSmileGamesRequest : ServerGetRequest
 @synthesize delegate;
 
 - (void) sendWithStatus:(NSString *)status

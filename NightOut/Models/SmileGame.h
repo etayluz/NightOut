@@ -13,9 +13,12 @@
 @interface SmileGame : NSObject <AsDictionary>
 
 @property (nonatomic) NSInteger OID;
+
 @property (nonatomic, retain) User *sender;
 @property (nonatomic, retain) User *receiver;
 
 @property (nonatomic) NSInteger guessesRemaining;
+
+@property (nonatomic, retain) NSMutableArray *choices;
 
 @end

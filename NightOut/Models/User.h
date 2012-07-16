@@ -19,7 +19,7 @@
 @property (retain) NSNumber *age;
 @property (retain) NSArray *mutualFriends;
 
-@property (retain) NSArray  *pictures;
+@property (retain) NSArray  *photos;
 
 @property (retain) NSString *thumb;
 

@@ -24,11 +24,11 @@ typedef enum {
     ProfileViewStyleChoose
 } ProfileViewStyle;
 
-@interface ProfileViewController : UIViewController <FetchUserRequestDelegate, StartSmileGameRequestDelegate, UIAlertViewDelegate>
+@interface ProfileViewController : UIViewController <FetchUserRequestDelegate, StartSmileGameRequestDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 
-- (void) updateFromUserID:(NSInteger)userID;
-- (void) updateFromCurrentUser;
-- (void) updateFromUser:(User *)user;
+- (void) loadFromUserID:(NSInteger)userID;
+- (void) loadFromUser:(User *)user;
+- (void) loadCurrentUser;
 - (void) messageButtonTap;
 - (void) smilesButtonTap;
 - (id) initWithStyle:(ProfileViewStyle)_style;
@@ -51,6 +51,9 @@ typedef enum {
 @property (nonatomic, retain) NSMutableDictionary *infoValueLabels;
 @property (nonatomic) ProfileViewStyle style;
 @property (nonatomic)  NSInteger heightOffset;
+
+@property (nonatomic, retain) UIView *chooseFooter;
+@property (nonatomic, retain) UIButton *chooseButton;
 
 @property (nonatomic) BOOL fetchCurrentUserOnLoad;
 

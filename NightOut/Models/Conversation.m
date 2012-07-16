@@ -42,10 +42,4 @@
     return self;
 }
 
-- (NSMutableDictionary *) toDictionary
-{
-    return nil;
-}
-
-
 @end

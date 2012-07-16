@@ -8,7 +8,10 @@
 
 #import "SmilesReceivedViewController.h"
 #import "Notification.h"
+
 #import "ProfileViewController.h"
+#import "SmileGameViewController.h"
+
 #import "User.h"
 #import "SmileGame.h"
 #import "UIImageView+ScaledImage.h"
@@ -45,7 +48,7 @@
                                    action:@selector(myBackAction:)] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
     
-    self.fetchSmileGamesRequest = [[[FetchSmileGamesRequest alloc] init] autorelease];
+    self.fetchSmileGamesRequest = [[[FetchAllSmileGamesRequest alloc] init] autorelease];
     self.fetchSmileGamesRequest.delegate = self;
     [self refreshSmileGames];
 }
@@ -70,6 +73,15 @@
     cell.rightLabel.text = [NSString stringWithFormat:@"%d", game.guessesRemaining];
         
     [cell.imageView setImageWithURLScaled:@"http://wwoapp.heroku.com/assets/user_anonymous_m.png"];
+}
+
+- (void) didSelectItem:(NSObject *)item
+{
+    SmileGame *smileGame = (SmileGame *)item;
+    
+    SmileGameViewController *smileGameVC = [[[SmileGameViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:smileGameVC animated:YES];
+    [smileGameVC loadSmileGameFromID:smileGame.OID];
 }
 
 - (void)viewDidUnload

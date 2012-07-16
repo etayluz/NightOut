@@ -10,9 +10,12 @@
 #import "AQGridView.h"
 #import "FrameGridViewCell.h"
 
-@protocol FramedGalleryViewDelegate
+@protocol FramedGalleryViewDelegate <NSObject>
 
 - (void) updateCell:(FrameGridViewCell *)cell fromItem:(NSObject *)item;
+
+@optional
+- (void) didSelectItem:(NSObject *)item;
 
 @end
 

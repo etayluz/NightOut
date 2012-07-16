@@ -76,7 +76,7 @@
         cell = [[[FrameGridViewCell alloc] initWithFrame:CGRectMake(0, 0, FRAMED_GALLERY_ITEM_WIDTH, FRAMED_GALLERY_ITEM_HEIGHT) reuseIdentifier:smilesCellIdentifier style:self.frameStyle] autorelease];
     }
     
-    [self.delegate updateCell:cell fromItem:[self.items objectAtIndex:0]];
+    [self.delegate updateCell:cell fromItem:[self.items objectAtIndex:index]];
     
     return cell;
 }
@@ -112,6 +112,11 @@
 
 - (NSUInteger) gridView: (AQGridView *) gridView willSelectItemAtIndex: (NSUInteger) index
 {
+    NSObject *item = [self.items objectAtIndex:index];
+    
+    if ([self.delegate respondsToSelector:@selector(didSelectItem:)]) 
+        [self.delegate didSelectItem:item];
+    
     return index;
 }
 

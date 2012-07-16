@@ -56,7 +56,7 @@
                                    action:@selector(myBackAction:)] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
     
-    self.fetchSmileGamesRequest = [[[FetchSmileGamesRequest alloc] init] autorelease];
+    self.fetchSmileGamesRequest = [[[FetchAllSmileGamesRequest alloc] init] autorelease];
     self.fetchSmileGamesRequest.delegate = self;
     [self refreshSmileGames];
 }

@@ -22,16 +22,17 @@
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
+		37C62E5515B4633E00742E5D /* SmileGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C62E5415B4633E00742E5D /* SmileGameViewController.m */; };
+		37C62E5815B464A400742E5D /* SmileGameChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C62E5715B464A400742E5D /* SmileGameChoice.m */; };
+		37C62E5B15B46E4300742E5D /* FetchSmileGameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C62E5A15B46E4300742E5D /* FetchSmileGameRequest.m */; };
 		37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A015AFA3B8008157AE /* nearby_icon.png */; };
 		37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A115AFA3B8008157AE /* profile_icon.png */; };
 		37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A415AFA3C8008157AE /* smiley_icon.png */; };
-		37DABBC315B3354A00B12F1E /* SmilesReceivedHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37DABBC215B3354A00B12F1E /* SmilesReceivedHeader.png */; };
-		37DABBCF15B39B9800B12F1E /* SmileGameViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DABBCE15B39B9700B12F1E /* SmileGameViewControllerViewController.m */; };
 		37E0D3B015AFA17B00BCA328 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */; };
 		37E0D3B115AFA17B00BCA328 /* FetchAllConversationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */; };
 		37E0D3B215AFA17B00BCA328 /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22A15AFA17B00BCA328 /* FetchConversationRequest.m */; };
 		37E0D3B315AFA17B00BCA328 /* FetchNeighborhoodRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22C15AFA17B00BCA328 /* FetchNeighborhoodRequest.m */; };
-		37E0D3B415AFA17B00BCA328 /* FetchSmileGamesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22E15AFA17B00BCA328 /* FetchSmileGamesRequest.m */; };
+		37E0D3B415AFA17B00BCA328 /* FetchAllSmileGamesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22E15AFA17B00BCA328 /* FetchAllSmileGamesRequest.m */; };
 		37E0D3B515AFA17B00BCA328 /* FetchUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D23015AFA17B00BCA328 /* FetchUserRequest.m */; };
 		37E0D3B615AFA17B00BCA328 /* GPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D23215AFA17B00BCA328 /* GPS.m */; };
 		37E0D3B715AFA17B00BCA328 /* RegisterPushTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D23415AFA17B00BCA328 /* RegisterPushTokenRequest.m */; };
@@ -205,12 +206,16 @@
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		37C62E5315B4633E00742E5D /* SmileGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileGameViewController.h; sourceTree = "<group>"; };
+		37C62E5415B4633E00742E5D /* SmileGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileGameViewController.m; sourceTree = "<group>"; };
+		37C62E5615B464A400742E5D /* SmileGameChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileGameChoice.h; sourceTree = "<group>"; };
+		37C62E5715B464A400742E5D /* SmileGameChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileGameChoice.m; sourceTree = "<group>"; };
+		37C62E5915B46E4300742E5D /* FetchSmileGameRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchSmileGameRequest.h; sourceTree = "<group>"; };
+		37C62E5A15B46E4300742E5D /* FetchSmileGameRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchSmileGameRequest.m; sourceTree = "<group>"; };
 		37CA04A015AFA3B8008157AE /* nearby_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby_icon.png; sourceTree = "<group>"; };
 		37CA04A115AFA3B8008157AE /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		37CA04A415AFA3C8008157AE /* smiley_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_icon.png; sourceTree = "<group>"; };
 		37DABBC215B3354A00B12F1E /* SmilesReceivedHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesReceivedHeader.png; sourceTree = "<group>"; };
-		37DABBCD15B39B9700B12F1E /* SmileGameViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileGameViewControllerViewController.h; sourceTree = "<group>"; };
-		37DABBCE15B39B9700B12F1E /* SmileGameViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileGameViewControllerViewController.m; sourceTree = "<group>"; };
 		37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		37E0D22715AFA17B00BCA328 /* FetchAllConversationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchAllConversationsRequest.h; sourceTree = "<group>"; };
 		37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchAllConversationsRequest.m; sourceTree = "<group>"; };
@@ -218,8 +223,8 @@
 		37E0D22A15AFA17B00BCA328 /* FetchConversationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchConversationRequest.m; sourceTree = "<group>"; };
 		37E0D22B15AFA17B00BCA328 /* FetchNeighborhoodRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchNeighborhoodRequest.h; sourceTree = "<group>"; };
 		37E0D22C15AFA17B00BCA328 /* FetchNeighborhoodRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchNeighborhoodRequest.m; sourceTree = "<group>"; };
-		37E0D22D15AFA17B00BCA328 /* FetchSmileGamesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchSmileGamesRequest.h; sourceTree = "<group>"; };
-		37E0D22E15AFA17B00BCA328 /* FetchSmileGamesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchSmileGamesRequest.m; sourceTree = "<group>"; };
+		37E0D22D15AFA17B00BCA328 /* FetchAllSmileGamesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchAllSmileGamesRequest.h; sourceTree = "<group>"; };
+		37E0D22E15AFA17B00BCA328 /* FetchAllSmileGamesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchAllSmileGamesRequest.m; sourceTree = "<group>"; };
 		37E0D22F15AFA17B00BCA328 /* FetchUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchUserRequest.h; sourceTree = "<group>"; };
 		37E0D23015AFA17B00BCA328 /* FetchUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchUserRequest.m; sourceTree = "<group>"; };
 		37E0D23115AFA17B00BCA328 /* GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPS.h; sourceTree = "<group>"; };
@@ -609,8 +614,8 @@
 				37E0D22A15AFA17B00BCA328 /* FetchConversationRequest.m */,
 				37E0D22B15AFA17B00BCA328 /* FetchNeighborhoodRequest.h */,
 				37E0D22C15AFA17B00BCA328 /* FetchNeighborhoodRequest.m */,
-				37E0D22D15AFA17B00BCA328 /* FetchSmileGamesRequest.h */,
-				37E0D22E15AFA17B00BCA328 /* FetchSmileGamesRequest.m */,
+				37E0D22D15AFA17B00BCA328 /* FetchAllSmileGamesRequest.h */,
+				37E0D22E15AFA17B00BCA328 /* FetchAllSmileGamesRequest.m */,
 				37E0D22F15AFA17B00BCA328 /* FetchUserRequest.h */,
 				37E0D23015AFA17B00BCA328 /* FetchUserRequest.m */,
 				37E0D23115AFA17B00BCA328 /* GPS.h */,
@@ -629,6 +634,8 @@
 				37E0D23E15AFA17B00BCA328 /* UpdateLocationRequest.m */,
 				37303CA815B0C9AA004B4BEA /* StartSmileGameRequest.h */,
 				37303CA915B0C9AA004B4BEA /* StartSmileGameRequest.m */,
+				37C62E5915B46E4300742E5D /* FetchSmileGameRequest.h */,
+				37C62E5A15B46E4300742E5D /* FetchSmileGameRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -841,6 +848,8 @@
 				37E0D2B915AFA17B00BCA328 /* SmileGame.m */,
 				37E0D2BA15AFA17B00BCA328 /* User.h */,
 				37E0D2BB15AFA17B00BCA328 /* User.m */,
+				37C62E5615B464A400742E5D /* SmileGameChoice.h */,
+				37C62E5715B464A400742E5D /* SmileGameChoice.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1350,8 +1359,8 @@
 				37E0D38215AFA17B00BCA328 /* WWOLoginViewController.m */,
 				37E0D38315AFA17B00BCA328 /* WWOLoginViewController.xib */,
 				37E0D38515AFA17B00BCA328 /* WWOSettingsViewController.xib */,
-				37DABBCD15B39B9700B12F1E /* SmileGameViewControllerViewController.h */,
-				37DABBCE15B39B9700B12F1E /* SmileGameViewControllerViewController.m */,
+				37C62E5315B4633E00742E5D /* SmileGameViewController.h */,
+				37C62E5415B4633E00742E5D /* SmileGameViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1558,7 +1567,6 @@
 				37303C9515B0AC24004B4BEA /* MutualFriendsIcon.png in Resources */,
 				37303C9615B0AC24004B4BEA /* NetworksIcon.png in Resources */,
 				37303C9815B0AFC0004B4BEA /* Ribbon.png in Resources */,
-				37DABBC315B3354A00B12F1E /* SmilesReceivedHeader.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1572,7 +1580,7 @@
 				37E0D3B115AFA17B00BCA328 /* FetchAllConversationsRequest.m in Sources */,
 				37E0D3B215AFA17B00BCA328 /* FetchConversationRequest.m in Sources */,
 				37E0D3B315AFA17B00BCA328 /* FetchNeighborhoodRequest.m in Sources */,
-				37E0D3B415AFA17B00BCA328 /* FetchSmileGamesRequest.m in Sources */,
+				37E0D3B415AFA17B00BCA328 /* FetchAllSmileGamesRequest.m in Sources */,
 				37E0D3B515AFA17B00BCA328 /* FetchUserRequest.m in Sources */,
 				37E0D3B615AFA17B00BCA328 /* GPS.m in Sources */,
 				37E0D3B715AFA17B00BCA328 /* RegisterPushTokenRequest.m in Sources */,
@@ -1666,7 +1674,9 @@
 				37E0D44C15AFA17C00BCA328 /* ThumbViewCell.m in Sources */,
 				37303C9B15B0B0A6004B4BEA /* UILabel+Extensions.m in Sources */,
 				37303CAA15B0C9AA004B4BEA /* StartSmileGameRequest.m in Sources */,
-				37DABBCF15B39B9800B12F1E /* SmileGameViewControllerViewController.m in Sources */,
+				37C62E5515B4633E00742E5D /* SmileGameViewController.m in Sources */,
+				37C62E5815B464A400742E5D /* SmileGameChoice.m in Sources */,
+				37C62E5B15B46E4300742E5D /* FetchSmileGameRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

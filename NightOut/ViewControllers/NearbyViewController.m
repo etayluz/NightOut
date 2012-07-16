@@ -256,7 +256,7 @@
     
     [self.navigationController pushViewController:profileVC animated:YES];
     
-    [profileVC updateFromUserID:user.OID];
+    [profileVC loadFromUserID:user.OID];
 }
 
 - (void) showFilters

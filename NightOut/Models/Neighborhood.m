@@ -38,10 +38,4 @@
     return self;
 }
 
-- (NSMutableDictionary *) toDictionary
-{
-    return nil; //TODO: implement laterish
-}
-
-
 @end

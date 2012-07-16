@@ -11,7 +11,7 @@
 
 @implementation User : NSObject
 
-@synthesize OID, conversationID, name, age, pictures, thumb, network, mutualFriends;
+@synthesize OID, conversationID, name, age, photos, thumb, network, mutualFriends;
 @synthesize hometown, currentCity, college, interestedIn, relationshipStatus, work;
 @synthesize music, interests, recentPlaces;
 
@@ -19,7 +19,7 @@
 {
     self.name = nil;
     self.age = nil;
-    self.pictures = nil;
+    self.photos = nil;
     self.thumb = nil;
     self.network = nil;
     self.mutualFriends = nil;
@@ -43,9 +43,13 @@
         self.conversationID = [[dictionary objectForKey:@"conversation_id"] integerValue];
         
         self.name = [dictionary objectForKey:@"name"];
-        self.age = [dictionary objectForKey:@"age"];
+        
+        if ([dictionary objectForKey:@"age"] != [NSNull null]) {
+            self.age = [dictionary objectForKey:@"age"];
+        }
+        
         self.network = [dictionary objectForKey:@"networks"];
-        self.pictures = [dictionary objectForKey:@"photos"];
+        self.photos = [dictionary objectForKey:@"photos"];
         self.thumb = [dictionary objectForKey:@"thumb"];
         
         self.currentCity = [dictionary objectForKey:@"current_city"];
@@ -61,18 +65,6 @@
         self.recentPlaces = [dictionary objectForKey:@"recent_places"];
     }
     return self;
-}
-
-- (NSMutableDictionary *) toDictionary
-{
-    NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-    
-    [dictionary setObject:self.name forKey:@"name"];
-    [dictionary setObject:self.age forKey:@"age"];
-    [dictionary setObject:[NSNumber numberWithInt:self.OID] forKey:@"userID"];
-    [dictionary setObject:self.thumb forKey:@"thumb"];
-    
-    return dictionary;
 }
 
 @end

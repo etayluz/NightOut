@@ -10,5 +10,4 @@
 
 @protocol AsDictionary <NSObject>
 - (id) initWithDictionary: (NSDictionary *) dictionary;
-- (NSMutableDictionary *) toDictionary;
 @end

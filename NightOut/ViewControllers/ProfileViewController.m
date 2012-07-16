@@ -30,6 +30,7 @@
 @synthesize style;
 @synthesize fetchUserRequest, startSmileGameRequest;
 @synthesize fetchCurrentUserOnLoad;
+@synthesize chooseFooter, chooseButton;
 
 - (id) init
 {
@@ -58,26 +59,28 @@
     self.smileButton = nil;
     self.infoValueLabels = nil;
     self.fetchUserRequest = nil;
+    self.chooseFooter = nil;
+    self.chooseButton = nil;
     
     [super dealloc];
 }
 
-- (void) updateFromUserID:(NSInteger)userID
+- (void) loadFromUserID:(NSInteger)userID
 {
     [self.fetchUserRequest send:userID];
 }
 
-- (void) updateFromCurrentUser
+- (void) loadCurrentUser
 {
     [self.fetchUserRequest sendForCurrentUser];
 }
 
 - (void) didFetchUser:(User *)u
 {
-    [self updateFromUser:u];
+    [self loadFromUser:u];
 }
 
-- (void) updateFromUser:(User *)aUser
+- (void) loadFromUser:(User *)aUser
 {
     [self buildSubviews];
     self.user = aUser;
@@ -87,7 +90,7 @@
     
     self.nameLabel.text = aUser.name;
     
-    [self.profileImageView setImageWithURLScaled:[aUser.pictures objectAtIndex:0]];
+    [self.profileImageView setImageWithURLScaled:[aUser.photos objectAtIndex:0]];
     
     self.ageLabel.text = [aUser.age stringValue];
     
@@ -178,6 +181,10 @@
         
     [self createGeneralInfoSection];
     [self createInterestsSection];
+    [self createChooseFooter];
+    
+    if (self.style == ProfileViewStyleChoose)
+        [self showChooseDialog];
 }
 
 - (void) createSmileAndMessageButtons
@@ -259,21 +266,10 @@
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor darkGrayColor];
     [self.scrollView addSubview:label];
-        
+    
     [self createSeperator];
 }
 
-- (CGRect) lowestFrame
-{
-    UIView *lastView = (UIView *)self.view.subviews.lastObject;
-    return lastView.frame;
-}
-
-- (CGFloat) lowestPoint
-{
-    CGRect lowestFrame = [self lowestFrame];
-    return lowestFrame.origin.y + lowestFrame.size.height;
-}
 
 - (IBAction)handleImageTap:(UITapGestureRecognizer *)recognizer
 {
@@ -299,6 +295,22 @@
     [self.infoValueLabels setObject:infoValueLabel forKey:caption];
 }
 
+/* Choose Him / Her Section */
+- (void) createChooseFooter
+{
+    CGRect frame = CGRectMake(0, self.view.frame.size.height - 70, self.view.frame.size.width, 70);
+    self.chooseFooter = [[[UIView alloc] initWithFrame:frame] autorelease];
+    self.chooseFooter.backgroundColor = [UIColor yellowColor];
+    self.chooseFooter.hidden = YES;
+    
+    self.chooseButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    self.chooseButton.frame = CGRectMake(0, 0, 150, 50);
+    [self.chooseButton setTitle:@"Choose" forState:UIControlStateNormal];
+    
+    [self.chooseFooter addSubview:chooseButton];
+    
+    [self.view addSubview:chooseFooter];
+}
 
 - (void) messageButtonTap
 {
@@ -317,6 +329,11 @@
 	[alert addButtonWithTitle:@"No"];
 	[alert show];
 	[alert release];
+}
+
+- (void)showChooseDialog
+{
+    self.chooseFooter.hidden = NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -373,7 +390,7 @@
 {
     PhotoSliderViewController *photoSliderViewController = [[[PhotoSliderViewController alloc] init] autorelease];
     [self.navigationController pushViewController:photoSliderViewController animated:YES];
-    [photoSliderViewController loadPhotoUrls:self.user.pictures];
+    [photoSliderViewController loadPhotoUrls:self.user.photos];
 }
 
 - (void)viewDidUnload

@@ -16,7 +16,7 @@
 #define SmileGameStatusReceived @"received"
 #define SmileGameStatusMatch @"match"
 
-@interface FetchSmileGamesRequest : ServerGetRequest
+@interface FetchAllSmileGamesRequest : ServerGetRequest
 @property (assign) id <FetchSmileGamesRequestDelegate> delegate;
 - (void) sendWithStatus:(NSString *)status;
 @end

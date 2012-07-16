@@ -10,12 +10,12 @@
 #import "AQGridView.h"
 
 #import "FramedGalleryView.h"
-#import "FetchSmileGamesRequest.h"
+#import "FetchAllSmileGamesRequest.h"
 
 @interface SmilesSentViewController : UIViewController <FetchSmileGamesRequestDelegate, FramedGalleryViewDelegate>
 
 @property (nonatomic, retain) FramedGalleryView *gallery;
-@property (nonatomic, retain) FetchSmileGamesRequest *fetchSmileGamesRequest;
+@property (nonatomic, retain) FetchAllSmileGamesRequest *fetchSmileGamesRequest;
 @property (nonatomic, retain) UIView *header;
 
 @end
