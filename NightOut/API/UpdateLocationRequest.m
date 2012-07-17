@@ -25,7 +25,7 @@
     NSString *latitude = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString *longitude = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
         
-    NSString *url = @"http://wwoapp.herokuapp.com/api/v1/location";
+    NSString *url = [self fullUrl:@"location"];
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.accessToken, @"token",
                             latitude, @"latitude", longitude, @"longitude", nil];

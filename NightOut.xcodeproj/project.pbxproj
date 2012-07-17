@@ -32,6 +32,7 @@
 		37CA04A215AFA3B8008157AE /* nearby_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A015AFA3B8008157AE /* nearby_icon.png */; };
 		37CA04A315AFA3B8008157AE /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A115AFA3B8008157AE /* profile_icon.png */; };
 		37CA04A515AFA3C8008157AE /* smiley_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37CA04A415AFA3C8008157AE /* smiley_icon.png */; };
+		37DA624415B5B9B700879889 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA624315B5B9B700879889 /* ServerRequest.m */; };
 		37E0D3B015AFA17B00BCA328 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */; };
 		37E0D3B115AFA17B00BCA328 /* FetchAllConversationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22815AFA17B00BCA328 /* FetchAllConversationsRequest.m */; };
 		37E0D3B215AFA17B00BCA328 /* FetchConversationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E0D22A15AFA17B00BCA328 /* FetchConversationRequest.m */; };
@@ -225,6 +226,8 @@
 		37CA04A015AFA3B8008157AE /* nearby_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby_icon.png; sourceTree = "<group>"; };
 		37CA04A115AFA3B8008157AE /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		37CA04A415AFA3C8008157AE /* smiley_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_icon.png; sourceTree = "<group>"; };
+		37DA624215B5B9B700879889 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
+		37DA624315B5B9B700879889 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
 		37DABBC215B3354A00B12F1E /* SmilesReceivedHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmilesReceivedHeader.png; sourceTree = "<group>"; };
 		37E0D22515AFA17B00BCA328 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		37E0D22715AFA17B00BCA328 /* FetchAllConversationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchAllConversationsRequest.h; sourceTree = "<group>"; };
@@ -660,6 +663,8 @@
 				37C62E5A15B46E4300742E5D /* FetchSmileGameRequest.m */,
 				37B3255315B4E6E10057AF34 /* GuessSmileGameChoiceRequest.h */,
 				37B3255415B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m */,
+				37DA624215B5B9B700879889 /* ServerRequest.h */,
+				37DA624315B5B9B700879889 /* ServerRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1705,6 +1710,7 @@
 				37C62E5815B464A400742E5D /* SmileGameChoice.m in Sources */,
 				37C62E5B15B46E4300742E5D /* FetchSmileGameRequest.m in Sources */,
 				37B3255515B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m in Sources */,
+				37DA624415B5B9B700879889 /* ServerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

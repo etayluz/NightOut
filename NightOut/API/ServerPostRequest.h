@@ -7,16 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServerRequest.h"
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIFormDataRequest.h"
 
-@interface ServerPostRequest : NSObject
+@interface ServerPostRequest : ServerRequest
 
 - (void) sendToUrl:(NSString *)url;
 - (void) sendToUrl:(NSString *)url withParams:(NSDictionary *)params;
-- (void) didFetchJson:(NSDictionary *)json;
 
 @property (nonatomic, retain) ASIFormDataRequest *request;
-@property (readonly) NSString *accessToken;
 
 @end

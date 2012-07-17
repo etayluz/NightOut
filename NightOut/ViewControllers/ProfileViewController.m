@@ -410,8 +410,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView
 {
     [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
-    // or if you are sure you wanna it always on top:
-    // [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
 }
 
 - (void) showProfilePictures

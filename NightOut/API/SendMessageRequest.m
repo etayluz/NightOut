@@ -12,8 +12,7 @@
 
 - (void) send:(NSInteger)conversationID message:(NSString *)message
 {
-    NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/conversations/%d/send", conversationID];
-    NSLog(@"url = %@", url);
+    NSString *url = [self fullUrl:@"conversations/%d/send", conversationID];
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.accessToken, @"token", message, @"body", nil];
     
     [self sendToUrl:url withParams:params];

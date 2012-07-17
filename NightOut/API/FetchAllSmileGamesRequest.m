@@ -16,8 +16,7 @@
 - (void) sendWithStatus:(NSString *)status
 {
     if (!self.request) {
-        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/smile-games/%@?token=%@", status, self.accessToken];
-        NSLog(@"FetchSmileGamesRequest = %@", url);
+        NSString *url = [self fullUrl:@"smile-games/%@", status];
         [self sendToUrl:url];
     }
 }

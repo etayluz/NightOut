@@ -14,12 +14,6 @@
 @implementation ServerGetRequest
 
 @synthesize request;
-@synthesize accessToken;
-
-- (NSString *) accessToken
-{
-    return [ServerInterface sharedManager].facebook.accessToken;
-}
 
 - (void) sendToUrl:(NSString *)url
 {
@@ -32,7 +26,6 @@
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
     NSString *jsonString = self.request.responseString;
-    NSLog(@"jsonString = %@", jsonString);
     NSDictionary *responseDict = [jsonString objectFromJSONString];
     [self didFetchJson:responseDict];
     

@@ -7,17 +7,10 @@
 //
 
 #import "ServerPostRequest.h"
-#import "ServerInterface.h"
 #import "JSONKit.h"
 
 @implementation ServerPostRequest
 @synthesize request;
-@synthesize accessToken;
-
-- (NSString *) accessToken
-{
-    return [ServerInterface sharedManager].facebook.accessToken;
-}
 
 - (void) sendToUrl:(NSString *)url
 {
@@ -55,11 +48,6 @@
 - (void) requestFailed:(ASIHTTPRequest *)request
 {
     self.request = nil;
-}
-
-- (void) didFetchJson:(NSDictionary *)json
-{
-    // to be overridden
 }
 
 @end

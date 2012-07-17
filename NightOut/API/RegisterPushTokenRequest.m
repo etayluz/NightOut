@@ -15,7 +15,7 @@
     NSString *pushToken = [self tokenDataToString:token];
     NSLog(@"APN token = %@", pushToken);
     
-    NSString *url = @"http://wwoapp.herokuapp.com/api/v1/push/register";
+    NSString *url = [self fullUrl:@"push/register"];
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.accessToken, @"token",
                             pushToken, @"iphone_push_token", nil];

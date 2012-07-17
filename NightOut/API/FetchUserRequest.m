@@ -15,7 +15,7 @@
 - (void) send: (NSInteger) userID
 {
     if (!self.request) {
-        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/%d?token=%@", userID, self.accessToken];
+        NSString *url = [self fullUrl:@"users/%d", userID];
         [self sendToUrl:url];
     }
 }
@@ -23,7 +23,7 @@
 - (void) sendForCurrentUser
 {
     if (!self.request) {
-        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/me?token=%@", self.accessToken];
+        NSString *url = [self fullUrl:@"users/me"];
         [self sendToUrl:url];
     }
 }

@@ -31,15 +31,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
-    self.gallery.delegate = self;
-    [self.view addSubview:gallery];
+    [self recreateGallery];
     
     self.fetchSmileGameRequest = [[[FetchSmileGameRequest alloc] init] autorelease];
     self.fetchSmileGameRequest.delegate = self;
     
     self.guessSmileGameChoiceRequest = [[[GuessSmileGameChoiceRequest alloc] init] autorelease];
     self.guessSmileGameChoiceRequest.delegate = self;
+}
+
+- (void) recreateGallery
+{
+    [self.gallery removeFromSuperview];
+    self.gallery = nil;
+    
+    self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
+    self.gallery.delegate = self;
+    [self.view addSubview:gallery];
 }
 
 - (void) loadSmileGameFromID:(NSInteger)smileGameID
@@ -60,6 +68,9 @@
     
     if ([choice.status isEqualToString:@"no_match"])
         cell.alpha = 0.5;
+    else if ([choice.status isEqualToString:@"match"])
+        cell.titleLabel.textColor = [UIColor redColor];
+    
 }
 
 - (void) didFetchSmileGame:(SmileGame *)_smileGame
@@ -77,8 +88,7 @@
 
 - (void) refreshFromModel
 {
-    self.gallery.items = [NSMutableArray array];
-    [self.gallery reloadData];
+    [self recreateGallery];
     
     self.gallery.items = smileGame.choices;
     [self.gallery reloadData];

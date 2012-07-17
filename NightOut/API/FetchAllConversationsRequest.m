@@ -15,7 +15,7 @@
 
 {
     if (!self.request) {
-        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/conversations?token=%@", self.accessToken];
+        NSString *url = [self fullUrl:@"conversations"];
         [self sendToUrl:url];
     }
 }

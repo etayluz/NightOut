@@ -15,7 +15,7 @@
 - (void) send
 {
     if (!self.request) {
-        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/nearby?token=%@", self.accessToken];
+        NSString *url = [self fullUrl:@"nearby"];
         [self sendToUrl:url];
     }
 }

@@ -16,7 +16,7 @@
 - (void) send:(NSInteger)smileGameID smileGameChoiceID:(NSInteger)smileGameChoiceID
 {
     if (!self.request) {
-        NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/smile-games/%d/choices/%d/guess?token=%@", smileGameID, smileGameChoiceID, self.accessToken];
+        NSString *url = [self fullUrl:@"smile-games/%d/choices/%d/guess", smileGameID, smileGameChoiceID];
         
         [self sendToUrl:url];
     }

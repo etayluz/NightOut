@@ -61,7 +61,7 @@ static ServerInterface *sharedManager = nil;
 
 - (BOOL) isUserLoggedIn
 {
-    return [facebook isSessionValid];
+    return facebook.isSessionValid;
 }
 
 - (void) logout

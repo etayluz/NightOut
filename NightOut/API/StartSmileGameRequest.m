@@ -13,7 +13,7 @@
 
 - (void) send:(NSInteger) userID
 {
-    NSString *url = [NSString stringWithFormat:@"http://wwoapp.herokuapp.com/api/v1/users/%d/start-smile-game?token=%@", userID, self.accessToken];
+    NSString *url = [self fullUrl:@"users/%d/start-smile-game", userID];
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.accessToken, @"token", nil];
     [self sendToUrl:url withParams:params];
