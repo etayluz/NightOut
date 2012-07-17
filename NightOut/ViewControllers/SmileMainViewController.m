@@ -7,8 +7,10 @@
 //
 
 #import "SmileMainViewController.h"
+
 #import "SmilesSentViewController.h"
 #import "SmilesReceivedViewController.h"
+#import "SmileMatchesViewController.h"
 
 @interface SmileMainViewController ()
 
@@ -40,7 +42,7 @@
 - (IBAction)didClickSmileMatchesButton:(id)sender
 {
     NSLog(@"did click smile matches button");
-    [self showSmilesMatches];
+    [self showSmileMatches];
 }
 
 - (void) showSmilesSent
@@ -57,8 +59,11 @@
     [self.navigationController pushViewController:smilesReceivedVC animated:YES];
 }
 
-- (void) showSmilesMatches
+- (void) showSmileMatches
 {
+    SmileMatchesViewController *smileMatchesVC = [[[SmileMatchesViewController alloc] init] autorelease];
+    smileMatchesVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:smileMatchesVC animated:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

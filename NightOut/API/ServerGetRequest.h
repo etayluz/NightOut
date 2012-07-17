@@ -15,6 +15,4 @@
 - (void) sendToUrl:(NSString *)url;
 - (void) didFetchJson:(NSDictionary *)json;
 
-@property (nonatomic, retain) ASIHTTPRequest *request;
-
 @end

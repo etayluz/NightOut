@@ -14,7 +14,7 @@
 
 #define SmileGameStatusSent @"sent"
 #define SmileGameStatusReceived @"received"
-#define SmileGameStatusMatch @"match"
+#define SmileGameStatusMatched @"matched"
 
 @interface FetchAllSmileGamesRequest : ServerGetRequest
 @property (assign) id <FetchSmileGamesRequestDelegate> delegate;

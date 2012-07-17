@@ -16,7 +16,7 @@
 - (void) sendWithStatus:(NSString *)status
 {
     if (!self.request) {
-        NSString *url = [self fullUrl:@"smile-games/%@", status];
+        NSString *url = [self fullUrl:@"smile-games-%@", status];
         [self sendToUrl:url];
     }
 }

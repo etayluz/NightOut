@@ -8,10 +8,12 @@
 
 #import "ServerRequest.h"
 #import "ServerInterface.h"
+#import "JSONKit.h"
+#import "ASIHTTPRequest.h"
 
 @implementation ServerRequest
 
-@synthesize accessToken;
+@synthesize accessToken, request, loadingIndicator, showProgress, progressMessage;
 
 - (NSString *) fullUrl:(NSString *)url, ...
 {
@@ -28,9 +30,43 @@
     return [ServerInterface sharedManager].facebook.accessToken;
 }
 
+- (void) requestFinished:(ASIHTTPRequest *)_request
+{
+    NSString *jsonString = _request.responseString;
+    NSDictionary *responseDict = [jsonString objectFromJSONString];
+    [self didFetchJson:responseDict];
+    
+    [self hideLoadingBadge];
+}
+
+- (void) requestFailed:(ASIHTTPRequest *)_request
+{
+    [self hideLoadingBadge];
+}
+
 - (void) didFetchJson:(NSDictionary *)json
 {
     // to be overridden
+}
+
+- (void) showLoadingIndicatorForView:(UIView *)view
+{
+    [self showLoadingIndicator:nil forView:view];
+}
+
+- (void) showLoadingIndicator:(NSString *)message forView:(UIView *)view
+{
+    self.loadingIndicator = [[MBProgressHUD alloc] initWithView:view];
+    self.loadingIndicator.removeFromSuperViewOnHide = YES;
+	self.loadingIndicator.labelText = message;
+    
+    [view addSubview:self.loadingIndicator];
+    [self.loadingIndicator show:YES];
+}
+
+- (void) hideLoadingBadge
+{
+    [self.loadingIndicator hide:YES];
 }
 
 @end

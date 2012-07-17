@@ -16,6 +16,9 @@
 @interface SmileGameViewController : UIViewController <FetchSmileGameRequestDelegate, GuessSmileGameChoiceRequestDelegate, FramedGalleryViewDelegate, ProfileViewControllerDelegate>
 
 @property (nonatomic, retain) FramedGalleryView *gallery;
+@property (nonatomic, retain) UILabel *guessesRemainingLabel;
+@property (nonatomic, retain) UIView *header;
+
 @property (nonatomic, retain) FetchSmileGameRequest *fetchSmileGameRequest;
 @property (nonatomic, retain) GuessSmileGameChoiceRequest *guessSmileGameChoiceRequest;
 

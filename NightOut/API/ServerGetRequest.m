@@ -8,12 +8,9 @@
 
 #import "ServerGetRequest.h"
 #import "ServerInterface.h"
-#import "JSONKit.h"
 #import "ASIHTTPRequest.h"
 
 @implementation ServerGetRequest
-
-@synthesize request;
 
 - (void) sendToUrl:(NSString *)url
 {
@@ -23,17 +20,15 @@
     [self.request startAsynchronous];
 }
 
-- (void) requestFinished:(ASIHTTPRequest *)request
+- (void) requestFinished:(ASIHTTPRequest *)_request
 {
-    NSString *jsonString = self.request.responseString;
-    NSDictionary *responseDict = [jsonString objectFromJSONString];
-    [self didFetchJson:responseDict];
-    
+    [super requestFinished:_request];
     self.request = nil;
 }
 
-- (void) requestFailed:(ASIHTTPRequest *)request
+- (void) requestFailed:(ASIHTTPRequest *)_request
 {
+    [super requestFailed:_request];
     self.request = nil;
 }
 

@@ -61,6 +61,7 @@
 
 - (void) refreshSmileGames
 {
+    [self.fetchSmileGamesRequest showLoadingIndicatorForView:self.navigationController.view];
     [self.fetchSmileGamesRequest sendWithStatus:SmileGameStatusReceived];
 }
 
@@ -72,7 +73,7 @@
     cell.subtitleLabel.text = @"Remaining";
     cell.rightLabel.text = [NSString stringWithFormat:@"%d", game.guessesRemaining];
         
-    [cell.imageView setImageWithURLScaled:@"http://wwoapp.heroku.com/assets/user_anonymous_m.png"];
+    [cell.imageView setImageWithURLScaled:game.sender.thumb];
 }
 
 - (void) didSelectItem:(NSObject *)item

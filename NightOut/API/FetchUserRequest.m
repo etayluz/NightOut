@@ -23,7 +23,7 @@
 - (void) sendForCurrentUser
 {
     if (!self.request) {
-        NSString *url = [self fullUrl:@"users/me"];
+        NSString *url = [self fullUrl:@"me"];
         [self sendToUrl:url];
     }
 }

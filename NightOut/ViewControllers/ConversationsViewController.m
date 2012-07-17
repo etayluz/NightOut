@@ -24,8 +24,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
     self.fetchAllConversationsRequest = [[[FetchAllConversationsRequest alloc] init] autorelease];
     self.fetchAllConversationsRequest.delegate = self;
+    
+    [self.fetchAllConversationsRequest showLoadingIndicatorForView:self.navigationController.view];
     [self.fetchAllConversationsRequest send];
 }
 

@@ -196,9 +196,13 @@
     smileMainNavController.tabBarItem.image = [UIImage imageNamed:@"smiley_icon.png"];
     
     /* Profile Page */
-    ProfileViewController *profileViewController = [[[ProfileViewController alloc] initWithStyle:ProfileViewStyleSelf] autorelease];
+    ProfileViewController *profileViewController = [[[ProfileViewController alloc] init] autorelease];
+    
+    profileViewController.hideSmileAndMessageButtons = YES;
+    profileViewController.hideMutualFriends = YES;
     profileViewController.fetchCurrentUserOnLoad = YES;
     profileViewController.autoUpdateTitle = NO;
+    
     UINavigationController *profileNavController = [[[UINavigationController alloc] initWithRootViewController:profileViewController] autorelease];
     profileNavController.title = @"Profile";
     profileNavController.tabBarItem.image = [UIImage imageNamed:@"profile_icon.png"];

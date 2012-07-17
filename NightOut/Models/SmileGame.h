@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) User *sender;
 @property (nonatomic, retain) User *receiver;
+@property (nonatomic, retain) User *match;
 
 @property (nonatomic) NSInteger guessesRemaining;
 

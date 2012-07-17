@@ -16,6 +16,4 @@
 - (void) sendToUrl:(NSString *)url;
 - (void) sendToUrl:(NSString *)url withParams:(NSDictionary *)params;
 
-@property (nonatomic, retain) ASIFormDataRequest *request;
-
 @end

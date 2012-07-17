@@ -7,10 +7,8 @@
 //
 
 #import "ServerPostRequest.h"
-#import "JSONKit.h"
 
 @implementation ServerPostRequest
-@synthesize request;
 
 - (void) sendToUrl:(NSString *)url
 {
@@ -27,26 +25,21 @@
     self.request.delegate = self;
     
     for (id key in params) {
-        [self.request setPostValue:[params objectForKey:key] forKey:key];
+        [(ASIFormDataRequest *)self.request setPostValue:[params objectForKey:key] forKey:key];
     }
     
     [self.request startAsynchronous];
 }
 
-- (void) requestFinished:(ASIHTTPRequest *)request
+- (void) requestFinished:(ASIHTTPRequest *)_request
 {
-    NSString *jsonString = self.request.responseString;
-    NSDictionary *responseDict = [jsonString objectFromJSONString];
-    
-    NSLog(@"response = %@", jsonString);
-    
-    [self didFetchJson:responseDict];
-    
+    [super requestFinished:_request];    
     self.request = nil;
 }
 
-- (void) requestFailed:(ASIHTTPRequest *)request
+- (void) requestFailed:(ASIHTTPRequest *)_request
 {
+    [super requestFailed:_request];
     self.request = nil;
 }
 

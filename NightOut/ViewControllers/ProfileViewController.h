@@ -18,12 +18,6 @@
 
 #define OFFSET_FROM_NAME_LABEL     30
 
-typedef enum {
-    ProfileViewStyleFull,
-    ProfileViewStyleSelf,
-    ProfileViewStyleChoose
-} ProfileViewStyle;
-
 @protocol ProfileViewControllerDelegate <NSObject>
 - (void) didTapChooseButton;
 @end
@@ -35,13 +29,15 @@ typedef enum {
 - (void) loadCurrentUser;
 - (void) messageButtonTap;
 - (void) smilesButtonTap;
-- (id) initWithStyle:(ProfileViewStyle)_style;
 
 @property (assign) id <ProfileViewControllerDelegate> delegate;
 
-@property (nonatomic) ProfileViewStyle style;
 @property (nonatomic) BOOL fetchCurrentUserOnLoad;
 @property (nonatomic) BOOL autoUpdateTitle;
+
+@property (nonatomic) BOOL hideSmileAndMessageButtons;
+@property (nonatomic) BOOL hideMutualFriends;
+@property (nonatomic) BOOL showChooseButton;
 
 @property (nonatomic, retain) UIView *chooseFooter;
 @property (nonatomic, retain) UIButton *chooseButton;

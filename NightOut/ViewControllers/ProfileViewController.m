@@ -48,22 +48,16 @@
 @synthesize scrollView, nameLabel, ageLabel, profileImageView;
 @synthesize mutualFriendsView, interestsView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
-@synthesize style, autoUpdateTitle;
+@synthesize hideSmileAndMessageButtons, hideMutualFriends, showChooseButton, autoUpdateTitle;
 @synthesize fetchUserRequest, startSmileGameRequest;
 @synthesize fetchCurrentUserOnLoad;
 @synthesize chooseFooter, chooseButton;
 
 - (id) init
 {
-    return [self initWithStyle:ProfileViewStyleFull];
-}
-
-- (id) initWithStyle:(ProfileViewStyle)_style
-{
     self = [super init];
     if (self) {
-        self.style = _style;
-        self.autoUpdateTitle = YES;
+        
     }
     return self;
 }
@@ -89,11 +83,13 @@
 
 - (void) loadFromUserID:(NSInteger)userID
 {
+    [self.fetchUserRequest showLoadingIndicatorForView:self.navigationController.view];
     [self.fetchUserRequest send:userID];
 }
 
 - (void) loadCurrentUser
 {
+    [self.fetchUserRequest showLoadingIndicatorForView:self.navigationController.view];
     [self.fetchUserRequest sendForCurrentUser];
 }
 
@@ -152,8 +148,10 @@
     self.startSmileGameRequest = [[[StartSmileGameRequest alloc] init] autorelease];
     self.startSmileGameRequest.delegate = self;
     
-    if (self.fetchCurrentUserOnLoad)
+    if (self.fetchCurrentUserOnLoad) {
+        [self.fetchUserRequest showLoadingIndicatorForView:self.navigationController.view];
         [self.fetchUserRequest sendForCurrentUser];
+    }
 }
 
 - (void) buildSubviews
@@ -196,17 +194,17 @@
     [self.scrollView addSubview:self.ageLabel]; 
     self.heightOffset += 24;
     
-    if (style == ProfileViewStyleFull)
+    if (self.hideSmileAndMessageButtons == NO)
         [self createSmileAndMessageButtons];
     
-    if (style == ProfileViewStyleFull || style == ProfileViewStyleChoose)
+    if (self.hideMutualFriends == NO)
         [self createMutualFriendsSection];
         
     [self createGeneralInfoSection];
     [self createInterestsSection];
     [self createChooseFooter];
     
-    if (self.style == ProfileViewStyleChoose)
+    if (self.showChooseButton == YES)
         [self showChooseDialog];
 }
 
@@ -215,7 +213,7 @@
     self.heightOffset += 8;
     
     /* Smiles Button */
-    self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    self.smileButton = [UIButton buttonWithType: UIButtonTypeCustom];
     [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchUpInside];
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 260, 40);    
     UIImage *smileButtonImage = [UIImage imageNamed:@"SmileButton.png"]; 
@@ -223,11 +221,11 @@
     [self.scrollView addSubview:self.smileButton];
     
     /* Message Button */
-    self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    self.messageButton = [UIButton buttonWithType: UIButtonTypeCustom];
     [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchUpInside];
     self.messageButton.frame = CGRectMake(265, self.heightOffset, 50, 40);
     [self.scrollView addSubview:self.messageButton];
-    UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton2.png"];
+    UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton.png"];
     [self.messageButton setBackgroundImage:messageButtonImage forState:UIControlStateNormal];
     self.heightOffset += 40;
 }

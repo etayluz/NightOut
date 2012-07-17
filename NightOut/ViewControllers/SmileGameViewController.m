@@ -12,13 +12,15 @@
 #import "SmileGameChoice.h"
 #import "UIImageView+ScaledImage.h"
 
+#import "MBProgressHUD.h"
+
 @interface SmileGameViewController ()
 
 @end
 
 @implementation SmileGameViewController
 
-@synthesize gallery;
+@synthesize gallery, guessesRemainingLabel, header;
 
 @synthesize fetchSmileGameRequest;
 @synthesize guessSmileGameChoiceRequest;
@@ -29,9 +31,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    [self recreateGallery];
+    UIImage *headerImage = [UIImage imageNamed:@"SmileGameHeader.png"];
+    self.header = [[[UIImageView alloc] initWithImage:headerImage] autorelease];
+    [self.view addSubview:self.header];
+    
+    self.guessesRemainingLabel = [[[UILabel alloc] initWithFrame:CGRectMake(200, 0, 150, 50)] autorelease];
+    self.guessesRemainingLabel.font              = [UIFont fontWithName:@"Myriad Pro" size:24];
+    self.guessesRemainingLabel.textColor = [UIColor redColor];
+    self.guessesRemainingLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.guessesRemainingLabel];
     
     self.fetchSmileGameRequest = [[[FetchSmileGameRequest alloc] init] autorelease];
     self.fetchSmileGameRequest.delegate = self;
@@ -47,11 +56,15 @@
     
     self.gallery = [[[FramedGalleryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
     self.gallery.delegate = self;
+    self.gallery.topPadding = self.header.frame.size.height + 10;
+
     [self.view addSubview:gallery];
+    [self.view sendSubviewToBack:gallery];
 }
 
 - (void) loadSmileGameFromID:(NSInteger)smileGameID
 {
+    [self.fetchSmileGameRequest showLoadingIndicatorForView:self.navigationController.view];
     [self.fetchSmileGameRequest send:smileGameID];
 }
 
@@ -73,25 +86,26 @@
     
 }
 
-- (void) didFetchSmileGame:(SmileGame *)_smileGame
+- (void) updateSmileGame:(SmileGame *)_smileGame
 {
     self.smileGame = _smileGame;
-    [self refreshFromModel];
-    NSLog(@"did fetch smile game woo yeahhh");
-}
-
-- (void) didGuess:(SmileGame *)_smileGame
-{
-    self.smileGame = _smileGame;
-    [self refreshFromModel];
-}
-
-- (void) refreshFromModel
-{
+    
     [self recreateGallery];
     
     self.gallery.items = smileGame.choices;
     [self.gallery reloadData];
+    
+    self.guessesRemainingLabel.text = [NSString stringWithFormat:@"%d", self.smileGame.guessesRemaining];
+}
+
+- (void) didFetchSmileGame:(SmileGame *)_smileGame
+{
+    [self updateSmileGame:_smileGame];
+}
+
+- (void) didGuess:(SmileGame *)_smileGame
+{
+    [self updateSmileGame:_smileGame];
 }
 
 - (void) didSelectItem:(NSObject *)item
@@ -99,8 +113,10 @@
     self.selectedChoice = (SmileGameChoice *)item;
     NSLog(@"did select %@", self.selectedChoice.user.name);
     
-    ProfileViewController *profileViewController = [[[ProfileViewController alloc] initWithStyle:ProfileViewStyleChoose] autorelease];
+    ProfileViewController *profileViewController = [[[ProfileViewController alloc] init] autorelease];
     profileViewController.delegate = self;
+    profileViewController.hideSmileAndMessageButtons = YES;
+    profileViewController.showChooseButton = YES;
     
     [self.navigationController pushViewController:profileViewController animated:YES];
     
@@ -109,8 +125,9 @@
 
 - (void) didTapChooseButton
 {
-    NSLog(@"****chose %@", self.selectedChoice.user.name);
     [self.navigationController popToViewController:self animated:YES];
+    
+    [self.guessSmileGameChoiceRequest showLoadingIndicator:@"Guessing" forView:self.navigationController.view];
     [self.guessSmileGameChoiceRequest send:self.selectedChoice.smileGameID smileGameChoiceID:self.selectedChoice.OID];
 }
 

@@ -126,7 +126,6 @@
 		37E0D40C15AFA17B00BCA328 /* AQGridSelectionRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2DA15AFA17B00BCA328 /* AQGridSelectionRed.png */; };
 		37E0D40D15AFA17B00BCA328 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2DB15AFA17B00BCA328 /* header.png */; };
 		37E0D40E15AFA17B00BCA328 /* MessageButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2DC15AFA17B00BCA328 /* MessageButton.png */; };
-		37E0D40F15AFA17B00BCA328 /* MessageButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2DD15AFA17B00BCA328 /* MessageButton2.png */; };
 		37E0D41015AFA17B00BCA328 /* PictureFrameMask-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2DE15AFA17B00BCA328 /* PictureFrameMask-2.png */; };
 		37E0D41115AFA17B00BCA328 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2DF15AFA17B00BCA328 /* second.png */; };
 		37E0D41215AFA17B00BCA328 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E0D2E015AFA17B00BCA328 /* second@2x.png */; };
@@ -191,6 +190,13 @@
 		37F0F704158CF33D005511CD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F703158CF33D005511CD /* libz.dylib */; };
 		37F0F706158CF3A0005511CD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F705158CF3A0005511CD /* libxml2.dylib */; };
 		37F0F710158CF501005511CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0F70F158CF501005511CD /* Security.framework */; };
+		37FCFD1115B5E05C008E923E /* SmileGameHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 37FCFD1015B5E05C008E923E /* SmileGameHeader.png */; };
+		37FCFD1B15B5E332008E923E /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 37FCFD1715B5E332008E923E /* 37x-Checkmark.png */; };
+		37FCFD1C15B5E332008E923E /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37FCFD1815B5E332008E923E /* 37x-Checkmark@2x.png */; };
+		37FCFD1D15B5E332008E923E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37FCFD1915B5E332008E923E /* Icon.png */; };
+		37FCFD1E15B5E332008E923E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37FCFD1A15B5E332008E923E /* Icon@2x.png */; };
+		37FCFD2715B5E457008E923E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FCFD2615B5E457008E923E /* MBProgressHUD.m */; };
+		37FCFD2A15B60DA8008E923E /* SmileMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FCFD2915B60DA8008E923E /* SmileMatchesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -393,7 +399,6 @@
 		37E0D2DA15AFA17B00BCA328 /* AQGridSelectionRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionRed.png; sourceTree = "<group>"; };
 		37E0D2DB15AFA17B00BCA328 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		37E0D2DC15AFA17B00BCA328 /* MessageButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageButton.png; sourceTree = "<group>"; };
-		37E0D2DD15AFA17B00BCA328 /* MessageButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageButton2.png; sourceTree = "<group>"; };
 		37E0D2DE15AFA17B00BCA328 /* PictureFrameMask-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PictureFrameMask-2.png"; sourceTree = "<group>"; };
 		37E0D2DF15AFA17B00BCA328 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		37E0D2E015AFA17B00BCA328 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
@@ -556,6 +561,15 @@
 		37F0F703158CF33D005511CD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		37F0F705158CF3A0005511CD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		37F0F70F158CF501005511CD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		37FCFD1015B5E05C008E923E /* SmileGameHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmileGameHeader.png; sourceTree = "<group>"; };
+		37FCFD1715B5E332008E923E /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		37FCFD1815B5E332008E923E /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		37FCFD1915B5E332008E923E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		37FCFD1A15B5E332008E923E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		37FCFD2515B5E457008E923E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		37FCFD2615B5E457008E923E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		37FCFD2815B60DA8008E923E /* SmileMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileMatchesViewController.h; sourceTree = "<group>"; };
+		37FCFD2915B60DA8008E923E /* SmileMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileMatchesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -859,6 +873,7 @@
 		37E0D2AD15AFA17B00BCA328 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				37FCFD2415B5E457008E923E /* MBProgressHUD */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -905,6 +920,11 @@
 		37E0D2CD15AFA17B00BCA328 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37FCFD1715B5E332008E923E /* 37x-Checkmark.png */,
+				37FCFD1815B5E332008E923E /* 37x-Checkmark@2x.png */,
+				37FCFD1915B5E332008E923E /* Icon.png */,
+				37FCFD1A15B5E332008E923E /* Icon@2x.png */,
+				37FCFD1015B5E05C008E923E /* SmileGameHeader.png */,
 				37DABBC215B3354A00B12F1E /* SmilesReceivedHeader.png */,
 				37303C9715B0AFBF004B4BEA /* Ribbon.png */,
 				37303C9315B0AC23004B4BEA /* MutualFriendsIcon.png */,
@@ -923,7 +943,6 @@
 				37E0D2D515AFA17B00BCA328 /* GridView */,
 				37E0D2DB15AFA17B00BCA328 /* header.png */,
 				37E0D2DC15AFA17B00BCA328 /* MessageButton.png */,
-				37E0D2DD15AFA17B00BCA328 /* MessageButton2.png */,
 				37E0D2DE15AFA17B00BCA328 /* PictureFrameMask-2.png */,
 				37E0D2DF15AFA17B00BCA328 /* second.png */,
 				37E0D2E015AFA17B00BCA328 /* second@2x.png */,
@@ -1390,6 +1409,8 @@
 				37E0D38515AFA17B00BCA328 /* WWOSettingsViewController.xib */,
 				37C62E5315B4633E00742E5D /* SmileGameViewController.h */,
 				37C62E5415B4633E00742E5D /* SmileGameViewController.m */,
+				37FCFD2815B60DA8008E923E /* SmileMatchesViewController.h */,
+				37FCFD2915B60DA8008E923E /* SmileMatchesViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1484,6 +1505,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		37FCFD2415B5E457008E923E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				37FCFD2515B5E457008E923E /* MBProgressHUD.h */,
+				37FCFD2615B5E457008E923E /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1568,7 +1598,6 @@
 				37E0D40C15AFA17B00BCA328 /* AQGridSelectionRed.png in Resources */,
 				37E0D40D15AFA17B00BCA328 /* header.png in Resources */,
 				37E0D40E15AFA17B00BCA328 /* MessageButton.png in Resources */,
-				37E0D40F15AFA17B00BCA328 /* MessageButton2.png in Resources */,
 				37E0D41015AFA17B00BCA328 /* PictureFrameMask-2.png in Resources */,
 				37E0D41115AFA17B00BCA328 /* second.png in Resources */,
 				37E0D41215AFA17B00BCA328 /* second@2x.png in Resources */,
@@ -1599,6 +1628,11 @@
 				37303C9815B0AFC0004B4BEA /* Ribbon.png in Resources */,
 				37B3255115B4CEB40057AF34 /* README.txt in Resources */,
 				37B3255215B4CEB40057AF34 /* release_notes.txt in Resources */,
+				37FCFD1115B5E05C008E923E /* SmileGameHeader.png in Resources */,
+				37FCFD1B15B5E332008E923E /* 37x-Checkmark.png in Resources */,
+				37FCFD1C15B5E332008E923E /* 37x-Checkmark@2x.png in Resources */,
+				37FCFD1D15B5E332008E923E /* Icon.png in Resources */,
+				37FCFD1E15B5E332008E923E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1711,6 +1745,8 @@
 				37C62E5B15B46E4300742E5D /* FetchSmileGameRequest.m in Sources */,
 				37B3255515B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m in Sources */,
 				37DA624415B5B9B700879889 /* ServerRequest.m in Sources */,
+				37FCFD2715B5E457008E923E /* MBProgressHUD.m in Sources */,
+				37FCFD2A15B60DA8008E923E /* SmileMatchesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

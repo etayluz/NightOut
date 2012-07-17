@@ -13,7 +13,7 @@
 @implementation SmileGame 
 
 @synthesize OID;
-@synthesize sender, receiver;
+@synthesize sender, receiver, match;
 @synthesize guessesRemaining;
 @synthesize choices;
 
@@ -27,6 +27,10 @@
         
         if ([dictionary objectForKey:@"receiver"] != [NSNull null])
             self.receiver = [[[User alloc] initWithDictionary:[dictionary objectForKey:@"receiver"]] autorelease];
+        
+        if ([dictionary objectForKey:@"match"] != [NSNull null])
+            self.match = [[[User alloc] initWithDictionary:[dictionary objectForKey:@"match"]] autorelease];
+
         
         self.guessesRemaining = [[dictionary objectForKey:@"guesses_remaining"] integerValue];
         

@@ -250,7 +250,7 @@
 
 - (void)showUserProfile:(User *)user
 {
-    ProfileViewController *profileVC = [[[ProfileViewController alloc] initWithStyle:ProfileViewStyleFull] autorelease];
+    ProfileViewController *profileVC = [[[ProfileViewController alloc] init] autorelease];
     profileVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     profileVC.hidesBottomBarWhenPushed = YES;
     
