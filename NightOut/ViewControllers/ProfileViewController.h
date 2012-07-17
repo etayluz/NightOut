@@ -24,6 +24,10 @@ typedef enum {
     ProfileViewStyleChoose
 } ProfileViewStyle;
 
+@protocol ProfileViewControllerDelegate <NSObject>
+- (void) didTapChooseButton;
+@end
+
 @interface ProfileViewController : UIViewController <FetchUserRequestDelegate, StartSmileGameRequestDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 
 - (void) loadFromUserID:(NSInteger)userID;
@@ -33,28 +37,13 @@ typedef enum {
 - (void) smilesButtonTap;
 - (id) initWithStyle:(ProfileViewStyle)_style;
 
-@property (nonatomic, retain) StartSmileGameRequest *startSmileGameRequest;
+@property (assign) id <ProfileViewControllerDelegate> delegate;
 
-@property (nonatomic, retain) User *user;
-
-@property (nonatomic, retain)  UILabel *nameLabel;
-@property (nonatomic, retain)  UILabel *ageLabel;
-@property (nonatomic, retain)  UIImageView *profileImageView;
-
-@property (nonatomic, retain)  HorizontalGallery *mutualFriendsView;
-@property (nonatomic, retain)  HorizontalGallery *interestsView;
-
-@property (nonatomic, retain)  UIButton *messageButton;
-@property (nonatomic, retain)  UIButton *smileButton;
-@property (nonatomic, retain)  UIScrollView *scrollView;
-
-@property (nonatomic, retain) NSMutableDictionary *infoValueLabels;
 @property (nonatomic) ProfileViewStyle style;
-@property (nonatomic)  NSInteger heightOffset;
+@property (nonatomic) BOOL fetchCurrentUserOnLoad;
+@property (nonatomic) BOOL autoUpdateTitle;
 
 @property (nonatomic, retain) UIView *chooseFooter;
 @property (nonatomic, retain) UIButton *chooseButton;
-
-@property (nonatomic) BOOL fetchCurrentUserOnLoad;
 
 @end

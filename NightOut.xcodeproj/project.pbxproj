@@ -22,6 +22,10 @@
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
+		37B3255015B4CEB40057AF34 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B3254C15B4CEB40057AF34 /* libTestFlight.a */; };
+		37B3255115B4CEB40057AF34 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 37B3254D15B4CEB40057AF34 /* README.txt */; };
+		37B3255215B4CEB40057AF34 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 37B3254E15B4CEB40057AF34 /* release_notes.txt */; };
+		37B3255515B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B3255415B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m */; };
 		37C62E5515B4633E00742E5D /* SmileGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C62E5415B4633E00742E5D /* SmileGameViewController.m */; };
 		37C62E5815B464A400742E5D /* SmileGameChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C62E5715B464A400742E5D /* SmileGameChoice.m */; };
 		37C62E5B15B46E4300742E5D /* FetchSmileGameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C62E5A15B46E4300742E5D /* FetchSmileGameRequest.m */; };
@@ -206,6 +210,12 @@
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		37B3254C15B4CEB40057AF34 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		37B3254D15B4CEB40057AF34 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		37B3254E15B4CEB40057AF34 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		37B3254F15B4CEB40057AF34 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		37B3255315B4E6E10057AF34 /* GuessSmileGameChoiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessSmileGameChoiceRequest.h; sourceTree = "<group>"; };
+		37B3255415B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessSmileGameChoiceRequest.m; sourceTree = "<group>"; };
 		37C62E5315B4633E00742E5D /* SmileGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileGameViewController.h; sourceTree = "<group>"; };
 		37C62E5415B4633E00742E5D /* SmileGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileGameViewController.m; sourceTree = "<group>"; };
 		37C62E5615B464A400742E5D /* SmileGameChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileGameChoice.h; sourceTree = "<group>"; };
@@ -550,6 +560,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F0F704158CF33D005511CD /* libz.dylib in Frameworks */,
 				370156F615A778F400BE2A4F /* CoreData.framework in Frameworks */,
 				37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */,
 				37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */,
@@ -560,7 +571,6 @@
 				37107605158D3B4500871A12 /* ImageIO.framework in Frameworks */,
 				37F0F710158CF501005511CD /* Security.framework in Frameworks */,
 				37F0F706158CF3A0005511CD /* libxml2.dylib in Frameworks */,
-				37F0F704158CF33D005511CD /* libz.dylib in Frameworks */,
 				37F0F702158CF32D005511CD /* MobileCoreServices.framework in Frameworks */,
 				37F0F700158CF321005511CD /* SystemConfiguration.framework in Frameworks */,
 				37F0F6FE158CF30F005511CD /* CFNetwork.framework in Frameworks */,
@@ -568,12 +578,24 @@
 				37F0F648158CD939005511CD /* Foundation.framework in Frameworks */,
 				37F0F64A158CD939005511CD /* CoreGraphics.framework in Frameworks */,
 				37E0D42715AFA17B00BCA328 /* libUAirship-1.2.2.a in Frameworks */,
+				37B3255015B4CEB40057AF34 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37B3254B15B4CEB40057AF34 /* TestFlightSDK1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				37B3254C15B4CEB40057AF34 /* libTestFlight.a */,
+				37B3254D15B4CEB40057AF34 /* README.txt */,
+				37B3254E15B4CEB40057AF34 /* release_notes.txt */,
+				37B3254F15B4CEB40057AF34 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.0;
+			sourceTree = "<group>";
+		};
 		37E0D22415AFA17B00BCA328 /* NightOut */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +658,8 @@
 				37303CA915B0C9AA004B4BEA /* StartSmileGameRequest.m */,
 				37C62E5915B46E4300742E5D /* FetchSmileGameRequest.h */,
 				37C62E5A15B46E4300742E5D /* FetchSmileGameRequest.m */,
+				37B3255315B4E6E10057AF34 /* GuessSmileGameChoiceRequest.h */,
+				37B3255415B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1416,6 +1440,7 @@
 		37F0F636158CD939005511CD = {
 			isa = PBXGroup;
 			children = (
+				37B3254B15B4CEB40057AF34 /* TestFlightSDK1.0 */,
 				37E0D22415AFA17B00BCA328 /* NightOut */,
 				37F0F644158CD939005511CD /* Frameworks */,
 				37F0F642158CD939005511CD /* Products */,
@@ -1567,6 +1592,8 @@
 				37303C9515B0AC24004B4BEA /* MutualFriendsIcon.png in Resources */,
 				37303C9615B0AC24004B4BEA /* NetworksIcon.png in Resources */,
 				37303C9815B0AFC0004B4BEA /* Ribbon.png in Resources */,
+				37B3255115B4CEB40057AF34 /* README.txt in Resources */,
+				37B3255215B4CEB40057AF34 /* release_notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1677,6 +1704,7 @@
 				37C62E5515B4633E00742E5D /* SmileGameViewController.m in Sources */,
 				37C62E5815B464A400742E5D /* SmileGameChoice.m in Sources */,
 				37C62E5B15B46E4300742E5D /* FetchSmileGameRequest.m in Sources */,
+				37B3255515B4E6E10057AF34 /* GuessSmileGameChoiceRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1750,6 +1778,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/NightOut/UrbanAirship\"",
+					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1765,6 +1794,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/NightOut/UrbanAirship\"",
+					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

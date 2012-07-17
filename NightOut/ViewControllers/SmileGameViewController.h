@@ -9,11 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "FetchSmileGameRequest.h"
 #import "FramedGalleryView.h"
+#import "SmileGameChoice.h"
+#import "ProfileViewController.h"
+#import "GuessSmileGameChoiceRequest.h"
 
-@interface SmileGameViewController : UIViewController <FetchSmileGameRequestDelegate, FramedGalleryViewDelegate>
+@interface SmileGameViewController : UIViewController <FetchSmileGameRequestDelegate, GuessSmileGameChoiceRequestDelegate, FramedGalleryViewDelegate, ProfileViewControllerDelegate>
 
 @property (nonatomic, retain) FramedGalleryView *gallery;
 @property (nonatomic, retain) FetchSmileGameRequest *fetchSmileGameRequest;
+@property (nonatomic, retain) GuessSmileGameChoiceRequest *guessSmileGameChoiceRequest;
+
+@property (nonatomic, retain) SmileGame *smileGame;
+@property (nonatomic, retain) SmileGameChoice *selectedChoice;
 
 - (void) loadSmileGameFromID:(NSInteger)smileGameID;
 

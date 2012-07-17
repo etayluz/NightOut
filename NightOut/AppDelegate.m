@@ -20,6 +20,8 @@
 #import "UAirship.h"
 #import "UAPush.h"
 
+#import "TestFlight.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -27,8 +29,12 @@
 
 @synthesize updateLocationRequest, registerPushTokenRequest;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+/*Test Flight*/
+    [TestFlight takeOff:@"caef746a9510d49aa3c2396f81215e0e_MTEwNDYzMjAxMi0wNy0xNSAyMDoxMTo0NC43MDg1NzY"];
+
+    
     NSLog(@"app did finish launching w options");
     /* Register UserDidLogin notification with Notification Center */
     [Notification registerNotification:@"UserDidLogin" target:self selector:@selector(userDidLogin)];
@@ -192,6 +198,7 @@
     /* Profile Page */
     ProfileViewController *profileViewController = [[[ProfileViewController alloc] initWithStyle:ProfileViewStyleSelf] autorelease];
     profileViewController.fetchCurrentUserOnLoad = YES;
+    profileViewController.autoUpdateTitle = NO;
     UINavigationController *profileNavController = [[[UINavigationController alloc] initWithRootViewController:profileViewController] autorelease];
     profileNavController.title = @"Profile";
     profileNavController.tabBarItem.image = [UIImage imageNamed:@"profile_icon.png"];

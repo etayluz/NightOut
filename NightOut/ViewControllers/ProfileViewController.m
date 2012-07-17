@@ -16,18 +16,39 @@
 #import "UIImageView+ScaledImage.h"
 
 @interface ProfileViewController ()
+
 @property (nonatomic, retain) NSArray *users;
 @property (nonatomic, retain) FetchUserRequest *fetchUserRequest;
+
+@property (nonatomic, retain) StartSmileGameRequest *startSmileGameRequest;
+
+@property (nonatomic, retain) User *user;
+
+@property (nonatomic, retain)  UILabel *nameLabel;
+@property (nonatomic, retain)  UILabel *ageLabel;
+@property (nonatomic, retain)  UIImageView *profileImageView;
+
+@property (nonatomic, retain)  HorizontalGallery *mutualFriendsView;
+@property (nonatomic, retain)  HorizontalGallery *interestsView;
+
+@property (nonatomic, retain)  UIButton *messageButton;
+@property (nonatomic, retain)  UIButton *smileButton;
+@property (nonatomic, retain)  UIScrollView *scrollView;
+
+@property (nonatomic, retain) NSMutableDictionary *infoValueLabels;
+@property (nonatomic)  NSInteger heightOffset;
+
 @end
 
 #define PROFILE_CONFIRM_START_SMILE_GAME 1
 
 @implementation ProfileViewController
+@synthesize delegate;
 @synthesize user;
 @synthesize scrollView, nameLabel, ageLabel, profileImageView;
 @synthesize mutualFriendsView, interestsView, users, messageButton, smileButton, heightOffset;
 @synthesize infoValueLabels;
-@synthesize style;
+@synthesize style, autoUpdateTitle;
 @synthesize fetchUserRequest, startSmileGameRequest;
 @synthesize fetchCurrentUserOnLoad;
 @synthesize chooseFooter, chooseButton;
@@ -42,6 +63,7 @@
     self = [super init];
     if (self) {
         self.style = _style;
+        self.autoUpdateTitle = YES;
     }
     return self;
 }
@@ -86,7 +108,8 @@
     self.user = aUser;
     NSLog(@"update from user %@", aUser.name);
     
-    self.title = [NSString stringWithFormat:@"%@'s Profile", aUser.name];
+    if (self.autoUpdateTitle)
+        self.title = [NSString stringWithFormat:@"%@'s Profile", aUser.name];
     
     self.nameLabel.text = aUser.name;
     
@@ -193,7 +216,7 @@
     
     /* Smiles Button */
     self.smileButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchDown];
+    [self.smileButton addTarget:self action:@selector(smilesButtonTap) forControlEvents:UIControlEventTouchUpInside];
     self.smileButton.frame = CGRectMake(5, self.heightOffset, 260, 40);    
     UIImage *smileButtonImage = [UIImage imageNamed:@"SmileButton.png"]; 
     [self.smileButton setBackgroundImage:smileButtonImage forState:UIControlStateNormal];    
@@ -201,7 +224,7 @@
     
     /* Message Button */
     self.messageButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchDown];
+    [self.messageButton addTarget:self action:@selector(messageButtonTap) forControlEvents:UIControlEventTouchUpInside];
     self.messageButton.frame = CGRectMake(265, self.heightOffset, 50, 40);
     [self.scrollView addSubview:self.messageButton];
     UIImage *messageButtonImage = [UIImage imageNamed:@"MessageButton2.png"];
@@ -306,10 +329,15 @@
     self.chooseButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     self.chooseButton.frame = CGRectMake(0, 0, 150, 50);
     [self.chooseButton setTitle:@"Choose" forState:UIControlStateNormal];
-    
+    [self.chooseButton addTarget:self action:@selector(didTapChooseButton) forControlEvents:UIControlEventTouchUpInside];
     [self.chooseFooter addSubview:chooseButton];
     
     [self.view addSubview:chooseFooter];
+}
+
+- (void) didTapChooseButton
+{
+    [self.delegate didTapChooseButton];
 }
 
 - (void) messageButtonTap
