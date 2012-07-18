@@ -66,7 +66,8 @@
     //[cell.imageView setImage:[UIImage imageNamed:@"WoodBackground.png"]];
     //[cell.imageView setImageWithURL:[NSURL URLWithString:conversation.otherUser.thumb]];
     cell.imageView.frame = CGRectMake(0, 0, cell.frame.size.height, cell.frame.size.height);
-    cell.imageView.contentMode = UIViewContentModeLeft;
+    cell.imageView.backgroundColor = [UIColor yellowColor];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [cell.imageView setImageWithURLScaled:conversation.otherUser.thumb];
     
     return cell;

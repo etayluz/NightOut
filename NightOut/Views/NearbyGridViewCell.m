@@ -31,7 +31,7 @@
     self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = AQGridViewCellSelectionStyleNone;
-        
+                
         /* Image Label */
         self.backgroundColor = [UIColor purpleColor];
         self.contentView.backgroundColor = [UIColor colorWithRed:0.929 green:0.933 blue:0.863 alpha:1];
@@ -89,8 +89,6 @@
 {
     self.nameLabel.text = user.name;
     self.ageLabel.text = [user.age stringValue];
-    //TODO: friends
-    //self.friendsLabel.text = [NSString stringWithFormat:@"Mutual Friends: %@", [user.friends stringValue]];
     self.friendsLabel.text = @"Mutual Friends: 13";   
     self.networkLabel.text = user.network;
     

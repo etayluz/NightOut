@@ -101,7 +101,7 @@
     SmileGame *smileGame = (SmileGame *)item;
     
     ProfileViewController *profileVC = [[[ProfileViewController alloc] init] autorelease];
-    profileVC.hideSmileAndMessageButtons = YES;
+    profileVC.hideSmileAndMessageButtons = NO;
     
     [self.navigationController pushViewController:profileVC animated:YES];
     [profileVC loadFromUserID:smileGame.receiver.OID];

@@ -80,7 +80,7 @@
 
     [self.view addSubview:gridView];
     
-    self.header = [[[NeighborhoodHeaderView alloc] init] autorelease];
+    self.header = [[[NeighborhoodHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 156)] autorelease];
     self.gridView.gridHeaderView = self.header;
     [self.gridView reloadData];
 
