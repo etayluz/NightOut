@@ -22,6 +22,7 @@
 
 - (void) didFetchJson:(NSDictionary *)json
 {
+    NSLog(@"nb = %@", json);
     Neighborhood *neighborhood = [[[Neighborhood alloc] initWithDictionary:json] autorelease];
     [self.delegate didFetchNeighborhood:neighborhood];
 }

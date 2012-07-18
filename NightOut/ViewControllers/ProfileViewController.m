@@ -14,6 +14,7 @@
 #import "PhotoSliderViewController.h"
 #import "ChatViewController.h"
 #import "UIImageView+ScaledImage.h"
+#import "GradientButton.h"
 
 @interface ProfileViewController ()
 
@@ -319,16 +320,17 @@
 /* Choose Him / Her Section */
 - (void) createChooseFooter
 {
-    CGRect frame = CGRectMake(0, self.view.frame.size.height - 70, self.view.frame.size.width, 70);
+    CGRect frame = CGRectMake(0, self.view.frame.size.height - 55, self.view.frame.size.width, 55);
     self.chooseFooter = [[[UIView alloc] initWithFrame:frame] autorelease];
-    self.chooseFooter.backgroundColor = [UIColor yellowColor];
+    self.chooseFooter.backgroundColor = [UIColor darkGrayColor];
     self.chooseFooter.hidden = YES;
     
-    self.chooseButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    self.chooseButton.frame = CGRectMake(0, 0, 150, 50);
-    [self.chooseButton setTitle:@"Choose" forState:UIControlStateNormal];
+    self.chooseButton = [[[GradientButton alloc] initWithFrame:CGRectMake(20, 10, 280, 35)] autorelease];
+    [self.chooseButton setTitle:@"Choose her :)" forState:UIControlStateNormal];
+    [self.chooseButton useBlackStyle];
+    [self.chooseFooter addSubview:self.chooseButton];
+        
     [self.chooseButton addTarget:self action:@selector(didTapChooseButton) forControlEvents:UIControlEventTouchUpInside];
-    [self.chooseFooter addSubview:chooseButton];
     
     [self.view addSubview:chooseFooter];
 }
@@ -368,6 +370,7 @@
 		{
             //ok
             if (buttonIndex == 0) {
+                [self.startSmileGameRequest showLoadingIndicator:@"Sending Smile" forView:self.navigationController.view];
                 [self.startSmileGameRequest send:self.user.OID];
             }
             //cancel

@@ -11,10 +11,9 @@
 #import "MBProgressHUD.h"
 #import "ASIHTTPRequest.h"
 
-//#define SERVER_API_BASE_URL @"http://wwoapp.herokuapp.com/api/v1/"
-//#define SERVER_API_BASE_URL @"http://wwoapp.herokuapp.com/api/v1/"
+#define SERVER_API_BASE_URL @"http://wwoapp.herokuapp.com/api/v1/"
 
-#define SERVER_API_BASE_URL @"http://localhost:3000/api/v1"
+//#define SERVER_API_BASE_URL @"http://localhost:3000/api/v1"
 
 @interface ServerRequest : NSObject
 

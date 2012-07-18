@@ -14,7 +14,7 @@
 #import "StartSmileGameRequest.h"
 
 #import "HorizontalGallery.h"
-#import "LayoutManagers.h"
+#import "GradientButton.h"
 
 #define OFFSET_FROM_NAME_LABEL     30
 
@@ -40,6 +40,6 @@
 @property (nonatomic) BOOL showChooseButton;
 
 @property (nonatomic, retain) UIView *chooseFooter;
-@property (nonatomic, retain) UIButton *chooseButton;
+@property (nonatomic, retain) GradientButton *chooseButton;
 
 @end

@@ -21,6 +21,8 @@
 		37340E9B15A363C600A57EC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9A15A363C600A57EC1 /* libsqlite3.dylib */; };
 		37340E9F15A364A700A57EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9E15A364A600A57EC1 /* AudioToolbox.framework */; };
 		37340EA015A3663C00A57EC1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */; };
+		373A766D15B62579009F39E4 /* SmileMatchesHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 373A766C15B62579009F39E4 /* SmileMatchesHeader.png */; };
+		373A767015B63085009F39E4 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 373A766F15B62F70009F39E4 /* GradientButton.m */; };
 		37AD766415994644008201E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD766315994644008201E3 /* CoreLocation.framework */; };
 		37B3255015B4CEB40057AF34 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B3254C15B4CEB40057AF34 /* libTestFlight.a */; };
 		37B3255115B4CEB40057AF34 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 37B3254D15B4CEB40057AF34 /* README.txt */; };
@@ -216,6 +218,9 @@
 		37340E9A15A363C600A57EC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		37340E9C15A3648B00A57EC1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37340E9E15A364A600A57EC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		373A766C15B62579009F39E4 /* SmileMatchesHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmileMatchesHeader.png; sourceTree = "<group>"; };
+		373A766E15B62F70009F39E4 /* GradientButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GradientButton.h; path = ../Libraries/GradientButton.h; sourceTree = "<group>"; };
+		373A766F15B62F70009F39E4 /* GradientButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GradientButton.m; path = ../Libraries/GradientButton.m; sourceTree = "<group>"; };
 		37AD766315994644008201E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		37B3254C15B4CEB40057AF34 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		37B3254D15B4CEB40057AF34 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -920,6 +925,7 @@
 		37E0D2CD15AFA17B00BCA328 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				373A766C15B62579009F39E4 /* SmileMatchesHeader.png */,
 				37FCFD1715B5E332008E923E /* 37x-Checkmark.png */,
 				37FCFD1815B5E332008E923E /* 37x-Checkmark@2x.png */,
 				37FCFD1915B5E332008E923E /* Icon.png */,
@@ -1418,6 +1424,8 @@
 		37E0D38615AFA17B00BCA328 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				373A766E15B62F70009F39E4 /* GradientButton.h */,
+				373A766F15B62F70009F39E4 /* GradientButton.m */,
 				37E0D38715AFA17B00BCA328 /* AQGridView */,
 				37E0D39F15AFA17B00BCA328 /* FramedGalleryView.h */,
 				37E0D3A015AFA17B00BCA328 /* FramedGalleryView.m */,
@@ -1633,6 +1641,7 @@
 				37FCFD1C15B5E332008E923E /* 37x-Checkmark@2x.png in Resources */,
 				37FCFD1D15B5E332008E923E /* Icon.png in Resources */,
 				37FCFD1E15B5E332008E923E /* Icon@2x.png in Resources */,
+				373A766D15B62579009F39E4 /* SmileMatchesHeader.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1747,6 +1756,7 @@
 				37DA624415B5B9B700879889 /* ServerRequest.m in Sources */,
 				37FCFD2715B5E457008E923E /* MBProgressHUD.m in Sources */,
 				37FCFD2A15B60DA8008E923E /* SmileMatchesViewController.m in Sources */,
+				373A767015B63085009F39E4 /* GradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

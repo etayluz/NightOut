@@ -29,7 +29,7 @@
     [self.view addSubview:gallery];
     
     /* Header image */
-    UIImage *headerImage = [UIImage imageNamed:@"SmilesSentHeader.png"];
+    UIImage *headerImage = [UIImage imageNamed:@"SmileMatchesHeader.png"];
     self.header = [[[UIImageView alloc] initWithImage:headerImage] autorelease];
     [self.view addSubview:self.header];
     
