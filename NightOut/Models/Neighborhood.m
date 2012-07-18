@@ -11,12 +11,13 @@
 
 @implementation Neighborhood
 
-@synthesize users, name;
+@synthesize users, name, currentUser;
 
 - (void) dealloc
 {
     self.name = nil;
     self.users = nil;
+    self.currentUser = nil;
     
     [super dealloc];
 }
@@ -34,6 +35,9 @@
             User *user = [[[User alloc] initWithDictionary:userDict] autorelease];
             [self.users addObject: user];
         }
+        
+        NSDictionary *currentUserDict = [dictionary objectForKey:@"current_user"];
+        self.currentUser = [[[User alloc] initWithDictionary:currentUserDict] autorelease];
     }
     return self;
 }

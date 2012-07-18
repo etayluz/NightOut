@@ -19,6 +19,7 @@
 #import "Neighborhood.h"
 
 #import "AQGridView.h"
+#import "NeighborhoodHeaderView.h"
 
 @interface NearbyViewController ()
 @property (nonatomic, retain) Neighborhood *neighborhood;
@@ -32,6 +33,7 @@
 @synthesize neighborhoodLabel, coordinatesLabel;
 @synthesize fetchNeighborhoodRequest;
 @synthesize updateTimer;
+@synthesize header;
 
 - (void) dealloc
 {
@@ -54,9 +56,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    UIImage *headerImage = [UIImage imageNamed:@"header.png"];
-    
+    [super viewDidLoad];    
     [self addMessagesButton];
     [self addFiltersButton];
 
@@ -79,7 +79,9 @@
     [self.gridView setContentSizeGrowsToFillBounds:TRUE];
 
     [self.view addSubview:gridView];
-    [self.gridView setGridHeaderView: [[[UIImageView alloc] initWithImage:headerImage] autorelease]];
+    
+    self.header = [[[NeighborhoodHeaderView alloc] init] autorelease];
+    self.gridView.gridHeaderView = self.header;
     [self.gridView reloadData];
 
     UIImageView *neighborhoodLabelBackground = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ribbon.png"]] autorelease];
@@ -208,6 +210,8 @@
     self.neighborhood = n;
     self.neighborhoodLabel.text = self.neighborhood.name;
     [self.gridView reloadData];
+    
+    [self.header updateWithUser:n.currentUser];
 }
 
 #pragma mark - Notifications

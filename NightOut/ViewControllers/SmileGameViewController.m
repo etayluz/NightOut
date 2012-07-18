@@ -49,7 +49,7 @@
     self.guessSmileGameChoiceRequest.delegate = self;
 }
 
-- (void) recreateGallery
+- (void) createGallery
 {
     [self.gallery removeFromSuperview];
     self.gallery = nil;
@@ -80,7 +80,7 @@
         cell.rightLabel.text = [choice.user.age stringValue];
     
     if ([choice.status isEqualToString:@"no_match"])
-        cell.alpha = 0.5;
+        cell.contentView.alpha = 0.5;
     else if ([choice.status isEqualToString:@"match"])
         cell.titleLabel.textColor = [UIColor redColor];
     
@@ -90,7 +90,7 @@
 {
     self.smileGame = _smileGame;
     
-    [self recreateGallery];
+    [self createGallery];
     
     self.gallery.items = smileGame.choices;
     [self.gallery reloadData];

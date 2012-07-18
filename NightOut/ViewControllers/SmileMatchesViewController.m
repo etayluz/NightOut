@@ -17,9 +17,9 @@
 
 @implementation SmileMatchesViewController
 
-@synthesize gallery, fetchSmileGamesRequest, header;
+@synthesize gallery, fetchSmileGamesRequest, header, smileMatchesCountLabel;
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -35,6 +35,13 @@
     
     self.gallery.topPadding = self.header.frame.size.height + 10;
     
+    self.smileMatchesCountLabel = [[[UILabel alloc] initWithFrame:CGRectMake(200, 0, 150, 50)] autorelease];
+    self.smileMatchesCountLabel.font              = [UIFont fontWithName:@"Myriad Pro" size:24];
+    self.smileMatchesCountLabel.textColor = [UIColor redColor];
+    self.smileMatchesCountLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.smileMatchesCountLabel];
+
+    
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                     initWithTitle: @"Nearby" 
                                     style:UIBarButtonItemStylePlain 
@@ -44,8 +51,12 @@
     
     self.fetchSmileGamesRequest = [[[FetchAllSmileGamesRequest alloc] init] autorelease];
     self.fetchSmileGamesRequest.delegate = self;
-    [self refreshSmileGames];
 
+}
+
+- (void) viewDidAppear:(BOOL) animated
+{
+    [self refreshSmileGames];
 }
 
 - (void) refreshSmileGames
@@ -64,6 +75,8 @@
 {
     self.gallery.items = _smileGames;
     [self.gallery reloadData];
+    
+    self.smileMatchesCountLabel.text = [NSString stringWithFormat:@"%d", self.gallery.items.count];
 }
 
 - (void) didSelectItem:(NSObject *)item

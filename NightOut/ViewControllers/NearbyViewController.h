@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AQGridView.h"
 #import "FetchNeighborhoodRequest.h"
+#import "NeighborhoodHeaderView.h"
 
 #define NEARBY_VIEW_REFRESH_INTERVAL_IN_SECONDS 60
 
@@ -19,6 +20,7 @@
 @property (nonatomic, retain) UIImageView *headerView;
 @property (nonatomic, retain) UILabel *neighborhoodLabel;
 @property (nonatomic, retain) UILabel *coordinatesLabel;
+@property (nonatomic, retain) NeighborhoodHeaderView *header;
 
 @property (nonatomic, retain) FetchNeighborhoodRequest *fetchNeighborhoodRequest;
 @property (nonatomic, retain) NSTimer *updateTimer;

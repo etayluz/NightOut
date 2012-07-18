@@ -15,7 +15,9 @@
 @interface SmilesSentViewController : UIViewController <FetchSmileGamesRequestDelegate, FramedGalleryViewDelegate>
 
 @property (nonatomic, retain) FramedGalleryView *gallery;
-@property (nonatomic, retain) FetchAllSmileGamesRequest *fetchSmileGamesRequest;
 @property (nonatomic, retain) UIView *header;
+@property (nonatomic, retain) UILabel *smilesSentCountLabel;
+
+@property (nonatomic, retain) FetchAllSmileGamesRequest *fetchSmileGamesRequest;
 
 @end

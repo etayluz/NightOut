@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "AsDictionary.h"
+#import "User.h"
 
 @interface Neighborhood : NSObject <AsDictionary>
 
 @property (nonatomic, retain) NSMutableArray *users;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) User *currentUser;
 
 @end

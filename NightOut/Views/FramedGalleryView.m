@@ -60,7 +60,7 @@
 - (void) setTopPadding:(NSInteger)_topPadding
 {
     [self.gridView.gridHeaderView removeFromSuperview];
-    UIView *emptyHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, _topPadding)];
+    UIView *emptyHeaderView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, _topPadding)] autorelease];
     self.gridView.gridHeaderView = emptyHeaderView;
     
     topPadding = _topPadding;

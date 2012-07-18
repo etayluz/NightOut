@@ -19,14 +19,14 @@
 @implementation SmilesReceivedViewController
 
 @synthesize gallery, fetchSmileGamesRequest;
-@synthesize header;
+@synthesize header, smilesReceivedCountLabel;
 
 - (void) dealloc
 {        
     [super dealloc];
 }
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];    
     
@@ -41,6 +41,13 @@
 
     self.gallery.topPadding = self.header.frame.size.height + 10;
     
+    self.smilesReceivedCountLabel = [[[UILabel alloc] initWithFrame:CGRectMake(200, 0, 150, 50)] autorelease];
+    self.smilesReceivedCountLabel.font              = [UIFont fontWithName:@"Myriad Pro" size:24];
+    self.smilesReceivedCountLabel.textColor = [UIColor redColor];
+    self.smilesReceivedCountLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.smilesReceivedCountLabel];
+
+    
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
                                    style:UIBarButtonItemStylePlain 
@@ -50,11 +57,16 @@
     
     self.fetchSmileGamesRequest = [[[FetchAllSmileGamesRequest alloc] init] autorelease];
     self.fetchSmileGamesRequest.delegate = self;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
     [self refreshSmileGames];
 }
 
 - (void) didFetchSmileGames:(NSMutableArray *)smileGames
 {
+    self.smilesReceivedCountLabel.text = [NSString stringWithFormat:@"%d", smileGames.count];
     self.gallery.items = smileGames;
     [self.gallery reloadData];
 }

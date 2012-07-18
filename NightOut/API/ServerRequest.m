@@ -56,7 +56,7 @@
 
 - (void) showLoadingIndicator:(NSString *)message forView:(UIView *)view
 {
-    self.loadingIndicator = [[MBProgressHUD alloc] initWithView:view];
+    self.loadingIndicator = [[[MBProgressHUD alloc] initWithView:view] autorelease];
     self.loadingIndicator.removeFromSuperViewOnHide = YES;
 	self.loadingIndicator.labelText = message;
     

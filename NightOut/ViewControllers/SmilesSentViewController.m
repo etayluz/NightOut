@@ -24,6 +24,7 @@
 @synthesize fetchSmileGamesRequest;
 @synthesize gallery;
 @synthesize header;
+@synthesize smilesSentCountLabel;
 
 - (void) dealloc
 {
@@ -34,7 +35,7 @@
     [super dealloc];
 }
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
     
@@ -49,6 +50,12 @@
     
     self.gallery.topPadding = self.header.frame.size.height + 10;
     
+    self.smilesSentCountLabel = [[[UILabel alloc] initWithFrame:CGRectMake(200, 0, 150, 50)] autorelease];
+    self.smilesSentCountLabel.font              = [UIFont fontWithName:@"Myriad Pro" size:24];
+    self.smilesSentCountLabel.textColor = [UIColor redColor];
+    self.smilesSentCountLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.smilesSentCountLabel];
+    
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] 
                                    initWithTitle: @"Nearby" 
                                    style:UIBarButtonItemStylePlain 
@@ -58,6 +65,10 @@
     
     self.fetchSmileGamesRequest = [[[FetchAllSmileGamesRequest alloc] init] autorelease];
     self.fetchSmileGamesRequest.delegate = self;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
     [self refreshSmileGames];
 }
 
@@ -71,6 +82,8 @@
 {
     self.gallery.items = _smileGames;
     [self.gallery reloadData];
+    
+    self.smilesSentCountLabel.text = [NSString stringWithFormat:@"%d", self.gallery.items.count];
 }
 
 - (void) updateCell:(FrameGridViewCell *)cell fromItem:(NSObject *)item

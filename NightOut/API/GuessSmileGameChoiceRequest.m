@@ -25,7 +25,7 @@
 - (void) didFetchJson:(NSDictionary *)json
 {
     NSDictionary *smileGameDict = [json objectForKey:@"smile_game"];
-    SmileGame *smileGame = [[SmileGame alloc] initWithDictionary:smileGameDict];
+    SmileGame *smileGame = [[[SmileGame alloc] initWithDictionary:smileGameDict] autorelease ];
     [self.delegate didGuess:smileGame];
 }
 

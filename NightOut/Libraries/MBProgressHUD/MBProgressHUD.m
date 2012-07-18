@@ -650,7 +650,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		detailsLabel.font = self.detailsLabelFont;
 	} else if ([keyPath isEqualToString:@"progress"]) {
 		if ([indicator respondsToSelector:@selector(setProgress:)]) {
-			[(id)indicator setLoadingIndicator:progress];
+			[((id)indicator) setLoadingIndicator:progress];
 		}
 		return;
 	}
